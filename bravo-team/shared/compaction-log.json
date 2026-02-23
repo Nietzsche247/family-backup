@@ -1,0 +1,4 @@
+{
+  "description": "Compaction event log for observability. Agents append here when they compact.",
+  "events": []
+}

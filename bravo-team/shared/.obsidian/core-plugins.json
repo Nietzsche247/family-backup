@@ -1,0 +1,8 @@
+﻿{
+  "enabledPlugins": [
+    "obsidian-dataview",
+    "templater-obsidian",
+    "obsidian-kanban",
+    "obsidian-git"
+  ]
+}
