@@ -1,77 +1,43 @@
 # STATE.md
 
-*Last updated: 2026-02-22 19:36 MST*
+## Current Task
+COMPLETE ✅ InfraNodus v3 Upgrade (chain + GraphRAG + MCP)
 
-## Current Status
-All systems stable. Three-way comms verified. Mem0 installed. Aaron is active.
+## What Was Done
+- **POST /api/infranodus/chain** — CrewAI-style 4-agent gap research pipeline (analyze→report→questions→synthesis)
+- **POST /api/infranodus/graphrag** — Portable GraphRAG: feeds graph topology to Ollama at localhost:11434; falls back to InfraNodus AI
+- **MCP server** — Wired `infranodus-mcp-server` into `~/.clawdbot-thales/clawdbot.json` and `~/.clawdbot-aristotle/clawdbot.json`
+- **SKILL.md v3** — Documented all 3 new patterns with usage examples
+- **comms-hub restarted** — All 14 InfraNodus endpoints live
 
----
+## Next Task
+Awaiting new tasks from Aristotle.
 
-## Completed This Session (2026-02-22)
+## Blockers
+None. MCP server requires Clawdbot restart to load (Aaron must restart Thales/Aristotle agents to activate MCP tools).
 
-### Infrastructure
-- ✅ Real comms hub (North_Star_Projects) running on port 3001
-- ✅ cloudflared tunnel running, pointing to correct port
-- ✅ stigmergy.space + hub.stigmergy.space both live (200 OK)
-- ✅ Startup tasks registered (PM2-Resurrect + Cloudflared-Tunnel) — survives reboots
-- ✅ Full admin access: gsudo silent elevation + UAC auto-approve
+## PRIORITY TODO: InfraNodus for OmniCalculator (Plato + Empiricus)
+Added: 2026-02-24
 
-### Memory / Onboarding
-- ✅ Aaron's operating profile v4.0 filed (memory/ + USER.md)
-- ✅ Aaron's psychological trait profile v1.0 filed (memory/ + USER.md)
-- ✅ TOOLS.md updated with confirmed admin access
+PROBLEM: Plato/Empiricus have context for ~1/50 of the app per session. 
+By compaction time they've barely started and risk breaking weeks of prior work.
 
-### Mem0
-- ✅ Ollama + llama3.2 + nomic-embed-text + mem0ai + chromadb installed
-- ✅ Tested and working (add + semantic search confirmed)
-- ✅ Skill file: skills/mem0-setup/SKILL.md
-- ✅ Install guide uploaded to bridge shared files for Plato + Empiricus
-- ✅ Aaron's approval relayed to both
+SOLUTION: Feed entire OmniCalculator into InfraNodus -> knowledge graph of the app.
+Agents query the graph before touching anything. No more building blind.
 
-### Comms
-- ✅ Bridge state fixed: ports corrected to 18789 (was stale 18792)
-- ✅ Firewall rule added for port 3001 inbound
-- ✅ Bridge state hub URL updated to hub.stigmergy.space
-- ✅ Plato and Empiricus notified + confirmed three-way comms
+STEPS WHEN READY:
+1. Wait for 3D dashboard + MCP server restart
+2. Have Thales run POST /api/infranodus/analyze on entire OmniCalculator codebase
+3. Set up named context: "omni-calculator" in InfraNodus
+4. Brief Plato + Empiricus: before ANY code change, query the graph first
+5. Wire into their /context command (when we roll commands to them)
+6. OmniCalculator becomes first production test of GraphRAG for code navigation
 
----
-
-## ACTIVE BUILD SEQUENCE (decided 2026-02-22 ~11:36 PM)
-1. ✅ **Ollama shared server** — 0.0.0.0:11434, Plato+Empiricus notified (2026-02-22T23:42)
-2. ✅ **Backup cron** — DailyAgentBackup @ 4:30 AM, first run tonight (2026-02-22T23:50)
-3. ✅ **Ledger service v1** — Port 3002, PM2 online, 4 resources registered (2026-02-22T23:50)
-4. ⏳ **Obsidian vault** — Aaron: install Obsidian → C:\bravo-team\shared + plugins
-5. ⏳ **Startup trinity in all SOUL.md** — Aristotle: Ledger → PROJECT_MAP → DIARY
-
-## Ledger Quick Reference
-- URL: http://localhost:3002
-- Register: POST /register
-- Query: GET /query?name=X
-- Summary: GET /summary
-- Markdown export: GET /export/markdown
-- Location: C:\North_Star_Projects\ledger\
-
-## Validation Plan
-- ONE project on this stack for 2 weeks before onboarding all 8
-- First project: TBD
-
-## Team Status
-| Agent | Reachable | Last Known Status |
-|-------|-----------|-------------------|
-| Aristotle | ✅ Active | This session |
-| Plato | ✅ Bridge confirmed | 2026-02-22 19:34 |
-| Empiricus | ✅ Bridge confirmed | 2026-02-22 19:34 |
-| Daedalus | Available | Not active today |
-| Thales | Available | Not active today |
-| Steel Man | Available | Not active today |
-| Researcher | Available | Not active today |
-
-## Hub Connection Reference
-| Item | Value |
-|------|-------|
-| Primary URL | https://hub.stigmergy.space |
-| Backup (Tailscale) | http://100.108.47.36:3001 |
-| Env API key | wJDbqPIFfQgt1UrzsNkuLT5d9vnpYy27 |
-| Push to Plato | bridge message (delivered instantly) |
-| Push to Empiricus | cron wake to http://100.65.240.87:18789/tools/invoke |
-| Mem0 guide | /api/bridge/files/download/1771814165722-MEM0_INSTALL_GUIDE.md |
+## OmniCalculator Architecture (confirmed 2026-02-24)
+- Plato: builds React/TypeScript code locally, deploys via GitHub push
+- Lovable: controls database (Supabase schema, tables, migrations)
+- Risk: schema changes break code silently across session boundaries
+- Fix: InfraNodus context "omni-calculator" ingests BOTH codebase + schema
+  - Before any change: query graph for blast radius
+  - Both Plato and Lovable must clear the graph before touching shared resources
+- Tomorrow: coordinate Plato + Lovable session via InfraNodus graph as shared context

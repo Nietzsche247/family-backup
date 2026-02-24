@@ -1,0 +1,86 @@
+{
+  "nodes": [
+    {
+      "id": "n0000-00000030",
+      "type": "file",
+      "file": "CHALLENGE_CULTURE.md",
+      "x": 0,
+      "y": 0,
+      "width": 400,
+      "height": 200
+    },
+    {
+      "id": "n0001-00000031",
+      "type": "file",
+      "file": "COMMS_SOP_v2.md",
+      "x": 460,
+      "y": 0,
+      "width": 400,
+      "height": 200
+    },
+    {
+      "id": "n0002-00000032",
+      "type": "file",
+      "file": "FAMILY.md",
+      "x": 920,
+      "y": 0,
+      "width": 400,
+      "height": 200
+    },
+    {
+      "id": "n0003-00000033",
+      "type": "file",
+      "file": "NORTH_STAR.md",
+      "x": 0,
+      "y": 260,
+      "width": 400,
+      "height": 200
+    },
+    {
+      "id": "n0004-00000034",
+      "type": "file",
+      "file": "RECOVERY_PROTOCOL.md",
+      "x": 460,
+      "y": 260,
+      "width": 400,
+      "height": 200
+    },
+    {
+      "id": "n0005-00000035",
+      "type": "file",
+      "file": "collab-notes/README.md",
+      "x": 920,
+      "y": 260,
+      "width": 400,
+      "height": 200
+    },
+    {
+      "id": "n0006-00000036",
+      "type": "file",
+      "file": "diagrams/OmniCalculator-Architecture.md",
+      "x": 0,
+      "y": 520,
+      "width": 400,
+      "height": 200
+    },
+    {
+      "id": "n0007-00000037",
+      "type": "file",
+      "file": "diagrams/SOP-TEMPLATE.md",
+      "x": 460,
+      "y": 520,
+      "width": 400,
+      "height": 200
+    },
+    {
+      "id": "n0008-00000038",
+      "type": "file",
+      "file": "openclaw-50day-prompts.md",
+      "x": 920,
+      "y": 520,
+      "width": 400,
+      "height": 200
+    }
+  ],
+  "edges": []
+}

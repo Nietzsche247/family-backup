@@ -1,1 +1,7 @@
-["obsidian-dataview","templater-obsidian","obsidian-kanban","obsidian-git"]
+[
+  "dataview",
+  "obsidian-excalidraw-plugin",
+  "obsidian-git",
+  "obsidian-kanban",
+  "templater-obsidian"
+]
