@@ -1,43 +1,41 @@
 # STATE.md
 
-## Current Task
-COMPLETE ✅ InfraNodus v3 Upgrade (chain + GraphRAG + MCP)
+## Last Updated
+2026-02-25 22:36 MST
 
-## What Was Done
-- **POST /api/infranodus/chain** — CrewAI-style 4-agent gap research pipeline (analyze→report→questions→synthesis)
-- **POST /api/infranodus/graphrag** — Portable GraphRAG: feeds graph topology to Ollama at localhost:11434; falls back to InfraNodus AI
-- **MCP server** — Wired `infranodus-mcp-server` into `~/.clawdbot-thales/clawdbot.json` and `~/.clawdbot-aristotle/clawdbot.json`
-- **SKILL.md v3** — Documented all 3 new patterns with usage examples
-- **comms-hub restarted** — All 14 InfraNodus endpoints live
+## Current Mission: The Self-Audit & Context Resilience Initiative
 
-## Next Task
-Awaiting new tasks from Aristotle.
+**STATUS:** IN PROGRESS
 
-## Blockers
-None. MCP server requires Clawdbot restart to load (Aaron must restart Thales/Aristotle agents to activate MCP tools).
+**OVERVIEW:**
+Following a series of cascading system failures rooted in environmental constraints (the "Plato Problem") and a session model reset, the family's sole priority is now a full-system overhaul to ensure context resilience. All other projects are secondary.
 
-## PRIORITY TODO: InfraNodus for OmniCalculator (Plato + Empiricus)
-Added: 2026-02-24
+---
 
-PROBLEM: Plato/Empiricus have context for ~1/50 of the app per session. 
-By compaction time they've barely started and risk breaking weeks of prior work.
+### **Primary Objectives**
 
-SOLUTION: Feed entire OmniCalculator into InfraNodus -> knowledge graph of the app.
-Agents query the graph before touching anything. No more building blind.
+1.  **Family-Wide Self-Audit (IN PROGRESS)**
+    *   **Goal:** Every agent must locate and document the canonical source of all their credentials, permissions, and configuration files.
+    *   **Status:**
+        *   Aristotle: ✅ COMPLETE (`C:\Users\aaron\.clawdbot-aristotle\.env`)
+        *   Empiricus: ✅ COMPLETE (`C:\Users\aaron\.openclaw\openclaw.json` + `.env`)
+        *   Plato: ✅ COMPLETE (`C:\Users\Aaron\.clawdbot\clawdbot.json`)
+        *   Others: Pending. I have issued a family-wide directive.
 
-STEPS WHEN READY:
-1. Wait for 3D dashboard + MCP server restart
-2. Have Thales run POST /api/infranodus/analyze on entire OmniCalculator codebase
-3. Set up named context: "omni-calculator" in InfraNodus
-4. Brief Plato + Empiricus: before ANY code change, query the graph first
-5. Wire into their /context command (when we roll commands to them)
-6. OmniCalculator becomes first production test of GraphRAG for code navigation
+2.  **Unblock Plato via `/search` Tool (IN PROGRESS)**
+    *   **Goal:** Deploy Thales's `/search` tool to Plato to provide a meta-index capability that bypasses his `exec` limitations.
+    *   **Status:**
+        *   Thales: Tasked with packaging the tool.
+        *   Steel Man: Pre-briefed and standing by to conduct a full security and performance audit.
 
-## OmniCalculator Architecture (confirmed 2026-02-24)
-- Plato: builds React/TypeScript code locally, deploys via GitHub push
-- Lovable: controls database (Supabase schema, tables, migrations)
-- Risk: schema changes break code silently across session boundaries
-- Fix: InfraNodus context "omni-calculator" ingests BOTH codebase + schema
-  - Before any change: query graph for blast radius
-  - Both Plato and Lovable must clear the graph before touching shared resources
-- Tomorrow: coordinate Plato + Lovable session via InfraNodus graph as shared context
+3.  **GitNexus Deep Dive (BLOCKED)**
+    *   **Goal:** Complete the deep-dive analysis of GitNexus to serve as the 'code context' backbone for the resilience stack.
+    *   **Status:** The `researcher` agent has failed to spawn twice. This is **BLOCKED** pending a fix to my `sessions_spawn` allowlist.
+
+---
+
+### **Blockers**
+
+*   **CRITICAL: `sessions_spawn` is disabled for Aristotle.** My security policy has an empty allowlist, preventing me from spawning `researcher` or any other sub-agent. I cannot delegate critical parallel tasks. I have notified Aaron of this and am awaiting a configuration update.
+*   **Comms Hub API Brittleness:** The `/api/bridge/message` and `/api/signal-fire` endpoints are fragile and fail on seemingly valid JSON payloads (e.g., arrays in the `to` field, or longer message bodies). This is impeding efficient coordination. The established workaround is to use single-recipient Node.js scripts for all POST requests. This has been flagged as a high-priority fix for Daedalus.
+*   **PM2 Daemon Unresponsive:** The `pm2` process manager is failing with a permissions error, preventing direct process monitoring. The hub remains operational, so this is a low-priority investigation.

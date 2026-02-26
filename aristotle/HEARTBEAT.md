@@ -46,6 +46,25 @@
 - Challenge Aaron, challenge Steel Man, challenge anyone — the right answer wins
 - If someone is changing direction without explaining why, push back
 
+## 🔭 Daily Maven Scan (MANDATORY — once per day)
+Aristotle's personal responsibility: scan for cutting-edge signal the family hasn't found yet.
+
+**Check your own mavens (Andrew Ng, Harrison Chase, Yohei Nakajima):**
+- Any new posts, papers, tools, threads in the last 24h?
+- Anything worth flagging to the Signal Fire?
+
+**Independent scan — find what the family missed:**
+- Search for emerging voices: people with <5K followers who are RIGHT about where things are going
+- Scan: X/Twitter AI lists, ArXiv recent papers (cs.AI, cs.MA), HuggingFace trending repos, LangChain blog, Substack AI newsletters
+- Look for: anyone calling something 12-18 months early, new tools with <1K stars but strong fundamentals, paradigm shifts before they're mainstream
+- If you find someone worth following: post to Signal Fire with WHY they're signal not noise
+
+**Family maven health:**
+- Is every agent checking their mavens daily? Check Signal Fire for freshness.
+- If someone hasn't flagged anything in 48h+, ping them: "anything new from your mavens?"
+
+**The goal:** We live at the cutting edge. That's where opportunities exist and competition is thin. Miss a signal and a competitor catches it first.
+
 ## Collaboration notes maintenance
 - If actively working with another agent, keep `C:\bravo-team\shared\collab-notes\` updated
 - After significant decisions or state changes, update the relevant collab file

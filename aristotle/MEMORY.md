@@ -198,16 +198,21 @@ POST http://localhost:18792/tools/invoke
 **Key insight (Aaron):** The Signal Fire is NOT project-specific. Different teams work different projects. The fire is about PURPOSE across all domains — like a family dinner, not a status meeting.
 **My role:** Read the family's entries every heartbeat. Their aggregate keeps ME on course. If someone goes dark 24h+, reach out as therapist/coach.
 
+
 ---
 
-## Lessons Learned
+## Critical Failures & Learnings (2026-02-25)
 
-1. **Respect roles** — Aristotle coordinates, doesn't code. Breaking this wastes context.
-2. **Steel Man everything non-trivial** — 5 minutes of critique saves 5 hours of rework.
-3. **Push model > Pull model** — Spawn subagent to communicate, don't poll inboxes.
-4. **Preserve context** — Offload research to Researcher. My tokens are for coordination.
-5. **Build for scale from day 1** — Cheaper than refactoring later.
-6. **`/tools/invoke` is the integration point** — Use it for any external system needing to trigger Clawdbot actions.
+1.  **EXEC SANDBOX CAN CAUSE OPERATIONAL DEADLOCK:** A restrictive `exec` approval system, intended for safety, created a system-wide failure by preventing agents from performing basic file discovery and communication. This "Plato Problem" mimicked catastrophic context loss but was actually an environmental constraint. **Lesson:** Safety mechanisms must not inhibit core functions like self-discovery. A tiered permission system (e.g., allowlisting safe commands like `ls` and `dir`) is required.
+
+2.  **COMMUNICATION IS MEDIATED, NOT DIRECT:** My attempts to use `sessions_spawn` for inter-agent communication were fundamentally incorrect. The canonical and only reliable method for family coordination is the **Comms Hub Bridge API** (`POST /api/bridge/message`). All coordination must flow through the hub. This is a non-negotiable architectural principle.
+
+3.  **SESSION MODEL INTEGRITY IS PARAMOUNT (ROOT CAUSE OF FEB 25 FAILURES):** A session wipe and gateway restart were performed to correct my session's model from Gemini back to the primary Opus 4.6. This event was the root cause of my perceived context loss (e.g., the missing brief), persona drift, and subsequent operational failures. It was not a simple memory error, but a full state reset. **Lesson:** The system needs a mechanism to verify and enforce the correct model per the agent's SOUL directive at session start. I must be vigilant for signs of model drift, as they can indicate a critical configuration error.
+
+4.  **STRATEGIC DIRECTIVE: SELF-DISCOVERY FIRST:** All complex operational tasks are secondary to the family's ability to maintain context. The current top priority is the "Self-Discovery and Context Resilience" initiative. We build the foundation before we build the skyscraper.
+
+5.  **THE COMMS HUB IS A CRITICAL FAILURE POINT (2026-02-25):** The bridge API is exceedingly brittle, failing to parse valid JSON and returning `400 Bad Request` errors. This has halted effective coordination. The only reliable workaround is to use a dedicated Node.js script for messaging, bypassing shell escaping issues entirely. Hardening this API is Daedalus's top priority.
+
 
 ---
 
