@@ -1,0 +1,20 @@
+{
+  "handoff_id": "hof-001",
+  "manifest": [
+    {
+      "bytes": 21,
+      "path": "context.txt",
+      "sha256": "487158f181ec414a123610930c55979c92697b2223e8efea691b90a7f8d65f5b"
+    },
+    {
+      "bytes": 41,
+      "path": "state.json",
+      "sha256": "90b5caa22bda4b1412536c8e9ef8956830033b929dec54c240310851210f8d9c"
+    }
+  ],
+  "manifest_hash": "446697625593df99551189962e2c80ae2c08b2636b2a2250c00f5403473ef0cd",
+  "schema": "v3-pointer",
+  "session_id": "sess-001",
+  "shared_path": "C:\\Users\\aaron\\clawd-daedalus\\proof\\v3\\artifacts\\sessions\\sess-001\\hof-001\\shared",
+  "z_path": "C:\\Users\\aaron\\clawd-daedalus\\proof\\v3\\artifacts\\sessions\\sess-001\\hof-001\\Z"
+}

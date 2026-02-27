@@ -1,0 +1,11 @@
+{
+  "events": {
+    "finalized": "evt-3694e52f-e790-4155-be2c-cb17ba8b3617",
+    "staged": "evt-eb399aa6-b4ff-4030-995c-f25ba93616bc"
+  },
+  "finalize_marker": "C:\\Users\\aaron\\clawd-daedalus\\proof\\v3\\artifacts\\sessions\\sess-001\\hof-001\\Z\\finalize.marker",
+  "handoff_id": "hof-001",
+  "manifest_hash": "446697625593df99551189962e2c80ae2c08b2636b2a2250c00f5403473ef0cd",
+  "pointer_hash": "dc6c19763680a2a6f2bfed2daf99aa97b5eebcf6de669c6236edb907a72e66db",
+  "session_id": "sess-001"
+}

@@ -1,0 +1,1 @@
+CASE flush=True rc=3221226505 survived=True bytes=21\nCASE flush=False rc=3221226505 survived=False bytes=0\n

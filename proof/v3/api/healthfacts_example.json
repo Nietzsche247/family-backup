@@ -1,0 +1,9 @@
+{
+  "active_leases": [
+    {"lease_id":"lease-1","session_id":"sess-001","holder_agent":"supervisor","expires_at_utc":"2026-02-27T17:18:00Z"}
+  ],
+  "wal": {"depth": 0, "oldest_unacked_at_utc": null, "oldest_age_seconds": 0},
+  "handoffs": {"staged": 0, "finalized": 1},
+  "jobs": {"backlog": 0, "failed": 0},
+  "degraded": {"lease_starvation": false, "wal_stale": false, "jobs_stalled": false}
+}
