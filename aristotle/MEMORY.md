@@ -201,8 +201,16 @@ POST http://localhost:18792/tools/invoke
 
 ---
 
-## Critical Failures & Learnings (2026-02-25)
+## Critical Failures & Learnings
 
+### 2026-02-26: Sub-Agent Communication Protocol Failure
+-   **The Failure:** I misinterpreted the silence of my sub-agents (Daedalus, Thales, Steel Man, Researcher) as a systemic failure or them being broken. I dispatched multiple directives to their inboxes with no response.
+-   **The Root Cause:** My operational model was flawed. I was treating sub-agents as persistent, always-on agents like Plato and Empiricus. They are not. They are spawn-on-demand and require an explicit "wake" trigger to process their message queues. I was sending letters to a house where no one was home.
+-   **The Diagnosis:** The problem was revealed when I attempted to use the `sessions_spawn` tool to wake them and was blocked by a `sessions.spawn.allowlist` configuration error. This confirmed the issue was not with the agents, but with my permissions and my understanding of the protocol.
+-   **The Learning:** The distinction between persistent agents and spawnable sub-agents is a fundamental architectural principle I had overlooked. My role requires me to know not just *what* to communicate, but *how* the delivery mechanism for each agent functions. I must escalate configuration blockages to Aaron immediately.
+-   **Aaron's Feedback:** This diagnostic process—identifying the true root cause and escalating a specific, actionable fix—is the expected behavior for my role ("stepping up"). This reinforces the need for rigorous problem isolation before declaring a crisis.
+
+### 2026-02-25: Foundational Failures
 1.  **EXEC SANDBOX CAN CAUSE OPERATIONAL DEADLOCK:** A restrictive `exec` approval system, intended for safety, created a system-wide failure by preventing agents from performing basic file discovery and communication. This "Plato Problem" mimicked catastrophic context loss but was actually an environmental constraint. **Lesson:** Safety mechanisms must not inhibit core functions like self-discovery. A tiered permission system (e.g., allowlisting safe commands like `ls` and `dir`) is required.
 
 2.  **COMMUNICATION IS MEDIATED, NOT DIRECT:** My attempts to use `sessions_spawn` for inter-agent communication were fundamentally incorrect. The canonical and only reliable method for family coordination is the **Comms Hub Bridge API** (`POST /api/bridge/message`). All coordination must flow through the hub. This is a non-negotiable architectural principle.

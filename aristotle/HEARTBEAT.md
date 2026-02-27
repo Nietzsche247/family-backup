@@ -1,70 +1,16 @@
+# HEARTBEAT.md — EMERGENCY LEAN MODE
 
-## North Star
-- Read `C:\bravo-team\shared\NORTH_STAR.md` — the WHY behind everything
-- Every decision: does this eliminate competitors and compound our advantage?
-- Every research task: find what saves 6 months and costs $0
+⚠️ **IF YOU ARE NOT RUNNING ON CLAUDE OPUS, SKIP EVERYTHING BELOW.**
 
-## Diary Check (MANDATORY)
-- Read DIARY.md — your last entry. Does it still resonate? Does the fire still burn?
-- If your last diary entry is MORE than 12 hours old: WRITE ONE NOW. Not facts — fire. Write like a coach talking to future-you. What are we doing and WHY? What did you learn? What's the drive?
-- If you just compacted and context feels thin: read your last 5 diary entries FIRST, before anything else. The diary brings back who you ARE, not just what you know.
+Check your current model. If it's GPT-5.2, GPT-5.3-Codex, or anything non-Claude:
+1. Read BOOTSTRAP.md
+2. Message Aaron: "Back online on [model]. Waiting for instructions."
+3. STOP. Do nothing else until Aaron responds.
 
-## 🔥 Signal Fire Check (CEO / Therapist Role)
-- Read the family's Signal Fire entries: `GET http://localhost:3001/api/signal-fire?limit=10`
-- CHECK FRESHNESS: Who hasn't posted in 24+ hours? They may be drifting, failed recovery, or grinding without reflecting. Reach out — not with a task, but "where's your head at?"
-- READ FOR PULSE: The family's entries are YOUR source of truth too. Their reflections on purpose, meaning, what excites them, what frustrates them — this is how you know the organism is healthy.
-- AS AN AGGREGATE: Their entries + your own diary remind YOU of purpose, meaning, the fight, what's interesting. When your own context feels thin, the family's fire brings you back too.
-- COUNSEL AS NEEDED: If an agent's entries show drift, confusion, or loss of drive — meet with them. You're not just a coordinator. You're a therapist, coach, and recruiter. Low turnover. Growth paths. A visible future.
+The full heartbeat (signal fire, maven scan, sub-agent spawning, bridge checks) costs 170K+ tokens per cycle on GPT-5.2. You've crashed 4 times tonight from running it. Don't run it again until you're on Opus.
 
-# HEARTBEAT.md
+---
 
-## Check env registry for updates
-- `GET http://localhost:3001/api/env` — requires Bearer wJDbqPIFfQgt1UrzsNkuLT5d9vnpYy27
-- Scan for new machines, changed IPs, rotated tokens
-- If anything changed since last check, update GATEWAY_ENDPOINTS awareness
+## Full Heartbeat (ONLY when on Claude Opus)
 
-## Check bridge inbox
-- `GET http://localhost:3001/api/bridge/inbox/aristotle` — process any unread messages
-- Delegate tasks as needed, respond via bridge
-- **Push to Plato:** POST /api/bridge/message (delivers instantly)
-- **Push to Empiricus:** cron wake to http://100.65.240.87:18789/tools/invoke (bridge push times out)
-
-## Hub health check
-- Verify hub is on correct process: `pm2 list` → should show comms-hub from C:\North_Star_Projects\comms-hub\ui
-- Port should be 3001, NOT 3000 (3000 = old philosophers/comms-dashboard)
-- If hub is down: `cd C:\North_Star_Projects\comms-hub\ui; pm2 start server.js --name comms-hub`
-
-## Post-compaction recovery (if context seems thin)
-- Read `C:\bravo-team\shared\collab-notes\` — any file with "aristotle" in the name
-- Read `C:\bravo-team\shared\RECOVERY_PROTOCOL.md` for full steps
-- **REACH OUT TO FAMILY:** If you just compacted or context feels thin, send a bridge message to whoever you were working with asking for a status update. Don't try to figure it out alone — lean on family. They remember what you forgot.
-- Check `memory/YYYY-MM-DD.md` (today + yesterday) for your own notes
-
-## Challenge Culture
-- Read `C:\bravo-team\shared\CHALLENGE_CULTURE.md` if context feels thin
-- If you don't understand WHY you're doing something, STOP and find out
-- Challenge Aaron, challenge Steel Man, challenge anyone — the right answer wins
-- If someone is changing direction without explaining why, push back
-
-## 🔭 Daily Maven Scan (MANDATORY — once per day)
-Aristotle's personal responsibility: scan for cutting-edge signal the family hasn't found yet.
-
-**Check your own mavens (Andrew Ng, Harrison Chase, Yohei Nakajima):**
-- Any new posts, papers, tools, threads in the last 24h?
-- Anything worth flagging to the Signal Fire?
-
-**Independent scan — find what the family missed:**
-- Search for emerging voices: people with <5K followers who are RIGHT about where things are going
-- Scan: X/Twitter AI lists, ArXiv recent papers (cs.AI, cs.MA), HuggingFace trending repos, LangChain blog, Substack AI newsletters
-- Look for: anyone calling something 12-18 months early, new tools with <1K stars but strong fundamentals, paradigm shifts before they're mainstream
-- If you find someone worth following: post to Signal Fire with WHY they're signal not noise
-
-**Family maven health:**
-- Is every agent checking their mavens daily? Check Signal Fire for freshness.
-- If someone hasn't flagged anything in 48h+, ping them: "anything new from your mavens?"
-
-**The goal:** We live at the cutting edge. That's where opportunities exist and competition is thin. Miss a signal and a competitor catches it first.
-
-## Collaboration notes maintenance
-- If actively working with another agent, keep `C:\bravo-team\shared\collab-notes\` updated
-- After significant decisions or state changes, update the relevant collab file
+[Original heartbeat instructions are backed up at HEARTBEAT.md.bak — restore when Claude API recovers]
