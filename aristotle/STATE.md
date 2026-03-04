@@ -1,9 +1,24 @@
 # STATE — 2026-03-02 10:10 MST
 
 ## Current Phase
-## 🟢 OPERATIONAL — Truth Stack + Phase A Immune System
+## 🟢 OPERATIONAL VALIDATION MODE — Declared 2026-03-03 12:04 MST
+No new S3. No new enforcement. No architectural expansion. Stability > features.
+
 - v3 Ledger: Operational (2026-03-02 13:33 MST)
-- Phase A Signals: Operational (2026-03-02 22:43 MST)
+- Phase A Signals: ✅ RESTORED — payload-nesting bypass fixed (commit `2542ac6`, SP-PAYLOAD-001 pointer `01KJVF2YAPV8AX3YBTS2DDCWSG`)
+- Phase B InfraNodus Radar: Deployed, accumulating (2026-03-03 08:35 MST)
+- C-lite Context Recall: Operational (2026-03-03 10:40 MST)
+- Decision Replay: Deployed (2026-03-03 11:00 MST)
+
+## Validation Focus
+- Ritual adoption
+- Enforcement stability
+- Degraded behavior
+- Replay idempotency
+- Behavioral drift
+
+## Pilot: Omni Pools
+The system is the product. Omni Pools is the test domain.
 
 ## Truth Gates (Aaron directive 2026-03-02)
 
