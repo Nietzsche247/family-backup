@@ -15,6 +15,16 @@
 ## Current Task
 **OmniPools Track B — Intake Trigger Chain + Jurisdiction**
 
+### DEF-TB-002: CLOSED / FIX-VERIFIED (2026-03-20)
+- Stale closure in `parseCRM` (useIntake.ts) — manual corrections silently overwritten by CRM re-parse
+- Fix: useRef pattern (commit 8d30b34), +11/-2 lines
+- Full verification chain: Empiricus validation → Daedalus code map → Steel Man guardrails → Aristotle fix brief → Plato implementation → Daedalus review PASS → Aaron deploy → Empiricus post-deploy PASS
+
+### DEF-TB-003: OPEN (2026-03-20)
+- Cross-page rehydration failure — intake state collapses to defaults on reload despite localStorage persistence
+- Separate from TB-002 (pre-existing, different code path)
+- Scope separately — do not widen into other tracks
+
 Canonical brief: `C:\Users\aaron\clawd-shared\NorthStar-OmniPools-Project-Packet.md`
 
 ### Known Track A Defects (from prior observations — pending current verification)
@@ -57,10 +67,17 @@ Track C (Semantic/Field-Meaning Cleanup) — only after Track B is CLOSED.
 - One bounded track at a time
 - Governed objects (CalculatorDefect, CalculatorAssumption, LaunchCriterion) = live project state
 
-## NorthStar OS Status (FROZEN)
+## NorthStar OS Status (FROZEN + QUEUED)
 | Track | Status | Note |
 |-------|--------|------|
 | A | ✅ CLOSED | Ledger persistence |
 | B | ✅ CLOSED | Environment authority, shadow monitoring until April 2 |
 | C | ✅ CLOSED | Tunnel supervision |
 | New tracks | ❄️ FROZEN | Bugfixes/maintenance only |
+
+### Queued: Semantic Knowledge Layer
+- **Trigger:** After next major OmniPools benchmark passes
+- **Scope:** pgvector + embeddings over Ledger events, memory files, governed objects, shared artifacts
+- **Estimated effort:** 4 days across Daedalus + Thales
+- **Project doc:** `clawd-shared/PROJECT-SEMANTIC-KNOWLEDGE-LAYER.md`
+- **Database decision pending:** Separate Supabase (recommended) vs local PostgreSQL vs Lovable-owned (not recommended)
