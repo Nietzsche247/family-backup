@@ -1,6 +1,6 @@
 # STATE.md — Current Operational State
 
-**Last Updated:** 2026-03-19 17:32 MST
+**Last Updated:** 2026-03-23 09:05 MST
 **Updated By:** Aristotle
 
 ---
@@ -20,10 +20,19 @@
 - Fix: useRef pattern (commit 8d30b34), +11/-2 lines
 - Full verification chain: Empiricus validation → Daedalus code map → Steel Man guardrails → Aristotle fix brief → Plato implementation → Daedalus review PASS → Aaron deploy → Empiricus post-deploy PASS
 
-### DEF-TB-003: OPEN (2026-03-20)
-- Cross-page rehydration failure — intake state collapses to defaults on reload despite localStorage persistence
-- Separate from TB-002 (pre-existing, different code path)
-- Scope separately — do not widen into other tracks
+### DEF-TB-003: CLOSED / FIX-VERIFIED (2026-03-20)
+- Cross-page rehydration failure — schema validation rejecting non-critical CRM metadata
+- Fix: relaxed schema for non-critical fields (commit a059078), all 12 test steps PASS
+- Parser + Trigger Contract v2.1 established as governing law
+
+### DEF-TB-001: DAEDALUS REVIEW PASS — AWAITING DEPLOY + EMPIRICUS VALIDATION (2026-03-23)
+- Jurisdiction/locality trust break — FIXED across 8 files, 4 commits
+- Commits: dbe9867 (core 3-file wiring) + 5b96e7f (split-brain readers) + 38a82f8 (SI fallback removal) + 44fb951 (generateGeologyStory fix)
+- Daedalus code review: ALL PASS — GO for deployment
+- All jurisdiction/county consumers now use canonical `selectResolvedLocation()` output only
+- No split-brain reads remain
+- TB-002/TB-003/coordSource non-regression: all PASS
+- Next: Aaron deploys via Lovable → Empiricus validates → governed close
 
 Canonical brief: `C:\Users\aaron\clawd-shared\NorthStar-OmniPools-Project-Packet.md`
 
