@@ -1,6 +1,6 @@
 # STATE.md — Current Operational State
 
-**Last Updated:** 2026-03-23 09:05 MST
+**Last Updated:** 2026-03-26 12:15 MST
 **Updated By:** Aristotle
 
 ---
@@ -67,8 +67,15 @@ Canonical brief: `C:\Users\aaron\clawd-shared\NorthStar-OmniPools-Project-Packet
 ## Next Task
 Track C (Semantic/Field-Meaning Cleanup) — only after Track B is CLOSED.
 
+## Infrastructure
+### Admin Elevation — SOLVED (2026-03-26)
+- Canonical wrapper: `C:\ProgramData\clawdbot\bin\sudo.ps1`
+- All agents on AlienWare can now run pm2, net, reg commands without Aaron
+- Steel Man review: `clawd-steelman/reviews/elevation-access-final-review-2026-03-26.md`
+- Comms hub restarted — BLM proxy route + God-Eye config now active
+
 ## Blockers
-- None
+- DEF-TB-001: Awaiting Aaron's Lovable deploy → Empiricus validation
 
 ## Governance Rules
 - No canonical publication proof, no PASS
