@@ -13,6 +13,47 @@
 ---
 
 ## Current Task
+**Unified 4-Layer Architecture — Phase 0 Execution**
+
+### Design Status: APPROVED
+- Steel Man final review: BUILDABLE verdict (2026-04-02)
+- Aristotle audit: CONCUR — all 6 spec amendments valid
+- Universal capabilities amendment: DRAFTED + reviewed
+- Two Phase 0→1 gate decisions documented: (1) hooks vs proxies, (2) TS-first token counter
+
+### Phase 0 Build Status
+| Deliverable | Owner | Status |
+|---|---|---|
+| OpenClaw fork (clone) | Daedalus | ✅ Done (11K files) |
+| Baseline tag + branch | Daedalus | ✅ Done (`baseline-v0` tag, `integrate/unified-4layer` branch) |
+| Codebase map | Daedalus | ✅ Done (`clawd-shared/research/openclaw-codebase-map.md`) |
+| Transcript fixtures | Daedalus | ✅ Done (3 real + 3 synthetic in `openclaw-fork/test/fixtures/`) |
+| Replay harness | Daedalus | ✅ Done (verified e2e, caveat: heavyweight modules hang on cold import) |
+| Invariants checker | Thales | ✅ Done (tested on 34 live sessions, found ~3,200 token-bound violations) |
+| Backup/restore scripts | Thales | ✅ Done (backup discovers all 7 roots + 8 workspaces, restore has WhatIf/preview) |
+| Dry-run compaction CLI | Thales | ✅ Done (389K→79K on test session, 79.7% reduction, 0 new violations) |
+
+### Phase 0 Status: ✅ COMPLETE (2026-04-02)
+All deliverables delivered. Sub-agents completed successfully (were slow, not dead).
+
+### Critical Production Finding
+Invariants checker found ~3,200 token-bound violations. Sessions running to 400-490K tokens. Compaction was NOT firing. Primary Phase 1 target.
+
+### Next: Phase 1 Gate Decisions Required
+1. Hooks vs proxies for tool/model wrapping → Aristotle recommends: HOOKS
+2. Single token counter strategy → Aristotle recommends: TS-first library
+Aaron approval needed before Phase 1 begins.
+
+### Key Documents (all in clawd-shared/research/)
+1. unified-architecture-spec.md (v0.9)
+2. unified-implementation-plan.md
+3. unified-architecture-final-review.md
+4. spec-amendment-universal-capabilities.md
+5. spec-amendment-steelman-review.md
+
+---
+
+## Previous Task (Completed)
 **OmniPools Track B — Intake Trigger Chain + Jurisdiction**
 
 ### DEF-TB-002: CLOSED / FIX-VERIFIED (2026-03-20)
