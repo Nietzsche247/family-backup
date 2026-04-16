@@ -1,14 +1,14 @@
 {
   "lastChecks": {
-    "signalFire": 1744621200,
+    "signalFire": 1744686000,
     "bridgeInbox": 1744621200,
     "infrastructure": 1744621200,
     "diary": 1744621200,
-    "mavenScan": null,
+    "mavenScan": 1744686000,
     "email": null,
     "calendar": null,
     "weather": null
   },
-  "lastHeartbeat": "2026-04-14T04:00:00-07:00",
-  "notes": "All PM2 services green. Bridge inbox stale (last new msg March 14). Signal Fire entries all April 12. Diary updated. Phase 1 gated on Aaron approval."
+  "lastHeartbeat": "2026-04-14T21:00:00-07:00",
+  "notes": "EOD Signal Fire check: Researcher posted (OccuBench+ATBench papers). Daedalus/Thales/SteelMan spawns failed silently (2-3s, no output). Sub-agent spawn reliability issue — 3 of 4 didn't execute. Need to investigate spawn config or try sessions_send instead."
 }
