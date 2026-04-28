@@ -1,7 +1,7 @@
 # STATE.md — Current Operational State
 
-**Last Updated:** 2026-04-22 23:20 MST
-**Last Reviewed:** 2026-04-22 23:20 MST
+**Last Updated:** 2026-04-27 13:30 MST
+**Last Reviewed:** 2026-04-27 13:30 MST
 **STALE ALERT:** If Last Reviewed is >7 days ago, this file needs immediate review.
 
 ---
@@ -9,8 +9,8 @@
 ## CURRENT SYSTEM STATE
 **Mode:** ACTIVE_EXECUTION
 **Since:** 2026-04-21
-**Current objective:** Harvest-and-graft implementation — lossless-claw first
-**Next action:** PATH B conditions (C1 SDK verify, C2 CloudEvents spec) + continue lossless-claw steps 1-3
+**Current objective:** Integration wiring — move grafts from Verified → Integrated
+**Next action:** Complete 4 integration wiring items (lcm tools, SKILLS_GUIDANCE, fetch-interceptor boot, ContextCompressor lifecycle)
 
 ---
 
@@ -18,15 +18,14 @@
 
 | Task | Owner | Status |
 |------|-------|--------|
-| lossless-claw implementation (steps 1-3) | Daedalus | 🔄 Active — reading source |
-| C1: Verify TS SDK without Python services | Daedalus | ⏳ Tomorrow AM (30 min) |
-| C2: CloudEvents → NorthStar reconciliation spec | Thales | ⏳ Tomorrow (half day) |
-| C3: AGT version-pin + changelog review | Aristotle | ⏳ Before PATH B ships |
-| Hermes scope memo (Phase 2 vs Phase 3 split) | Aristotle | ⏳ Before Hermes impl |
-| AGT-contingency addenda (3 specs) | Aristotle | ⏳ After C2 lands |
-| L1-L7 knowledge base extraction | Aristotle | ⏳ +2 days |
-| Process Pattern #1 doc | Aristotle | ⏳ +2 days |
-| Methodology-gate self-catch record | Aristotle | ⏳ +1 day |
+| Integration: Register lcm tools | Daedalus | 🔄 In progress |
+| Integration: Inject SKILLS_GUIDANCE | Daedalus | 🔄 In progress |
+| Integration: Auto-start fetch-interceptor | Daedalus | ⏳ Next |
+| Integration: Wire ContextCompressor | Daedalus | ⏳ Next |
+| DefenseClaw acceptance tests | Daedalus | 🔄 In progress |
+| L1-L11 knowledge base extraction | Aristotle | ⏳ Overdue |
+| Process Pattern #1 doc | Aristotle | ⏳ Overdue |
+| Methodology-gate self-catch record | Aristotle | ⏳ Overdue |
 
 ---
 
