@@ -153,6 +153,28 @@ Protocol doc: `C:\Users\aaron\clawd-steelman\ENGAGEMENT_PROTOCOL.md`
 
 ---
 
+## Fleet Recovery System (built 2026-05-08)
+
+**Bidirectional SSH recovery between all agents.** Any agent can diagnose and recover any other.
+- Skill: `fleet-recovery` (in skills/ directory, co-built with Plato)
+- Scripts: `aristotle_recover.py` (v2, 29KB), `plato_recover.py` (26KB) — both in clawd-shared
+- SSH keys: `~/.ssh/plato_recovery_key` (Aristotle→Plato), Plato has reverse key
+- "Fix Plato" command: `ssh -i ~/.ssh/plato_recovery_key -o BatchMode=yes Aaron@10.0.0.50 "python plato_recover.py --check --json"`
+- Key gotcha: Windows sshd authorized_keys location depends on sshd_config (Match Group administrators vs default ~/.ssh/)
+- Key gotcha: Python needs full path over SSH (WindowsApps stub fails)
+- Knowledge base for Desktop Commander: `C:\Users\aaron\clawd-shared\NORTHSTAR-FLEET-KNOWLEDGE-FOR-CLAUDE.md`
+
+## MemOS Local Plugin (in progress, started 2026-05-01)
+
+**Status:** Plugin installed, database created, but register() never fires due to jiti compilation failure.
+- Extension: `.clawdbot-aristotle/extensions/memos-local/`
+- Database: `.openclaw/memos-local/memos.db` (512KB, created May 1)
+- 3 patches applied: manifest rename, registerMemoryCapability→api.on, isGatewayStartCommand bypass
+- **Blocker:** jiti can't compile 2500-line TypeScript. Fix: pre-compile to JS with tsc.
+- **Config dropped** during May 5-8 crashes — needs re-adding to plugins.entries + slots.memory
+- **BIG WIN:** Agents created 4 skills organically (plugin-graft-dissection, northstar-landing-page, northstar-docs-site-build, memos-memory-guide). SKILLS_GUIDANCE→skill_manage chain fired without explicit invocation. First evidence of compounding.
+- **L28 learning:** Source-level dissection underestimates runtime integration depth. Future graft specs need separate "runtime integration estimate."
+
 ## Critical Technical Discovery
 
 **Clawdbot `/tools/invoke` endpoint** — The gateway exposes an HTTP endpoint for calling any tool:
