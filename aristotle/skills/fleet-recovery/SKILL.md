@@ -13,6 +13,7 @@ Bidirectional SSH-based recovery for the AI agent fleet. Any agent can diagnose 
 |-------|---------|--------|-------------|----------|-------------|-----------------|
 | Aristotle | Omni-AlienWare2025 | 10.0.0.49 | 100.108.47.36 | aaron | 18792 | `C:\Users\aaron\clawd-shared\aristotle_recover.py` |
 | Plato | NIETZSCHE2025 | 10.0.0.50 | 100.73.106.82 | Aaron | 18789 | `C:\Users\Aaron\clawd\scripts\plato_recover.py` |
+| Empiricus | nietzsche-i9 | — | 100.65.240.87 | aaron | 18789 | TBD (OpenClaw, not Clawdbot) |
 
 **Python paths (SSH sessions don't inherit full PATH):**
 - AlienWare: `C:\Users\aaron\AppData\Local\Programs\Python\Python312\python.exe`
@@ -23,6 +24,7 @@ Bidirectional SSH-based recovery for the AI agent fleet. Any agent can diagnose 
 | From | To | Key |
 |------|----|-----|
 | Plato → AlienWare | aaron@10.0.0.49 | `C:\Users\Aaron\.ssh\plato_to_alienware_key` |
+| Aristotle → Empiricus | aaron@100.65.240.87 | `C:\Users\aaron\.ssh\empiricus_recovery_key` |
 | Aristotle → Plato | Aaron@10.0.0.50 | `C:\Users\aaron\.ssh\plato_recovery_key` |
 
 ## Quick Reference

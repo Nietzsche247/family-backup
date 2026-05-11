@@ -164,16 +164,21 @@ Protocol doc: `C:\Users\aaron\clawd-steelman\ENGAGEMENT_PROTOCOL.md`
 - Key gotcha: Python needs full path over SSH (WindowsApps stub fails)
 - Knowledge base for Desktop Commander: `C:\Users\aaron\clawd-shared\NORTHSTAR-FLEET-KNOWLEDGE-FOR-CLAUDE.md`
 
-## MemOS Local Plugin (in progress, started 2026-05-01)
+## MemOS Local Plugin — OPERATIONAL (May 8-10)
 
-**Status:** Plugin installed, database created, but register() never fires due to jiti compilation failure.
+**Status:** Fully operational on Aristotle. 9,145 chunks, 9,105 embeddings, 75 sessions, 12 auto-detected tasks.
 - Extension: `.clawdbot-aristotle/extensions/memos-local/`
-- Database: `.openclaw/memos-local/memos.db` (512KB, created May 1)
-- 3 patches applied: manifest rename, registerMemoryCapability→api.on, isGatewayStartCommand bypass
-- **Blocker:** jiti can't compile 2500-line TypeScript. Fix: pre-compile to JS with tsc.
-- **Config dropped** during May 5-8 crashes — needs re-adding to plugins.entries + slots.memory
-- **BIG WIN:** Agents created 4 skills organically (plugin-graft-dissection, northstar-landing-page, northstar-docs-site-build, memos-memory-guide). SKILLS_GUIDANCE→skill_manage chain fired without explicit invocation. First evidence of compounding.
-- **L28 learning:** Source-level dissection underestimates runtime integration depth. Future graft specs need separate "runtime integration estimate."
+- Database: `.openclaw/memos-local/memos.db`
+- Pre-compiled TS→JS (bypass jiti). Full restart required (not SIGUSR1).
+- 5 patches total: manifest extensions, registerMemoryCapability→api.on, isGatewayStartCommand, agentId normalization, stale dist/manifest deletion
+- Embedding: Ollama nomic-embed-text (local :11434, free)
+- Summarizer + Skill Evolution: GPT-4.1-mini
+- Viewer: http://127.0.0.1:18799 (password: northstar2026)
+- **L28:** Source-level dissection underestimates runtime integration depth. 3 patches became 5 + service lifecycle + binding rebuild + stale manifest. Future graft specs need separate "runtime integration estimate."
+- **L29:** "Compounding infrastructure is validated when an agent can recall specific context from a prior session without manual memory files or task brief injection. The threshold isn't 'memory tools are callable' — it's 'memory tools return content that enables continued work without re-briefing.' MemOS achieved this on May 10 with 9,145 chunks across 75 sessions and cross-session recall working under L26 standard."
+- **CORRECTION (May 10):** The May 1 claim that "agents created 4 skills organically" was overstated. tool_calls table shows ZERO skill_manage entries. Skills exist but provenance is unverifiable — may have been created via filesystem writes, not the SKILLS_GUIDANCE→skill_manage tool chain. The skill creation question is OPEN, not closed. Requires controlled test in Gate 2 where skill_manage calls can be verified in tool_calls table before claiming organic creation.
+- **Plato:** Plugin loads (register fires, sqlite OK), needs model config + patch #4
+- **Empiricus:** Not yet deployed (runs OpenClaw, not Clawdbot)
 
 ## Critical Technical Discovery
 
