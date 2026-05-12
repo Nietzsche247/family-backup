@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "handoff_id": "aristotle-2026-03-01T03-11-41Z-1ad82dd3",
+  "agent": "aristotle",
+  "session_id": "07379559-8c89-47ca-a8ee-a21385220f0c",
+  "created_at_utc": "2026-03-01T03:11:41Z",
+  "prev_handoff_id": "aristotle-2026-03-01T03-10-06Z-d12c5f6c",
+  "trigger": "manual",
+  "context_pressure": null,
+  "current_task": "- recovered_at_utc: 2026-03-01T03:10:06.826Z",
+  "active_project": "clawd-aristotle",
+  "next_actions": [
+    {
+      "priority": 1,
+      "action": "recovered_at_utc: 2026-03-01T03:10:06.826Z",
+      "assignee": "aristotle"
+    },
+    {
+      "priority": 2,
+      "action": "agent: aristotle",
+      "assignee": "aristotle"
+    },
+    {
+      "priority": 3,
+      "action": "handoff_id: aristotle-2026-03-01T03-10-06Z-d12c5f6c",
+      "assignee": "aristotle"
+    },
+    {
+      "priority": 4,
+      "action": "degraded: false",
+      "assignee": "aristotle"
+    },
+    {
+      "priority": 5,
+      "action": "hash_status: clean",
+      "assignee": "aristotle"
+    },
+    {
+      "priority": 6,
+      "action": "(none)",
+      "assignee": "aristotle"
+    },
+    {
+      "priority": 7,
+      "action": "(none)",
+      "assignee": "aristotle"
+    }
+  ],
+  "blockers": [],
+  "team_status": {},
+  "key_decisions": [],
+  "open_threads": []
+}

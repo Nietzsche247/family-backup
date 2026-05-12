@@ -1,0 +1,12 @@
+wing: shared
+rooms:
+  - name: research
+    description: Architecture specs, reviews, analysis documents
+  - name: specs
+    description: Project packets, SOPs, handoffs, deployment guides
+  - name: tasks
+    description: Task queue and work assignments
+  - name: governed-objects
+    description: Defects, assumptions, launch criteria
+  - name: general
+    description: Everything else

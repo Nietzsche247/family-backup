@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "handoff_id": "aristotle-2026-03-01T03-11-46Z-82cc41ab",
+  "agent": "aristotle",
+  "created_at_utc": "2026-03-01T03:11:46Z",
+  "files": {
+    "state.json": {
+      "sha256": "fbffb578091b0b186ca4d2e136fb90f6d0643fd965f3ad578423df332128d5f3",
+      "bytes": 1283,
+      "critical": true
+    },
+    "diary_excerpt.md": {
+      "sha256": "0095e6e7a51cfa6ff889f0f4704e8e2980c3a06ffc93d189af4efd6ace8540ca",
+      "bytes": 2573,
+      "critical": false
+    },
+    "context_bundle.json": {
+      "sha256": "d73cd8b7988ac8f60c3c2ba465e998d7dfc37163820fda14678f3f779c05f959",
+      "bytes": 166,
+      "critical": false
+    }
+  }
+}

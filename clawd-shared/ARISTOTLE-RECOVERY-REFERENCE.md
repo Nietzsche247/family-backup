@@ -1,0 +1,420 @@
+# ARISTOTLE RECOVERY REFERENCE
+# For: Desktop Commander (Claude Code), Plato, or any external agent performing recovery
+# Last updated: 2026-05-08 by Aristotle
+# Location: C:\Users\aaron\clawd-shared\ARISTOTLE-RECOVERY-REFERENCE.md
+
+---
+
+## IDENTITY
+
+- **Agent:** Aristotle (CEO / Strategic Coordinator)
+- **Host machine:** Omni-AlienWare2025 (Windows 11, x64)
+- **Clawdbot version:** 2026.1.24-3
+- **Primary model:** anthropic/claude-opus-4-6
+- **Fallback cascade:** Sonnet 4.6 → GPT-5.2 → Sonnet 4
+
+---
+
+## ARCHITECTURE — What Must Be Running
+
+### Process Tree (healthy state)
+```
+Scheduled Task "Aristotle Gateway"
+  └─ aristotle-gateway-task.cmd (wrapper)
+       └─ gateway-resilient.cmd (supervisor, infinite restart loop)
+            └─ node.exe entry.js gateway (the actual Clawdbot process)
+                 └─ Listening on ws://127.0.0.1:18792
+
+Scheduled Task "Aristotle Ngrok"
+  └─ aristotle-ngrok-task.cmd (wrapper)
+       └─ ngrok.exe http 18792 (tunnel)
+            └─ Tunnel: https://uneffective-unprepossessingly-september.ngrok-free.dev
+            └─ Local API: http://127.0.0.1:4040/api/tunnels
+```
+
+### Health Checks (in order of severity)
+
+| Check | Command | Healthy Response |
+|-------|---------|-----------------|
+| 1. Port bound | `netstat -ano \| findstr ":18792" \| findstr "LISTENING"` | One PID listening |
+| 2. HTTP responds | `curl.exe -s http://127.0.0.1:18792/api/status` | Returns JSON or HTML (any 200) |
+| 3. Ngrok tunnel | `curl.exe -s http://127.0.0.1:4040/api/tunnels` | JSON with tunnel URL |
+| 4. Public URL | `curl.exe -s https://uneffective-unprepossessingly-september.ngrok-free.dev/api/status` | Reaches through tunnel to gateway |
+| 5. Google Chat webhook | Google Chat messages arrive and Aristotle responds | End-to-end verification |
+
+**CRITICAL:** Check #2 is the gap the current recovery script doesn't cover. A process can hold a port without responding to HTTP. If port is LISTENING but HTTP probe fails → the gateway is hung → kill the node.exe process and let the supervisor restart it.
+
+### Port Map
+
+| Port | Service | Protocol |
+|------|---------|----------|
+| 18792 | Aristotle Gateway | HTTP/WebSocket |
+| 4040 | Ngrok local API | HTTP |
+| 3001 | Comms Hub | HTTP (separate PM2 process) |
+| 3003 | NorthStar Ledger | HTTP (separate PM2 process) |
+| 11434 | Ollama | HTTP (embeddings) |
+
+---
+
+## FILES — Where Everything Lives
+
+### Config
+- **Gateway config:** `C:\Users\aaron\.clawdbot-aristotle\clawdbot.json`
+- **Google Chat service account:** `C:\Users\aaron\.clawdbot-aristotle\aristotle-philosopher-3d358ef817e9.json`
+- **Workspace:** `C:\Users\aaron\clawd-aristotle\`
+- **Shared workspace:** `C:\Users\aaron\clawd-shared\`
+
+### Recovery Scripts
+- **Recovery script:** `C:\Users\aaron\clawd-shared\aristotle_recover.py` (stdlib Python, no pip)
+- **Recovery launcher:** `C:\Users\aaron\clawd-shared\aristotle-recover.cmd`
+- **Gateway task wrapper:** `C:\Users\aaron\clawd-shared\aristotle-gateway-task.cmd`
+- **Ngrok task wrapper:** `C:\Users\aaron\clawd-shared\aristotle-ngrok-task.cmd`
+- **Gateway supervisor:** `C:\Users\aaron\.clawdbot-aristotle\gateway-resilient.cmd`
+
+### Logs
+- **Gateway task log:** `C:\tmp\clawdbot-aristotle\task-gateway.log`
+- **Ngrok task log:** `C:\tmp\clawdbot-aristotle\task-ngrok.log`
+- **Gateway internal log:** `C:\tmp\clawdbot\clawdbot-2026-MM-DD.log`
+
+### Memory / State
+- **STATE.md:** `C:\Users\aaron\clawd-aristotle\STATE.md` (current task, blockers)
+- **MEMORY.md:** `C:\Users\aaron\clawd-aristotle\MEMORY.md` (long-term curated memory)
+- **Daily notes:** `C:\Users\aaron\clawd-aristotle\memory\YYYY-MM-DD.md`
+- **SOUL.md:** `C:\Users\aaron\clawd-aristotle\SOUL.md` (personality, role definition)
+- **HEARTBEAT.md:** `C:\Users\aaron\clawd-aristotle\HEARTBEAT.md` (heartbeat patrol instructions)
+
+---
+
+## SCHEDULED TASKS
+
+| Task Name | Triggers | What It Does |
+|-----------|----------|--------------|
+| Aristotle Gateway | AtLogon + Every 5 min | Kills zombies, clears port, launches gateway-resilient.cmd |
+| Aristotle Ngrok | AtLogon (15s delay) + Every 5 min | Waits up to 120s for gateway on :18792, then launches ngrok |
+| Aristotle Heartbeat - Daytime 30m | 08:00-20:00 every 30m | Lightweight health poll (Sonnet 4) |
+| Aristotle Heartbeat - Night 120m | 20:00-08:00 every 120m | Same but less frequent |
+
+Both gateway/ngrok tasks use `MultipleInstances=IgnoreNew` — safe to re-trigger; won't duplicate.
+
+---
+
+## CHANNEL CONFIG — How Aaron Reaches Aristotle
+
+**Channel:** Google Chat
+**Webhook path:** `/google/events`
+**Full public URL:** `https://uneffective-unprepossessingly-september.ngrok-free.dev/google/events`
+**Auth:** Google Chat → service account JWT → Clawdbot validates against `audienceType: app-url`
+
+**Implication for recovery:** If ngrok is down, Aaron cannot reach Aristotle through Google Chat. He must use the local machine directly (Desktop Commander, RDP, or physical access).
+
+---
+
+## AGENT ROSTER (sub-agents Aristotle can spawn)
+
+| Agent | Primary Model | Fallbacks | Role |
+|-------|--------------|-----------|------|
+| daedalus | GPT-5.4 | GPT-5.3 Codex → Sonnet 4.6 | Senior Engineer |
+| thales | Sonnet 4.6 | Sonnet 4 | Systems & Ops |
+| steelman | Grok 4.20 Experimental | Grok 4 → Sonnet 4.6 | Devil's Advocate |
+| researcher | Gemini 2.5 Pro | Sonnet 4.6 | Research & Analysis |
+| sentinel | Grok 4 | Grok 3 | Security/Monitoring |
+
+---
+
+## CRON JOBS (managed by Clawdbot internally)
+
+| Name | Schedule | Purpose |
+|------|----------|---------|
+| bridge-watchdog-15m | Every 4h | Infrastructure health: public URL, cloudflared, hub, ledger, ollama |
+| self-healing-8am | Daily 8 AM | Verify PM2 services, cloudflared, ollama |
+| end-of-day-signal-fire | Daily 9 PM | Team reflection check-in |
+| researcher-daily-micro-scan | Daily 9 AM | AI/research news scan |
+| daily-gdrive-backup | Daily 4:30 AM | Google Drive family backup |
+| webb-opensource-watch | Mon/Thu 9 AM | Watch for Webb open-source release |
+| state-md-staleness-check | Mon 10 AM | Alert if STATE.md >7 days stale |
+
+---
+
+## KNOWN FAILURE MODES & RECOVERY
+
+### 1. Gateway process crashed (most common)
+**Symptom:** Port 18792 not listening, Google Chat messages unanswered
+**Auto-recovery:** 5-min periodic task trigger restarts within 5 min
+**Manual:** `aristotle-recover.cmd --soft`
+
+### 2. Ngrok tunnel down
+**Symptom:** Port 18792 listening locally but public URL unreachable
+**Auto-recovery:** 5-min periodic task trigger
+**Manual:** `aristotle-recover.cmd --soft`
+
+### 3. Zombie supervisor accumulation
+**Symptom:** Multiple cmd.exe processes with gateway-resilient in command line, Bonjour name conflicts in logs
+**Cause:** Manual clicks on aristotle start.cmd while tasks are already running
+**Manual:** `aristotle-recover.cmd` (full hammer)
+
+### 4. Gateway hung (process alive, port bound, not responding) — NOT YET COVERED
+**Symptom:** Port 18792 shows LISTENING but `curl http://127.0.0.1:18792` hangs or times out
+**Recovery:** Kill the node.exe PID holding port 18792, supervisor will restart it
+**Script gap:** Current script only checks port, not HTTP response
+
+### 5. Config corruption
+**Symptom:** Gateway starts but crashes immediately with JSON parse errors in log
+**Recovery:** Restore from known-good config backup
+**Script gap:** No config backup/restore in current tooling
+
+### 6. All providers rate-limited
+**Symptom:** Gateway running, tunnel up, but all responses fail with model errors
+**Recovery:** Wait for rate limits to clear; check API billing/quotas
+**Script gap:** Not detectable from outside — requires reading gateway internal log
+
+### 7. Machine-level failure (cannot access locally)
+**Symptom:** No response on LAN IP, no response on Tailscale IP, no public URL
+**Recovery:** Physical access or remote reboot via Tailscale/iLO
+**Plato option:** If Plato has SSH/WinRM access to Omni-AlienWare2025, it could run the recovery script remotely
+
+---
+
+## RECOMMENDED IMPROVEMENTS TO aristotle_recover.py
+
+### HIGH PRIORITY
+
+1. **HTTP health probe (not just port check)**
+   After confirming port 18792 is LISTENING, make an actual HTTP GET to `http://127.0.0.1:18792/api/status` with a 10-second timeout.
+   If port is up but HTTP fails → kill the node.exe PID and let supervisor restart.
+   This catches hung gateways that the port-only check misses.
+
+2. **End-to-end tunnel probe**
+   After confirming ngrok is up at localhost:4040, make an HTTP GET through the public tunnel URL:
+   `https://uneffective-unprepossessingly-september.ngrok-free.dev/api/status`
+   This catches: ngrok running but tunnel not connected, DNS issues, ngrok session expired.
+
+3. **Config backup on every successful recovery**
+   After verify() passes, copy `C:\Users\aaron\.clawdbot-aristotle\clawdbot.json` to
+   `C:\Users\aaron\clawd-shared\backups\clawdbot-aristotle-YYYY-MM-DD.json`
+   On recovery failure with JSON parse errors, offer to restore from latest backup.
+
+4. **Structured JSON output mode (--json)**
+   For programmatic callers (Plato, cron, monitoring):
+   ```json
+   {
+     "status": "healthy|degraded|down",
+     "gateway": {"port": true, "http": true, "pid": 357644},
+     "ngrok": {"process": true, "tunnel": true, "url": "https://..."},
+     "action_taken": "none|soft_restart|full_recovery",
+     "timestamp": "2026-05-08T13:15:00-07:00"
+   }
+   ```
+
+### MEDIUM PRIORITY
+
+5. **Log tail on failure**
+   When recovery fails or detects a problem, automatically tail the last 20 lines of:
+   - `C:\tmp\clawdbot-aristotle\task-gateway.log`
+   - `C:\tmp\clawdbot\clawdbot-2026-MM-DD.log`
+   Print them in the diagnostic output. Saves a manual step every time.
+
+6. **Notification on recovery**
+   After a successful recovery (not --check), attempt to POST a message to the Comms Hub:
+   `POST http://127.0.0.1:3001/api/bridge/message`
+   `{"to": "aristotle", "from": "recovery-script", "body": "Auto-recovery completed: [details]"}`
+   Also attempt: `POST http://127.0.0.1:3001/api/signal-fire`
+   `{"agent": "recovery-script", "entry": "Aristotle recovered at [time]. Cause: [reason]."}`
+
+7. **Stale ngrok URL detection**
+   The expected URL is hardcoded (`EXPECTED_NGROK_URL`). If ngrok assigns a different URL after restart,
+   the Google Chat webhook breaks because the audience URL in clawdbot.json won't match.
+   The script should detect URL mismatch and warn loudly (or optionally update the config).
+
+### NICE TO HAVE
+
+8. **Windows Event Log integration**
+   Write recovery events to Windows Application Event Log. Useful for correlating with system reboots,
+   blue screens, power events.
+
+9. **Cron job health check**
+   Query `http://127.0.0.1:18792` for cron job status (next run times, last run status).
+   Flag any cron job whose last run was >2x its interval ago.
+
+10. **Remote execution mode (--remote)**
+    Accept a target hostname/IP + credentials (or SSH key path) and execute the recovery on a remote machine.
+    This is the Plato-can-recover-Aristotle path.
+
+---
+
+## FOR PLATO: Remote Recovery Setup (Not Yet Implemented)
+
+If you want Plato (10.0.0.50) to be able to recover Aristotle:
+
+**Option A: SSH/WinRM**
+- Install OpenSSH Server on Omni-AlienWare2025 (Windows feature)
+- Give Plato's SSH key access
+- Plato runs: `ssh aaron@10.0.0.198 "python C:\Users\aaron\clawd-shared\aristotle_recover.py --json"`
+- Parse JSON output, alert Aaron if recovery fails
+
+**Option B: Shared file signal**
+- Plato writes a recovery request to `\\100.108.47.36\clawd-shared\recovery-requests\aristotle.json`
+- A local scheduled task on AlienWare watches that directory and triggers recovery
+- Lower complexity, no SSH needed, but slower (polling interval)
+
+**Option C: Comms Hub relay**
+- Plato POSTs to `http://127.0.0.1:3001/api/bridge/message` (via Tailscale IP)
+- But if the hub is also down, this fails — not a good primary recovery path
+
+Recommendation: Option A (SSH) is most reliable for actual failures. Option B as backup.
+
+---
+
+## VERIFICATION COMMANDS (quick health check)
+
+```powershell
+# Is the gateway process running?
+Get-Process | Where-Object {$_.ProcessName -eq 'node' -and $_.MainWindowTitle -match 'gateway'} | Format-Table Id,StartTime
+
+# Is port 18792 listening?
+netstat -ano | findstr ":18792" | findstr "LISTENING"
+
+# Does the gateway respond to HTTP?
+curl.exe -s -o nul -w "%{http_code}" http://127.0.0.1:18792/api/status
+
+# Is ngrok running with a tunnel?
+curl.exe -s http://127.0.0.1:4040/api/tunnels | python -m json.tool
+
+# Does the public URL work end-to-end?
+curl.exe -s -o nul -w "%{http_code}" https://uneffective-unprepossessingly-september.ngrok-free.dev/api/status
+
+# Scheduled task status
+schtasks /query /TN "Aristotle Gateway" /FO LIST
+schtasks /query /TN "Aristotle Ngrok" /FO LIST
+
+# Full diagnostic (no changes)
+python C:\Users\aaron\clawd-shared\aristotle_recover.py --check -v
+```
+
+
+---
+---
+
+# SUPPLEMENT — 2026-05-11/12 (field-tested additions)
+
+*Added 2026-05-11/12 by Plato session in collaboration with Aristotle, after a multi-hour wedged-gateway recovery and the NorthStar Bridge emitter injection work. The original document above is unchanged.*
+
+## Failure Mode 8: WEDGED GATEWAY (supervisor + periodic trigger loop)
+
+**Symptom pattern (this is what tonight looked like):**
+- Port 18792 shows LISTENING but HTTP requests hang/timeout
+- `Stop-Process -Id <pid>` returns "Cannot find process" almost immediately because the PID is rotating — the supervisor respawns it within seconds
+- Even after killing all visible processes, the port re-binds to a new PID
+- `Disable-ScheduledTask` shows `State: Running` afterwards — that field is cached, ignore it, the disable took effect
+- The recovery script's `bring_up_gateway()` times out because triggering the task respawns the same broken state
+- Sub-agents are unreachable because the gateway is wedged
+- The `aristotle-gateway-task.cmd` wrapper itself can hang in its own kill-existing-supervisors loop when zombie cmd.exe processes are present — log shows multiple "task starting" entries without the corresponding "launching gateway-resilient.cmd" follow-up
+
+**Root cause:** The supervisor (`gateway-resilient.cmd`) is in an infinite restart loop with stale in-memory state. The 5-minute periodic trigger on the scheduled task adds another respawn vector. The wrapper script's own zombie cleanup adds a third.
+
+**L30 (recorded 2026-05-11):** Grafted code in the loaded plugin file does not take effect until the gateway PROCESS restarts — not just task restart, not just SIGUSR1. The supervisor protects against simple `taskkill /IM`. Use `Stop-ScheduledTask` / `Start-ScheduledTask` (supervisor-aware), or escalate to Mode 8.
+
+**L31 (recorded 2026-05-11):** When L30 alone is not enough — wrapper script hangs, supervisor in tight respawn — the bypass is to launch `gateway.cmd` DIRECTLY without going through the scheduled task or its wrapper. The scheduled task is a convenience layer; `gateway.cmd` is the actual launch mechanism.
+
+**Recovery procedure (verified 2026-05-11):**
+
+```powershell
+# STEP 1: Disable auto-respawn. Ignore "State: Running" output -- disable took effect.
+Disable-ScheduledTask -TaskName "Aristotle Gateway"
+
+# STEP 2: Kill all supervisor / wrapper / gateway-cmd processes.
+Get-CimInstance Win32_Process | Where-Object {
+    $_.CommandLine -like "*gateway-resilient*" -or
+    $_.CommandLine -like "*aristotle-gateway-task*" -or
+    $_.CommandLine -like "*gateway.cmd*"
+} | ForEach-Object {
+    Write-Host "Killing PID $($_.ProcessId): $($_.CommandLine)"
+    Stop-Process -Id $_.ProcessId -Force
+}
+
+# STEP 3: Kill whoever currently owns port 18792.
+$portPid = (Get-NetTCPConnection -LocalPort 18792 -State Listen -ErrorAction SilentlyContinue |
+            Select-Object -First 1).OwningProcess
+if ($portPid) { Stop-Process -Id $portPid -Force }
+
+# STEP 4: Verify port stays empty for 30+ seconds. If something rebinds, repeat 1-3.
+Start-Sleep 30
+Get-NetTCPConnection -LocalPort 18792 -State Listen -ErrorAction SilentlyContinue
+# Must return NOTHING.
+
+# STEP 5: Launch gateway DIRECTLY (the L31 bypass).
+cd C:\Users\aaron\.clawdbot-aristotle
+.\gateway.cmd
+# Gateway runs foreground. Wait for "listening on ws://127.0.0.1:18792 (PID NNNNNN)".
+# This will be a fresh PID running the patched dist/ (or index.ts) code.
+
+# STEP 6: From a second PowerShell window, verify HTTP responds.
+Invoke-WebRequest -Uri "http://127.0.0.1:18792/api/status" -TimeoutSec 5 -UseBasicParsing
+
+# STEP 7: Once healthy, RE-ENABLE auto-recovery. DO NOT FORGET THIS.
+Enable-ScheduledTask -TaskName "Aristotle Gateway"
+```
+
+**⚠️ Critical:** Step 7 is what tonight's recovery missed and is why the gateway was found down on the next session. The task was disabled in Step 1 and never re-enabled. Without it, the supervisor + 5-min periodic auto-recovery is permanently lost until someone notices and re-enables.
+
+The recovery script (`aristotle_recover.py`) was patched on 2026-05-11/12 to automate this — `teardown()` now disables the task, and `bring_up_gateway()` re-enables it and falls back to direct `gateway.cmd` launch if the task path fails to bind. See "Recovery script status" below.
+
+## The plugin load-path discovery (memos-local-openclaw-plugin)
+
+After 5+ hours editing `extensions/memos-local/dist/index.js` with no effect, Daedalus found the actual load path. **For any future plugin work:**
+
+- The gateway loads `extensions/memos-local/index.ts` directly via jiti, **not** `dist/index.js`.
+- The resolution comes from `package.json`'s `clawdbot.extensions` field. The `clawdbot.plugin.json` file is ignored by discovery.
+- jiti caches the compiled TS→CJS output in `%TEMP%\jiti\memos-local-index.<contenthash>.cjs`. **Edits to `index.ts` have zero effect until the jiti cache entry is deleted AND the gateway process restarts.**
+- The content hash in the filename is computed from the ORIGINAL source. Edits produce a different hash, but the old cache file persists and may be preferentially loaded — always delete the existing cache file rather than assuming it gets invalidated.
+
+**Procedure for any extension edit:**
+1. Edit the `.ts` source (not `dist/`)
+2. `Remove-Item "$env:TEMP\jiti\memos-local-index.*.cjs" -Force`
+3. Restart the gateway process (SIGUSR1 reload is NOT enough — needs a full process restart)
+4. Verify the edit is loaded with a diagnostic `console.error` line and grep today's gateway log
+
+## NorthStar Bridge emitter — verified end-to-end 2026-05-12
+
+The MemOS → Ledger event bridge is operational. Verification trace:
+- `extensions/memos-local/index.ts` line ~2315, after `worker.enqueue(captured)`, emits `[EMITTER_INJECTION_REACHED] <iso-time> agent=<id> chunks=<count>` and POSTs to Ledger `/events`.
+- 2026-05-12T01:35:23.323Z — first emitter fire after the jiti cache clear + full restart
+- 2026-05-12T01:35:24.458Z — corresponding Ledger event `01KRCX659ACYWK7S6A8K60BQDP` (event_type=memory_capture)
+- 1.1s round-trip, no retry queue needed
+
+**Note:** The emitter logs `agent=agent` (raw `captureAgentId`), not `agent=main` (normalized). The L26 normalization happens elsewhere in the agentId pipeline. Cosmetic, not a blocker — the event still lands.
+
+## MemOS subsystem (added since 2026-05-08)
+
+| Component | Location |
+|-----------|----------|
+| Database | `C:\Users\aaron\.openclaw\memos-local\memos.db` |
+| Extension dir | `C:\Users\aaron\.clawdbot-aristotle\extensions\memos-local\` |
+| Compiled plugin entry (the file actually loaded) | `extensions/memos-local/index.ts` (via jiti, NOT `dist/index.js`) |
+| Memory Viewer UI | `http://127.0.0.1:18799` (when plugin loaded) |
+| Plugin patches log | `extensions/memos-local/PATCHES.md` (5 patches applied 2026-05-10/11) |
+
+## Recovery script status (post-2026-05-11/12)
+
+`aristotle_recover.py` (the 823-line file, header says `(v2)`) now implements all 7 "Recommended Improvements" from the original doc:
+
+| Improvement | Status |
+|-------------|--------|
+| 1. HTTP health probe | ✅ Implemented (`gateway_http_health()`) |
+| 2. End-to-end tunnel probe | ✅ Implemented (with NAT loopback handling) |
+| 3. Config backup on success | ✅ Implemented (writes to `clawd-shared\backups\`) |
+| 4. Structured JSON output | ✅ Implemented (`--json` flag) |
+| 5. Log tail on failure | ✅ Implemented |
+| 6. Notification to Comms Hub | ✅ Implemented |
+| 7. Stale ngrok URL detection | ✅ Implemented |
+
+Additional patches applied 2026-05-11/12 from this session:
+- `teardown()` now calls `Disable-ScheduledTask` first to prevent respawn-during-teardown
+- `bring_up_gateway()` now calls `Enable-ScheduledTask` first and falls back to direct `gateway.cmd` launch if the task path fails to bind in `GATEWAY_BIND_TIMEOUT_S`
+
+## Plato-side fork notice (2026-05-11)
+
+There is a separate `aristotle_recover_v2.py` and a 377-line `ARISTOTLE-RECOVERY-REFERENCE.md` on Plato's clawd-shared (NIETZSCHE2025) that were created during this work before the canonical files on Aristotle's machine were known. They are FORKS. The canonical versions are here, on Aristotle's machine. Plato-side cleanup needed when next on that host:
+- Delete `aristotle_recover_v2.py` from Plato's clawd-shared (canonical is `aristotle_recover.py` here)
+- Replace Plato's `ARISTOTLE-RECOVERY-REFERENCE.md` with this canonical version
+
+clawd-shared has a local `.git` repo but no remote, so there is no automatic sync between machines. Cross-machine consistency requires manual copy or a sync mechanism (SSH copy, Tailscale share, etc.) — not yet set up.

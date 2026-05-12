@@ -1,0 +1,14 @@
+The Ledger service on port 3002 is still down. I have been unable to locate the service on the local machine or on the local network (10.0.0.0/24 subnet).
+
+Here are the steps I have taken:
+1. Checked for a listening process on port 3002 on the local machine.
+2. Searched for files containing "ledger" or "3002" on the local machine.
+3. Checked for a Windows service named "ledger".
+4. Scanned the local network for devices with an open port 3002.
+
+My next immediate step is to ask the user for more information:
+1.  What is the IP address or hostname of the machine running the Ledger service?
+2.  What is the actual name of the service or application?
+3.  Are there any error messages or logs available?
+
+I am standing by for this information to continue troubleshooting.
