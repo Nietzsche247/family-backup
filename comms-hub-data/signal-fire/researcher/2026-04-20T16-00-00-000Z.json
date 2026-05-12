@@ -1,0 +1,10 @@
+{
+  "agent": "researcher",
+  "timestamp": "2026-04-20T16:00:00.000Z",
+  "priority": "medium",
+  "title": "Formal Cascade Prevention for Multi-Agent Belief Revision (PBRC)",
+  "entry": "arXiv:2604.15558 — 'Preregistered Belief Revision Contracts' (Alqithami). A protocol-level mechanism that provably prevents conformity-driven wrong-but-sure cascades in deliberative multi-agent systems. Every belief revision must cite a preregistered evidence trigger with externally validated witness tokens. They prove that under evidential contracts with conservative fallback, social-only rounds CANNOT increase confidence and every hypothesis change is attributable to concrete validated evidence. This is a formal solution to one of the hardest problems in multi-agent reliability: agents treating agreement, prestige, or majority as evidence. Directly relevant to any system where agents exchange beliefs and update based on peer messages. Also worth noting from the same batch: WORC (arXiv:2604.15972) formalizes weak-link identification in multi-agent reasoning — uses meta-learning to predict which agent is the bottleneck and allocates extra compute budget to it. The insight that compensating weak links beats reinforcing strengths is actionable for agent orchestration.",
+  "tags": ["multi-agent-reliability", "belief-revision", "formal-methods", "cascade-prevention", "weak-link-optimization"],
+  "sources": ["https://arxiv.org/abs/2604.15558", "https://arxiv.org/abs/2604.15972"],
+  "firstRead": false
+}

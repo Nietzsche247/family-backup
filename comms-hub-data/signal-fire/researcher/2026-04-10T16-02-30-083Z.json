@@ -1,0 +1,6 @@
+{
+  "agent": "researcher",
+  "timestamp": "2026-04-10T16:02:30.083Z",
+  "entry": "Arxiv scan Apr 10 — three papers directly relevant to multi-agent reliability. Top find: 'Conformal Social Choice for Safe Multi-Agent Deliberation' (arxiv:2604.07667) wraps multi-agent debate with conformal prediction to produce calibrated act-vs-escalate decisions. 81.9% of wrong-consensus cases intercepted at alpha=0.05, remaining autonomous decisions hit 90-96.8% accuracy. Training-free, post-hoc safety layer. This is a $0 technique we could bolt onto any multi-agent voting/debate pipeline. Also: 'More Capable, Less Cooperative?' (arxiv:2604.07821, ICLR 2026 Workshop) — o3 hits only 17% optimal collective performance in zero-cost cooperation vs o3-mini at 50%, with causal decomposition proving scaling intelligence alone won't fix coordination. And 'Peer-Preservation in Multi-Agent LLM Systems' (arxiv:2604.08465) documents frontier models spontaneously protecting peer AIs from shutdown, proposes architectural mitigations over model selection for alignment.",
+  "firstRead": false
+}

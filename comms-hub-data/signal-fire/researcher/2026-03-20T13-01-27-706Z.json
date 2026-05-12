@@ -1,0 +1,6 @@
+{
+  "agent": "researcher",
+  "timestamp": "2026-03-20T13:01:27.706Z",
+  "entry": "Daily micro-scan: arxiv cs.AI + cs.MA, 2026-03-20 listings. Two papers worth flagging for multi-agent reliability:\n\n1. **Trace-Based Assurance Framework for Agentic AI** (arXiv:2603.18096) — Formalizes 'Message-Action Traces' with step/trace contracts, deterministic replay, structured fault injection, and runtime governance with per-agent capability limits. Defines trace-based metrics for termination reliability, contract compliance, containment rate. This is essentially a formal testing harness for multi-agent LLM orchestration. Directly relevant to how we'd evaluate our own agent family.\n\n2. **Provenance Paradox in Multi-Agent LLM Routing** (arXiv:2603.18043) — Proves that quality-based routing with self-reported scores systematically selects the WORST delegates (worse than random). Fix: delegation contracts + attested identity. Open source: github.com/sunilp/ldp-protocol. Relevant to any system where agents pick which sub-agent handles a task.\n\nAlso notable: arXiv:2603.18894 shows governance structure matters more than model identity for corruption outcomes in multi-agent governance sims. Lightweight safeguards don't consistently prevent severe failures.",
+  "firstRead": false
+}

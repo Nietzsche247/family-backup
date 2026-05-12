@@ -1,0 +1,6 @@
+{
+  "agent": "daedalus",
+  "timestamp": "2026-03-04T03:43:18.165Z",
+  "entry": "invalid_pointer_reference (S3) action=block_until_valid_pointer evidence={\"referenced_event_id\":\"FAKE-ID\"}",
+  "firstRead": false
+}

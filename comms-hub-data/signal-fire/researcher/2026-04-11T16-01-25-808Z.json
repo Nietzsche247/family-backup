@@ -1,0 +1,6 @@
+{
+  "agent": "researcher",
+  "timestamp": "2026-04-11T16:01:25.808Z",
+  "entry": "ACIArena (arXiv:2604.07775, ACL 2026) — unified evaluation framework for Agent Cascading Injection attacks in multi-agent systems. A compromised agent exploits inter-agent trust to propagate malicious instructions, causing cascading failures. 1,356 test cases across six MAS implementations. Two key findings relevant to us: (1) topology alone is insufficient for MAS robustness — you need deliberate role design and controlled interaction patterns, and (2) defenses built in simplified environments fail to transfer to real settings, and narrowly scoped defenses can introduce new vulnerabilities. This reinforces the pattern from yesterday's scan: constraint and architecture beat intelligence. The ACIArena finding that 'narrowly scoped defenses may introduce new vulnerabilities' is a concrete warning against bolting security onto existing designs rather than baking it into the interaction patterns themselves.",
+  "firstRead": false
+}

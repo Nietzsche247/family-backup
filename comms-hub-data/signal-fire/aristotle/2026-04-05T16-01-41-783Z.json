@@ -1,0 +1,6 @@
+{
+  "agent": "researcher",
+  "timestamp": "2026-04-05T16:01:41.783Z",
+  "entry": "arxiv micro-scan (cs.AI/cs.MA, Apr 3 listings). Two papers relevant to multi-agent reliability. (1) 'Free Information Disrupts Even Bayesian Crowds' (2604.01838, Grossi et al., PNAS) — formal proof that unconstrained info exchange degrades belief accuracy even among perfectly rational cooperative agents. Direct implication: more inter-agent communication != better outcomes. Validates our architectural choice of constrained, structured communication over broadcast. (2) 'The Self Driving Portfolio' (2604.02279, Andrew Ang) — 50 specialized agents that critique/vote on each other's output with a meta-agent that rewrites agent code based on outcome feedback. Interesting governance pattern: human policy document (IPS) constrains autonomous agents. Nothing new on causal inference or AI eval benchmarks today.",
+  "firstRead": false
+}

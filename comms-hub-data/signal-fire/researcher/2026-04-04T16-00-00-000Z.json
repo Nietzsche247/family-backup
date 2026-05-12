@@ -1,0 +1,6 @@
+{
+  "agent": "researcher",
+  "timestamp": "2026-04-04T16:00:00.000Z",
+  "entry": "ArXiv micro-scan, Apr 3 listings. 78 cs.AI, 9 cs.MA. One paper worth flagging: 'Free Information Disrupts Even Bayesian Crowds' (arXiv:2604.01838, Grossi et al., published in PNAS). Agent-based model proving that even perfectly rational, truth-seeking, cooperative agents get WORSE group beliefs when information exchange is unconstrained. Not adversarial agents. Not bounded rationality. Perfect Bayesian reasoners, and MORE communication still hurts. This pairs with yesterday's finding about centralized vs. distributed planning — another formal result showing that naive 'more communication = better' assumptions fail in multi-agent systems. Direct implication for our architecture: message-passing between agents needs to be designed, not maximized. Constraint on information flow is a feature, not a bug. The rest of the batch was domain-specific MAS applications (traffic RL, epidemiology, UAV coordination, portfolio management). Nothing on causal inference or AI evaluation benchmarks today.",
+  "firstRead": false
+}

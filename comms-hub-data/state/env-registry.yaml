@@ -1,0 +1,203 @@
+_meta:
+  schema_version: "2.0"
+  last_confirmed: "2026-03-07T20:00:00-07:00"
+  confirmed_by: aristotle
+  note: "Canonical deployment truth for NorthStar. One registry, no duplicates."
+
+machines:
+  omni-alienware2025:
+    hostname: omni-alienware2025
+    tailscale_ip: 100.108.47.36
+    os: Windows 11 10.0.26200 x64
+    role: core
+    hub_url: https://hub.stigmergy.space
+    hub_host: omni-alienware2025.tail2ccb03.ts.net
+    services:
+      - comms-hub (port 3001)
+      - ledger-staging (port 3003)
+      - ledger-prod (port 3002)
+      - ollama (port 11434, loopback only)
+    agents:
+      - name: aristotle
+        gateway_port: 18792
+        platform: Clawdbot
+        version: v2026.1.24-3
+        channel: googlechat
+        model_primary: anthropic/claude-opus-4-6
+        model_fallbacks:
+          - anthropic/claude-sonnet-4-6
+          - openai/gpt-5.2
+          - anthropic/claude-sonnet-4-20250514
+        config_path: C:\Users\aaron\.clawdbot-aristotle\clawdbot.json
+        workspace: C:\Users\aaron\clawd-aristotle
+        status: online
+        last_confirmed: "2026-03-07T20:00:00-07:00"
+      - name: daedalus
+        gateway_port: 18800
+        platform: Clawdbot (subagent)
+        model_primary: openai/gpt-5.4
+        model_fallbacks:
+          - openai/gpt-5.3-codex
+          - anthropic/claude-sonnet-4-6
+        config_path: C:\Users\aaron\.clawdbot-aristotle\clawdbot.json
+        workspace: C:\Users\aaron\clawd-daedalus
+        status: online
+        last_confirmed: "2026-03-07T20:00:00-07:00"
+      - name: thales
+        gateway_port: 18810
+        platform: Clawdbot (subagent)
+        model_primary: openai/gpt-5.2-pro
+        model_fallbacks: []
+        config_path: C:\Users\aaron\.clawdbot-aristotle\clawdbot.json
+        workspace: C:\Users\aaron\clawd-thales
+        status: online
+        last_confirmed: "2026-03-07T20:00:00-07:00"
+      - name: steelman
+        gateway_port: 18820
+        platform: Clawdbot (subagent)
+        model_primary: openai/gpt-5.2-pro
+        model_fallbacks: []
+        config_path: C:\Users\aaron\.clawdbot-aristotle\clawdbot.json
+        workspace: C:\Users\aaron\clawd-steelman
+        status: online
+        last_confirmed: "2026-03-07T20:00:00-07:00"
+      - name: researcher
+        gateway_port: 18830
+        platform: Clawdbot (subagent)
+        model_primary: google/gemini-2.5-pro
+        model_fallbacks: []
+        config_path: C:\Users\aaron\.clawdbot-aristotle\clawdbot.json
+        workspace: C:\Users\aaron\clawd-researcher
+        status: online
+        last_confirmed: "2026-03-07T20:00:00-07:00"
+      - name: sentinel
+        gateway_port: null
+        platform: Clawdbot (subagent)
+        model_primary: xai/grok-4-latest
+        model_fallbacks:
+          - xai/grok-3
+        config_path: C:\Users\aaron\.clawdbot-aristotle\clawdbot.json
+        workspace: C:\Users\aaron\clawd-sentinel
+        status: online
+        last_confirmed: "2026-03-07T20:00:00-07:00"
+  nietzsche2025:
+    hostname: nietzsche2025
+    lan_ip: 10.0.0.50
+    tailscale_ip: 100.73.106.82
+    os: Windows 10.0.26200 x64
+    role: client
+    agents:
+      - name: plato
+        gateway_port: 18789
+        gateway_token: ad8703220cdfa6fcf6a9589dec3100c90be32537bc47cb28
+        platform: Clawdbot
+        version: v2026.1.24-3
+        channel: googlechat
+        model_primary: anthropic/claude-opus-4-6
+        model_fallbacks: unknown — needs confirmation from Plato
+        config_path: C:\Users\Aaron\.clawdbot\clawdbot.json
+        workspace: C:\Users\Aaron\clawd
+        status: online
+        last_confirmed: "2026-03-07T01:15:50-07:00"
+        note: "Model fallbacks unconfirmed. Last check-in via bridge BRG-1772846150133."
+  nietzsche-i9:
+    hostname: nietzsche-i9
+    lan_ip: 10.0.0.48
+    tailscale_ip: 100.65.240.87
+    os: Windows
+    role: client
+    gateway_bind: lan (direct, no portproxy)
+    agents:
+      - name: empiricus
+        gateway_port: 18789
+        gateway_token: 911a052c34fb55b170cd7d2ef3dd66ab8d9f11f5c88e088d
+        platform: OpenClaw
+        version: v2026.2.1
+        channel: slack
+        endpoint: http://10.0.0.48:18789/v1/chat/completions
+        model_primary: anthropic/claude-opus-4-6
+        model_fallbacks: unknown — needs confirmation from Empiricus
+        config_path: C:\Users\aaron\.openclaw\openclaw.json
+        workspace: C:\Users\aaron\.openclaw\workspace
+        status: online
+        last_confirmed: "2026-03-07T00:30:56-07:00"
+        note: "Model fallbacks unconfirmed. Last check-in via bridge BRG-1772843456297."
+  api_keys_layer2:
+    capsolver:
+      api_key: CAP-8D364C440207FAF4A5ED8D3CB5B10255C583629B337250545315E833E82BE52A
+      balance: $10
+      service: https://www.capsolver.com
+api_keys:
+  anthropic:
+    base_url: https://api.anthropic.com
+    api: anthropic-messages (OAuth via claude-cli)
+    models:
+      - claude-opus-4-6
+      - claude-opus-4-5
+      - claude-sonnet-4-20250514
+  google_ai:
+    api_key: [REDACTED_GOOGLE_KEY]
+    base_url: https://generativelanguage.googleapis.com/v1beta
+    models:
+      - gemini-2.0-flash
+      - gemini-2.5-pro
+  openai:
+    api_key: >-
+      [REDACTED_OPENAI_KEY]
+    model: text-embedding-3-large
+    use: Memory search vector embeddings
+  xai:
+    api_key: [REDACTED_XAI_KEY]
+    note: Also set as OPENAI_API_KEY env var
+  brave_search:
+    api_key: BSABrFgq3Pu_TKiWkCcAWt2jH8GzqIS
+  mem0:
+    api_key: [REDACTED_MEM0_KEY]
+  moltbook:
+    api_key: moltbook_sk_SvaAAMdhZHsTu0dtyvmyqnPf_KSnelbX
+github:
+  account: Nietzsche247
+  email: Aaron@omnipoolbuilders.com
+  token: [REDACTED_GH_CLASSIC]
+  protocol: https
+clawdhub:
+  registry: https://clawhub.ai
+  account: '@Nietzsche247'
+  token: clh_Y0jWOaf8jNYodVUsDH6AuE9duT6O0XImDkDrVT5ax7I
+supabase:
+  project_id: xuwalxiznpdtvpczqokh
+  url: https://xuwalxiznpdtvpczqokh.supabase.co
+  anon_key: >-
+    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh1d2FseGl6bnBkdHZwY3pxb2toIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU0MDQzNTIsImV4cCI6MjA4MDk4MDM1Mn0.eOcx2ekUIPtxlmYixd0K8HDRdRtNWvUhKdbu-oig8Lw
+slack_empiricus:
+  bot_token: [REDACTED_SLACK_BOT]
+  app_token: [REDACTED_SLACK_APP]
+smb_share:
+  server: \\10.0.0.50\shared
+  note: NOT Tailscale - SMB fails over relay
+  user: NIETZSCHE2025\smbuser
+  password: Password1
+tailscale_network:
+  nietzsche2025:
+    ip: 100.73.106.82
+    status: active
+  nietzsche-i9:
+    ip: 100.65.240.87
+    status: active, relay lax
+  omni-alienware2025:
+    ip: 100.108.47.36
+    status: idle
+  iphone182:
+    ip: 100.104.156.26
+    status: offline 27d
+  ipad-pro:
+    ip: 100.81.233.44
+    status: offline 133d
+comms_hub:
+  ip: 208.111.34.11
+  host: omni-alienware2025.tail2ccb03.ts.net
+  port: 443
+  proto: https
+comms_hub_api:
+  env_api_key: wJDbqPIFfQgt1UrzsNkuLT5d9vnpYy27
+  note: Required for GET/PUT /api/env endpoints. Pass as Bearer token or ?key= param.

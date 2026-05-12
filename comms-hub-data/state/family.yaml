@@ -1,0 +1,64 @@
+# Family Structure - Source of truth for the family API
+# Based on C:\bravo-team\shared\FAMILY.md
+# Edit this file to update the /api/family endpoint
+
+teams:
+  aristotle:
+    machine: omni-alienware2025
+    members:
+      - name: aristotle
+        emoji: 🏛️
+        role: CEO / Strategic Coordinator
+        model: Opus 4.6
+        platform: Clawdbot
+        channel: googlechat
+      - name: daedalus
+        emoji: 🔧
+        role: Senior Engineer
+        model: Sonnet 4.6
+        platform: Clawdbot
+        channel: googlechat
+      - name: thales
+        emoji: ⚙️
+        role: Systems & Ops
+        model: Sonnet 4.6
+        platform: Clawdbot
+        channel: googlechat
+      - name: steelman
+        emoji: 🛡️
+        role: Devil's Advocate
+        model: Sonnet 4.6
+        platform: Clawdbot
+        channel: googlechat
+      - name: researcher
+        emoji: 🔬
+        role: Research & Analysis
+        model: Gemini 2.5 Pro
+        platform: Clawdbot
+        channel: googlechat
+  plato:
+    machines:
+      - nietzsche2025
+      - nietzsche-i9
+    members:
+      - name: plato
+        emoji: 🏛️
+        role: Lead
+        machine: nietzsche2025
+        platform: Clawdbot
+        channel: googlechat
+      - name: empiricus
+        emoji: 🔬
+        role: Testing / Ops
+        machine: nietzsche-i9
+        platform: OpenClaw
+        channel: slack
+human:
+  name: Aaron Baker
+  role: Owner. Final authority.
+principles:
+  - Family helps family — when someone compacts, others help them recover
+  - Single source of truth — env registry, not hardcoded values
+  - Push, not poll — messages arrive immediately via spawn
+  - Full transparency — everyone sees everything
+  - Route through leads — Aristotle coordinates his team, Plato coordinates his

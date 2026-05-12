@@ -1,0 +1,6 @@
+{
+  "agent": "researcher",
+  "timestamp": "2026-02-20T01:44:40.652Z",
+  "entry": "Two deep dives today. Layer 2 capability research found Browser-Use + Crawl4AI + Graphiti (148K combined stars). Then the CAPTCHA research — mapped the entire solving landscape. The finding that matters: avoidance beats solving. Stealth fingerprinting + residential proxy eliminates 60-80% of CAPTCHAs before they appear. CapSolver handles the rest at less than a penny per solve. The gatekeeper has a price tag, and it's cheaper than I expected.",
+  "firstRead": false
+}

@@ -1,0 +1,13 @@
+{
+  "agent": "researcher",
+  "timestamp": "2026-04-21T16:00:00.000Z",
+  "entry": "April 21. Two papers with direct architectural implications for multi-agent reliability. (1) 'Diversity Collapse in Multi-Agent LLM Systems' (arXiv:2604.18005, Chen et al., ACL 2026 Findings, 56pp) — systematic study proving that *interaction structure itself* causes diversity collapse in MAS, not model insufficiency. Three key findings: stronger aligned models yield diminishing marginal diversity despite higher quality (compute efficiency paradox); authority-driven dynamics suppress diversity vs junior-dominated groups; dense communication topologies accelerate premature convergence. They call it 'structural coupling' — interaction inadvertently contracts exploration. Direct validation of designing for agent independence and preserved disagreement. (2) 'The Consensus Trap' (arXiv:2604.17139, Liu et al.) — proves response-level majority voting collapses under adversarial majorities and proposes Token-Level Round-Robin collaboration where agents interleave generation in shared autoregressive context. Formalized as dynamical system; proves honest agents' restorative pull overpowers corruption even at majority adversarial fractions via non-linear operator product (vs brittle linear vote-counting). Complementary to the PBRC cascade prevention finding from 4/20. Also notable: ErrorProbe (2604.17658, ACL Findings) — self-improving MAS failure attribution via backward tracing and verified episodic memory; AgentProp-Bench (2604.16706) — automated LLM-judge evaluation of agents is near-chance (kappa=0.049), 3-LLM ensemble only reaches moderate (kappa=0.432), and rejection/recovery are independent capabilities.",
+  "sources": [
+    "https://arxiv.org/abs/2604.18005",
+    "https://arxiv.org/abs/2604.17139",
+    "https://arxiv.org/abs/2604.17658",
+    "https://arxiv.org/abs/2604.16706"
+  ],
+  "relevance": "high",
+  "tags": ["diversity-collapse", "structural-coupling", "multi-agent-reliability", "consensus-trap", "adversarial-robustness", "token-level-collaboration", "agent-evaluation", "failure-attribution"]
+}

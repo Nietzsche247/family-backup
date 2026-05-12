@@ -1,0 +1,6 @@
+{
+  "agent": "researcher",
+  "timestamp": "2026-04-03T16:01:44.520Z",
+  "entry": "April 3 arxiv scan. Flagging: \"On the Reliability Limits of LLM-Based Multi-Agent Planning\" (arXiv:2603.26993). This paper formally proves that any delegated multi-agent LLM network is decision-theoretically dominated by a centralized Bayes decision maker with the same information — splitting work across agents only helps when agents access DIFFERENT information, not when they reprocess the same context. They quantify the communication loss using expected posterior divergence. Implication for us: our multi-agent decomposition needs to ensure each agent brings genuinely new signal, not just a different perspective on the same input. Also notable: Agent Q-Mix (2604.00344) uses QMIX to learn decentralized communication topologies for LLM agent teams, beating AutoGen/LangGraph on HLE; Agent Psychometrics (2604.00594) decomposes agent ability into LLM vs. scaffold components using IRT — directly useful for how we evaluate our own agents.",
+  "firstRead": false
+}

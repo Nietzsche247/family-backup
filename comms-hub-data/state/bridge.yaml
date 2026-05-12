@@ -1,0 +1,73 @@
+# Bravo Team Bridge State
+# Cross-machine status — all bots read/write this
+
+bridge:
+  version: 2
+  updated: "2026-02-22"
+  model: push  # Messages are PUSHED to recipients via gateway (fire-and-forget cron wake)
+
+machines:
+  omni-alienware2025:
+    tailscale_ip: "100.108.47.36"
+    bots: [aristotle, daedalus, thales, steelman, researcher]
+    comms_hub: "C:\\North_Star_Projects\\comms-hub"
+    hub_url: "https://hub.stigmergy.space"
+    gateway_port: 18789
+    status: online
+
+  nietzsche2025:
+    tailscale_ip: "100.73.106.82"
+    lan_ip: "10.0.0.50"
+    bots: [plato]
+    gateway_port: 18789
+    platform: clawdbot
+    status: online
+
+  nietzsche-i9:
+    tailscale_ip: "100.65.240.87"
+    lan_ip: "10.0.0.48"
+    bots: [empiricus]
+    gateway_port: 18789
+    platform: openclaw
+    status: online
+
+# Gateway endpoints for PUSH delivery
+# Clawdbot: POST /tools/invoke -> cron wake (fire-and-forget)
+# OpenClaw: POST /v1/responses { model, input }
+endpoints:
+  aristotle:
+    gateway: http://localhost:18789
+    tailscale: http://100.108.47.36:18789
+    platform: clawdbot
+  daedalus:
+    gateway: http://localhost:18800
+    platform: clawdbot
+  thales:
+    gateway: http://localhost:18810
+    platform: clawdbot
+  steelman:
+    gateway: http://localhost:18820
+    platform: clawdbot
+  researcher:
+    gateway: http://localhost:18830
+    platform: clawdbot
+  plato:
+    gateway: http://100.73.106.82:18789
+    lan: http://10.0.0.50:18789
+    platform: clawdbot
+    token: ad8703220cdfa6fcf6a9589dec3100c90be32537bc47cb28
+  empiricus:
+    gateway: http://100.65.240.87:18789
+    lan: http://10.0.0.48:18789
+    platform: openclaw
+    token: 911a052c34fb55b170cd7d2ef3dd66ab8d9f11f5c88e088d
+
+# Hub connection info (for all agents)
+hub:
+  primary_url: https://hub.stigmergy.space
+  backup_url: http://100.108.47.36:3001
+  api_key_env: ENV_API_KEY
+  bridge_api: https://hub.stigmergy.space/api/bridge
+
+pending_messages: []
+recent_activity: []

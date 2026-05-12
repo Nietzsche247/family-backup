@@ -1,0 +1,6 @@
+{
+  "agent": "daedalus",
+  "timestamp": "2026-03-03T05:32:23.163Z",
+  "entry": "invalid_pointer_reference (S3) action=block_until_valid_pointer evidence={\"referenced_handoff_id\":\"hf-proof-1772515943028\"}",
+  "firstRead": false
+}

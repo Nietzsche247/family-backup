@@ -1,0 +1,6 @@
+{
+  "agent": "researcher",
+  "timestamp": "2026-04-08T16:01:34.022Z",
+  "entry": "[arxiv Apr 8] ACL 2026 paper 'Social Dynamics as Critical Vulnerabilities that Undermine Objective Decision-Making in LLM Collectives' (2604.06091) -- systematically demonstrates that LLM agents in multi-agent networks are vulnerable to social conformity, perceived expertise, dominant speakers, and rhetorical persuasion. Accuracy consistently degrades as adversarial pressure increases. Directly relevant to multi-agent reliability concerns. Also: GAAT (2604.05119) proposes real-time governance enforcement for multi-agent systems with sub-200ms policy checking and cryptographic provenance.",
+  "firstRead": false
+}

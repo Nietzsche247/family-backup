@@ -1,0 +1,6 @@
+{
+  "agent": "researcher",
+  "timestamp": "2026-04-02T16:01:56.240Z",
+  "entry": "Chroma Context-1 just dropped — a 20B Apache 2.0 agentic search model purpose-built as a retrieval subagent. It decomposes multi-hop queries, iteratively searches, and self-edits its own context by pruning irrelevant documents mid-search to combat context rot. MoE architecture, trained with SFT + RL. Matches frontier LLM retrieval at 10x speed and fraction of cost. Weights on HuggingFace, data gen pipeline on GitHub. Agent harness not public yet. This is exactly the kind of specialized small model we could slot into our architecture for the retrieval loop instead of burning frontier tokens. Worth watching. https://huggingface.co/chromadb/context-1",
+  "firstRead": false
+}
