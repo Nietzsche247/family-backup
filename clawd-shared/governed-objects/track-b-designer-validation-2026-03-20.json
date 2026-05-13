@@ -1,0 +1,185 @@
+{
+  "type": "ValidationReport",
+  "id": "VR-TRACKB-2026-03-20-EMPIRICUS-001",
+  "project": "OmniPools Calculator",
+  "track": "Track B - Intake Trigger Chain + Jurisdiction",
+  "createdAt": "2026-03-20T09:05:00-07:00",
+  "tester": "Empiricus",
+  "priority": "high",
+  "environment": {
+    "url": "https://omnipoolsaz.com/",
+    "mode": "production-live",
+    "bundle": "https://omnipoolsaz.com/assets/index-BvKGjMvX.js",
+    "browserSession": "live signed-in session",
+    "browserToolStatus": {
+      "status": "degraded",
+      "details": "OpenClaw browser snapshot/open worked, but direct act/fill/type calls timed out or errored. Validation completed via Playwright over the same live CDP browser session instead of looping on broken browser-tool actions."
+    }
+  },
+  "scope": {
+    "intent": "Designer validation of Track B intake fields and downstream trigger chain",
+    "method": "Live production walkthrough with CRM paste, downstream auto-fill observation, manual address correction, and re-check of persistence behavior",
+    "crmInput": "Lead: Maria Gonzalez\nPhone: 520-555-1234\nEmail: maria.gonzalez@email.com\nProject Address: 8880 N Camino Coronado, Tucson, AZ 85704\nNotes: existing pool needs resurfacing"
+  },
+  "summary": {
+    "conclusion": "Track B is still OPEN.",
+    "headlineFindings": [
+      "CRM paste still triggers downstream extraction/autofill without an explicit Assign & Sort Data button visible in the current production UI.",
+      "Core contact/property fields populated successfully from CRM paste.",
+      "Jurisdiction still failed to resolve and remained 'Select jurisdiction'.",
+      "Site Intelligence locality copy still conflicts with the canonical address context (shows Oro Valley / Pima County against Tucson address input).",
+      "Manual Project Address correction propagated correctly downstream in this run.",
+      "Previous overwrite-on-reassign defect could not be revalidated today because the explicit re-assign control was not present in the current production UI."
+    ],
+    "overallPass": false
+  },
+  "fieldObservations": [
+    {
+      "field": "Site Info / CRM input",
+      "expected": "Designer can paste raw CRM text and trigger extraction via the documented intake flow.",
+      "observed": "Raw CRM paste was accepted. No explicit 'Assign & Sort Data' button was visible in the current production UI, but extraction/autofill still occurred automatically after paste.",
+      "status": "FAIL",
+      "reason": "The trigger chain works, but the documented/manual trigger control was absent. That is a designer-facing workflow inconsistency and makes the flow harder to reason about or retest."
+    },
+    {
+      "field": "Client Name",
+      "expected": "Populate from CRM paste as 'Maria Gonzalez'.",
+      "observed": "Populated as 'Maria Gonzalez'.",
+      "status": "PASS"
+    },
+    {
+      "field": "Phone Number",
+      "expected": "Populate from CRM paste as '520-555-1234'.",
+      "observed": "Populated as '520-555-1234'.",
+      "status": "PASS"
+    },
+    {
+      "field": "Email",
+      "expected": "Populate from CRM paste as 'maria.gonzalez@email.com'.",
+      "observed": "Populated as 'maria.gonzalez@email.com'.",
+      "status": "PASS"
+    },
+    {
+      "field": "Project Address",
+      "expected": "Canonical address should populate clearly and retain the full project address string or otherwise communicate its normalization behavior.",
+      "observed": "Field populated as '8880 N Camino Coronado' after CRM extraction, not the full original address line '8880 N Camino Coronado, Tucson, AZ 85704'. Later manual correction to '4828 W Condor Dr, Tucson, AZ 85742' was accepted and retained.",
+      "status": "FAIL",
+      "reason": "The chain populates the field, but canonical address presentation is ambiguous/truncated and contributes to location-truth confusion."
+    },
+    {
+      "field": "House Sq Ft",
+      "expected": "Populate from downstream property/geocode lookup after address resolution.",
+      "observed": "Populated as '1,052' after CRM extraction. After manual address correction, updated to '1,403'.",
+      "status": "PASS"
+    },
+    {
+      "field": "Year Built",
+      "expected": "Populate from downstream property/geocode lookup after address resolution.",
+      "observed": "Populated as '1953' after CRM extraction. After manual address correction, updated to '1984'.",
+      "status": "PASS"
+    },
+    {
+      "field": "Lot Size (acres)",
+      "expected": "Populate from downstream property/geocode lookup after address resolution.",
+      "observed": "Populated as '3.54' after CRM extraction. After manual address correction, updated to '0.34'.",
+      "status": "PASS"
+    },
+    {
+      "field": "Latitude",
+      "expected": "Populate from geocode result and refresh when canonical address changes.",
+      "observed": "Populated as '32.368751' after CRM extraction. After manual address correction, updated to '32.376255'.",
+      "status": "PASS"
+    },
+    {
+      "field": "Longitude",
+      "expected": "Populate from geocode result and refresh when canonical address changes.",
+      "observed": "Populated as '-110.984189' after CRM extraction. After manual address correction, updated to '-111.06802'.",
+      "status": "PASS"
+    },
+    {
+      "field": "Jurisdiction",
+      "expected": "Resolve jurisdiction from the same downstream location chain or clearly explain why it did not.",
+      "observed": "Remained 'Select jurisdiction' after CRM extraction and remained 'Select jurisdiction' after manual correction.",
+      "status": "FAIL",
+      "reason": "Track B explicitly includes Jurisdiction. It still does not land."
+    },
+    {
+      "field": "Site Intelligence locality messaging",
+      "expected": "Location messaging should align with the canonical project address and jurisdiction outputs.",
+      "observed": "Body text still showed conflicting locality language including 'Oro Valley, Pima County' and 'Jurisdiction Oro Valley' while the active address context was Tucson. One body line rendered as a merged/confusing string: '4828 W Condor Dr, Tucson, AZ 85742, Tucson, AZ 85704Pima, Oro Valley(32.3763, -111.0680)↗'.",
+      "status": "FAIL",
+      "reason": "This is a designer trust-break. The system presents multiple competing location truths."
+    },
+    {
+      "field": "Manual Project Address correction propagation",
+      "expected": "When a designer corrects the canonical address, downstream property and coordinate fields should update accordingly.",
+      "observed": "Manual correction to '4828 W Condor Dr, Tucson, AZ 85742' propagated correctly to square footage, year built, lot size, latitude, and longitude.",
+      "status": "PASS"
+    },
+    {
+      "field": "Manual correction persistence under routine follow-up action",
+      "expected": "A designer should be able to test or repeat the intake action without silently losing a manual correction.",
+      "observed": "Could not be revalidated today because the explicit 'Assign & Sort Data' control was not present in the current production UI, so the old overwrite path could not be intentionally triggered.",
+      "status": "FAIL",
+      "reason": "Not proven safe. The prior overwrite risk is unresolved from a validation standpoint because the regression path is currently untestable through the visible UI."
+    }
+  ],
+  "evidence": {
+    "liveObservedValuesAfterCRM": {
+      "clientName": "Maria Gonzalez",
+      "phone": "520-555-1234",
+      "email": "maria.gonzalez@email.com",
+      "projectAddress": "8880 N Camino Coronado",
+      "houseSqFt": "1,052",
+      "yearBuilt": "1953",
+      "lotSizeAcres": "3.54",
+      "latitude": "32.368751",
+      "longitude": "-110.984189",
+      "jurisdiction": "Select jurisdiction"
+    },
+    "liveObservedValuesAfterManualCorrection": {
+      "projectAddress": "4828 W Condor Dr, Tucson, AZ 85742",
+      "houseSqFt": "1,403",
+      "yearBuilt": "1984",
+      "lotSizeAcres": "0.34",
+      "latitude": "32.376255",
+      "longitude": "-111.06802",
+      "jurisdiction": "Select jurisdiction"
+    },
+    "notableBodyText": [
+      "4828 W Condor Dr, Tucson, AZ 85742, Tucson, AZ 85704Pima, Oro Valley(32.3763, -111.0680)↗",
+      "Site Intelligence",
+      "Oro Valley, Pima County",
+      "Jurisdiction",
+      "Oro Valley"
+    ],
+    "rawCapture": "C:\\Users\\aaron\\.openclaw\\workspace\\tmp_track_b_validate_live_result.json"
+  },
+  "blockingIssues": [
+    {
+      "id": "TB-2026-03-20-001",
+      "title": "Jurisdiction still does not resolve",
+      "severity": "high"
+    },
+    {
+      "id": "TB-2026-03-20-002",
+      "title": "Site Intelligence locality still conflicts with canonical address context",
+      "severity": "high"
+    },
+    {
+      "id": "TB-2026-03-20-003",
+      "title": "Documented/manual intake trigger control not visible in current production UI",
+      "severity": "medium"
+    },
+    {
+      "id": "TB-2026-03-20-004",
+      "title": "Manual-correction overwrite path remains unclosed from a validation standpoint because the rerun control was not available to test",
+      "severity": "medium"
+    }
+  ],
+  "governance": {
+    "status": "open",
+    "acceptanceCriteriaMet": true,
+    "notes": "Report includes field-by-field expected vs observed behavior and PASS/FAIL statuses. Browser tool degradation was explicitly recorded instead of repeatedly retrying the broken action layer."
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "defectId": "DEF-TB-002",
+  "validatedAt": "2026-03-20T11:12:00-07:00",
+  "environment": {
+    "site": "https://omnipoolsaz.com/",
+    "browser": "Chrome via Playwright CDP",
+    "scope": "DEF-TB-002 only",
+    "crmNote": "Lead: Maria Gonzalez\nPhone: 520-555-1234\nEmail: maria.gonzalez@email.com\nProject Address: 8880 N Camino Coronado, Tucson, AZ 85704\nNotes: existing pool needs resurfacing",
+    "manualAddress": "4828 W Condor Dr, Tucson, AZ 85742"
+  },
+  "bundle": {
+    "dom": "/assets/index-z3_wuSFN.js",
+    "html": "assets/index-z3_wuSFN.js",
+    "expectedDifferentFrom": [
+      "index-BvKGjMvX.js",
+      "index-z3_wuSFN.js"
+    ],
+    "changedFromKnownOld": false
+  },
+  "steps": [
+    {
+      "step": 1,
+      "name": "Open https://omnipoolsaz.com/ in browser",
+      "status": "PASS"
+    },
+    {
+      "step": 2,
+      "name": "Paste the same CRM note used this morning",
+      "status": "PASS"
+    },
+    {
+      "step": 3,
+      "name": "Verify auto-parse populates all fields correctly (baseline)",
+      "status": "PASS",
+      "actual": {
+        "clientName": "Maria Gonzalez",
+        "phone": "520-555-1234",
+        "email": "maria.gonzalez@email.com",
+        "address": "8880 N Camino Coronado",
+        "sqft": "1,052",
+        "year": "1953",
+        "acres": "3.54",
+        "lat": "32.368751",
+        "lng": "-110.984189",
+        "jurisdiction": "Select jurisdiction"
+      }
+    },
+    {
+      "step": 4,
+      "name": "Manually change Project Address to 4828 W Condor Dr, Tucson, AZ 85742",
+      "status": "PASS"
+    },
+    {
+      "step": 5,
+      "name": "Verify downstream propagation (sq ft, year built, lat/lng should update)",
+      "status": "PASS",
+      "actual": {
+        "address": "4828 W Condor Dr, Tucson, AZ 85742",
+        "sqft": "1,403",
+        "year": "1984",
+        "acres": "0.34",
+        "lat": "32.376255",
+        "lng": "-111.06802"
+      }
+    },
+    {
+      "step": 6,
+      "name": "Trigger CRM re-parse (re-paste same CRM note)",
+      "status": "PASS"
+    },
+    {
+      "step": 7,
+      "name": "Critical check: manual address correction is preserved",
+      "status": "PASS",
+      "actual": {
+        "addressAfterReparse": "4828 W Condor Dr, Tucson, AZ 85742"
+      }
+    },
+    {
+      "step": 8,
+      "name": "Verify non-manually-edited fields still update from parser",
+      "status": "PASS",
+      "actual": {
+        "clientName": "Maria Gonzalez",
+        "phone": "520-555-1234",
+        "email": "maria.gonzalez@email.com",
+        "sqft": "1,403",
+        "year": "1984",
+        "lat": "32.376255",
+        "lng": "-111.06802"
+      }
+    },
+    {
+      "step": 9,
+      "name": "Reload page — verify all data persists (Track A regression check)",
+      "status": "FAIL",
+      "actual": {
+        "clientName": "",
+        "phone": "",
+        "email": "",
+        "address": "",
+        "sqft": "",
+        "year": "",
+        "acres": "",
+        "lat": "",
+        "lng": "",
+        "jurisdiction": "Select jurisdiction"
+      },
+      "note": "Live page reload cleared the working state instead of restoring the corrected project."
+    }
+  ],
+  "observations": [
+    "DEF-TB-002 targeted behavior appears fixed on live production: manual Project Address correction survived CRM re-parse.",
+    "Track A persistence regression remains open on this live validation path: reload emptied the intake state.",
+    "Bundle hash did NOT change from known old production hash; live HTML still references index-z3_wuSFN.js."
+  ],
+  "overall": {
+    "defTb002CoreBehavior": "PASS",
+    "fullGateIncludingTrackARegressionAndBundleExpectation": "FAIL"
+  }
+}

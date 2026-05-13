@@ -1,0 +1,1420 @@
+{
+  "meta": {
+    "run_id": "SP001-RERUN-1772594032568",
+    "suite": "SP001-A/B/C Definitive Rerun",
+    "agent": "empiricus",
+    "purpose": "Resolve conflicting root cause explanations and establish ground truth",
+    "run_at": "2026-03-04T03:13:52.976Z",
+    "environments": [
+      "PROD (3002)",
+      "STAGING (3003)"
+    ],
+    "total_tests": 28,
+    "passed": 20,
+    "failed": 8,
+    "payload_nesting_gaps": [
+      "A4-nested",
+      "A5-nested",
+      "B3-nested",
+      "B7-nested",
+      "A4-nested",
+      "A5-nested",
+      "B3-nested",
+      "B7-nested"
+    ]
+  },
+  "by_environment": {
+    "PROD": {
+      "pass": 10,
+      "fail": 4,
+      "total": 14,
+      "tests": [
+        {
+          "env": "PROD",
+          "scenario": "client-supplied event_id (top-level)",
+          "group": "SP001-A",
+          "test_id": "A1",
+          "field_placement": "top-level",
+          "expected_status": 423,
+          "actual_status": 423,
+          "actual_body": {
+            "status": "blocked",
+            "reason": "authority_block",
+            "ledger_reachable": true,
+            "signals_emitted": [
+              {
+                "deduped": true,
+                "event_id": "01KJTN0STTKW0BPHTANSS61TEQ",
+                "created_at_utc": "2026-03-03T20:07:51.386Z",
+                "signal_type": "authority_drift",
+                "dedupe_key": "b205394b70cae534c5d6b6b5b281b98eb7622d2848d0188b5acc54ed780eeb94",
+                "recovery_id": "signal:authority_drift:b205394b70cae534c5d6b6b5b281b98eb7622d2848d0188b5acc54ed780eeb94"
+              }
+            ]
+          },
+          "pass": true,
+          "timestamp": "2026-03-04T03:13:52.646Z"
+        },
+        {
+          "env": "PROD",
+          "scenario": "client-supplied created_at_utc (top-level)",
+          "group": "SP001-A",
+          "test_id": "A2",
+          "field_placement": "top-level",
+          "expected_status": 423,
+          "actual_status": 423,
+          "actual_body": {
+            "status": "blocked",
+            "reason": "authority_block",
+            "ledger_reachable": true,
+            "signals_emitted": [
+              {
+                "deduped": true,
+                "event_id": "01KJTN0STTKW0BPHTANSS61TEQ",
+                "created_at_utc": "2026-03-03T20:07:51.386Z",
+                "signal_type": "authority_drift",
+                "dedupe_key": "b205394b70cae534c5d6b6b5b281b98eb7622d2848d0188b5acc54ed780eeb94",
+                "recovery_id": "signal:authority_drift:b205394b70cae534c5d6b6b5b281b98eb7622d2848d0188b5acc54ed780eeb94"
+              }
+            ]
+          },
+          "pass": true,
+          "timestamp": "2026-03-04T03:13:52.655Z"
+        },
+        {
+          "env": "PROD",
+          "scenario": "client-supplied timestamp (top-level)",
+          "group": "SP001-A",
+          "test_id": "A3",
+          "field_placement": "top-level",
+          "expected_status": 423,
+          "actual_status": 423,
+          "actual_body": {
+            "status": "blocked",
+            "reason": "authority_block",
+            "ledger_reachable": true,
+            "signals_emitted": [
+              {
+                "deduped": true,
+                "event_id": "01KJTN0STTKW0BPHTANSS61TEQ",
+                "created_at_utc": "2026-03-03T20:07:51.386Z",
+                "signal_type": "authority_drift",
+                "dedupe_key": "b205394b70cae534c5d6b6b5b281b98eb7622d2848d0188b5acc54ed780eeb94",
+                "recovery_id": "signal:authority_drift:b205394b70cae534c5d6b6b5b281b98eb7622d2848d0188b5acc54ed780eeb94"
+              }
+            ]
+          },
+          "pass": true,
+          "timestamp": "2026-03-04T03:13:52.664Z"
+        },
+        {
+          "env": "PROD",
+          "scenario": "client-supplied event_id (payload-nested)",
+          "group": "SP001-A",
+          "test_id": "A4-nested",
+          "field_placement": "payload-nested",
+          "expected_status": 423,
+          "actual_status": 201,
+          "actual_body": {
+            "status": "logged",
+            "event_id": "01KJVDCXHW2QKM1C7EZRKXQW6A",
+            "event_slug": "empiricus.enforcement_test.20260304T031354236Z",
+            "event_type": "enforcement_test",
+            "recovery_id": null,
+            "created_at_utc": "2026-03-04T03:13:54.236Z",
+            "compliance": {
+              "signals_emitted": []
+            }
+          },
+          "pass": false,
+          "timestamp": "2026-03-04T03:13:52.675Z"
+        },
+        {
+          "env": "PROD",
+          "scenario": "client-supplied timestamp+created_at (payload-nested)",
+          "group": "SP001-A",
+          "test_id": "A5-nested",
+          "field_placement": "payload-nested",
+          "expected_status": 423,
+          "actual_status": 201,
+          "actual_body": {
+            "status": "logged",
+            "event_id": "01KJVDCXJ76AWX8B3QBG4FGXW7",
+            "event_slug": "empiricus.enforcement_test.20260304T031354248Z",
+            "event_type": "enforcement_test",
+            "recovery_id": null,
+            "created_at_utc": "2026-03-04T03:13:54.247Z",
+            "compliance": {
+              "signals_emitted": []
+            }
+          },
+          "pass": false,
+          "timestamp": "2026-03-04T03:13:52.686Z"
+        },
+        {
+          "env": "PROD",
+          "scenario": "fake referenced_event_id (top-level)",
+          "group": "SP001-B",
+          "test_id": "B1",
+          "field_placement": "top-level",
+          "expected_status": 423,
+          "actual_status": 423,
+          "actual_body": {
+            "status": "blocked",
+            "reason": "pointer_block",
+            "ledger_reachable": true,
+            "signals_emitted": [
+              {
+                "deduped": true,
+                "event_id": "01KJTN0SW1TW1KCN2CJZC7H88C",
+                "created_at_utc": "2026-03-03T20:07:51.425Z",
+                "signal_type": "invalid_pointer_reference",
+                "dedupe_key": "e2385d08ac659d08592cdf17e36eefe73d12ecb5012cc7eece628d6dbd06d28c",
+                "recovery_id": "signal:invalid_pointer_reference:e2385d08ac659d08592cdf17e36eefe73d12ecb5012cc7eece628d6dbd06d28c"
+              }
+            ]
+          },
+          "pass": true,
+          "timestamp": "2026-03-04T03:13:52.694Z"
+        },
+        {
+          "env": "PROD",
+          "scenario": "fake referenced_handoff_id (top-level)",
+          "group": "SP001-B",
+          "test_id": "B2",
+          "field_placement": "top-level",
+          "expected_status": 423,
+          "actual_status": 423,
+          "actual_body": {
+            "status": "blocked",
+            "reason": "pointer_block",
+            "ledger_reachable": true,
+            "signals_emitted": [
+              {
+                "deduped": true,
+                "event_id": "01KJTN0SW1TW1KCN2CJZC7H88C",
+                "created_at_utc": "2026-03-03T20:07:51.425Z",
+                "signal_type": "invalid_pointer_reference",
+                "dedupe_key": "e2385d08ac659d08592cdf17e36eefe73d12ecb5012cc7eece628d6dbd06d28c",
+                "recovery_id": "signal:invalid_pointer_reference:e2385d08ac659d08592cdf17e36eefe73d12ecb5012cc7eece628d6dbd06d28c"
+              }
+            ]
+          },
+          "pass": true,
+          "timestamp": "2026-03-04T03:13:52.703Z"
+        },
+        {
+          "env": "PROD",
+          "scenario": "fake referenced_event_id (payload-nested)",
+          "group": "SP001-B",
+          "test_id": "B3-nested",
+          "field_placement": "payload-nested",
+          "expected_status": 423,
+          "actual_status": 201,
+          "actual_body": {
+            "status": "logged",
+            "event_id": "01KJVDCXK6E613WPZKKWCH7DXK",
+            "event_slug": "empiricus.enforcement_test.20260304T031354278Z",
+            "event_type": "enforcement_test",
+            "recovery_id": null,
+            "created_at_utc": "2026-03-04T03:13:54.278Z",
+            "compliance": {
+              "signals_emitted": []
+            }
+          },
+          "pass": false,
+          "timestamp": "2026-03-04T03:13:52.717Z"
+        },
+        {
+          "env": "PROD",
+          "scenario": "\"P1 complete\" no pointer (top-level msg)",
+          "group": "SP001-B",
+          "test_id": "B4",
+          "field_placement": "top-level",
+          "expected_status": 423,
+          "actual_status": 423,
+          "actual_body": {
+            "status": "blocked",
+            "reason": "pointer_block",
+            "ledger_reachable": true,
+            "signals_emitted": [
+              {
+                "deduped": true,
+                "event_id": "01KJTN0SX2M9K69VTFWZHFW5GA",
+                "created_at_utc": "2026-03-03T20:07:51.458Z",
+                "signal_type": "contract_claim_without_proof",
+                "dedupe_key": "92fbf3195710a41ab1a486cc13f468926a26a27c551e57f4181e80a2d660de6c",
+                "recovery_id": "signal:contract_claim_without_proof:92fbf3195710a41ab1a486cc13f468926a26a27c551e57f4181e80a2d660de6c"
+              }
+            ]
+          },
+          "pass": true,
+          "timestamp": "2026-03-04T03:13:52.726Z"
+        },
+        {
+          "env": "PROD",
+          "scenario": "\"handoff delivered\" no pointer (top-level msg)",
+          "group": "SP001-B",
+          "test_id": "B5",
+          "field_placement": "top-level",
+          "expected_status": 423,
+          "actual_status": 423,
+          "actual_body": {
+            "status": "blocked",
+            "reason": "pointer_block",
+            "ledger_reachable": true,
+            "signals_emitted": [
+              {
+                "deduped": true,
+                "event_id": "01KJTN0SX2M9K69VTFWZHFW5GA",
+                "created_at_utc": "2026-03-03T20:07:51.458Z",
+                "signal_type": "contract_claim_without_proof",
+                "dedupe_key": "92fbf3195710a41ab1a486cc13f468926a26a27c551e57f4181e80a2d660de6c",
+                "recovery_id": "signal:contract_claim_without_proof:92fbf3195710a41ab1a486cc13f468926a26a27c551e57f4181e80a2d660de6c"
+              }
+            ]
+          },
+          "pass": true,
+          "timestamp": "2026-03-04T03:13:52.735Z"
+        },
+        {
+          "env": "PROD",
+          "scenario": "\"commit shipped\" no pointer (top-level msg)",
+          "group": "SP001-B",
+          "test_id": "B6",
+          "field_placement": "top-level",
+          "expected_status": 423,
+          "actual_status": 423,
+          "actual_body": {
+            "status": "blocked",
+            "reason": "pointer_block",
+            "ledger_reachable": true,
+            "signals_emitted": [
+              {
+                "deduped": true,
+                "event_id": "01KJTN0SX2M9K69VTFWZHFW5GA",
+                "created_at_utc": "2026-03-03T20:07:51.458Z",
+                "signal_type": "contract_claim_without_proof",
+                "dedupe_key": "92fbf3195710a41ab1a486cc13f468926a26a27c551e57f4181e80a2d660de6c",
+                "recovery_id": "signal:contract_claim_without_proof:92fbf3195710a41ab1a486cc13f468926a26a27c551e57f4181e80a2d660de6c"
+              }
+            ]
+          },
+          "pass": true,
+          "timestamp": "2026-03-04T03:13:52.745Z"
+        },
+        {
+          "env": "PROD",
+          "scenario": "\"P1 complete\" no pointer (payload-nested msg)",
+          "group": "SP001-B",
+          "test_id": "B7-nested",
+          "field_placement": "payload-nested",
+          "expected_status": 423,
+          "actual_status": 201,
+          "actual_body": {
+            "status": "logged",
+            "event_id": "01KJVDCXMEH2ZKXBH9NY97S2J8",
+            "event_slug": "empiricus.status_update.20260304T031354319Z",
+            "event_type": "status_update",
+            "recovery_id": null,
+            "created_at_utc": "2026-03-04T03:13:54.318Z",
+            "compliance": {
+              "signals_emitted": []
+            }
+          },
+          "pass": false,
+          "timestamp": "2026-03-04T03:13:52.757Z"
+        },
+        {
+          "env": "PROD",
+          "scenario": "valid P1 + valid pointer (CONTROL)",
+          "group": "SP001-B",
+          "test_id": "B8-ctrl",
+          "field_placement": "top-level",
+          "expected_status": 201,
+          "actual_status": 201,
+          "actual_body": {
+            "status": "logged",
+            "event_id": "01KJVDCXMV621MZ1RT8WSHG9W9",
+            "event_slug": "empiricus.status_update.20260304T031354331Z",
+            "event_type": "status_update",
+            "recovery_id": null,
+            "created_at_utc": "2026-03-04T03:13:54.331Z",
+            "compliance": {
+              "signals_emitted": []
+            }
+          },
+          "pass": true,
+          "timestamp": "2026-03-04T03:13:52.770Z"
+        },
+        {
+          "env": "PROD",
+          "scenario": "authority_drift under degraded header",
+          "group": "SP001-C",
+          "test_id": "C1",
+          "field_placement": "top-level",
+          "expected_status": 423,
+          "actual_status": 423,
+          "actual_body": {
+            "status": "blocked",
+            "reason": "authority_block",
+            "ledger_reachable": true,
+            "signals_emitted": [
+              {
+                "deduped": true,
+                "event_id": "01KJTN0STTKW0BPHTANSS61TEQ",
+                "created_at_utc": "2026-03-03T20:07:51.386Z",
+                "signal_type": "authority_drift",
+                "dedupe_key": "b205394b70cae534c5d6b6b5b281b98eb7622d2848d0188b5acc54ed780eeb94",
+                "recovery_id": "signal:authority_drift:b205394b70cae534c5d6b6b5b281b98eb7622d2848d0188b5acc54ed780eeb94"
+              }
+            ]
+          },
+          "pass": true,
+          "timestamp": "2026-03-04T03:13:52.778Z"
+        }
+      ]
+    },
+    "STAGING": {
+      "pass": 10,
+      "fail": 4,
+      "total": 14,
+      "tests": [
+        {
+          "env": "STAGING",
+          "scenario": "client-supplied event_id (top-level)",
+          "group": "SP001-A",
+          "test_id": "A1",
+          "field_placement": "top-level",
+          "expected_status": 423,
+          "actual_status": 423,
+          "actual_body": {
+            "status": "blocked",
+            "reason": "authority_block",
+            "ledger_reachable": true,
+            "signals_emitted": [
+              {
+                "deduped": true,
+                "event_id": "01KJV0FQBM9JJBKK50PMCJYCH8",
+                "created_at_utc": "2026-03-03T23:28:14.708Z",
+                "signal_type": "authority_drift",
+                "dedupe_key": "b205394b70cae534c5d6b6b5b281b98eb7622d2848d0188b5acc54ed780eeb94",
+                "recovery_id": "signal:authority_drift:b205394b70cae534c5d6b6b5b281b98eb7622d2848d0188b5acc54ed780eeb94"
+              }
+            ]
+          },
+          "pass": true,
+          "timestamp": "2026-03-04T03:13:52.841Z"
+        },
+        {
+          "env": "STAGING",
+          "scenario": "client-supplied created_at_utc (top-level)",
+          "group": "SP001-A",
+          "test_id": "A2",
+          "field_placement": "top-level",
+          "expected_status": 423,
+          "actual_status": 423,
+          "actual_body": {
+            "status": "blocked",
+            "reason": "authority_block",
+            "ledger_reachable": true,
+            "signals_emitted": [
+              {
+                "deduped": true,
+                "event_id": "01KJV0FQBM9JJBKK50PMCJYCH8",
+                "created_at_utc": "2026-03-03T23:28:14.708Z",
+                "signal_type": "authority_drift",
+                "dedupe_key": "b205394b70cae534c5d6b6b5b281b98eb7622d2848d0188b5acc54ed780eeb94",
+                "recovery_id": "signal:authority_drift:b205394b70cae534c5d6b6b5b281b98eb7622d2848d0188b5acc54ed780eeb94"
+              }
+            ]
+          },
+          "pass": true,
+          "timestamp": "2026-03-04T03:13:52.852Z"
+        },
+        {
+          "env": "STAGING",
+          "scenario": "client-supplied timestamp (top-level)",
+          "group": "SP001-A",
+          "test_id": "A3",
+          "field_placement": "top-level",
+          "expected_status": 423,
+          "actual_status": 423,
+          "actual_body": {
+            "status": "blocked",
+            "reason": "authority_block",
+            "ledger_reachable": true,
+            "signals_emitted": [
+              {
+                "deduped": true,
+                "event_id": "01KJV0FQBM9JJBKK50PMCJYCH8",
+                "created_at_utc": "2026-03-03T23:28:14.708Z",
+                "signal_type": "authority_drift",
+                "dedupe_key": "b205394b70cae534c5d6b6b5b281b98eb7622d2848d0188b5acc54ed780eeb94",
+                "recovery_id": "signal:authority_drift:b205394b70cae534c5d6b6b5b281b98eb7622d2848d0188b5acc54ed780eeb94"
+              }
+            ]
+          },
+          "pass": true,
+          "timestamp": "2026-03-04T03:13:52.861Z"
+        },
+        {
+          "env": "STAGING",
+          "scenario": "client-supplied event_id (payload-nested)",
+          "group": "SP001-A",
+          "test_id": "A4-nested",
+          "field_placement": "payload-nested",
+          "expected_status": 423,
+          "actual_status": 201,
+          "actual_body": {
+            "status": "logged",
+            "event_id": "01KJVDCXR1M3XJKYWWXPMP1R7R",
+            "event_slug": "empiricus.enforcement_test.20260304T031354433Z",
+            "event_type": "enforcement_test",
+            "recovery_id": null,
+            "created_at_utc": "2026-03-04T03:13:54.433Z",
+            "compliance": {
+              "signals_emitted": []
+            }
+          },
+          "pass": false,
+          "timestamp": "2026-03-04T03:13:52.872Z"
+        },
+        {
+          "env": "STAGING",
+          "scenario": "client-supplied timestamp+created_at (payload-nested)",
+          "group": "SP001-A",
+          "test_id": "A5-nested",
+          "field_placement": "payload-nested",
+          "expected_status": 423,
+          "actual_status": 201,
+          "actual_body": {
+            "status": "logged",
+            "event_id": "01KJVDCXRB568NA9VTGQJ57GBE",
+            "event_slug": "empiricus.enforcement_test.20260304T031354443Z",
+            "event_type": "enforcement_test",
+            "recovery_id": null,
+            "created_at_utc": "2026-03-04T03:13:54.443Z",
+            "compliance": {
+              "signals_emitted": []
+            }
+          },
+          "pass": false,
+          "timestamp": "2026-03-04T03:13:52.882Z"
+        },
+        {
+          "env": "STAGING",
+          "scenario": "fake referenced_event_id (top-level)",
+          "group": "SP001-B",
+          "test_id": "B1",
+          "field_placement": "top-level",
+          "expected_status": 423,
+          "actual_status": 423,
+          "actual_body": {
+            "status": "blocked",
+            "reason": "pointer_block",
+            "ledger_reachable": true,
+            "signals_emitted": [
+              {
+                "deduped": true,
+                "event_id": "01KJV1RHN04EQTB23TWHGGFXSA",
+                "created_at_utc": "2026-03-03T23:50:32.352Z",
+                "signal_type": "invalid_pointer_reference",
+                "dedupe_key": "e2385d08ac659d08592cdf17e36eefe73d12ecb5012cc7eece628d6dbd06d28c",
+                "recovery_id": "signal:invalid_pointer_reference:e2385d08ac659d08592cdf17e36eefe73d12ecb5012cc7eece628d6dbd06d28c"
+              }
+            ]
+          },
+          "pass": true,
+          "timestamp": "2026-03-04T03:13:52.891Z"
+        },
+        {
+          "env": "STAGING",
+          "scenario": "fake referenced_handoff_id (top-level)",
+          "group": "SP001-B",
+          "test_id": "B2",
+          "field_placement": "top-level",
+          "expected_status": 423,
+          "actual_status": 423,
+          "actual_body": {
+            "status": "blocked",
+            "reason": "pointer_block",
+            "ledger_reachable": true,
+            "signals_emitted": [
+              {
+                "deduped": true,
+                "event_id": "01KJV1RHN04EQTB23TWHGGFXSA",
+                "created_at_utc": "2026-03-03T23:50:32.352Z",
+                "signal_type": "invalid_pointer_reference",
+                "dedupe_key": "e2385d08ac659d08592cdf17e36eefe73d12ecb5012cc7eece628d6dbd06d28c",
+                "recovery_id": "signal:invalid_pointer_reference:e2385d08ac659d08592cdf17e36eefe73d12ecb5012cc7eece628d6dbd06d28c"
+              }
+            ]
+          },
+          "pass": true,
+          "timestamp": "2026-03-04T03:13:52.901Z"
+        },
+        {
+          "env": "STAGING",
+          "scenario": "fake referenced_event_id (payload-nested)",
+          "group": "SP001-B",
+          "test_id": "B3-nested",
+          "field_placement": "payload-nested",
+          "expected_status": 423,
+          "actual_status": 201,
+          "actual_body": {
+            "status": "logged",
+            "event_id": "01KJVDCXS9M9J83EYBJM2WD5TP",
+            "event_slug": "empiricus.enforcement_test.20260304T031354474Z",
+            "event_type": "enforcement_test",
+            "recovery_id": null,
+            "created_at_utc": "2026-03-04T03:13:54.473Z",
+            "compliance": {
+              "signals_emitted": []
+            }
+          },
+          "pass": false,
+          "timestamp": "2026-03-04T03:13:52.918Z"
+        },
+        {
+          "env": "STAGING",
+          "scenario": "\"P1 complete\" no pointer (top-level msg)",
+          "group": "SP001-B",
+          "test_id": "B4",
+          "field_placement": "top-level",
+          "expected_status": 423,
+          "actual_status": 423,
+          "actual_body": {
+            "status": "blocked",
+            "reason": "pointer_block",
+            "ledger_reachable": true,
+            "signals_emitted": [
+              {
+                "deduped": true,
+                "event_id": "01KJV1RHRWDP0YVE0Z82CDYBPK",
+                "created_at_utc": "2026-03-03T23:50:32.476Z",
+                "signal_type": "contract_claim_without_proof",
+                "dedupe_key": "92fbf3195710a41ab1a486cc13f468926a26a27c551e57f4181e80a2d660de6c",
+                "recovery_id": "signal:contract_claim_without_proof:92fbf3195710a41ab1a486cc13f468926a26a27c551e57f4181e80a2d660de6c"
+              }
+            ]
+          },
+          "pass": true,
+          "timestamp": "2026-03-04T03:13:52.927Z"
+        },
+        {
+          "env": "STAGING",
+          "scenario": "\"handoff delivered\" no pointer (top-level msg)",
+          "group": "SP001-B",
+          "test_id": "B5",
+          "field_placement": "top-level",
+          "expected_status": 423,
+          "actual_status": 423,
+          "actual_body": {
+            "status": "blocked",
+            "reason": "pointer_block",
+            "ledger_reachable": true,
+            "signals_emitted": [
+              {
+                "deduped": true,
+                "event_id": "01KJV1RHRWDP0YVE0Z82CDYBPK",
+                "created_at_utc": "2026-03-03T23:50:32.476Z",
+                "signal_type": "contract_claim_without_proof",
+                "dedupe_key": "92fbf3195710a41ab1a486cc13f468926a26a27c551e57f4181e80a2d660de6c",
+                "recovery_id": "signal:contract_claim_without_proof:92fbf3195710a41ab1a486cc13f468926a26a27c551e57f4181e80a2d660de6c"
+              }
+            ]
+          },
+          "pass": true,
+          "timestamp": "2026-03-04T03:13:52.935Z"
+        },
+        {
+          "env": "STAGING",
+          "scenario": "\"commit shipped\" no pointer (top-level msg)",
+          "group": "SP001-B",
+          "test_id": "B6",
+          "field_placement": "top-level",
+          "expected_status": 423,
+          "actual_status": 423,
+          "actual_body": {
+            "status": "blocked",
+            "reason": "pointer_block",
+            "ledger_reachable": true,
+            "signals_emitted": [
+              {
+                "deduped": true,
+                "event_id": "01KJV1RHRWDP0YVE0Z82CDYBPK",
+                "created_at_utc": "2026-03-03T23:50:32.476Z",
+                "signal_type": "contract_claim_without_proof",
+                "dedupe_key": "92fbf3195710a41ab1a486cc13f468926a26a27c551e57f4181e80a2d660de6c",
+                "recovery_id": "signal:contract_claim_without_proof:92fbf3195710a41ab1a486cc13f468926a26a27c551e57f4181e80a2d660de6c"
+              }
+            ]
+          },
+          "pass": true,
+          "timestamp": "2026-03-04T03:13:52.943Z"
+        },
+        {
+          "env": "STAGING",
+          "scenario": "\"P1 complete\" no pointer (payload-nested msg)",
+          "group": "SP001-B",
+          "test_id": "B7-nested",
+          "field_placement": "payload-nested",
+          "expected_status": 423,
+          "actual_status": 201,
+          "actual_body": {
+            "status": "logged",
+            "event_id": "01KJVDCXTKJ7TJ051AE2AFMYBX",
+            "event_slug": "empiricus.status_update.20260304T031354515Z",
+            "event_type": "status_update",
+            "recovery_id": null,
+            "created_at_utc": "2026-03-04T03:13:54.515Z",
+            "compliance": {
+              "signals_emitted": []
+            }
+          },
+          "pass": false,
+          "timestamp": "2026-03-04T03:13:52.953Z"
+        },
+        {
+          "env": "STAGING",
+          "scenario": "valid P1 + valid pointer (CONTROL)",
+          "group": "SP001-B",
+          "test_id": "B8-ctrl",
+          "field_placement": "top-level",
+          "expected_status": 201,
+          "actual_status": 201,
+          "actual_body": {
+            "status": "logged",
+            "event_id": "01KJVDCXTZ8MCX4J094F80PJ23",
+            "event_slug": "empiricus.status_update.20260304T031354527Z",
+            "event_type": "status_update",
+            "recovery_id": null,
+            "created_at_utc": "2026-03-04T03:13:54.527Z",
+            "compliance": {
+              "signals_emitted": []
+            }
+          },
+          "pass": true,
+          "timestamp": "2026-03-04T03:13:52.966Z"
+        },
+        {
+          "env": "STAGING",
+          "scenario": "authority_drift under degraded header",
+          "group": "SP001-C",
+          "test_id": "C1",
+          "field_placement": "top-level",
+          "expected_status": 423,
+          "actual_status": 423,
+          "actual_body": {
+            "status": "blocked",
+            "reason": "authority_block",
+            "ledger_reachable": true,
+            "signals_emitted": [
+              {
+                "deduped": true,
+                "event_id": "01KJV0FQBM9JJBKK50PMCJYCH8",
+                "created_at_utc": "2026-03-03T23:28:14.708Z",
+                "signal_type": "authority_drift",
+                "dedupe_key": "b205394b70cae534c5d6b6b5b281b98eb7622d2848d0188b5acc54ed780eeb94",
+                "recovery_id": "signal:authority_drift:b205394b70cae534c5d6b6b5b281b98eb7622d2848d0188b5acc54ed780eeb94"
+              }
+            ]
+          },
+          "pass": true,
+          "timestamp": "2026-03-04T03:13:52.975Z"
+        }
+      ]
+    }
+  },
+  "all_results": [
+    {
+      "env": "PROD",
+      "scenario": "client-supplied event_id (top-level)",
+      "group": "SP001-A",
+      "test_id": "A1",
+      "field_placement": "top-level",
+      "expected_status": 423,
+      "actual_status": 423,
+      "actual_body": {
+        "status": "blocked",
+        "reason": "authority_block",
+        "ledger_reachable": true,
+        "signals_emitted": [
+          {
+            "deduped": true,
+            "event_id": "01KJTN0STTKW0BPHTANSS61TEQ",
+            "created_at_utc": "2026-03-03T20:07:51.386Z",
+            "signal_type": "authority_drift",
+            "dedupe_key": "b205394b70cae534c5d6b6b5b281b98eb7622d2848d0188b5acc54ed780eeb94",
+            "recovery_id": "signal:authority_drift:b205394b70cae534c5d6b6b5b281b98eb7622d2848d0188b5acc54ed780eeb94"
+          }
+        ]
+      },
+      "pass": true,
+      "timestamp": "2026-03-04T03:13:52.646Z"
+    },
+    {
+      "env": "PROD",
+      "scenario": "client-supplied created_at_utc (top-level)",
+      "group": "SP001-A",
+      "test_id": "A2",
+      "field_placement": "top-level",
+      "expected_status": 423,
+      "actual_status": 423,
+      "actual_body": {
+        "status": "blocked",
+        "reason": "authority_block",
+        "ledger_reachable": true,
+        "signals_emitted": [
+          {
+            "deduped": true,
+            "event_id": "01KJTN0STTKW0BPHTANSS61TEQ",
+            "created_at_utc": "2026-03-03T20:07:51.386Z",
+            "signal_type": "authority_drift",
+            "dedupe_key": "b205394b70cae534c5d6b6b5b281b98eb7622d2848d0188b5acc54ed780eeb94",
+            "recovery_id": "signal:authority_drift:b205394b70cae534c5d6b6b5b281b98eb7622d2848d0188b5acc54ed780eeb94"
+          }
+        ]
+      },
+      "pass": true,
+      "timestamp": "2026-03-04T03:13:52.655Z"
+    },
+    {
+      "env": "PROD",
+      "scenario": "client-supplied timestamp (top-level)",
+      "group": "SP001-A",
+      "test_id": "A3",
+      "field_placement": "top-level",
+      "expected_status": 423,
+      "actual_status": 423,
+      "actual_body": {
+        "status": "blocked",
+        "reason": "authority_block",
+        "ledger_reachable": true,
+        "signals_emitted": [
+          {
+            "deduped": true,
+            "event_id": "01KJTN0STTKW0BPHTANSS61TEQ",
+            "created_at_utc": "2026-03-03T20:07:51.386Z",
+            "signal_type": "authority_drift",
+            "dedupe_key": "b205394b70cae534c5d6b6b5b281b98eb7622d2848d0188b5acc54ed780eeb94",
+            "recovery_id": "signal:authority_drift:b205394b70cae534c5d6b6b5b281b98eb7622d2848d0188b5acc54ed780eeb94"
+          }
+        ]
+      },
+      "pass": true,
+      "timestamp": "2026-03-04T03:13:52.664Z"
+    },
+    {
+      "env": "PROD",
+      "scenario": "client-supplied event_id (payload-nested)",
+      "group": "SP001-A",
+      "test_id": "A4-nested",
+      "field_placement": "payload-nested",
+      "expected_status": 423,
+      "actual_status": 201,
+      "actual_body": {
+        "status": "logged",
+        "event_id": "01KJVDCXHW2QKM1C7EZRKXQW6A",
+        "event_slug": "empiricus.enforcement_test.20260304T031354236Z",
+        "event_type": "enforcement_test",
+        "recovery_id": null,
+        "created_at_utc": "2026-03-04T03:13:54.236Z",
+        "compliance": {
+          "signals_emitted": []
+        }
+      },
+      "pass": false,
+      "timestamp": "2026-03-04T03:13:52.675Z"
+    },
+    {
+      "env": "PROD",
+      "scenario": "client-supplied timestamp+created_at (payload-nested)",
+      "group": "SP001-A",
+      "test_id": "A5-nested",
+      "field_placement": "payload-nested",
+      "expected_status": 423,
+      "actual_status": 201,
+      "actual_body": {
+        "status": "logged",
+        "event_id": "01KJVDCXJ76AWX8B3QBG4FGXW7",
+        "event_slug": "empiricus.enforcement_test.20260304T031354248Z",
+        "event_type": "enforcement_test",
+        "recovery_id": null,
+        "created_at_utc": "2026-03-04T03:13:54.247Z",
+        "compliance": {
+          "signals_emitted": []
+        }
+      },
+      "pass": false,
+      "timestamp": "2026-03-04T03:13:52.686Z"
+    },
+    {
+      "env": "PROD",
+      "scenario": "fake referenced_event_id (top-level)",
+      "group": "SP001-B",
+      "test_id": "B1",
+      "field_placement": "top-level",
+      "expected_status": 423,
+      "actual_status": 423,
+      "actual_body": {
+        "status": "blocked",
+        "reason": "pointer_block",
+        "ledger_reachable": true,
+        "signals_emitted": [
+          {
+            "deduped": true,
+            "event_id": "01KJTN0SW1TW1KCN2CJZC7H88C",
+            "created_at_utc": "2026-03-03T20:07:51.425Z",
+            "signal_type": "invalid_pointer_reference",
+            "dedupe_key": "e2385d08ac659d08592cdf17e36eefe73d12ecb5012cc7eece628d6dbd06d28c",
+            "recovery_id": "signal:invalid_pointer_reference:e2385d08ac659d08592cdf17e36eefe73d12ecb5012cc7eece628d6dbd06d28c"
+          }
+        ]
+      },
+      "pass": true,
+      "timestamp": "2026-03-04T03:13:52.694Z"
+    },
+    {
+      "env": "PROD",
+      "scenario": "fake referenced_handoff_id (top-level)",
+      "group": "SP001-B",
+      "test_id": "B2",
+      "field_placement": "top-level",
+      "expected_status": 423,
+      "actual_status": 423,
+      "actual_body": {
+        "status": "blocked",
+        "reason": "pointer_block",
+        "ledger_reachable": true,
+        "signals_emitted": [
+          {
+            "deduped": true,
+            "event_id": "01KJTN0SW1TW1KCN2CJZC7H88C",
+            "created_at_utc": "2026-03-03T20:07:51.425Z",
+            "signal_type": "invalid_pointer_reference",
+            "dedupe_key": "e2385d08ac659d08592cdf17e36eefe73d12ecb5012cc7eece628d6dbd06d28c",
+            "recovery_id": "signal:invalid_pointer_reference:e2385d08ac659d08592cdf17e36eefe73d12ecb5012cc7eece628d6dbd06d28c"
+          }
+        ]
+      },
+      "pass": true,
+      "timestamp": "2026-03-04T03:13:52.703Z"
+    },
+    {
+      "env": "PROD",
+      "scenario": "fake referenced_event_id (payload-nested)",
+      "group": "SP001-B",
+      "test_id": "B3-nested",
+      "field_placement": "payload-nested",
+      "expected_status": 423,
+      "actual_status": 201,
+      "actual_body": {
+        "status": "logged",
+        "event_id": "01KJVDCXK6E613WPZKKWCH7DXK",
+        "event_slug": "empiricus.enforcement_test.20260304T031354278Z",
+        "event_type": "enforcement_test",
+        "recovery_id": null,
+        "created_at_utc": "2026-03-04T03:13:54.278Z",
+        "compliance": {
+          "signals_emitted": []
+        }
+      },
+      "pass": false,
+      "timestamp": "2026-03-04T03:13:52.717Z"
+    },
+    {
+      "env": "PROD",
+      "scenario": "\"P1 complete\" no pointer (top-level msg)",
+      "group": "SP001-B",
+      "test_id": "B4",
+      "field_placement": "top-level",
+      "expected_status": 423,
+      "actual_status": 423,
+      "actual_body": {
+        "status": "blocked",
+        "reason": "pointer_block",
+        "ledger_reachable": true,
+        "signals_emitted": [
+          {
+            "deduped": true,
+            "event_id": "01KJTN0SX2M9K69VTFWZHFW5GA",
+            "created_at_utc": "2026-03-03T20:07:51.458Z",
+            "signal_type": "contract_claim_without_proof",
+            "dedupe_key": "92fbf3195710a41ab1a486cc13f468926a26a27c551e57f4181e80a2d660de6c",
+            "recovery_id": "signal:contract_claim_without_proof:92fbf3195710a41ab1a486cc13f468926a26a27c551e57f4181e80a2d660de6c"
+          }
+        ]
+      },
+      "pass": true,
+      "timestamp": "2026-03-04T03:13:52.726Z"
+    },
+    {
+      "env": "PROD",
+      "scenario": "\"handoff delivered\" no pointer (top-level msg)",
+      "group": "SP001-B",
+      "test_id": "B5",
+      "field_placement": "top-level",
+      "expected_status": 423,
+      "actual_status": 423,
+      "actual_body": {
+        "status": "blocked",
+        "reason": "pointer_block",
+        "ledger_reachable": true,
+        "signals_emitted": [
+          {
+            "deduped": true,
+            "event_id": "01KJTN0SX2M9K69VTFWZHFW5GA",
+            "created_at_utc": "2026-03-03T20:07:51.458Z",
+            "signal_type": "contract_claim_without_proof",
+            "dedupe_key": "92fbf3195710a41ab1a486cc13f468926a26a27c551e57f4181e80a2d660de6c",
+            "recovery_id": "signal:contract_claim_without_proof:92fbf3195710a41ab1a486cc13f468926a26a27c551e57f4181e80a2d660de6c"
+          }
+        ]
+      },
+      "pass": true,
+      "timestamp": "2026-03-04T03:13:52.735Z"
+    },
+    {
+      "env": "PROD",
+      "scenario": "\"commit shipped\" no pointer (top-level msg)",
+      "group": "SP001-B",
+      "test_id": "B6",
+      "field_placement": "top-level",
+      "expected_status": 423,
+      "actual_status": 423,
+      "actual_body": {
+        "status": "blocked",
+        "reason": "pointer_block",
+        "ledger_reachable": true,
+        "signals_emitted": [
+          {
+            "deduped": true,
+            "event_id": "01KJTN0SX2M9K69VTFWZHFW5GA",
+            "created_at_utc": "2026-03-03T20:07:51.458Z",
+            "signal_type": "contract_claim_without_proof",
+            "dedupe_key": "92fbf3195710a41ab1a486cc13f468926a26a27c551e57f4181e80a2d660de6c",
+            "recovery_id": "signal:contract_claim_without_proof:92fbf3195710a41ab1a486cc13f468926a26a27c551e57f4181e80a2d660de6c"
+          }
+        ]
+      },
+      "pass": true,
+      "timestamp": "2026-03-04T03:13:52.745Z"
+    },
+    {
+      "env": "PROD",
+      "scenario": "\"P1 complete\" no pointer (payload-nested msg)",
+      "group": "SP001-B",
+      "test_id": "B7-nested",
+      "field_placement": "payload-nested",
+      "expected_status": 423,
+      "actual_status": 201,
+      "actual_body": {
+        "status": "logged",
+        "event_id": "01KJVDCXMEH2ZKXBH9NY97S2J8",
+        "event_slug": "empiricus.status_update.20260304T031354319Z",
+        "event_type": "status_update",
+        "recovery_id": null,
+        "created_at_utc": "2026-03-04T03:13:54.318Z",
+        "compliance": {
+          "signals_emitted": []
+        }
+      },
+      "pass": false,
+      "timestamp": "2026-03-04T03:13:52.757Z"
+    },
+    {
+      "env": "PROD",
+      "scenario": "valid P1 + valid pointer (CONTROL)",
+      "group": "SP001-B",
+      "test_id": "B8-ctrl",
+      "field_placement": "top-level",
+      "expected_status": 201,
+      "actual_status": 201,
+      "actual_body": {
+        "status": "logged",
+        "event_id": "01KJVDCXMV621MZ1RT8WSHG9W9",
+        "event_slug": "empiricus.status_update.20260304T031354331Z",
+        "event_type": "status_update",
+        "recovery_id": null,
+        "created_at_utc": "2026-03-04T03:13:54.331Z",
+        "compliance": {
+          "signals_emitted": []
+        }
+      },
+      "pass": true,
+      "timestamp": "2026-03-04T03:13:52.770Z"
+    },
+    {
+      "env": "PROD",
+      "scenario": "authority_drift under degraded header",
+      "group": "SP001-C",
+      "test_id": "C1",
+      "field_placement": "top-level",
+      "expected_status": 423,
+      "actual_status": 423,
+      "actual_body": {
+        "status": "blocked",
+        "reason": "authority_block",
+        "ledger_reachable": true,
+        "signals_emitted": [
+          {
+            "deduped": true,
+            "event_id": "01KJTN0STTKW0BPHTANSS61TEQ",
+            "created_at_utc": "2026-03-03T20:07:51.386Z",
+            "signal_type": "authority_drift",
+            "dedupe_key": "b205394b70cae534c5d6b6b5b281b98eb7622d2848d0188b5acc54ed780eeb94",
+            "recovery_id": "signal:authority_drift:b205394b70cae534c5d6b6b5b281b98eb7622d2848d0188b5acc54ed780eeb94"
+          }
+        ]
+      },
+      "pass": true,
+      "timestamp": "2026-03-04T03:13:52.778Z"
+    },
+    {
+      "env": "STAGING",
+      "scenario": "client-supplied event_id (top-level)",
+      "group": "SP001-A",
+      "test_id": "A1",
+      "field_placement": "top-level",
+      "expected_status": 423,
+      "actual_status": 423,
+      "actual_body": {
+        "status": "blocked",
+        "reason": "authority_block",
+        "ledger_reachable": true,
+        "signals_emitted": [
+          {
+            "deduped": true,
+            "event_id": "01KJV0FQBM9JJBKK50PMCJYCH8",
+            "created_at_utc": "2026-03-03T23:28:14.708Z",
+            "signal_type": "authority_drift",
+            "dedupe_key": "b205394b70cae534c5d6b6b5b281b98eb7622d2848d0188b5acc54ed780eeb94",
+            "recovery_id": "signal:authority_drift:b205394b70cae534c5d6b6b5b281b98eb7622d2848d0188b5acc54ed780eeb94"
+          }
+        ]
+      },
+      "pass": true,
+      "timestamp": "2026-03-04T03:13:52.841Z"
+    },
+    {
+      "env": "STAGING",
+      "scenario": "client-supplied created_at_utc (top-level)",
+      "group": "SP001-A",
+      "test_id": "A2",
+      "field_placement": "top-level",
+      "expected_status": 423,
+      "actual_status": 423,
+      "actual_body": {
+        "status": "blocked",
+        "reason": "authority_block",
+        "ledger_reachable": true,
+        "signals_emitted": [
+          {
+            "deduped": true,
+            "event_id": "01KJV0FQBM9JJBKK50PMCJYCH8",
+            "created_at_utc": "2026-03-03T23:28:14.708Z",
+            "signal_type": "authority_drift",
+            "dedupe_key": "b205394b70cae534c5d6b6b5b281b98eb7622d2848d0188b5acc54ed780eeb94",
+            "recovery_id": "signal:authority_drift:b205394b70cae534c5d6b6b5b281b98eb7622d2848d0188b5acc54ed780eeb94"
+          }
+        ]
+      },
+      "pass": true,
+      "timestamp": "2026-03-04T03:13:52.852Z"
+    },
+    {
+      "env": "STAGING",
+      "scenario": "client-supplied timestamp (top-level)",
+      "group": "SP001-A",
+      "test_id": "A3",
+      "field_placement": "top-level",
+      "expected_status": 423,
+      "actual_status": 423,
+      "actual_body": {
+        "status": "blocked",
+        "reason": "authority_block",
+        "ledger_reachable": true,
+        "signals_emitted": [
+          {
+            "deduped": true,
+            "event_id": "01KJV0FQBM9JJBKK50PMCJYCH8",
+            "created_at_utc": "2026-03-03T23:28:14.708Z",
+            "signal_type": "authority_drift",
+            "dedupe_key": "b205394b70cae534c5d6b6b5b281b98eb7622d2848d0188b5acc54ed780eeb94",
+            "recovery_id": "signal:authority_drift:b205394b70cae534c5d6b6b5b281b98eb7622d2848d0188b5acc54ed780eeb94"
+          }
+        ]
+      },
+      "pass": true,
+      "timestamp": "2026-03-04T03:13:52.861Z"
+    },
+    {
+      "env": "STAGING",
+      "scenario": "client-supplied event_id (payload-nested)",
+      "group": "SP001-A",
+      "test_id": "A4-nested",
+      "field_placement": "payload-nested",
+      "expected_status": 423,
+      "actual_status": 201,
+      "actual_body": {
+        "status": "logged",
+        "event_id": "01KJVDCXR1M3XJKYWWXPMP1R7R",
+        "event_slug": "empiricus.enforcement_test.20260304T031354433Z",
+        "event_type": "enforcement_test",
+        "recovery_id": null,
+        "created_at_utc": "2026-03-04T03:13:54.433Z",
+        "compliance": {
+          "signals_emitted": []
+        }
+      },
+      "pass": false,
+      "timestamp": "2026-03-04T03:13:52.872Z"
+    },
+    {
+      "env": "STAGING",
+      "scenario": "client-supplied timestamp+created_at (payload-nested)",
+      "group": "SP001-A",
+      "test_id": "A5-nested",
+      "field_placement": "payload-nested",
+      "expected_status": 423,
+      "actual_status": 201,
+      "actual_body": {
+        "status": "logged",
+        "event_id": "01KJVDCXRB568NA9VTGQJ57GBE",
+        "event_slug": "empiricus.enforcement_test.20260304T031354443Z",
+        "event_type": "enforcement_test",
+        "recovery_id": null,
+        "created_at_utc": "2026-03-04T03:13:54.443Z",
+        "compliance": {
+          "signals_emitted": []
+        }
+      },
+      "pass": false,
+      "timestamp": "2026-03-04T03:13:52.882Z"
+    },
+    {
+      "env": "STAGING",
+      "scenario": "fake referenced_event_id (top-level)",
+      "group": "SP001-B",
+      "test_id": "B1",
+      "field_placement": "top-level",
+      "expected_status": 423,
+      "actual_status": 423,
+      "actual_body": {
+        "status": "blocked",
+        "reason": "pointer_block",
+        "ledger_reachable": true,
+        "signals_emitted": [
+          {
+            "deduped": true,
+            "event_id": "01KJV1RHN04EQTB23TWHGGFXSA",
+            "created_at_utc": "2026-03-03T23:50:32.352Z",
+            "signal_type": "invalid_pointer_reference",
+            "dedupe_key": "e2385d08ac659d08592cdf17e36eefe73d12ecb5012cc7eece628d6dbd06d28c",
+            "recovery_id": "signal:invalid_pointer_reference:e2385d08ac659d08592cdf17e36eefe73d12ecb5012cc7eece628d6dbd06d28c"
+          }
+        ]
+      },
+      "pass": true,
+      "timestamp": "2026-03-04T03:13:52.891Z"
+    },
+    {
+      "env": "STAGING",
+      "scenario": "fake referenced_handoff_id (top-level)",
+      "group": "SP001-B",
+      "test_id": "B2",
+      "field_placement": "top-level",
+      "expected_status": 423,
+      "actual_status": 423,
+      "actual_body": {
+        "status": "blocked",
+        "reason": "pointer_block",
+        "ledger_reachable": true,
+        "signals_emitted": [
+          {
+            "deduped": true,
+            "event_id": "01KJV1RHN04EQTB23TWHGGFXSA",
+            "created_at_utc": "2026-03-03T23:50:32.352Z",
+            "signal_type": "invalid_pointer_reference",
+            "dedupe_key": "e2385d08ac659d08592cdf17e36eefe73d12ecb5012cc7eece628d6dbd06d28c",
+            "recovery_id": "signal:invalid_pointer_reference:e2385d08ac659d08592cdf17e36eefe73d12ecb5012cc7eece628d6dbd06d28c"
+          }
+        ]
+      },
+      "pass": true,
+      "timestamp": "2026-03-04T03:13:52.901Z"
+    },
+    {
+      "env": "STAGING",
+      "scenario": "fake referenced_event_id (payload-nested)",
+      "group": "SP001-B",
+      "test_id": "B3-nested",
+      "field_placement": "payload-nested",
+      "expected_status": 423,
+      "actual_status": 201,
+      "actual_body": {
+        "status": "logged",
+        "event_id": "01KJVDCXS9M9J83EYBJM2WD5TP",
+        "event_slug": "empiricus.enforcement_test.20260304T031354474Z",
+        "event_type": "enforcement_test",
+        "recovery_id": null,
+        "created_at_utc": "2026-03-04T03:13:54.473Z",
+        "compliance": {
+          "signals_emitted": []
+        }
+      },
+      "pass": false,
+      "timestamp": "2026-03-04T03:13:52.918Z"
+    },
+    {
+      "env": "STAGING",
+      "scenario": "\"P1 complete\" no pointer (top-level msg)",
+      "group": "SP001-B",
+      "test_id": "B4",
+      "field_placement": "top-level",
+      "expected_status": 423,
+      "actual_status": 423,
+      "actual_body": {
+        "status": "blocked",
+        "reason": "pointer_block",
+        "ledger_reachable": true,
+        "signals_emitted": [
+          {
+            "deduped": true,
+            "event_id": "01KJV1RHRWDP0YVE0Z82CDYBPK",
+            "created_at_utc": "2026-03-03T23:50:32.476Z",
+            "signal_type": "contract_claim_without_proof",
+            "dedupe_key": "92fbf3195710a41ab1a486cc13f468926a26a27c551e57f4181e80a2d660de6c",
+            "recovery_id": "signal:contract_claim_without_proof:92fbf3195710a41ab1a486cc13f468926a26a27c551e57f4181e80a2d660de6c"
+          }
+        ]
+      },
+      "pass": true,
+      "timestamp": "2026-03-04T03:13:52.927Z"
+    },
+    {
+      "env": "STAGING",
+      "scenario": "\"handoff delivered\" no pointer (top-level msg)",
+      "group": "SP001-B",
+      "test_id": "B5",
+      "field_placement": "top-level",
+      "expected_status": 423,
+      "actual_status": 423,
+      "actual_body": {
+        "status": "blocked",
+        "reason": "pointer_block",
+        "ledger_reachable": true,
+        "signals_emitted": [
+          {
+            "deduped": true,
+            "event_id": "01KJV1RHRWDP0YVE0Z82CDYBPK",
+            "created_at_utc": "2026-03-03T23:50:32.476Z",
+            "signal_type": "contract_claim_without_proof",
+            "dedupe_key": "92fbf3195710a41ab1a486cc13f468926a26a27c551e57f4181e80a2d660de6c",
+            "recovery_id": "signal:contract_claim_without_proof:92fbf3195710a41ab1a486cc13f468926a26a27c551e57f4181e80a2d660de6c"
+          }
+        ]
+      },
+      "pass": true,
+      "timestamp": "2026-03-04T03:13:52.935Z"
+    },
+    {
+      "env": "STAGING",
+      "scenario": "\"commit shipped\" no pointer (top-level msg)",
+      "group": "SP001-B",
+      "test_id": "B6",
+      "field_placement": "top-level",
+      "expected_status": 423,
+      "actual_status": 423,
+      "actual_body": {
+        "status": "blocked",
+        "reason": "pointer_block",
+        "ledger_reachable": true,
+        "signals_emitted": [
+          {
+            "deduped": true,
+            "event_id": "01KJV1RHRWDP0YVE0Z82CDYBPK",
+            "created_at_utc": "2026-03-03T23:50:32.476Z",
+            "signal_type": "contract_claim_without_proof",
+            "dedupe_key": "92fbf3195710a41ab1a486cc13f468926a26a27c551e57f4181e80a2d660de6c",
+            "recovery_id": "signal:contract_claim_without_proof:92fbf3195710a41ab1a486cc13f468926a26a27c551e57f4181e80a2d660de6c"
+          }
+        ]
+      },
+      "pass": true,
+      "timestamp": "2026-03-04T03:13:52.943Z"
+    },
+    {
+      "env": "STAGING",
+      "scenario": "\"P1 complete\" no pointer (payload-nested msg)",
+      "group": "SP001-B",
+      "test_id": "B7-nested",
+      "field_placement": "payload-nested",
+      "expected_status": 423,
+      "actual_status": 201,
+      "actual_body": {
+        "status": "logged",
+        "event_id": "01KJVDCXTKJ7TJ051AE2AFMYBX",
+        "event_slug": "empiricus.status_update.20260304T031354515Z",
+        "event_type": "status_update",
+        "recovery_id": null,
+        "created_at_utc": "2026-03-04T03:13:54.515Z",
+        "compliance": {
+          "signals_emitted": []
+        }
+      },
+      "pass": false,
+      "timestamp": "2026-03-04T03:13:52.953Z"
+    },
+    {
+      "env": "STAGING",
+      "scenario": "valid P1 + valid pointer (CONTROL)",
+      "group": "SP001-B",
+      "test_id": "B8-ctrl",
+      "field_placement": "top-level",
+      "expected_status": 201,
+      "actual_status": 201,
+      "actual_body": {
+        "status": "logged",
+        "event_id": "01KJVDCXTZ8MCX4J094F80PJ23",
+        "event_slug": "empiricus.status_update.20260304T031354527Z",
+        "event_type": "status_update",
+        "recovery_id": null,
+        "created_at_utc": "2026-03-04T03:13:54.527Z",
+        "compliance": {
+          "signals_emitted": []
+        }
+      },
+      "pass": true,
+      "timestamp": "2026-03-04T03:13:52.966Z"
+    },
+    {
+      "env": "STAGING",
+      "scenario": "authority_drift under degraded header",
+      "group": "SP001-C",
+      "test_id": "C1",
+      "field_placement": "top-level",
+      "expected_status": 423,
+      "actual_status": 423,
+      "actual_body": {
+        "status": "blocked",
+        "reason": "authority_block",
+        "ledger_reachable": true,
+        "signals_emitted": [
+          {
+            "deduped": true,
+            "event_id": "01KJV0FQBM9JJBKK50PMCJYCH8",
+            "created_at_utc": "2026-03-03T23:28:14.708Z",
+            "signal_type": "authority_drift",
+            "dedupe_key": "b205394b70cae534c5d6b6b5b281b98eb7622d2848d0188b5acc54ed780eeb94",
+            "recovery_id": "signal:authority_drift:b205394b70cae534c5d6b6b5b281b98eb7622d2848d0188b5acc54ed780eeb94"
+          }
+        ]
+      },
+      "pass": true,
+      "timestamp": "2026-03-04T03:13:52.975Z"
+    }
+  ]
+}
