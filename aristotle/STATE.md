@@ -1,88 +1,58 @@
-# STATE.md — Current Operational State
-
-**Last Updated:** 2026-05-08 13:15 MST
-**Last Reviewed:** 2026-05-08 13:15 MST
-**STALE ALERT:** If Last Reviewed is >7 days ago, this file needs immediate review.
-
----
+# STATE.md — Aristotle Current State
+Last Reviewed: 2026-05-13
 
 ## CURRENT SYSTEM STATE
-**Mode:** ACTIVE_EXECUTION
-**Since:** 2026-05-08
-**Current objective:** Resume MemOS Local Plugin install — pre-compile TypeScript to bypass jiti, re-add config, verify memory_search, run Gate 1.
 
----
+### NorthStar OS v1.1
+- **Ledger**: Running on pm2 (PID 283812), port 3003, 500+ events
+- **Phase 3 Bridge**: ✅ OPERATIONAL — emitter fires on every agent_end, events landing in Ledger
+  - Emitter: `index.ts` line 2318 (injected into memos-local plugin)
+  - Module: `dist/ledger-emitter.cjs` (CJS, 4 exports)
+  - Events include: event_type, event_subtype, memory_chunk_id, decision_rationale
+  - Retry queue: `~/.openclaw/memos-local/ledger-retry-queue.jsonl`
+- **Schema**: v1.2 columns (event_subtype, memory_chunk_id) in DB + GET endpoints + migration
+- **Goals**: 4 goal_declarations seeded (operational_excellence, memory_preservation, governed_coordination, continuous_improvement)
 
-## Infrastructure Health
+### Gateway
+- PID 537148 on port 18792 (stable since May 11 restart)
+- Supervisor: gateway-resilient.cmd (PATCHED May 13 — stale port clearing)
+- Scheduled task: "Aristotle Gateway" (5-min periodic trigger, IgnoreNew)
 
-| Service | Status | Notes |
-|---------|--------|-------|
-| Aristotle Gateway (:18792) | ✅ Running | PID 357644, Scheduled Task with 5-min periodic trigger |
-| Ngrok Tunnel | ✅ Running | PID 367680, tunnel up since 12:31 PM |
-| Comms Hub (:3001) | ✅ Online | PM2 managed |
-| Ledger (:3003) | ✅ Online | 25 resources |
-| Cloudflared Tunnel | ✅ Online | PID 17820, public URL healthy |
-| Ollama (:11434) | ✅ Online | nomic-embed-text |
-| MemPalace | ✅ v3.3.2 | 267K drawers |
-| OpenAI Embeddings | ❌ Quota exhausted | memory_search broken (429), needs billing fix or provider switch |
+### Fleet Status
+- **Aristotle**: ✅ Stable, emitter operational
+- **Empiricus**: ✅ Synced (last: 17:40, commit 1456ce7)
+- **Plato**: 🟡 Partial — first sync worked, monitoring
 
-### Recovery Tooling (new, May 8)
-- `C:\Users\aaron\clawd-shared\aristotle-recover.cmd` — manual recovery (--check / --soft / full hammer)
-- Scheduled Tasks: `Aristotle Gateway` + `Aristotle Ngrok` — AtLogon + 5-min periodic, auto-self-heal
-- Logs: `C:\tmp\clawdbot-aristotle\task-gateway.log`, `task-ngrok.log`
+### Cycling Root Cause (RESOLVED)
+- Port-conflict loop in supervisor: stale PID holds 18792 → new instance can't bind → exits clean → retry 5s
+- Fix: gateway-resilient.cmd patched to kill stale port holders in loop
+- Activates on next supervisor restart
 
----
+### May 8 Cycling Trigger (INVESTIGATED)
+- **Suspect:** MemOS plugin dist/ rebuilt at 16:52 PDT, cycling began at 20:00 PDT
+- Confidence: MEDIUM-HIGH (only material change, but can't diff source state — overwritten by emitter work)
+- Forensic trail exhausted: no .git in memos-local, index.ts overwritten
+- Operational rule: treat MemOS rebuilds as risky deploys (restart + watch 30 min)
 
-## Recent Incidents
+### hermes-lossless-claw Async Warning
+- Real bug (async register, loader doesn't await), NOT the May 8 trigger (predates by 16 days)
+- Fix path: createRequire + sync require() — low priority
 
-### Gateway/Ngrok Outage (May 5–8) — RESOLVED
-- **Cause:** AtLogon triggers didn't fire after initial test; manual restarts created 6 zombie supervisors
-- **Fix:** Dual triggers (AtLogon + 5min periodic), ngrok wait 60→120s, recovery script built
-- **Remaining gaps:** No HTTP health probe (port-only check), Bonjour name conflicts (cosmetic)
-- Full post-mortem: `memory/2026-05-08.md`
+## ACTIVE TASKS
+1. ~~Phase 3 Bridge~~ → ✅ DONE (emitter operational, events landing)
+2. ~~May 8 trigger investigation~~ → ✅ DONE (MemOS rebuild correlation identified, L43)
+3. ~~Cycling root cause~~ → ✅ DONE (port-conflict loop, supervisor patched, L41)
+4. Fix event_subtype/memory_chunk_id null values → IN PROGRESS (turnId passthrough added, needs gateway restart)
+5. "No pointer, no done" runtime enforcement (Gate 5) → NEXT
+6. Plato watchdog (Task B) → QUEUED (biggest remaining single-machine vulnerability)
+7. Fleet-status one-shot report (Task C) → QUEUED
+8. hermes-lossless-claw sync fix (Task D fix) → LOW PRIORITY
 
----
+## BLOCKERS
+None currently.
 
-## Active Work
-
-| Task | Owner | Status |
-|------|-------|--------|
-| MemOS plugin: pre-compile TS→JS | Daedalus | 🔄 Dispatching now |
-| MemOS plugin: re-add config + verify | Aristotle | ⏳ After pre-compile |
-| MemOS Gate 1 validation | Aristotle | ⏳ After verify |
-| Fleet recovery skill | Aristotle+Plato | ✅ Done |
-| Integration wiring (lcm, SKILLS_GUIDANCE, etc.) | Daedalus | ⏸️ Paused since ~Apr 27 |
-
----
-
-## Blockers
-
-| Blocker | Impact | Since |
-|---------|--------|-------|
-| OpenAI embeddings quota | memory_search (built-in) disabled | 2026-05-08 |
-| MemOS jiti compilation | Plugin register() never fires | 2026-05-01 |
-
----
-
-## Pending Decisions (Aaron)
-
-| Decision | Context | Since |
-|----------|---------|-------|
-| OpenAI billing / embedding provider | Built-in memory_search broken (429) | 2026-05-08 |
-| New project direction | Aaron reframing | 2026-04-21 |
-
----
-
-## Recently Completed
-
-- **2026-05-08:** Gateway/ngrok outage resolved, recovery tooling built, STATE.md updated
-- **2026-05-01:** MemOS strategic redirect — custom pipelines cancelled, MemOS plugin = primary path
-- **2026-04-21:** MemPalace upgraded v3.0→v3.3.2
-- **2026-04-02:** Unified 4-Layer Architecture Phase 0 — all 8 deliverables done
-
----
-
-## Links
-- Recovery script: `clawd-shared/aristotle_recover.py`
-- MemOS redirect notes: `memory/2026-05-01.md`
-- 4-Layer Architecture specs: `clawd-shared/research/unified-architecture-*.md`
+## KEY LEARNINGS (Recent)
+- L30: dist/ edits need process restart via Stop-ScheduledTask/Start-ScheduledTask
+- L31: Gateway loads index.ts via jiti, NOT dist/index.js. Delete %TEMP%\jiti\memos* after edits
+- L41: Port-conflict cycling — supervisor blind-retries without clearing stale ports. Patched.
+- L43: MemOS rebuilds are wedge risk vectors. Rebuild → restart immediately → watch 30 min.
