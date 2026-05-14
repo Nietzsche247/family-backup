@@ -181,6 +181,13 @@ function Ensure-WorkingCopy {
     try {
         Run-Git config user.email "$AGENT_NAME@northstar.local" 2>&1 | Out-Null
         Run-Git config user.name  "$AGENT_NAME-sync" 2>&1 | Out-Null
+        # L37: Aaron's global git config has commit.gpgsign=true with SSH-key signing.
+        # Non-interactive scheduled-task context cannot unlock the SSH key, which
+        # causes "fatal: failed to write commit object". Disable signing locally
+        # so this repo's commits don't require an interactive SSH key unlock.
+        # Self-heals on every run -- safe to leave permanently.
+        Run-Git config commit.gpgsign false 2>&1 | Out-Null
+        Run-Git config tag.gpgsign    false 2>&1 | Out-Null
         Run-Git fetch origin main 2>&1 | Out-Null
         $localHead  = (Run-Git rev-parse HEAD 2>$null)
         $remoteHead = (Run-Git rev-parse origin/main 2>$null)
