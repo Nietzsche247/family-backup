@@ -315,6 +315,8 @@ python C:\Users\aaron\clawd-shared\aristotle_recover.py --check -v
 
 **L31 (recorded 2026-05-11):** When L30 alone is not enough — wrapper script hangs, supervisor in tight respawn — the bypass is to launch `gateway.cmd` DIRECTLY without going through the scheduled task or its wrapper. The scheduled task is a convenience layer; `gateway.cmd` is the actual launch mechanism.
 
+**L41 (recorded 2026-05-13, from Opus investigation):** The cycling was a PORT-CONFLICT LOOP, not a plugin self-exit. When a stale gateway PID holds port 18792, new instances can't bind → exit cleanly (no crash signature) → supervisor pauses 5s → retry → same failure = ~20-second cycle. The supervisor (gateway-resilient.cmd) was blind-retrying without clearing stale port holders. PATCHED 2026-05-13: supervisor now kills stale port holders inside the retry loop before each `call gateway.cmd`. Manual recovery works because it explicitly kills port holders before relaunch. Failure Mode 8 (wedged-state where gateway hangs without exiting) remains the residual case.
+
 **Recovery procedure (verified 2026-05-11):**
 
 ```powershell
@@ -418,3 +420,69 @@ There is a separate `aristotle_recover_v2.py` and a 377-line `ARISTOTLE-RECOVERY
 - Replace Plato's `ARISTOTLE-RECOVERY-REFERENCE.md` with this canonical version
 
 clawd-shared has a local `.git` repo but no remote, so there is no automatic sync between machines. Cross-machine consistency requires manual copy or a sync mechanism (SSH copy, Tailscale share, etc.) — not yet set up.
+
+
+---
+
+## L41 — Port-conflict cycling looks like a clean exit (2026-05-13)
+
+**Symptom:** Gateway restarts every ~15-20 seconds in `task-gateway.log`. ZERO crash markers in the application log: no `EADDRINUSE`, no `FATAL`, no `uncaughtException`, no `SIGTERM`. Each gateway lifecycle is short (~15s active, then 5s supervisor pause).
+
+**Surprise:** `clawdbot` treats `Port 18792 is already in use` as a graceful exit, not a crash. The actual exit reason hides inside log lines tagged `ERROR` level by clawdbot's own console logger — not by the process exit signal. So a `Select-String` for crash patterns finds nothing, while a `Select-String` for `Port .* already in use` finds the truth.
+
+**Root cause:** A stale process (zombie node.exe from a previous hung lifecycle) was holding port 18792. `gateway-resilient.cmd` blindly retried `call gateway.cmd` after each exit, but the freshly-launched gateway found the port still occupied and exited immediately with the "graceful" port-conflict error. The supervisor saw this as a normal exit and looped forever at ~20-second cadence.
+
+**The wrapper script (`aristotle-gateway-task.cmd`) DOES clear the port — but only once at the top of its lifecycle, NOT inside the supervisor's inner loop.** Since the wrapper's `call gateway-resilient.cmd` is blocking, the port-clearing logic only runs at wrapper startup, never per-iteration.
+
+**Fix applied 2026-05-13:** Patched `gateway-resilient.cmd` to clear stale port-18792 holders inside the supervisor loop, BEFORE each `call gateway.cmd`. Backup at `gateway-resilient.cmd.bak-2026-05-13`. The patched supervisor activates on next process restart (organic — don't force).
+
+**Diagnostic hint:** When investigating "node.exe restarts repeatedly with no crash signature in app log," check `task-gateway.log` cadence AND grep the app log for `Port .* already in use` or `another gateway instance is already listening`. Don't trust the absence of crash markers as evidence of healthy operation.
+
+---
+
+## L42 — The running SQLite DB is source of truth for schema, not source code (2026-05-13)
+
+**Symptom:** The bridge-emitter Phase 3 work added `event_subtype` and `memory_chunk_id` columns to `events` table via `ALTER TABLE` in `db.js`. Aristotle in-session reported that events were landing but the new columns weren't persisting (`undefined` / `null`). Theory at the time: jiti cache served the old `db.js`.
+
+**Reality:** The Ledger has TWO live SQLite databases on this machine:
+- `C:\North_Star_Projects\ledger\ledger.db` — older/legacy, last write May 12, ~155 events
+- `C:\North_Star_Projects\ledger\ledger-staging.db` — the LIVE one currently receiving Phase 3 events, ~700+ events, multi-MB
+
+The in-session diagnosis was reading from the wrong DB. The live DB already had both new columns AND was populating `event_subtype` correctly for every routine-session-capture event. The "schema not persisting" conclusion was a false alarm.
+
+**General principle:** `ALTER TABLE` in source files (`db.js`, `dist/db.js`) only runs on fresh-DB initialization — it never migrates live databases. If a schema change is intended for an existing database, run the ALTER directly against the live `.db` file using `sqlite3` CLI or a Python script with `sqlite3` stdlib. Then update the source for clean future installs. This is the same family of confusion as the jiti cache: a compiled / source artifact is not the runtime state.
+
+**Diagnostic hint:** Before concluding "ALTER didn't run," (a) confirm WHICH database file the running process is actually opening (check connection strings or process file handles), (b) read column list from that exact file via `PRAGMA table_info(events)`, and (c) verify by row inspection — `SELECT id, event_subtype FROM events ORDER BY id DESC LIMIT 5`. The `memory_chunk_id` column DID exist in the live DB but was null for routine captures — that's an emitter-payload issue, not a schema issue.
+
+---
+
+## Mini-changelog: 2026-05-13 evening session
+
+- **gateway-resilient.cmd patched** with port-clearing logic (L41). Backup preserved.
+- **clawd-shared-sync.ps1 patched** in three places with `commit.gpgsign=false` + `tag.gpgsign=false` config (L37 defense-in-depth). Source in `clawd-aristotle\scripts\`, variants in `clawd-shared\sync-scripts\`. Future variant generation inherits the fix.
+- **Bridge confirmed operational**: ledger-staging.db has 700+ events; 48/48 memory_capture events have `event_subtype` populated correctly. Only `memory_chunk_id` is null for routine captures (emitter-side gap, not schema).
+- **Wedged-gateway recovery validated end-to-end**: manual 7-step procedure (Failure Mode 8) successfully cleared the cycling loop at 17:36 PDT.
+
+
+---
+
+## L43 — MemOS plugin rebuilds are a wedge risk vector (2026-05-13)
+
+**Forensic finding from the 5-day cycling investigation (May 8-13):**
+
+Cycling began at 2026-05-08 20:00 PDT. The only nontrivial system change in the preceding 4-hour window was a complete rebuild of the MemOS plugin's `dist/` directory at 2026-05-08 16:52 PDT (every TypeScript file recompiled in a single second — `tsc` or `npm run build` pattern), followed by a `memos-config.json` edit at 17:19 PDT. No reboots, no network changes, no other extension changes, no significant Application or System event log entries in that window.
+
+The 2-3 hour gap between rebuild and cycling onset is consistent with: gateway kept running the old code until a heartbeat-driven or scheduled-task-driven restart loaded the new build, at which point the new code wedged. PID 29124 was the first squatter (held port 18792 from midnight May 8 onward); 4 more wedged-successor PIDs cycled across the following 5 days until manual recovery on May 13 17:36 PDT.
+
+**Cannot pinpoint the exact change**: MemOS plugin has no `.git` directory, and `index.ts` has been overwritten multiple times since (most recently for Phase 3 bridge-emitter work). The May 8 source state is not recoverable. So the strongest claim we can make: MemOS rebuilds correlate with wedge risk.
+
+**Operational rule:**
+After any MemOS plugin rebuild, treat it as a risky deploy:
+1. Immediately restart the gateway (don't wait for a heartbeat/cron to do it on your behalf later — that delays the moment you'd see a failure).
+2. Watch `task-gateway.log` for at least 30 minutes — if you see "Starting Aristotle gateway..." entries closer together than ~5 minutes apart, cycling has started.
+3. The supervisor patch (L41, port-clearing in the loop) plus the watchdog scheduled task (`Aristotle Watchdog`) will auto-recover from a wedge, but you still want to see the symptom early so you can roll back the rebuild rather than relying on auto-recovery indefinitely.
+
+**Note on hermes-lossless-claw async registration warning** (`plugin register returned a promise; async registration is ignored`): this is a real bug — the plugin uses `await import(...)` for absolute-path module imports, so its `register()` function is legitimately async, but the clawdbot plugin loader doesn't await it. Plugin registration completes after the loader's phase ends. In practice it completes ~milliseconds before the gateway starts listening, so tools have always been available by the time real traffic arrives. NOT the trigger for the May 8 wedge (this bug predates the wedge by 16 days). Worth fixing for hygiene; not urgent.
+
+Fix path (low priority): replace dynamic `await import(absPath)` calls in `extensions/hermes-lossless-claw/index.ts` with `createRequire(import.meta.url)` + sync `require()` calls; remove the `async` keyword; clawdbot's sync loader will then complete registration before moving on.
+
