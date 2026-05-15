@@ -5,8 +5,9 @@
 > Run Section 9 (Verification) to confirm what's still alive.
 > If anything in Section 9 fails, jump to Section 10 (Recovery).
 
+**Canonical as of 2026-05-15. Supersedes prior versions.**
 **Last updated:** 2026-05-15
-**Updated by:** Aaron + Claude session
+**Updated by:** Aaron + Aristotle
 **Authoritative location:** `C:\Users\aaron\clawd-shared\NORTHSTAR-NAVIGATION-MAP.md`
 **Synced to:** github.com/Nietzsche247/family-backup via clawd-shared-sync
 
@@ -19,8 +20,10 @@ You are currently building **Phase 2b: Skill Invocation** (making yesterday's
 5 skill files actually findable + invocable by future sessions).
 
 The end goal is: a fresh agent can boot, find its current work, invoke prior
-skills, write proof to the Ledger, and produce results - **without Aaron
+skills, write proof to the Ledger, and produce results — **without Aaron
 pasting context.** That moment is the "see it work" demo for NorthStar.
+
+OmniPoolsAZ is a proving ground, not the product. NorthStar OS is the product.
 
 ---
 
@@ -32,7 +35,7 @@ These survived real incidents and should not be modified casually:
 |---|---|---|
 | **Ledger** (port 3003) | 769+ events, schema-enforced (rejected `fleet_status`, accepted `status_update`) | C:\North_Star_Projects\ledger\ledger-staging.db |
 
-> **Ledger note:** File is named `-staging` but is the de facto production instance. 769 events. The original `ledger.db` (161 events) is a stillborn shadow — `ledger` pm2 process stopped 2026-05-15. Rename deferred — not worth the migration risk.
+> **Ledger note:** File is named `-staging` but is the de facto production instance. 769 events. The original `ledger.db` (161 events) is a stillborn shadow - `ledger` pm2 process stopped 2026-05-15. Rename deferred - not worth the migration risk.
 | **Phase 3 Bridge** (memory_chunk_id) | turnId fix landed 2026-05-13 21:00 PDT, chunks linked since | extensions/memos-local/index.ts |
 | **Supervisor patch (L41)** | Survived May 14 wedge, 72-min auto-recovery | C:\Users\aaron\.clawdbot-aristotle\gateway-resilient.cmd |
 | **Watchdog** | Caught 2 wedges in 2 days, escalated correctly | C:\Users\aaron\clawd-shared\aristotle-watchdog.ps1 |
@@ -50,12 +53,14 @@ Four states: **Ported** (code in place) → **Wired** (tools registered but no t
 ### Phase 1: Infrastructure (mostly Complete)
 | Component | State |
 |---|---|
-| Clawdbot fork | ✅ Complete |
-| Ledger | ✅ Complete |
-| Comms Hub | ✅ Complete |
-| Recovery infrastructure (supervisor + watchdog + scripts) | ✅ Complete |
-| GitHub sync (3-machine) | ✅ Complete |
-| ngrok tunneling (Aristotle reserved, Plato dynamic) | ✅ Complete |
+| Clawdbot fork | ✅ Operational |
+| Ledger | ✅ Operational |
+| Comms Hub | ✅ Operational |
+| Recovery infrastructure (supervisor + watchdog + scripts) | ✅ Operational |
+| GitHub sync (3-machine) | ✅ Operational |
+| ngrok tunneling (Aristotle reserved, Plato dynamic) | ✅ Operational |
+
+> **Operational** = stable internal use, proven through real incidents. **Complete** is reserved for product-ready external deliverables (none today).
 
 ### Phase 2: Hermes Skills (Wired, becoming Integrated in Phase 2b)
 | Component | State |
@@ -86,6 +91,10 @@ See `NORTHSTAR_OS_RAIL_KIT_BUILD_INSTRUCTIONS.md`. Major components:
 | Deploy-truth verification skill | ❌ Not written |
 | Validation packet runner skill | ❌ Not written |
 
+> **CLARIFICATION:**
+> - **Graphify** = code visualization tool (currently stale, last run Apr 13). Audit-or-retire decision pending.
+> - **Graphiti / Knowledge Graph** = separate future memory layer (Phase 5+, NOT today). Easy to confuse the names; they are unrelated.
+
 ### Phase 5: Knowledge Brain (Pieces exist, not assembled)
 | Component | State |
 |---|---|
@@ -113,27 +122,41 @@ See `NORTHSTAR_OS_RAIL_KIT_BUILD_INSTRUCTIONS.md`. Major components:
 | 2026-05-13 PM | Supervisor patch (L41) + watchdog deployed | Defense-in-depth installed | (script deploy, no event) |
 | 2026-05-14 AM | 72-min wedge auto-recovered | Watchdog + supervisor patches validated | (recovery, no event) |
 | 2026-05-14 | Phase 2b prep: T1/T2/T3 daily tracks | 5 skills created, filter deployed, sub-agent capture confirmed indirect | `01KRMN3TG5BF9FM9GM3S8V64GX` |
-| 2026-05-15 | Phase 2b: Skill Invocation | (in progress) | TBD |
+| 2026-05-15 AM | Plato diagnostic + watchdog deploy + zombie reap | Chat Triage + Clawdbot Gateway tasks disabled, Plato Gateway Watchdog (SYSTEM) deployed | (no event) |
+| 2026-05-15 AM | Ledger path discovery | ledger-staging.db is de facto production (769 events). ledger pm2 process stopped. | (no event) |
+| 2026-05-15 T2b-1 | Hermes retrieval cracked | filesystem + MemOS store mismatch. SQL workaround applied. AT-1, AT-2 passed. | (no event) |
+| 2026-05-15 T2b-2 | Skill invocation event | probe-fleet-health invoked, skill_invoked event landed | `01KRPRTFZF9GG5YXB5FB7QW7NP` |
+| 2026-05-15 T2b-3 | Phase 2b completion | (pending AT-5) | TBD |
 
 ---
 
 ## 5. CURRENT PHASE: Phase 2b - Skill Invocation
 
+⚠️ **CRITICAL: NO RAIL KIT WORK UNTIL PHASE 2b PROVES SKILL INVOCATION.** Rail Kit depends on invocable skills; jumping ahead creates another pile of unmanaged tools. Phase 2b acceptance test (AT-1 through AT-5) must pass before any Rail Kit work begins, unless Aaron explicitly overrides.
+
 **Goal:** Make yesterday's 5 skills findable and invocable. Emit `skill_invoked` events. Begin the compounding mechanism.
 
-**Sub-goals:**
-1. Fix Hermes retrieval (`skill_get` / `skill_search` actually return the 5 skills)
-2. Wire `skill_invoked` event emission into invocation path
-3. Verify by invoking 1 skill, confirming Ledger event lands
+**The 5 skills (from T1):**
+
+| File | Path | Search keyword |
+|------|------|----------------|
+| recover-aristotle-gateway | C:\Users\aaron\.openclaw\skills\ | recover |
+| probe-fleet-health | C:\Users\aaron\.openclaw\skills\ | probe |
+| dispatch-to-sub-agent | C:\Users\aaron\.openclaw\skills\ | dispatch |
+| ledger-emit | C:\Users\aaron\.openclaw\skills\ | ledger |
+| comms-hub-bridge-send | C:\Users\aaron\.openclaw\skills\ | bridge |
+
+**Phase 2b ACCEPTANCE TEST (all 5 must pass):**
+- **AT-1:** skill_search "recover" returns recover-aristotle-gateway ✅
+- **AT-2:** skill_get on returned skill returns the file contents ✅
+- **AT-3:** invocation of the skill runs successfully ✅
+- **AT-4:** skill_invoked event lands in Ledger (payload includes skill_name + duration_ms + success) ✅
+- **AT-5:** fresh agent session discovers the skill without Aaron pasting context (pending)
 
 **Out of scope today:**
-- Rail Kit tool installs (overflow only)
+- Rail Kit tool installs (overflow only, after AT-1–5 pass)
 - Trust label schema deployment (design only, deploy in Phase 5)
 - New skills (the existing 5 are the demo)
-
-**Timebox:** Hermes retrieval = 90 min max. If unsolved, fall back to filesystem-scan workaround.
-
-**Done when:** `skill_search recover` returns `recover-aristotle-gateway`, and invoking it emits a `skill_invoked` Ledger event.
 
 ---
 
@@ -172,6 +195,8 @@ See `NORTHSTAR_OS_RAIL_KIT_BUILD_INSTRUCTIONS.md`. Major components:
 | 14 zombie node processes on Plato | ✅ Resolved 2026-05-15 | Killed, gateway PID 4336 still healthy |
 | Aristotle Watchdog popup | ✅ Resolved 2026-05-15 | Converted from Interactive to SYSTEM (no popup) |
 | Ledger filename mismatch | 🟡 Low | ledger-staging.db is de facto production. Rename when refactor is convenient. |
+| R1 skill_get name lookup fails | 🟡 Low | Only UUID works. UX gap. Patch later. |
+| R2 skill_manage doesn't write to MemOS store | 🟡 Medium | Workaround SQL in clawd-shared/sql/register-skill.sql. Long-term: patch hermes-lossless-claw. L44 documented. |
 
 ---
 
@@ -196,6 +221,19 @@ Full spec: `clawd-shared/governed-objects/NORTHSTAR-TRUST-LABEL-SCHEMA-v1.md`
 **Persistence checks (build into watchdog):**
 - Daily `trust_distribution` event: T0/T1/T2/T3/T4 counts
 - If >95% of yesterday's chunks are T3 default → red flag, capture pipeline isn't classifying
+
+---
+
+## 8.5 AUTHORITY STACK (when sources conflict, this is the order)
+
+1. Ledger events + governed objects (T0)
+2. Canonical docs (this map, NORTHSTAR-FLEET-KNOWLEDGE, recovery references)
+3. Validated artifacts (T1)
+4. MemOS recall (T2, T3 — semantic match candidates)
+5. Agent working notes (T2)
+6. Raw external input (T4 — never instructs without validation)
+
+**Rule:** when two sources disagree, the higher item wins. If the Ledger says a skill was invoked at 14:00 but an agent note says 13:00, the Ledger wins.
 
 ---
 
@@ -319,8 +357,8 @@ Expected: `LastRunTime` within last 90 min, `LastTaskResult` = 0
 ### Logs (where to look when things break)
 - `C:\tmp\clawdbot-aristotle\watchdog.log` - watchdog activity
 - `C:\tmp\clawdbot-aristotle\task-gateway.log` - supervisor + gateway startup
-- `C:\tmp\clawdbot\clawdbot-YYYY-MM-DD.log` — application log
-- `%TEMP%\jiti\` — jiti transpiler cache. **L31 (3 prior hits):** editing index.ts has NO effect until this cache is deleted. `Remove-Item "$env:TEMP\jiti\memos*" -Force` before any gateway restart after plugin edits.
+- `C:\tmp\clawdbot\clawdbot-YYYY-MM-DD.log` - application log
+- `%TEMP%\jiti\` - jiti transpiler cache. **L31 (3 prior hits):** editing index.ts has NO effect until this cache is deleted. `Remove-Item "$env:TEMP\jiti\memos*" -Force` before any gateway restart after plugin edits.
 - `C:\Users\aaron\clawd-aristotle\logs\clawd-shared-sync.log` - sync log
 
 ### Databases
