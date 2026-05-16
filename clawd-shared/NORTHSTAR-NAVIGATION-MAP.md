@@ -128,6 +128,7 @@ See `NORTHSTAR_OS_RAIL_KIT_BUILD_INSTRUCTIONS.md`. Major components:
 | 2026-05-15 T2b-2 | Skill invocation event | probe-fleet-health invoked, skill_invoked event landed | `01KRPRTFZF9GG5YXB5FB7QW7NP` |
 | 2026-05-15 T2b-3 | Phase 2b COMPLETE — all 5 ATs passed | skill_invoked + fresh agent discovery confirmed | `01KRPRTFZF9GG5YXB5FB7QW7NP` |
 | 2026-05-15 PM | Rail Kit tools + 2 new skills + RAIL-PATTERN-v1 | repomix+depcruise installed, source-truth-preflight + validation-packet-runner drafted | `01KRPX8TH1ZT9QEX8M8J5JYNGJ` |
+| 2026-05-15 EVE | L44 RETIRED: skill_manage → store sync | Patched hermes skill-manage.ts + skill-manage-tool.ts. Create auto-registers, delete auto-unregisters. Roundtrip proven 8→9→8. | TBD |
 
 ---
 
@@ -197,7 +198,7 @@ See `NORTHSTAR_OS_RAIL_KIT_BUILD_INSTRUCTIONS.md`. Major components:
 | Aristotle Watchdog popup | ✅ Resolved 2026-05-15 | Converted from Interactive to SYSTEM (no popup) |
 | Ledger filename mismatch | 🟡 Low | ledger-staging.db is de facto production. Rename when refactor is convenient. |
 | R1 skill_get name lookup fails | 🟡 Low | Only UUID works. UX gap. Patch later. |
-| R2 skill_manage doesn't write to MemOS store | 🟡 Medium | Workaround SQL in clawd-shared/sql/register-skill.sql. Long-term: patch hermes-lossless-claw. L44 documented. |
+| ~~R2 skill_manage store sync~~ | ✅ Resolved 2026-05-15 | L44 RETIRED: skill_manage now auto-registers in MemOS store (create + delete). Patch in openclaw-fork/src/hermes/skill-manage.ts + agents/tools/skill-manage-tool.ts. |
 | Cross-agent skill discovery | 🟡 Medium | MemOS stores are per-gateway. Daedalus at :18800 has empty skills table. AT-5 passed within Aristotle's gateway only. Defer to Phase 5+. |
 | Secret storage for fleet credentials | 🟡 Medium | Currently plaintext .secrets files with ACLs. Long-term: Windows Credential Manager or DPAPI-encrypted store. |
 | PAT rotation | 🟠 Medium | Deferred 2026-05-15 PM. Leaked token [REDACTED_GH_FINEGRAINED]... in repo history + 3 scripts. Aaron will regenerate in GitHub UI when convenient. |
