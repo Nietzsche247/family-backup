@@ -486,3 +486,34 @@ After any MemOS plugin rebuild, treat it as a risky deploy:
 
 Fix path (low priority): replace dynamic `await import(absPath)` calls in `extensions/hermes-lossless-claw/index.ts` with `createRequire(import.meta.url)` + sync `require()` calls; remove the `async` keyword; clawdbot's sync loader will then complete registration before moving on.
 
+---
+
+## L45 — WEDGE TAXONOMY: 1 LESSON + N SKILLS + M PATCHES
+
+**Date:** 2026-05-18 | **Companion:** L30, L31, L41, L43, L44
+
+### The principle
+Every wedge should produce: **one lesson** (durable architectural insight), **one or more skills** (invocable diagnostic/recovery procedures), and **zero or more patches** (infrastructure fixes). Never one giant doc.
+
+- **Lessons** want preservation. The principle doesn't change.
+- **Skills** want maintenance. Paths, commands, log formats evolve.
+- **Patches** are code. They live in the codebase, not in docs.
+
+### Case study: May 15-18 wedge (62 hours)
+**Reproducible crash + auto-restart = wedge.** Defense-in-depth assumes failures are non-deterministic. When a bug fires on every restart, three respawn vectors (supervisor, 5-min task, watchdog) amplify the crash instead of recovering from it. 807 recovery cycles, zero successful recoveries.
+
+**Specific cause:** L44 patch (skill-manage.ts) — `require(better-sqlite3)` threw through jiti's transpile layer. Every restart loaded the same broken code.
+
+**What it produced:**
+- Lesson: L45 (this — the taxonomy principle + "reproducible crash + auto-restart = wedge")
+- Skill: `diagnose-wedge-cycle` (P1-P4 forensics procedure)
+- Patches: F1 (crash-loop detection), F2 (wrapper early-return), F3 (try/catch hardening, applied 2026-05-18)
+
+### Verification protocol update
+L43 watch window must include **≥1 full heartbeat cycle** after any plugin edit. The L44 roundtrip test passed (8→9→8) but the first heartbeat after Aaron left is when the wedge began.
+
+### Hard rules
+1. **Reproducible crash + auto-restart = wedge.** Fix reproducibility (F3) AND add crash-loop detection (F1).
+2. **Health checks must include uptime.** Gateway with uptime < 2× poll interval is suspicious.
+3. **New wedge → 1 lesson + N skills + M patches.** Never inline procedures in lesson docs.
+

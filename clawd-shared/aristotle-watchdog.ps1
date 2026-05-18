@@ -146,6 +146,29 @@ if ($state.consecutive_degraded -lt 2) {
     exit 0
 }
 
+# F1b: Crash-loop detection guard (L45)
+# Count "Starting Aristotle gateway..." in task-gateway.log over last 15 min.
+# If >3, we're in a wedge loop — do NOT escalate, wait for manual intervention.
+$taskGwLog = 'C:\tmp\clawdbot-aristotle\task-gateway.log'
+if (Test-Path $taskGwLog) {
+    $cutoff = (Get-Date).AddMinutes(-15)
+    $startEntries = Get-Content $taskGwLog -Tail 100 | Where-Object {
+        $_ -match '^\[(.+?)\] Starting Aristotle gateway' -and
+        [DateTime]::TryParse($Matches[1], [ref]$null) -and
+        [DateTime]::Parse($Matches[1]) -gt $cutoff
+    }
+    if ($startEntries -and $startEntries.Count -gt 3) {
+        Write-Log 'ERROR' "WEDGE_LOOP_DETECTED: $($startEntries.Count) gateway starts in last 15 min. NOT escalating. Manual intervention required."
+        # Emit Ledger event
+        try {
+            $body = @{ event_type='status_update'; event_subtype='crash_loop_detected'; agent='aristotle'; decision_rationale="L45: $($startEntries.Count) gateway restarts in 15 min, watchdog refusing to escalate" } | ConvertTo-Json -Compress
+            Invoke-RestMethod -Uri 'http://127.0.0.1:3003/events' -Method Post -ContentType 'application/json' -Body $body -TimeoutSec 5 -ErrorAction SilentlyContinue | Out-Null
+        } catch {}
+        Save-State $state
+        exit 0
+    }
+}
+
 Write-Log 'WARN' 'escalating to --soft recovery'
 $soft = Invoke-Recovery -Mode 'soft'
 $state.last_action_at = (Get-Date).ToString('o')

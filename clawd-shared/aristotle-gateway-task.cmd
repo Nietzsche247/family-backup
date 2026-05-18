@@ -20,6 +20,15 @@ if not exist "C:\tmp\clawdbot-aristotle" mkdir "C:\tmp\clawdbot-aristotle" >nul 
 echo. >> "%LOG%"
 echo [%date% %time%] === aristotle-gateway-task starting === >> "%LOG%"
 
+REM --- F2: Early-return if gateway already healthy (L45) ---
+REM Don't kill-and-relaunch a perfectly healthy gateway.
+curl.exe -s -o NUL -w "%%{http_code}" --max-time 3 http://127.0.0.1:18792/api/status > "%TEMP%\arist_health.txt" 2>&1
+set /p HEALTH=<"%TEMP%\arist_health.txt"
+if "%HEALTH%"=="200" (
+    echo [%date% %time%] Gateway already healthy ^(HTTP 200^). Skipping wrapper. >> "%LOG%"
+    exit /b 0
+)
+
 REM --- 1) Kill any existing gateway-resilient supervisors ---
 set _killed_any=0
 for /f "tokens=2 delims=," %%p in ('tasklist /v /fo csv /nh ^| findstr /i "gateway-resilient"') do (
