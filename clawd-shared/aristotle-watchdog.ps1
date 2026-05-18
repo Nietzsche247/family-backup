@@ -152,10 +152,15 @@ if ($state.consecutive_degraded -lt 2) {
 $taskGwLog = 'C:\tmp\clawdbot-aristotle\task-gateway.log'
 if (Test-Path $taskGwLog) {
     $cutoff = (Get-Date).AddMinutes(-15)
-    $startEntries = Get-Content $taskGwLog -Tail 100 | Where-Object {
-        $_ -match '^\[(.+?)\] Starting Aristotle gateway' -and
-        [DateTime]::TryParse($Matches[1], [ref]$null) -and
-        [DateTime]::Parse($Matches[1]) -gt $cutoff
+    $startEntries = @()
+    Get-Content $taskGwLog -Tail 100 | ForEach-Object {
+        if ($_ -match '^\[(.+?)\]\s+Starting Aristotle gateway') {
+            $ts = $null
+            try { $ts = [DateTime]::Parse($Matches[1]) } catch {}
+            if ($ts -and $ts -gt $cutoff) {
+                $startEntries += $_
+            }
+        }
     }
     if ($startEntries -and $startEntries.Count -gt 3) {
         Write-Log 'ERROR' "WEDGE_LOOP_DETECTED: $($startEntries.Count) gateway starts in last 15 min. NOT escalating. Manual intervention required."
