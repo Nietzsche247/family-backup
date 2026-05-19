@@ -193,6 +193,24 @@ Each agent's gateway is configured with `claude-opus-4-6` as primary, but heartb
 
 The `%{` sequence trips PowerShell. If you need curl's `-w` format, run from `cmd /c` not PowerShell, or use `Invoke-WebRequest`/`Invoke-RestMethod` instead.
 
+### `Set-Content -Encoding UTF8` writes a BOM that breaks Node shebangs
+
+PowerShell 5.x's `Set-Content -Encoding UTF8` writes UTF-8 *with* a BOM (bytes `EF BB BF` at file start). Node.js reads the BOM as the first character of the shebang line and rejects the file with `SyntaxError: Invalid or unexpected token` pointing at line 1, even though the visible content looks fine. Caught 2026-05-18 patching `pipeline-orchestrator.js` on nietzsche-i9 — likely silent-corrupting other PowerShell-edited JS/Python/shell scripts across the fleet too.
+
+BOM-safe alternatives when patching executable text files from PowerShell:
+- `[System.IO.File]::WriteAllText($path, $content)` — defaults to UTF-8 *without* BOM
+- Or explicit no-BOM encoding: `$enc = [System.Text.UTF8Encoding]::new($false); [System.IO.File]::WriteAllText($path, $content, $enc)`
+- Or strip after-the-fact: `$raw = Get-Content $path -Raw; if ($raw[0] -eq [char]0xFEFF) { [System.IO.File]::WriteAllText($path, $raw.Substring(1)) }`
+
+Verify after save:
+```powershell
+$bytes = [System.IO.File]::ReadAllBytes($path)[0..2]
+$bomPresent = $bytes[0] -eq 239 -and $bytes[1] -eq 187 -and $bytes[2] -eq 191
+"BOM present: $bomPresent"   # must be False for executable JS
+```
+
+Affects: any executable JS / shell script / Python script edited via `Set-Content -Encoding UTF8`. Does NOT affect data files like `.json`, `.md`, `.env` (BOM is tolerated there by all consumers we use).
+
 ## STRUCTURAL DIFFERENCES BETWEEN AGENTS (don't conflate)
 
 | Concern | Aristotle | Plato | Empiricus |
