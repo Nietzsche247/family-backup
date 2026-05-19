@@ -512,8 +512,23 @@ Every wedge should produce: **one lesson** (durable architectural insight), **on
 ### Verification protocol update
 L43 watch window must include **≥1 full heartbeat cycle** after any plugin edit. The L44 roundtrip test passed (8→9→8) but the first heartbeat after Aaron left is when the wedge began.
 
+### L45.SUB.6 — RestartOnFailure is a hidden respawn vector
+Scheduled task `RestartOnFailure` with `Count=999` and `Interval=PT1M` is a FOURTH respawn vector that bypasses the supervisor's crash-loop ceiling (F1a). It fires 1-min restarts from OUTSIDE the supervisor, resetting the crash-loop counter each time. Discovered 2026-05-18 when the task auto-re-enabled itself after Aaron disabled it during Failure Mode 8 recovery.
+
+**Complete respawn vector inventory (audit ALL before declaring safe):**
+1. Supervisor restart loop (gateway-resilient.cmd) — F1a ceiling
+2. Scheduled task periodic trigger (PT5M) — F2 early-return
+3. Scheduled task RestartOnFailure — **REMOVED 2026-05-18** (was Count=999/PT1M)
+4. Watchdog escalation chain — F1b guard
+
+**Fix:** RestartOnFailure removed from both Aristotle Gateway and Watchdog tasks. The 5-min periodic trigger is the single task-level respawn vector, coordinated with F1a. Backups in `clawd-shared/backups/`.
+
+### L45.SUB.1 — F1b TryParse validation
+F1b had a silent PowerShell 7+ `[DateTime]::TryParse` overload bug that made the crash-loop counter always return 0. Caught by manual pre-deploy validation. **Safety-net code requires execution validation, not just syntax checks.**
+
 ### Hard rules
 1. **Reproducible crash + auto-restart = wedge.** Fix reproducibility (F3) AND add crash-loop detection (F1).
 2. **Health checks must include uptime.** Gateway with uptime < 2× poll interval is suspicious.
 3. **New wedge → 1 lesson + N skills + M patches.** Never inline procedures in lesson docs.
+4. **Count ALL respawn vectors.** We had FOUR stacked, not three. Each needs an independent audit pass.
 
