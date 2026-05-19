@@ -526,9 +526,24 @@ Scheduled task `RestartOnFailure` with `Count=999` and `Interval=PT1M` is a FOUR
 ### L45.SUB.1 — F1b TryParse validation
 F1b had a silent PowerShell 7+ `[DateTime]::TryParse` overload bug that made the crash-loop counter always return 0. Caught by manual pre-deploy validation. **Safety-net code requires execution validation, not just syntax checks.**
 
+### L45.SUB.7 — Twice-daily kill+restart from heartbeat-switcher.ps1
+`heartbeat-switcher.ps1` (lines 43-54) fires at 08:00 and 20:00 MST via two scheduled tasks. After writing `heartbeat.every` to `clawdbot.json` (which Clawdbot hot-reloads cleanly inside the live process), the script ALSO attempted to `Stop-Process -Force` on port 18792 owner, then unconditionally launched `gateway-resilient.cmd`. Both kill steps used `-ErrorAction SilentlyContinue` inside `try/catch {}`, so permission mismatches were invisible.
+
+**Production effect:** Competing gateway loses port race. F4 catches orphan exit, F1a ceiling hits at 6 restarts in 600s, supervisor exits. ~73 seconds, user-invisible. Pre-L45, the F4 exit entries were the only artifact.
+
+**Why Friday was different:** The 20:00 MST switch on Fri 2026-05-15 fired this pattern. The competing gateway's first heartbeat tick hit the L44 skill_manage bug deterministically. Without supervisor + periodic + watchdog amplifying that crash, it would have been one crash-log entry. With them: 62-hour outage.
+
+**Fix applied 2026-05-19:** Kill+restart block removed from `heartbeat-switcher.ps1`. Hot-reload is sufficient.
+
+**This was the FIFTH respawn vector** — not counted in SUB.6's original inventory of four.
+
+### L45.SUB.7a — Mechanism claims require evidence, not plausibility
+First-pass diagnosis attributed the restart to the config-reload code path. Internally consistent, almost correct, wrong. Reading `heartbeat-switcher.ps1` lines 43-54 took less time than writing the plausible explanation and produced the correct answer. **Discipline: when claiming "X causes Y" in a lesson, cite the file, line number, or log entry that proves the link.**
+
 ### Hard rules
 1. **Reproducible crash + auto-restart = wedge.** Fix reproducibility (F3) AND add crash-loop detection (F1).
 2. **Health checks must include uptime.** Gateway with uptime < 2× poll interval is suspicious.
 3. **New wedge → 1 lesson + N skills + M patches.** Never inline procedures in lesson docs.
-4. **Count ALL respawn vectors.** We had FOUR stacked, not three. Each needs an independent audit pass.
+4. **Count ALL respawn vectors.** We had FIVE stacked, not three. Each needs an independent audit pass.
+5. **Mechanism claims require evidence.** Cite the file, line, or log entry. Plausibility ≠ proof.
 
