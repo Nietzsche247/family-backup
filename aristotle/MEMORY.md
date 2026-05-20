@@ -180,10 +180,41 @@ Protocol doc: `C:\Users\aaron\clawd-steelman\ENGAGEMENT_PROTOCOL.md`
 - **L31:** "Gateway loads `index.ts` via jiti, NOT `dist/index.js`. The `package.json` `clawdbot.extensions` field determines what's loaded — `clawdbot.plugin.json` is ignored by discovery. Always verify which file is actually loaded before editing. Delete jiti cache (`%TEMP%\jiti\memos*`) after any .ts edit."
 - **L41 (from Opus, 2026-05-13):** "When the supervisor (gateway-resilient.cmd) sees 'Port 18792 already in use', it treats that as a normal exit and retries on 5s pause → ~20-second cycling loop with NO crash signatures. Supervisor cannot self-recover without explicit port-clearing logic. Patched 2026-05-13 to kill stale port holders inside the loop. Failure Mode 8 (wedged-state without exit) is the residual case."
 - **L43 (from Opus, 2026-05-13):** "MemOS plugin rebuilds are a wedge risk vector. May 8 cycling correlated with a full dist/ rebuild at 16:52 PDT → cycling onset at 20:00 PDT. Operational rule: after any MemOS rebuild, immediately restart gateway + watch task-gateway.log for 30 min. Don't let a rebuild silently load on a future random restart."
+- **L44 (2026-05-15):** skill_manage registerInMemosStore crash on heartbeat tick. Original bug that L45's respawn vectors amplified into the 62-hour outage.
+- **L45 (2026-05-15→19):** Defense-in-depth with 5 stacked respawn vectors amplifies deterministic crashes into wedge cycles. See full writeup above.
 - **hermes-lossless-claw async warning:** Real bug (register() is async, loader doesn't await), but NOT the May 8 trigger (predates by 16 days). Fix path: replace dynamic import() with createRequire + sync require(). Low priority.
 - **CORRECTION (May 10):** The May 1 claim that "agents created 4 skills organically" was overstated. tool_calls table shows ZERO skill_manage entries. Skills exist but provenance is unverifiable — may have been created via filesystem writes, not the SKILLS_GUIDANCE→skill_manage tool chain. The skill creation question is OPEN, not closed. Requires controlled test in Gate 2 where skill_manage calls can be verified in tool_calls table before claiming organic creation.
 - **Plato:** Plugin loads (register fires, sqlite OK), needs model config + patch #4
 - **Empiricus:** Not yet deployed (runs OpenClaw, not Clawdbot)
+
+## L45: The 62-Hour Outage & Defense-in-Depth (2026-05-15 → 05-19)
+
+**The event:** Friday 2026-05-15 at 20:00 MST, `heartbeat-switcher.ps1` killed the live gateway and launched a competing one. The new gateway hit the L44 `skill_manage`/`registerInMemosStore` bug on its first heartbeat tick. Five stacked respawn vectors (supervisor loop, periodic trigger, RestartOnFailure×999, watchdog escalation, heartbeat-switcher) amplified a single crash into a 62-hour wedge cycle. Manual intervention required 2026-05-18.
+
+**Fixes deployed (all production-validated):**
+- **F1a:** `gateway-resilient.cmd` crash-loop ceiling (5 restarts in 600s) — caught 6-restart cascade autonomously overnight
+- **F1b:** `aristotle-watchdog.ps1` escalation guard — had a silent TryParse bug caught by pre-deploy validation
+- **F2:** `aristotle-gateway-task.cmd` HTTP 200 early-return — validated 50+ times, keystone fix
+- **F3:** `skill-manage.ts` try/catch hardening — loaded, not yet exercised
+- **F4:** `gateway-bootstrap.js` uncaughtException handlers — caught 14 orphan exits across 3 bursts
+
+**Respawn vectors removed:**
+- RestartOnFailure (Count=999/PT1M) — hidden vector that bypassed F1a ceiling
+- heartbeat-switcher.ps1 kill+restart — the root trigger, fired twice daily
+
+**Key lessons:**
+- SUB.1: Safety-net code requires execution validation, not syntax checks
+- SUB.6: Count ALL respawn vectors (we had 5, not 3)
+- SUB.7: The root cause was a 6-line kill+restart block in a scheduled script
+- SUB.7a: Mechanism claims require evidence (file, line, log entry), not plausibility
+- Reference doc: `C:\Users\aaron\clawd-shared\ARISTOTLE-RECOVERY-REFERENCE.md`
+- Ledger: `01KRYSJB9KZDR9SKPQR0TAXVDK` (recovery), `01KRYV54GV6KFFGG4G7528GD0M` (commit)
+
+## Rail Kit Phase 4 (Started 2026-05-15, Interrupted by L45)
+
+First real code-intelligence infrastructure. Source pack (9.2MB, 622 files) on disk for OmniPoolsAZ. Skills drafted (`source-truth-preflight`, `validation-packet-runner`) but never invoked against real code. RAIL-PATTERN-v1.md governed object written. Depcruise blocked by missing node_modules. ast-grep and Semgrep not yet installed.
+
+**Key insight (Aaron, L26 pattern):** "Structure exists, data has never flowed through it." The graduation criterion is invoking the skills against real code, not just having them on disk.
 
 ## Critical Technical Discovery
 
