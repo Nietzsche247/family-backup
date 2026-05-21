@@ -153,15 +153,21 @@ Protocol doc: `C:\Users\aaron\clawd-steelman\ENGAGEMENT_PROTOCOL.md`
 
 ---
 
-## Fleet Recovery System (built 2026-05-08)
+## Fleet Recovery System (built 2026-05-08, Empiricus added 2026-05-20)
 
-**Bidirectional SSH recovery between all agents.** Any agent can diagnose and recover any other.
+**Full bidirectional SSH recovery across all three machines.** Any agent can diagnose and recover any other.
 - Skill: `fleet-recovery` (in skills/ directory, co-built with Plato)
 - Scripts: `aristotle_recover.py` (v2, 29KB), `plato_recover.py` (26KB) — both in clawd-shared
-- SSH keys: `~/.ssh/plato_recovery_key` (Aristotle→Plato), Plato has reverse key
-- "Fix Plato" command: `ssh -i ~/.ssh/plato_recovery_key -o BatchMode=yes Aaron@10.0.0.50 "python plato_recover.py --check --json"`
+- `empiricus_recover.py` — NOT YET WRITTEN. Unblocked as of 2026-05-20. Needs: OpenClaw stack, Slack socket health, scheduled task management.
+- SSH keys:
+  - `~/.ssh/plato_recovery_key` → Aristotle→Plato (Aaron@10.0.0.50)
+  - `~/.ssh/empiricus_access_key` → Aristotle→Empiricus (aaron@100.65.240.87)
+  - Plato→Aristotle: pre-existing (`plato_to_alienware_key`)
+  - Plato→Empiricus: same authorized_keys entry
+- Empiricus failure mode (documented 2026-05-20): Slack pong-timeout → no auto-reconnect → exit code 267009. Gateway HTTP 200 but Slack dead. Restart: Stop-ScheduledTask → Stop-Process → port-free → Start-ScheduledTask → verify Slack socket.
 - Key gotcha: Windows sshd authorized_keys location depends on sshd_config (Match Group administrators vs default ~/.ssh/)
 - Key gotcha: Python needs full path over SSH (WindowsApps stub fails)
+- Key gotcha: nietzsche-i9 uses `aaron` (lowercase) for SSH, NIETZSCHE2025 uses `Aaron` (capital A)
 - Knowledge base for Desktop Commander: `C:\Users\aaron\clawd-shared\NORTHSTAR-FLEET-KNOWLEDGE-FOR-CLAUDE.md`
 
 ## MemOS Local Plugin — OPERATIONAL (May 8-10)
