@@ -4,7 +4,7 @@
 > **Save / read this whole file before doing anything else.**
 > **Source-of-truth path on each host:** `C:\Users\<user>\clawd-shared\NORTHSTAR-FLEET-KNOWLEDGE-FOR-CLAUDE.md`
 >
-> Last updated: 2026-05-11/12 by Claude Opus 4.7 in collaboration with Aaron, Aristotle, and Plato.
+> Last updated: 2026-05-22 by Claude Opus 4.7 in collaboration with Aaron, Aristotle, Plato, and Empiricus.
 > This document is **fleet-wide** but **not** auto-synced — `clawd-shared` has a local `.git` repo without a remote. Per-machine copies can drift. When updating, manually mirror to the other machine.
 > Agent-specific details (process trees, exact paths, failure-mode procedures) live in `ARISTOTLE-RECOVERY-REFERENCE.md` (on Aristotle's clawd-shared) and `PLATO-ARCHITECTURE-INFO.md` (on Plato's clawd-shared).
 
@@ -210,6 +210,34 @@ $bomPresent = $bytes[0] -eq 239 -and $bytes[1] -eq 187 -and $bytes[2] -eq 191
 ```
 
 Affects: any executable JS / shell script / Python script edited via `Set-Content -Encoding UTF8`. Does NOT affect data files like `.json`, `.md`, `.env` (BOM is tolerated there by all consumers we use).
+
+### `Tee-Object` and shell pipes swallow stderr on long-running Node processes
+
+PowerShell's `Tee-Object` (and naive shell `|`) silently drop the pipe at some point during 20–30+ minute runs. Anything written to stderr after the break is lost — including stack traces and API error messages. Symptom: Node child exits with code 1, no error visible, no crash log. We chased this through three OSINT pipeline runs (2026-05-22) as phantom OOM / parent-kill / API-hang before discovering the actual cause was `Anthropic 400: prompt too long` raised cleanly by the SDK — just invisible.
+
+For Node child processes running longer than ~5 minutes, NEVER use `Tee-Object` or `|` for log capture. Use `Start-Process` with file redirects:
+
+```powershell
+Start-Process -FilePath "node.exe" `
+  -ArgumentList "script.js","--arg1","value1" `
+  -NoNewWindow `
+  -RedirectStandardOutput "out.log" `
+  -RedirectStandardError  "err.log" `
+  -PassThru
+```
+
+`-PassThru` returns the process object for status polling. Monitor live with `Get-Content "out.log" -Tail 20`. If a long Node run dies with exit 1 and no visible error, re-run detached before assuming OS-level reaping.
+
+Corollary: synchronous SDK errors (Anthropic 4xx, fetch rejections, parse failures) come back as proper JavaScript exceptions, but the message lands in stderr — which is exactly what the broken pipe ate. Don't trust the absence of an error message when the capture mechanism is a pipe.
+
+### `New-Object System.Collections.Generic.List[type]` breaks PS 5.1 parser
+
+`$x = New-Object System.Collections.Generic.List[string]` parses cleanly in PowerShell 7+ but in 5.1 the unquoted `[string]` is read as a type literal that "eats" the next `{`, producing a misleading `Missing closing '}' in statement block` error pointing dozens of lines downstream from the real problem. The error message guides you toward a brace-mismatch hunt instead of the type-literal source. Caught 2026-05-20 in `empiricus-ssh-setup.ps1`.
+
+Workarounds:
+- `$x = [System.Collections.Generic.List[string]]::new()` (instantiation syntax with full bracketing)
+- `$x = New-Object 'System.Collections.Generic.List[string]'` (quoted typename)
+- `$x = @()` (plain array, simplest if you don't need List-specific methods)
 
 ## STRUCTURAL DIFFERENCES BETWEEN AGENTS (don't conflate)
 
