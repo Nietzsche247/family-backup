@@ -144,3 +144,6 @@ This file must NOT be indexed by MemPalace. If you see it being ingested, add to
 | TWILIO_API_KEY | SK1147b15d539accaba590eeb6aa61ee84 | API key SID |
 | TWILIO_API_SECRET | uw9730iO7DzXpWH3nWh1aO32VTW8EojB | API key secret |
 | TWILIO_TEST_SID | ACb189830e194a720a5084d8d0fd544875 | Test account |
+
+## Telegram Bot
+| TELEGRAM_BOT_TOKEN | 8904247689:AAF-OB8LASiyl8slOMvFyhfHU2cZgp_Ix4o | @Nietzsche247_bot |
