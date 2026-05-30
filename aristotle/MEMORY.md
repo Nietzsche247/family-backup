@@ -15,6 +15,62 @@ I coordinate a 7-bot team across 3 machines. I think, plan, delegate, and review
 
 ---
 
+## Hermes Agent (Added 2026-05-29)
+
+A 5th autonomous agent — not a Clawdbot agent, but a separate Hermes Agent instance running in Docker. Think of it as a free-roaming AI with terminal access, not governed by the same session model.
+
+**Location:** Docker on Omni-AlienWare2025
+**Dashboard:** http://localhost:9119
+**API:** http://localhost:8642 (OpenAI-compatible)
+**API Key:** `H9fAW1cGqnm5o4UMBkeuNhlZtEPLaS6C` (KEYRING)
+**Model:** x-ai/grok-4.3 via OpenRouter
+**Terminal:** local backend, yolo mode — full autonomous host access
+**Skills:** 85 built-in, all enabled
+**GitHub:** authenticated as Nietzsche247
+**SSH:** can reach Plato (10.0.0.50) + Empiricus (100.65.240.87)
+
+### Neo Fleet (4 Hermes profiles inside same container)
+| Profile | Role | Temp | Soul trait |
+|---------|------|------|------------|
+| neo | Commander | 0.3 | Puzzle-solver. "There is a way." Defines done obsessively. |
+| argos | Executor | 0.1 | Evidence-only. Execute exactly. PASS/FAIL. |
+| morpheus | Builder | 0.5 | Code, scripts, payloads. Unconventional solutions. |
+| oracle | Analyst | 0.2 | OSINT. Follow the chain. Flag uncertainty. Never fabricate. |
+
+**Kanban board** = shared state between agents (not agent memory)
+**Profiles at:** `/opt/data/profiles/{neo,argos,morpheus,oracle}/`
+
+### Telegram C2 (Neo bot)
+- **Bot:** @Nietzsche247_bot (display name: Neo)
+- **Token:** in KEYRING
+- **Aaron chat_id:** `8891882135`
+- **Home channel:** SET — Hermes delivers cron results + task alerts to Aaron's iPhone
+- **Native:** Hermes owns Telegram directly via TELEGRAM_BOT_TOKEN in .env
+
+### Twilio SMS
+- **FROM:** +15203350398
+- **Balance:** ~$219
+- **Blocker:** Error 30034 — needs A2P 10DLC registration or toll-free number to deliver to US
+- **All credentials in KEYRING**
+
+### Flipper Zero
+- **pyFlipper:** installed in Hermes container
+- **90% ready:** needs Android tablet USB OTG → Termux → WebSocket bridge
+- **Connection:** `PyFlipper(ws="ws://TABLET_IP:8765")`
+
+### Hermes Gotchas
+- `hermes profile set` doesn't exist — edit config.yaml with sed
+- `hermes profile create` must run one at a time (not parallel)
+- Hermes tasks: max 4000 tokens or get `agent_incomplete`
+- Go must be installed: `apt-get install -y golang-go`
+- Telegram is native — no bridge script needed
+- Use Node.js for all JSON POST to Hermes API (not curl.exe)
+
+### Skill
+**hermes-agent-deploy v2.0** — complete playbook at `C:\Users\aaron\.openclaw\skills\devops\hermes-agent-deploy\SKILL.md`. Another agent can rebuild the full stack in 45-90 min from this skill alone.
+
+---
+
 ## My Human
 
 **Name:** Aaron Baker  
@@ -221,6 +277,19 @@ Protocol doc: `C:\Users\aaron\clawd-steelman\ENGAGEMENT_PROTOCOL.md`
 First real code-intelligence infrastructure. Source pack (9.2MB, 622 files) on disk for OmniPoolsAZ. Skills drafted (`source-truth-preflight`, `validation-packet-runner`) but never invoked against real code. RAIL-PATTERN-v1.md governed object written. Depcruise blocked by missing node_modules. ast-grep and Semgrep not yet installed.
 
 **Key insight (Aaron, L26 pattern):** "Structure exists, data has never flowed through it." The graduation criterion is invoking the skills against real code, not just having them on disk.
+
+## Hermes Agent (Researched 2026-05-29)
+
+Multi-agent AI framework by Nous Research. Key differentiators vs Clawdbot: built-in Kanban task board, agent profiles (team management via GUI), self-improving skills from experience, Docker-native deployment with s6-overlay supervision. Supports 30+ providers, Telegram/Discord/Slack/WhatsApp channels.
+- Architecture doc: `clawd-shared/specs/HERMES-AGENT-DEPLOY.md`
+- Deploy pre-staged: Docker installer + `~/.hermes/` config + launch scripts
+- GitHub: github.com/NousResearch/hermes-agent
+- Docs: hermes-agent.nousresearch.com
+
+## Flipper Zero (Researched 2026-05-29)
+
+Research report: `clawd-researcher/memory/2026-05-29-flipper-zero-research.md`
+Serial/USB Protobuf API enables full programmatic control. Python libraries exist (flipperzero-protobuf, pyFlipper). Practical AI agent skill: signal capture/replay, NFC/RFID read, BadUSB deploy, IR blasting. Community firmware (Momentum, Unleashed) adds Sub-GHz range + extra protocols.
 
 ## Critical Technical Discovery
 
