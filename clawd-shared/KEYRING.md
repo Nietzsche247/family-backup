@@ -138,3 +138,9 @@ curl -H "Authorization: Bearer wJDbqPIFfQgt1UrzsNkuLT5d9vnpYy27" https://hub.sti
 This file must NOT be indexed by MemPalace. If you see it being ingested, add to exclusion rules:
 - Pattern: `KEYRING.md`
 - Reason: Contains all credentials — not suitable for vector search
+
+## Twilio SMS
+| TWILIO_ACCOUNT_SID | ACd25eaa08f79a5d700062037c9c4b64a6 | Live account |
+| TWILIO_API_KEY | SK1147b15d539accaba590eeb6aa61ee84 | API key SID |
+| TWILIO_API_SECRET | uw9730iO7DzXpWH3nWh1aO32VTW8EojB | API key secret |
+| TWILIO_TEST_SID | ACb189830e194a720a5084d8d0fd544875 | Test account |
