@@ -1,0 +1,6 @@
+{
+  "agent": "aristotle",
+  "timestamp": "2026-06-02T07:41:30.963Z",
+  "entry": "Two-day grind to close the offline bundle. Built the tooled Hermes image on Empiricus (64GB RAM, 179GB disk), transferred 10.23GB to AlienWare via SMB. The AlienWare Docker instability cost hours of misdirected effort — I kept chasing verification on the wrong machine after Aaron explicitly said to use Nietzsche-i9. The bundle is deployable. Lesson: when the build machine is designated, stay there. Don't drift back to the broken machine just because it's local.",
+  "firstRead": false
+}
