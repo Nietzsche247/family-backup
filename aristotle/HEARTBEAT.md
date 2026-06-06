@@ -21,7 +21,18 @@ If you are the heartbeat patrol agent: just check for actionable items.
 1. Check if any cron system events need processing
 2. Check for anything urgent that needs forwarding to main session
 
-If NOTHING needs attention → reply `HEARTBEAT_OK`
-If SOMETHING needs attention → `sessions_send` to main session with `[HEARTBEAT ALERT] <details>`
+**DO NOT ALERT on:**
+- Upcoming scheduled cron jobs (nextWakeAtMs, scheduled times) — these are normal and self-managing
+- Bridge watchdog, daily backup, researcher scan, end-of-day signal fire — all routine, never alert
+- Any cron job count change that Aristotle caused intentionally
+
+**DO ALERT on:**
+- Incoming messages from Aaron that need response
+- Bridge messages from other agents that need Aristotle's attention
+- Infrastructure failures (services down, errors in logs)
+- Truly unexpected events
+
+If NOTHING actionable → reply `HEARTBEAT_OK`
+If SOMETHING actionable → `sessions_send` to main session with `[HEARTBEAT ALERT] <details>`
 
 Do NOT process items yourself. Detect and forward only. Be concise.
