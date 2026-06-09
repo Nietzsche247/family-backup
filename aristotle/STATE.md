@@ -31,6 +31,19 @@
 
 ---
 
+## HERMES DEPLOYMENT LESSONS (apply to offline bundle + any future deploy)
+
+| Fix | Why |
+|-----|-----|
+| `docker run -d -t` (`-t` flag required) | Without PTY, Hermes detects no terminal and exits cleanly. s6 restarts = crash loop. |
+| `config.yaml` needs `gateway: auto_approve_local: true` | Without it, gateway service runs but doesn't start Telegram polling |
+| `.env` needs `HERMES_SKIP_SETUP=true` + `TERMINAL_ENV=local` | Prevents interactive setup blocking startup |
+| `.env` needs `OPENROUTER_API_KEY` | Required for cloud LLM access. The key in AlienWare .env is PAID (not free tier) |
+| Model: use `openai/gpt-4.1-mini` | Free-tier models on OpenRouter all broken or don't support tool calling. Llama-3.3 hallucinates JSON tool calls. GPT-4.1-mini works reliably. |
+| Gateway start: `hermes gateway run --replace` | After docker restart, gateway.pid may be stale. `--replace` bypasses it. |
+| state.db corruption | If Hermes crash-loops with many restarts, delete state.db to clear corruption |
+| `docker run` needs `--env-file` + `--add-host host.docker.internal:host-gateway` | .env must be loaded; host-gateway needed for Ollama |
+
 ## EKHART FIX (CRITICAL — READ THIS)
 **The `-t` flag is required in docker run command for Hermes.**
 Without `-t`, Hermes detects no TTY and exits cleanly. s6 restarts it → crash loop.
