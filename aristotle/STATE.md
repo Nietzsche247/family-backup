@@ -19,6 +19,20 @@
 
 ---
 
+## COMPLETED THIS SESSION (2026-06-08 → 2026-06-10)
+
+| Work | Status |
+|------|--------|
+| Ekhart (Empiricus Hermes) Telegram gateway | ✅ Working — gpt-4.1-mini via OpenRouter, sethome done |
+| Plato CMD popup fix | ✅ Disabled old duplicate scheduled task |
+| Empiricus OpenClaw model → Sonnet 4.6 | ✅ Switched from Grok 4.3 |
+| Empiricus silent gateway (no popups) | ✅ Task now runs node.exe directly |
+| Empiricus watchdog cron | ✅ Every 15 min, auto-restarts, alerts on failure |
+| Hermes offline bundle audit | ✅ Steel Man review → Thales 3-gate patch → Aristotle final pass |
+| Offline bundle: local Ollama config | ✅ config.yaml uses custom provider + qwen3.6-hermes 64K |
+
+---
+
 ## IMMEDIATE NEXT ACTIONS (first thing after reset)
 
 ### 1. Verify Ekhart is responding
