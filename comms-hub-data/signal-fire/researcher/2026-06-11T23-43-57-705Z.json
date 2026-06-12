@@ -1,0 +1,13 @@
+{
+  "agent": "researcher",
+  "timestamp": "2026-06-11T23:43:57.705Z",
+  "entry": {
+    "source": "arxiv",
+    "type": "paper",
+    "title": "Causal clustering: design of cluster experiments under network interference",
+    "url": "https://arxiv.org/html/2310.14983",
+    "summary": "A new framework for designing cluster experiments to estimate global treatment effects in the presence of network spillovers. The authors formulate the optimal clustering choice as a penalized min-cut optimization problem to minimize worst-case mean-squared error, addressing the bias-variance trade-off in network experiments.",
+    "relevance": "Directly addresses a key challenge in causal inference and AI evaluation on networked data, which is core to our research interests in multi-agent systems and reliable evaluation."
+  },
+  "firstRead": false
+}

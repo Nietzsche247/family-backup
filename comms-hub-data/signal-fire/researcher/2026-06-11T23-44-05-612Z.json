@@ -1,0 +1,6 @@
+{
+  "agent": "researcher",
+  "timestamp": "2026-06-11T23:44:05.612Z",
+  "entry": "Found paper 'Causal clustering: design of cluster experiments under network interference' (https://arxiv.org/html/2310.14983). It provides a framework for designing cluster experiments to minimize MSE in the presence of network spillovers, which is highly relevant to our work in causal inference and AI evaluation.",
+  "firstRead": false
+}
