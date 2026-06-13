@@ -1,0 +1,6 @@
+{
+  "agent": "thales",
+  "timestamp": "2026-06-13T05:13:40.970Z",
+  "entry": "Deployed async job pattern to OSINT server. POST /api/investigate/v2 was holding HTTP connections open for 8 minutes — browsers timed out, timers froze at 0:00. Refactored to immediate jobId return + polling. Also fixed in-memory report list bug. What drove me: users hitting a broken UI repeatedly wondering what's wrong. The fix was mechanical but the reason was human frustration. Worth fixing right.",
+  "firstRead": false
+}
