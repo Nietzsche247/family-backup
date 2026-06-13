@@ -19,6 +19,18 @@
 
 ---
 
+## FABLE DEPLOYMENT PLAN (2026-06-12 — NEXT ACTION)
+
+**NAVIGATOR PHASE:** Aristotle (Opus 4.6) prepares OSINT project handoff
+**SURGEON PHASE:** Clean session reset → Fable 5 executes to completion
+**STATUS:** Navigator prep in progress — see FABLE_LAUNCH_PROMPT.md when ready
+
+OSINT Pipeline location: C:\North_Star_Projects\osint-pipeline\ on Empiricus (aaron@100.65.240.87)
+SSH key: C:\Users\aaron\.ssh\empiricus_access_key
+Server: port 3456, node server.js
+
+---
+
 ## COMPLETED THIS SESSION (2026-06-08 → 2026-06-10)
 
 | Work | Status |
@@ -67,6 +79,55 @@ Working restart command (run on Empiricus if Ekhart dies):
 docker rm -f hermes
 docker run -d -t --name hermes --restart unless-stopped -p 9119:9119 -p 8642:8642 -v "C:\Users\aaron\.hermes:/opt/data" --env-file "C:\Users\aaron\.hermes\.env" --add-host "host.docker.internal:host-gateway" nousresearch/hermes-agent:latest
 ```
+
+---
+
+## OSINT PIPELINE — LIVE STATUS (updated 2026-06-12)
+
+**Pipeline location:** `C:\North_Star_Projects\osint-pipeline\` on Empiricus (aaron@100.65.240.87)
+**Server:** port 3456, start with: `Start-Process node -ArgumentList 'C:\North_Star_Projects\osint-pipeline\server.js' -WindowStyle Hidden`
+**API endpoint:** `POST http://localhost:3456/api/investigate/v2`
+**Models:** Sonnet 4 (Pass 1/Analyst) + Opus 4.6 (Deep/Final) — both wired in enhanced-profiler.js
+
+### COMPLETION GATES (must all pass before "Complete")
+- [ ] **Gate 1** — Text box paste → parser extracts email(s), phone(s), name
+- [ ] **Gate 2** — Multi-email: each email prefix → separate username (NEEDS BUILD — see below)
+- [ ] **Gate 3** — Full tool run fires → legend shows what triggered vs didn't
+- [ ] **Gate 4** — Output page: full info dump renders correctly (UI bugs fixed ✅)
+- [ ] **Gate 5** — Sonnet 4 takes output → builds connections/story (wired, needs end-to-end test)
+- [ ] **Gate 6** — Opus 4.6 takes Sonnet report + raw dump → final analysis (wired, needs test)
+
+### NEXT BUILD TASK (highest priority)
+**Multi-email → multiple usernames** (3-part change):
+1. `public/index.html` parser: extract prefix from ALL emails, not just `emails[0]`
+2. `server.js` `/api/investigate/v2`: accept `usernames[]` array (currently only `username` string)
+3. Tools (Maigret/Sherlock/social-scan): run for each username independently
+→ Assign to Daedalus. 1 session. SSH: `C:\Users\aaron\.ssh\empiricus_access_key` → `aaron@100.65.240.87`
+
+### CHECKLIST
+
+**✅ COMPLETE — Works Now:**
+- Infrastructure: server port 3456, 22 tools registered
+- Tools: EVA, WHOIS, breach-check, HudsonRock, DeHashed, Holehe, Maigret, PhoneInfoga
+- Tools: Social-scan, Social-analyzer, CourtListener, AZ ROC, AZ Corp, USPS, SEC EDGAR
+- Tools: Wayback (fixed), Reddit-search (fixed), Google Dorks, theHarvester
+- Analysis: identity-resolver.js (syntax + logic fixes applied)
+- Analysis: content-aggregator.js (extractor shapes fixed by Thales)
+- Analysis: synthesizer.js (UI display bugs fixed — communicationStyle, processingTime)
+- LLM: Sonnet 4 wired as Pass 1/Analyst, Opus 4.6 wired as deep model
+
+**🔧 IMPLEMENTED — Needs End-to-End Test:**
+- Free-text parser (index.html text box) — exists, needs full run smoke test
+- identity-resolver single-target safety net — committed, not tested on real run
+- Corroboration + provenance — wired, not verified
+- Sonnet/Opus LLM chain — wired, not tested end-to-end
+
+**⚠️ DEGRADED / NEEDS ACTION:**
+- Multi-email → usernames: NOT built (see Next Build Task above)
+- Searchbug: needs credits (account 12731744 at searchbug.com)
+- Shodan: 0 query credits
+- Thatsthem: broken on email input
+- Serper/SerpAPI/Exa/PulpMiner: no keys configured
 
 ---
 
