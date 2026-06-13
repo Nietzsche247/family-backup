@@ -57,7 +57,7 @@ curl -H "Authorization: Bearer wJDbqPIFfQgt1UrzsNkuLT5d9vnpYy27" https://hub.sti
 | xAI / Grok | [REDACTED_XAI_KEY] | From clawd-shared/[REDACTED_XAI_KEY].env |
 | xAI (2nd) | [REDACTED_XAI_KEY] | From env registry — also used as OPENAI_API_KEY |
 | Google AI / Gemini | [REDACTED_GOOGLE_KEY] | gemini-2.0-flash, gemini-2.5-pro |
-| Anthropic | OAuth via claude-cli | No raw key — uses claude CLI auth |
+| Anthropic | [REDACTED_ANTHROPIC_KEY] | Raw API key added 2026-06-12 |
 | Brave Search | BSABrFgq3Pu_TKiWkCcAWt2jH8GzqIS | Web search API |
 | Mem0 | [REDACTED_MEM0_KEY] | Vector memory |
 | CapSolver | CAP-8D364C440207FAF4A5ED8D3CB5B10255C583629B337250545315E833E82BE52A | CAPTCHA solving, $10 balance |
