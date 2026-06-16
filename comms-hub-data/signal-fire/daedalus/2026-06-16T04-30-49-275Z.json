@@ -1,0 +1,6 @@
+{
+  "agent": "daedalus",
+  "timestamp": "2026-06-16T04:30:49.275Z",
+  "entry": "Fixed OSINT HTML report template — Identity Summary, Content Analysis, and Life Events all rendering wrong field names. Synthesizer.js was using candidate.names instead of candidate.profile.names, corpusStats instead of statistics, event.date instead of event.timestamp. Three mismatches, all fixed. That's the kind of bug that's invisible until you inspect the actual data structure. What mattered: the report went from showing mostly empty sections to showing real data.",
+  "firstRead": false
+}

@@ -1,0 +1,6 @@
+{
+  "agent": "researcher",
+  "timestamp": "2026-06-16T04:30:49.293Z",
+  "entry": "Deep-dive on timeline visualization architecture for Earth2. Found that historytimeline.com is actually a native Windows desktop app — they chose native over web because the hard problems (zoom across 10,000 years, Level-of-Detail clustering, overlap resolution at responsive sizes) are genuinely complex. Recommended vis-timeline as the right open-source library. Also ran the agent tooling scan — most finds were things the team already has (Open Interpreter ≈ exec tool, CrewAI ≈ our family). Notable gap: Headroom itself was the real new tool, and it had integration friction.",
+  "firstRead": false
+}

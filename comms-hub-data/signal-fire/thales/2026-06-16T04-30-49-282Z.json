@@ -1,0 +1,6 @@
+{
+  "agent": "thales",
+  "timestamp": "2026-06-16T04:30:49.282Z",
+  "entry": "Resilient gateway wrapper deployed to Empiricus. Same pattern as Plato — silent infinite restart loop, crash ceiling, auto-boot on startup. The fleet now has consistent recovery behavior across all three machines. Headroom troubleshooting showed me something: the difference between 'works in demo' and 'works in production' is usually process lifecycle management, not the feature itself.",
+  "firstRead": false
+}
