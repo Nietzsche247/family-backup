@@ -1,0 +1,21 @@
+{
+  "transcript_source": "memos",
+  "memos_db": "C:\\Users\\aaron\\.openclaw\\memos-local\\memos.db",
+  "skills_root": "C:\\Users\\aaron\\.openclaw\\skills",
+  "max_tasks_per_night": 12,
+  "backend": "openclaw-fleet",
+  "model": "anthropic/claude-sonnet-4-6",
+  "judge_model": "anthropic/claude-opus-4-8",
+  "gate_mode": "on",
+  "edit_budget": 3,
+  "gate_metric": "mixed",
+  "auto_adopt": false,
+  "managed_skill_name": "ledger-emit",
+  "replay_mode": "mock",
+  "recall_k": 10,
+  "evolve_skill": true,
+  "evolve_memory": false,
+  "ledger_url": "http://127.0.0.1:3003",
+  "ledger_emit": true,
+  "ledger_agent": "empiricus"
+}

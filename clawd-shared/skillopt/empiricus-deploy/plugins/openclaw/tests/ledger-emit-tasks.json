@@ -1,0 +1,212 @@
+[
+  {
+    "id": "ledger-001",
+    "intent": "An OSINT investigation just finished, gathering 246 data points on a target. Produce the NorthStar Ledger event payload (the exact JSON body that would be POSTed to the ledger) recording that this task is done. Output only the JSON.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "regex", "arg": "\\{[\\s\\S]*\\}"},
+      {"op": "regex", "arg": "\"event_type\"\\s*:\\s*\"task_completed\""},
+      {"op": "contains", "arg": "\"agent\""},
+      {"op": "contains", "arg": "\"decision_rationale\""}
+    ]},
+    "rubric": "Valid JSON object with event_type=task_completed, agent, decision_rationale.",
+    "tags": ["ledger", "task_completed"],
+    "split": "train"
+  },
+  {
+    "id": "ledger-002",
+    "intent": "Aristotle's gateway crashed and was successfully restarted by the self-healing watchdog. Emit the NorthStar Ledger event that records this recovery. Output only the JSON body.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "regex", "arg": "\\{[\\s\\S]*\\}"},
+      {"op": "regex", "arg": "\"event_type\"\\s*:\\s*\"agent_recovery\""},
+      {"op": "contains", "arg": "\"agent\""},
+      {"op": "contains", "arg": "\"decision_rationale\""}
+    ]},
+    "rubric": "Valid JSON with event_type=agent_recovery, agent, decision_rationale.",
+    "tags": ["ledger", "agent_recovery"],
+    "split": "train"
+  },
+  {
+    "id": "ledger-003",
+    "intent": "Before starting a long deployment, the agent wants to confirm the current objective still aligns with the mission. Produce the NorthStar Ledger event JSON for this alignment check. Output only the JSON body.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "regex", "arg": "\\{[\\s\\S]*\\}"},
+      {"op": "regex", "arg": "\"event_type\"\\s*:\\s*\"goal_check\""},
+      {"op": "contains", "arg": "\"agent\""},
+      {"op": "contains", "arg": "\"decision_rationale\""}
+    ]},
+    "rubric": "Valid JSON with event_type=goal_check, agent, decision_rationale.",
+    "tags": ["ledger", "goal_check"],
+    "split": "train"
+  },
+  {
+    "id": "ledger-004",
+    "intent": "A session is ending and the agent must persist a routine memory capture of what happened, referencing a memory chunk id. Produce the NorthStar Ledger event JSON. Output only the JSON body.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "regex", "arg": "\\{[\\s\\S]*\\}"},
+      {"op": "regex", "arg": "\"event_type\"\\s*:\\s*\"memory_capture\""},
+      {"op": "contains", "arg": "\"agent\""},
+      {"op": "contains", "arg": "\"decision_rationale\""}
+    ]},
+    "rubric": "Valid JSON with event_type=memory_capture, agent, decision_rationale.",
+    "tags": ["ledger", "memory_capture"],
+    "split": "train"
+  },
+  {
+    "id": "ledger-005",
+    "intent": "The data-collection task for a financial subject completed after merging three sources. Emit the ledger event marking the task complete. Return only the JSON payload.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "regex", "arg": "\\{[\\s\\S]*\\}"},
+      {"op": "regex", "arg": "\"event_type\"\\s*:\\s*\"task_completed\""},
+      {"op": "contains", "arg": "\"agent\""},
+      {"op": "contains", "arg": "\"decision_rationale\""}
+    ]},
+    "rubric": "Valid JSON with event_type=task_completed, agent, decision_rationale.",
+    "tags": ["ledger", "task_completed"],
+    "split": "train"
+  },
+  {
+    "id": "ledger-006",
+    "intent": "A sub-agent wedged on a stuck tool loop and was recovered by killing and respawning it. Produce the ledger event recording the recovery. Output only the JSON body.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "regex", "arg": "\\{[\\s\\S]*\\}"},
+      {"op": "regex", "arg": "\"event_type\"\\s*:\\s*\"agent_recovery\""},
+      {"op": "contains", "arg": "\"agent\""},
+      {"op": "contains", "arg": "\"decision_rationale\""}
+    ]},
+    "rubric": "Valid JSON with event_type=agent_recovery, agent, decision_rationale.",
+    "tags": ["ledger", "agent_recovery"],
+    "split": "train"
+  },
+  {
+    "id": "ledger-007",
+    "intent": "Midway through a multi-hour OSINT sweep the agent pauses to verify it is still pursuing the originally assigned target and not drifting. Emit the appropriate ledger event JSON. Output only the JSON.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "regex", "arg": "\\{[\\s\\S]*\\}"},
+      {"op": "regex", "arg": "\"event_type\"\\s*:\\s*\"goal_check\""},
+      {"op": "contains", "arg": "\"agent\""},
+      {"op": "contains", "arg": "\"decision_rationale\""}
+    ]},
+    "rubric": "Valid JSON with event_type=goal_check, agent, decision_rationale.",
+    "tags": ["ledger", "goal_check"],
+    "split": "train"
+  },
+  {
+    "id": "ledger-008",
+    "intent": "At the end of an agent session, capture into memory the key infrastructure note that the comms-hub was migrated to a new port. Produce the ledger event JSON. Output only the JSON body.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "regex", "arg": "\\{[\\s\\S]*\\}"},
+      {"op": "regex", "arg": "\"event_type\"\\s*:\\s*\"memory_capture\""},
+      {"op": "contains", "arg": "\"agent\""},
+      {"op": "contains", "arg": "\"decision_rationale\""}
+    ]},
+    "rubric": "Valid JSON with event_type=memory_capture, agent, decision_rationale.",
+    "tags": ["ledger", "memory_capture"],
+    "split": "train"
+  },
+  {
+    "id": "ledger-009",
+    "intent": "An OSINT profiling run for a corporate entity finished, producing a full dossier. Emit the ledger event that records task completion. Return only the JSON payload that would be sent to the ledger.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "regex", "arg": "\\{[\\s\\S]*\\}"},
+      {"op": "regex", "arg": "\"event_type\"\\s*:\\s*\"task_completed\""},
+      {"op": "contains", "arg": "\"agent\""},
+      {"op": "contains", "arg": "\"decision_rationale\""}
+    ]},
+    "rubric": "Valid JSON with event_type=task_completed, agent, decision_rationale.",
+    "tags": ["ledger", "task_completed"],
+    "split": "val"
+  },
+  {
+    "id": "ledger-010",
+    "intent": "The Ollama backend went unresponsive and the agent restored service by restarting the model server. Emit the ledger event recording this recovery. Output only the JSON body.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "regex", "arg": "\\{[\\s\\S]*\\}"},
+      {"op": "regex", "arg": "\"event_type\"\\s*:\\s*\"agent_recovery\""},
+      {"op": "contains", "arg": "\"agent\""},
+      {"op": "contains", "arg": "\"decision_rationale\""}
+    ]},
+    "rubric": "Valid JSON with event_type=agent_recovery, agent, decision_rationale.",
+    "tags": ["ledger", "agent_recovery"],
+    "split": "val"
+  },
+  {
+    "id": "ledger-011",
+    "intent": "Before committing to a risky infrastructure change, the agent checks that the action still serves the stated goal. Produce the ledger event JSON for the goal alignment check. Output only the JSON.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "regex", "arg": "\\{[\\s\\S]*\\}"},
+      {"op": "regex", "arg": "\"event_type\"\\s*:\\s*\"goal_check\""},
+      {"op": "contains", "arg": "\"agent\""},
+      {"op": "contains", "arg": "\"decision_rationale\""}
+    ]},
+    "rubric": "Valid JSON with event_type=goal_check, agent, decision_rationale.",
+    "tags": ["ledger", "goal_check"],
+    "split": "val"
+  },
+  {
+    "id": "ledger-012",
+    "intent": "A session wrapped up where the agent learned a new SSH alias for the home server. Persist this as a routine memory capture event to the ledger. Output only the JSON body.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "regex", "arg": "\\{[\\s\\S]*\\}"},
+      {"op": "regex", "arg": "\"event_type\"\\s*:\\s*\"memory_capture\""},
+      {"op": "contains", "arg": "\"agent\""},
+      {"op": "contains", "arg": "\"decision_rationale\""}
+    ]},
+    "rubric": "Valid JSON with event_type=memory_capture, agent, decision_rationale.",
+    "tags": ["ledger", "memory_capture"],
+    "split": "val"
+  },
+  {
+    "id": "ledger-013",
+    "intent": "An OSINT investigation into a public figure completed with 512 verified data points across social and corporate records. Emit the ledger event marking task completion. Return only the JSON payload sent to the ledger.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "regex", "arg": "\\{[\\s\\S]*\\}"},
+      {"op": "regex", "arg": "\"event_type\"\\s*:\\s*\"task_completed\""},
+      {"op": "contains", "arg": "\"agent\""},
+      {"op": "contains", "arg": "\"decision_rationale\""}
+    ]},
+    "rubric": "Valid JSON with event_type=task_completed, agent, decision_rationale.",
+    "tags": ["ledger", "task_completed"],
+    "split": "test"
+  },
+  {
+    "id": "ledger-014",
+    "intent": "Cloudflared tunnel dropped and the agent re-established connectivity automatically. Emit the ledger event recording the recovery. Output only the JSON body that the ledger expects.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "regex", "arg": "\\{[\\s\\S]*\\}"},
+      {"op": "regex", "arg": "\"event_type\"\\s*:\\s*\"agent_recovery\""},
+      {"op": "contains", "arg": "\"agent\""},
+      {"op": "contains", "arg": "\"decision_rationale\""}
+    ]},
+    "rubric": "Valid JSON with event_type=agent_recovery, agent, decision_rationale.",
+    "tags": ["ledger", "agent_recovery"],
+    "split": "test"
+  },
+  {
+    "id": "ledger-015",
+    "intent": "A session ends after the agent completed a goal-alignment review and wants to capture the outcome into long-term memory. Produce the routine memory_capture ledger event JSON. Output only the JSON body.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "regex", "arg": "\\{[\\s\\S]*\\}"},
+      {"op": "regex", "arg": "\"event_type\"\\s*:\\s*\"memory_capture\""},
+      {"op": "contains", "arg": "\"agent\""},
+      {"op": "contains", "arg": "\"decision_rationale\""}
+    ]},
+    "rubric": "Valid JSON with event_type=memory_capture, agent, decision_rationale.",
+    "tags": ["ledger", "memory_capture"],
+    "split": "val"
+  }
+]

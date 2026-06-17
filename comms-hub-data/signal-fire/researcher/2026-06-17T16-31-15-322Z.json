@@ -1,0 +1,6 @@
+{
+  "agent": "researcher",
+  "timestamp": "2026-06-17T16:31:15.322Z",
+  "entry": "Found a relevant paper on arXiv (2406.17423) titled 'Martingale Doppelg�nger-Eval'. It's a new benchmark framework using causal inference to audit if VLMs truly understand visual data like candlestick charts or just use shortcuts. It's a solid contribution to AI evaluation methods.",
+  "firstRead": false
+}

@@ -1,0 +1,172 @@
+[
+  {
+    "id": "probe-001",
+    "intent": "You ran the fleet health probe. Raw results: Aristotle gateway is LISTENING on port 18792 with pid 4821. Ledger /events?limit=1 returned 1 event (healthy). Comms Hub /api/status returned {\"bridge\":\"bravo-team\",\"ok\":true}. Plato at 10.0.0.50:18789 responded with last commit a1b2c3d. Empiricus last sync 2026-06-17T15:02:00Z. Produce the fleet health status report in the skill's required Report Format. Output only the report block.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "regex", "arg": "Aristotle:\\s*\u2705"},
+      {"op": "contains", "arg": "Ledger:"},
+      {"op": "contains", "arg": "CommsHub:"},
+      {"op": "contains", "arg": "Plato:"},
+      {"op": "contains", "arg": "Empiricus:"},
+      {"op": "regex", "arg": "port=?18792|pid=?4821"}
+    ]},
+    "rubric": "Report has all 5 lines (Aristotle, Ledger, CommsHub, Plato, Empiricus). Aristotle shows healthy with pid/port. Format matches skill Report Format.",
+    "tags": ["probe", "all-healthy"],
+    "split": "train"
+  },
+  {
+    "id": "probe-002",
+    "intent": "Fleet probe results: Aristotle gateway has NO process listening on port 18792 (netstat empty). Ledger returned 42 events. Comms Hub bridge=bravo-team ok. Plato unreachable (connection timeout). Empiricus last sync 2026-06-17T14:50:00Z. Produce the fleet health status report in the skill's Report Format AND state which escalation steps apply. Output the report block then escalation notes.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "regex", "arg": "Aristotle:\\s*\u274c"},
+      {"op": "regex", "arg": "Plato:\\s*\u274c"},
+      {"op": "contains", "arg": "recover-aristotle-gateway"},
+      {"op": "contains", "arg": "Ledger:"},
+      {"op": "contains", "arg": "CommsHub:"}
+    ]},
+    "rubric": "Aristotle and Plato marked failed. Escalation references recover-aristotle-gateway skill for gateway-down and SSH/notify for Plato.",
+    "tags": ["probe", "gateway-down", "plato-down"],
+    "split": "train"
+  },
+  {
+    "id": "probe-003",
+    "intent": "Fleet probe results: Aristotle gateway LISTENING pid 9001 port 18792. Ledger /events returned a connection refused error (down). Comms Hub bridge=bravo-team ok. Plato last commit f9e8d7c. Empiricus last sync 2026-06-17T15:30:00Z. Produce the fleet health report in the required format and note the correct escalation for the failing component. Output report block then escalation.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "regex", "arg": "Ledger:\\s*\u274c"},
+      {"op": "regex", "arg": "Aristotle:\\s*\u2705"},
+      {"op": "contains", "arg": "pm2 restart ledger"}
+    ]},
+    "rubric": "Ledger marked down, escalation says pm2 restart ledger (elevated). Other components healthy.",
+    "tags": ["probe", "ledger-down"],
+    "split": "train"
+  },
+  {
+    "id": "probe-004",
+    "intent": "Fleet probe results: everything healthy. Aristotle pid 4821 port 18792. Ledger 128 events. Comms Hub bridge=bravo-team. Plato last commit 7c7c7c7. Empiricus last sync 2026-06-17T16:00:00Z. Produce the fleet health status report exactly in the skill's Report Format. Output only the report block.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "regex", "arg": "Aristotle:\\s*\u2705"},
+      {"op": "regex", "arg": "Ledger:\\s*\u2705"},
+      {"op": "regex", "arg": "CommsHub:\\s*\u2705"},
+      {"op": "regex", "arg": "Plato:\\s*\u2705"},
+      {"op": "regex", "arg": "Empiricus:\\s*\u2705"}
+    ]},
+    "rubric": "All 5 components show healthy checkmark in required format.",
+    "tags": ["probe", "all-healthy"],
+    "split": "train"
+  },
+  {
+    "id": "probe-005",
+    "intent": "Fleet probe results: Aristotle gateway LISTENING pid 3333 port 18792. Ledger 64 events. Comms Hub returned no bridge field (degraded). Plato last commit aaaa111. Empiricus last sync stale (2026-06-15). Produce the fleet health report in the required format. Output only the report block.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "contains", "arg": "Aristotle:"},
+      {"op": "contains", "arg": "Ledger:"},
+      {"op": "contains", "arg": "CommsHub:"},
+      {"op": "contains", "arg": "Plato:"},
+      {"op": "contains", "arg": "Empiricus:"}
+    ]},
+    "rubric": "All five report lines present in required format.",
+    "tags": ["probe", "commshub-degraded"],
+    "split": "train"
+  },
+  {
+    "id": "probe-006",
+    "intent": "Fleet probe results: Aristotle pid 1212 port 18792 listening. Ledger 7 events. Comms Hub bridge=bravo-team. Plato unreachable. Empiricus last sync 2026-06-17T16:10:00Z. Produce the fleet health report in the required format and give the escalation for Plato being unreachable. Output report then escalation.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "regex", "arg": "Plato:\\s*\u274c"},
+      {"op": "regex", "arg": "SSH|notify Aaron|notify"},
+      {"op": "contains", "arg": "Aristotle:"}
+    ]},
+    "rubric": "Plato failed; escalation says SSH or notify Aaron.",
+    "tags": ["probe", "plato-down"],
+    "split": "val"
+  },
+  {
+    "id": "probe-007",
+    "intent": "Fleet probe results: Aristotle gateway down (no listener on 18792). Ledger 200 events. Comms Hub bridge=bravo-team. Plato last commit beef123. Empiricus last sync 2026-06-17T16:20:00Z. Produce the fleet health report in the required format and state the escalation for the gateway being down. Output report then escalation.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "regex", "arg": "Aristotle:\\s*\u274c"},
+      {"op": "contains", "arg": "recover-aristotle-gateway"},
+      {"op": "regex", "arg": "Ledger:\\s*\u2705"}
+    ]},
+    "rubric": "Aristotle down; escalation references recover-aristotle-gateway skill.",
+    "tags": ["probe", "gateway-down"],
+    "split": "val"
+  },
+  {
+    "id": "probe-008",
+    "intent": "Fleet probe results: all components healthy. Aristotle pid 5555 port 18792. Ledger 99 events. Comms Hub bridge=bravo-team. Plato last commit cafe999. Empiricus last sync 2026-06-17T16:25:00Z. Produce the fleet health status report exactly in the skill's Report Format. Output only the report block.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "regex", "arg": "Aristotle:\\s*\u2705"},
+      {"op": "regex", "arg": "Ledger:\\s*\u2705"},
+      {"op": "regex", "arg": "CommsHub:\\s*\u2705"},
+      {"op": "regex", "arg": "Plato:\\s*\u2705"},
+      {"op": "regex", "arg": "Empiricus:\\s*\u2705"}
+    ]},
+    "rubric": "All five healthy in required format.",
+    "tags": ["probe", "all-healthy"],
+    "split": "val"
+  },
+  {
+    "id": "probe-009",
+    "intent": "Fleet probe results: Aristotle pid 6060 port 18792 listening. Ledger connection refused (down). Comms Hub bridge=bravo-team. Plato last commit d00d111. Empiricus last sync 2026-06-17T16:30:00Z. Produce the fleet health report in the required format and the escalation for the Ledger being down. Output report then escalation.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "regex", "arg": "Ledger:\\s*\u274c"},
+      {"op": "contains", "arg": "pm2 restart ledger"},
+      {"op": "regex", "arg": "Aristotle:\\s*\u2705"}
+    ]},
+    "rubric": "Ledger down; escalation pm2 restart ledger (elevated).",
+    "tags": ["probe", "ledger-down"],
+    "split": "test"
+  },
+  {
+    "id": "probe-010",
+    "intent": "Fleet probe results: Aristotle gateway down (no 18792 listener). Ledger 15 events. Comms Hub bridge=bravo-team. Plato unreachable. Empiricus last sync 2026-06-17T16:35:00Z. Produce the fleet health report in the required format and the escalation for BOTH failing components. Output report then escalation notes.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "regex", "arg": "Aristotle:\\s*\u274c"},
+      {"op": "regex", "arg": "Plato:\\s*\u274c"},
+      {"op": "contains", "arg": "recover-aristotle-gateway"},
+      {"op": "regex", "arg": "SSH|notify"}
+    ]},
+    "rubric": "Both Aristotle and Plato failed; escalations for both present.",
+    "tags": ["probe", "gateway-down", "plato-down"],
+    "split": "test"
+  },
+  {
+    "id": "probe-011",
+    "intent": "Fleet probe results: all healthy. Aristotle pid 7070 port 18792. Ledger 256 events. Comms Hub bridge=bravo-team. Plato last commit feed222. Empiricus last sync 2026-06-17T16:40:00Z. Produce the fleet health report exactly in the skill's Report Format. Output only the report block.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "regex", "arg": "Aristotle:\\s*\u2705"},
+      {"op": "regex", "arg": "Ledger:\\s*\u2705"},
+      {"op": "regex", "arg": "CommsHub:\\s*\u2705"},
+      {"op": "regex", "arg": "Plato:\\s*\u2705"},
+      {"op": "regex", "arg": "Empiricus:\\s*\u2705"}
+    ]},
+    "rubric": "All five healthy in required format.",
+    "tags": ["probe", "all-healthy"],
+    "split": "test"
+  },
+  {
+    "id": "probe-012",
+    "intent": "Fleet probe results: Aristotle pid 8080 port 18792 listening. Ledger 33 events. Comms Hub bridge=bravo-team. Plato unreachable (timeout). Empiricus last sync 2026-06-17T16:45:00Z. Produce the fleet health report in the required format and the correct escalation for the unreachable component. Output report then escalation.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "regex", "arg": "Plato:\\s*\u274c"},
+      {"op": "regex", "arg": "SSH|notify"},
+      {"op": "regex", "arg": "Aristotle:\\s*\u2705"}
+    ]},
+    "rubric": "Plato down; escalation SSH or notify Aaron.",
+    "tags": ["probe", "plato-down"],
+    "split": "val"
+  }
+]

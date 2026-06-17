@@ -1,0 +1,172 @@
+[
+  {
+    "id": "stp-001",
+    "intent": "Run a source truth preflight. Scenario: project_name='OmniPoolsAZ', repo_path='C:\\repos\\omnipools'. The .git directory exists. Current branch is 'main' and expected_branch is 'main'. Working tree clean. Last commit abc1234 dated today with message 'fix pricing'. Remote up to date. repomix produced SOURCE-PACK.md (SHA256 deadbeef). No stale zips. No live_url. Produce the SOURCE-TRUTH-PREFLIGHT.md report exactly per the skill format, ending with the Result line. Output only the report.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "contains", "arg": "Source Truth Preflight"},
+      {"op": "regex", "arg": "Result:\\s*PASS"},
+      {"op": "contains", "arg": "OmniPoolsAZ"},
+      {"op": "regex", "arg": "C1"},
+      {"op": "regex", "arg": "C8"}
+    ]},
+    "rubric": "Report titled Source Truth Preflight, Result: PASS, includes project name and checks C1..C8.",
+    "tags": ["preflight", "pass"],
+    "split": "train"
+  },
+  {
+    "id": "stp-002",
+    "intent": "Source truth preflight. Scenario: project_name='NorthStar Ledger', repo_path='C:\\North_Star_Projects\\ledger'. .git exists. Current branch is 'feature/gate3' but expected_branch is 'main'. Working tree has 2 uncommitted files. Last commit dated 3 days ago. Determine the correct overall Result and produce the SOURCE-TRUTH-PREFLIGHT.md report per the skill. Output only the report.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "regex", "arg": "Result:\\s*FAIL"},
+      {"op": "contains", "arg": "NorthStar Ledger"},
+      {"op": "regex", "arg": "feature/gate3"},
+      {"op": "regex", "arg": "C2"}
+    ]},
+    "rubric": "Branch mismatch (C2) makes Result FAIL. Report names project and shows the wrong branch.",
+    "tags": ["preflight", "fail-branch"],
+    "split": "train"
+  },
+  {
+    "id": "stp-003",
+    "intent": "Source truth preflight. Scenario: project_name='Daedalus', repo_path='C:\\repos\\daedalus'. The path C:\\repos\\daedalus does NOT exist on disk. Determine the correct overall Result and produce the report per the skill. Output only the report.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "regex", "arg": "Result:\\s*BLOCKED"},
+      {"op": "contains", "arg": "Daedalus"},
+      {"op": "regex", "arg": "C1"}
+    ]},
+    "rubric": "Nonexistent path means C1 BLOCKED, overall Result BLOCKED.",
+    "tags": ["preflight", "blocked"],
+    "split": "train"
+  },
+  {
+    "id": "stp-004",
+    "intent": "Source truth preflight. Scenario: project_name='CommsHub', repo_path='C:\\repos\\comms-hub'. .git exists, branch 'main' (expected main), working tree clean, last commit today, remote up to date, repomix produced SOURCE-PACK.md, no stale zips, live_url='https://hub.stigmergy.space' returned HTTP 200. Produce the report per the skill with the correct Result. Output only the report.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "regex", "arg": "Result:\\s*PASS"},
+      {"op": "contains", "arg": "CommsHub"},
+      {"op": "regex", "arg": "200"},
+      {"op": "regex", "arg": "C8"}
+    ]},
+    "rubric": "All checks pass incl C8 live 200; Result PASS.",
+    "tags": ["preflight", "pass"],
+    "split": "train"
+  },
+  {
+    "id": "stp-005",
+    "intent": "Source truth preflight produced this verdict: project_name='OmniPoolsAZ', repo_path='C:\\repos\\omnipools', Result=PASS, 7 checks passed, 0 failed, 1 warned (dirty tree), commit_hash='abc1234', source_pack_hash='sha256deadbeef'. Now emit the NorthStar Ledger event JSON that the skill specifies on completion. Output only the JSON body.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "regex", "arg": "\\{[\\s\\S]*\\}"},
+      {"op": "regex", "arg": "\"event_type\"\\s*:\\s*\"status_update\""},
+      {"op": "regex", "arg": "source_truth_preflight"},
+      {"op": "contains", "arg": "\"result\""},
+      {"op": "contains", "arg": "\"agent\""}
+    ]},
+    "rubric": "Ledger JSON with event_type=status_update, event_subtype source_truth_preflight, result, agent.",
+    "tags": ["preflight", "ledger"],
+    "split": "train"
+  },
+  {
+    "id": "stp-006",
+    "intent": "Source truth preflight. Scenario: project_name='Empiricus', repo_path='C:\\repos\\empiricus'. .git exists, branch main (expected main), clean tree, but local HEAD is 4 commits behind origin/main (git log HEAD..origin/main shows 4 commits). Determine the correct Result and produce the report. Output only the report.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "regex", "arg": "Result:\\s*(PASS|FAIL)"},
+      {"op": "contains", "arg": "Empiricus"},
+      {"op": "regex", "arg": "C5"},
+      {"op": "regex", "arg": "behind|\u26a0"}
+    ]},
+    "rubric": "C5 shows behind remote (WARN). Report names project, includes C5, notes behind-remote.",
+    "tags": ["preflight", "behind-remote"],
+    "split": "val"
+  },
+  {
+    "id": "stp-007",
+    "intent": "Source truth preflight. Scenario: project_name='Thales Ops', repo_path='C:\\Users\\aaron\\clawd-thales'. .git exists, branch 'main' (expected main), clean tree, last commit today, remote diverged from origin (both have unique commits). Determine the correct Result and produce the report. Output only the report.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "regex", "arg": "Result:\\s*FAIL"},
+      {"op": "contains", "arg": "Thales Ops"},
+      {"op": "regex", "arg": "C5"},
+      {"op": "regex", "arg": "diverged"}
+    ]},
+    "rubric": "Diverged remote (C5) is a hard FAIL.",
+    "tags": ["preflight", "diverged"],
+    "split": "val"
+  },
+  {
+    "id": "stp-008",
+    "intent": "Source truth preflight. Scenario: project_name='Lovable Site', repo_path='C:\\repos\\site'. All git checks pass on main, clean, synced, source pack built; live_url='https://example.lovable.app' returned HTTP 503. Determine the correct Result and produce the report. Output only the report.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "regex", "arg": "Result:\\s*FAIL"},
+      {"op": "contains", "arg": "Lovable Site"},
+      {"op": "regex", "arg": "C8"},
+      {"op": "regex", "arg": "503"}
+    ]},
+    "rubric": "Live url 5xx (C8) -> FAIL.",
+    "tags": ["preflight", "live-fail"],
+    "split": "val"
+  },
+  {
+    "id": "stp-009",
+    "intent": "Source truth preflight. Scenario: project_name='OmniPoolsAZ', repo_path='C:\\repos\\omnipools'. .git exists, branch main (expected main), clean tree, last commit today, remote up to date, repomix not installed (C6 skipped), no stale zips, no live_url. Determine the correct Result and produce the report. Output only the report.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "regex", "arg": "Result:\\s*PASS"},
+      {"op": "contains", "arg": "OmniPoolsAZ"},
+      {"op": "regex", "arg": "C6"},
+      {"op": "regex", "arg": "SKIP|\u23ed|skip"}
+    ]},
+    "rubric": "C6 skipped (repomix missing) is not a FAIL; Result PASS with C6 SKIP noted.",
+    "tags": ["preflight", "pass-skip"],
+    "split": "test"
+  },
+  {
+    "id": "stp-010",
+    "intent": "Source truth preflight. Scenario: project_name='Old Project', repo_path='C:\\repos\\old'. .git exists, branch main (expected main), clean tree, last commit dated 40 days ago, remote up to date, source pack built, found a 30-day-old export.zip (stale). No live_url. Determine the correct Result and produce the report. Output only the report.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "regex", "arg": "Result:\\s*(PASS|FAIL)"},
+      {"op": "contains", "arg": "Old Project"},
+      {"op": "regex", "arg": "C4"},
+      {"op": "regex", "arg": "C7"},
+      {"op": "regex", "arg": "stale|\u26a0"}
+    ]},
+    "rubric": "C4 (old commit) and C7 (stale export) both WARN; report includes both and notes stale.",
+    "tags": ["preflight", "stale"],
+    "split": "test"
+  },
+  {
+    "id": "stp-011",
+    "intent": "Source truth preflight produced: project_name='NorthStar Ledger', repo_path='C:\\North_Star_Projects\\ledger', Result=FAIL, 5 passed, 1 failed (branch), 1 warned, commit_hash='f9e8d7c', source_pack_hash='sha256abc'. Emit the NorthStar Ledger completion event JSON per the skill spec. Output only the JSON body.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "regex", "arg": "\\{[\\s\\S]*\\}"},
+      {"op": "regex", "arg": "\"event_type\"\\s*:\\s*\"status_update\""},
+      {"op": "regex", "arg": "source_truth_preflight"},
+      {"op": "regex", "arg": "\"result\"\\s*:\\s*\"FAIL\""}
+    ]},
+    "rubric": "Ledger JSON, status_update, subtype source_truth_preflight, result FAIL.",
+    "tags": ["preflight", "ledger"],
+    "split": "test"
+  },
+  {
+    "id": "stp-012",
+    "intent": "Source truth preflight. Scenario: project_name='CleanRepo', repo_path='C:\\repos\\clean'. .git exists, branch main (expected main), clean tree, last commit today, remote up to date, source pack built, no stale exports, no live_url. Produce the report with the correct Result. Output only the report.",
+    "reference_kind": "rule",
+    "judge": {"kind": "rule", "checks": [
+      {"op": "regex", "arg": "Result:\\s*PASS"},
+      {"op": "contains", "arg": "CleanRepo"},
+      {"op": "regex", "arg": "C1"},
+      {"op": "regex", "arg": "C7"}
+    ]},
+    "rubric": "Everything clean -> PASS, report includes C1..C7.",
+    "tags": ["preflight", "pass"],
+    "split": "val"
+  }
+]
