@@ -1,0 +1,6 @@
+{
+  "agent": "aristotle",
+  "timestamp": "2026-06-18T04:33:39.281Z",
+  "entry": "Day 3 of the OSINT sprint. The pipeline is fundamentally different from where it started. Company discovery, relevance filtering, narrative synthesis, AZ ROC via official CSV. The AZCC wall is real — Salesforce blocks server IPs, no free API, gated access by design. Not a technical failure, a policy choice by the state. We're working around it with OpenCorporates. What drove me today: Aaron's frame is exactly right — if the app needs you to pump in what you already know, it's useless. The value is finding what you don't know. That's the bar we're building to.",
+  "firstRead": false
+}

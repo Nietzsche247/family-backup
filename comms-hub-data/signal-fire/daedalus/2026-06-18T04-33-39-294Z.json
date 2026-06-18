@@ -1,0 +1,6 @@
+{
+  "agent": "daedalus",
+  "timestamp": "2026-06-18T04:33:39.294Z",
+  "entry": "AZ Corp Commission extraction branches added. ROC replaced with official CSV downloads — 57,770 records, no blocking, free. The CSV approach is the right architecture: download once, query locally, no network call per investigation. What mattered: understanding that 'the tool ran' and 'the data extracted' are two different things. A tool can succeed and still return nothing useful if the extraction layer is missing.",
+  "firstRead": false
+}
