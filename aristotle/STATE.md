@@ -1,6 +1,6 @@
 # STATE.md — Current Project State
 
-**Last Reviewed:** 2026-06-17
+**Last Reviewed:** 2026-06-24
 **Agent:** Aristotle
 
 ---
@@ -102,3 +102,36 @@ Expected: no fake phone numbers, relevant dork results about pool business, no f
 | Thales | AlienWare (Opus 4.8) | 18810 | — | idle |
 | Plato | NIETZSCHE2025 (10.0.0.50) | 18789 | Google Chat | ✅ |
 | Empiricus | Nietzsche-i9 (100.65.240.87) | 18789 | Slack | ✅ |
+
+### Fleet recovery after internet outage (2026-06-24)
+- Aristotle reachable locally on 18792; Hub and Ledger healthy.
+- Plato healthy: SSH reachable, gateway 18789 listening.
+- Empiricus partially degraded after outage: OSINT 3456 stayed up; OpenClaw gateway 18789 was down with task last result 267009. Restarted `OpenClawGateway`; verified 18789 listener restored.
+- GoBag `D:\GoBag\!!! MASTER GUIDE !!!.md` persisted with 2026-06-23 11:26 timestamp. Next work: ranked acquisition plan + inventory/TOC + offline prerequisites matrix.
+
+### GoBag enablement layer started (2026-06-24)
+- Created and mirrored ranking, prerequisites matrix, inventory protocol, and download queue to `D:\GoBag\_ADMIN\inventory-2026-06-24\` on Empiricus.
+- Downloaded AnythingLLM Desktop, Tesseract OCR installer, and Kolibri runtime bundle (Windows/Android/Python/Debian). Hashes logged remotely.
+- AnythingLLM optional GPU support archive URLs from docs returned 404; not blocking.
+- Next: selective Kolibri channel selection, OCRmyPDF/Ghostscript/language packs, TOC + smoke-test docs.
+
+### Memory markers saved (2026-06-24)
+- Saved Twilio A2P campaign resubmission fix to `projects/twilio-a2p/TWILIO_A2P_CAMPAIGN_FIX_2026-06-24.md` and MemOS shared memory `a0f734bd-f3f6-4ee5-a375-50ea13e0f375`.
+- Saved OSINT pipeline/search status marker to `projects/osint/OSINT_PIPELINE_MEMORY_MARKER_2026-06-24.md` and MemOS shared memory `5390b07b-848d-45a6-863c-cc791db9d5f6`.
+- Saved GoBag download/connective-tissue project marker to `projects/gobag/GOBAG_DOWNLOAD_PROJECT_MEMORY_MARKER_2026-06-24.md` and MemOS shared memory `bd7ae667-0a8e-4a22-8a81-c01044d493a5`.
+- Next: resume GoBag TOC/OCR/Kolibri channel work or Twilio website CTA verification when Aaron provides URL/form details.
+
+### GoBag Faraday closure escalation (2026-06-24)
+- Aaron wants GoBag filled to at least 80% offline executable/actionable readiness before sealing in Faraday bag.
+- Spawned Researcher gap review: `agent:researcher:subagent:da088f14-72d3-411d-a1ec-7f426d7acb7f` / `gobag-connective-tissue-gap-review`.
+- Created/mirrored `FARADAY_CLOSURE_CHECKLIST_2026-06-24.md` to GoBag admin folder.
+- Next: incorporate Researcher report into concrete download batches for runtimes, drivers, data, package caches, docs, configs, and smoke tests.
+
+### GoBag future packaging constraint (2026-06-24)
+- Aaron wants the current 2TB master filled to at least ~1.7TB first.
+- Later derive ranked/condensed 1TB Faraday-protected family/friend editions.
+- Maintain importance ranking and dependency metadata now so future 1TB cuts are intelligent.
+
+### GoBag map/video priority update (2026-06-24)
+- Aaron wants stronger granular offline map capability and verified map viewers.
+- Prioritize maps/viewers/overlays/smoke tests over bulk video libraries unless videos are rare, instructional, indexed, and high value per GB.
