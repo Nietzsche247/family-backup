@@ -135,3 +135,20 @@ Expected: no fake phone numbers, relevant dork results about pool business, no f
 ### GoBag map/video priority update (2026-06-24)
 - Aaron wants stronger granular offline map capability and verified map viewers.
 - Prioritize maps/viewers/overlays/smoke tests over bulk video libraries unless videos are rare, instructional, indexed, and high value per GB.
+
+### GoBag map inventory truth check (2026-06-25)
+- Aaron corrected mission: GB target secondary; survival utility/executable repository/inventory correctness primary.
+- Generated dedicated map manifest on Empiricus: `D:\GoBag\_ADMIN\inventory-2026-06-24\MAP_INVENTORY_2026-06-25.csv` and `MAP_GAP_ASSESSMENT_2026-06-25.md`.
+- Current map scan: 38 files / 28.39GB; mostly OSM PBF plus FEMA/AZ overlays. General `gobag_inventory.csv` is not adequate as canonical map inventory.
+- Next: build map acquisition list for topo/elevation/water/mining/public lands/comms overlays/mobile viewers and smoke-test QGIS/other viewers offline.
+
+### GoBag canonical inventory audit dispatched (2026-06-25)
+- Aaron identified inventory drift as a core risk; map inventory must merge into a larger canonical inventory/TOC/capability matrix.
+- Spawned Thales: `agent:thales:subagent:d3fb205c-daa5-4357-833c-f4e468dec78a`, label `gobag-canonical-inventory-audit`.
+- Local audit contract: `projects/gobag/CANONICAL_INVENTORY_AUDIT_CONTRACT_2026-06-25.md`.
+
+### GoBag self-contained failure audit reconstructed (2026-06-25)
+- Steel Man subagent produced no usable full report; Aristotle reconstructed and saved audit.
+- Local: `projects/gobag/GOBAG_SELF_CONTAINED_FAILURE_AUDIT_2026-06-25.md`.
+- Remote: `D:\GoBag\_ADMIN\canonical-audit-2026-06-25\GOBAG_SELF_CONTAINED_FAILURE_AUDIT_2026-06-25.md`.
+- Main risk: unverified execution/dependencies, especially Windows-first Hermes onboarding.
