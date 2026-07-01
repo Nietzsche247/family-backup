@@ -147,3 +147,6 @@ This file must NOT be indexed by MemPalace. If you see it being ingested, add to
 
 ## Telegram Bot
 | TELEGRAM_BOT_TOKEN | 8904247689:AAF-OB8LASiyl8slOMvFyhfHU2cZgp_Ix4o | @Nietzsche247_bot |
+
+##HANDWRITTEN API
+f44943f30ce541e897901d6f5ae18e7e

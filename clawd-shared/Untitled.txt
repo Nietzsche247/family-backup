@@ -1,0 +1,181 @@
+
+Using this report (see below) and linguistical practices for decoding languages.  In a broad sense, how would you recommend a tool to be designed and built that would allow for subjective users/experiences to be conveyed into symbols that would be able to be represented and at some point decoded  
+
+The problem, human beings under the influence of DMT use the red laser light to see symbols within the light on surfaces.  
+
+The only way of recording these would be to mentally absorb what the symbols look like and write them down or identify them later on in the future, assuming they see a symbol that looks familiar.  
+
+Obviously, there could be a high error rate with this, and the only way I can imagine driving any confirmed or confident/quality information that could be potentially decoded or patterns found would be to have a community of people collectively adding to a database where everyone’s able to identify symbols that they have seen and contribute by adding symbols that they remember seeing and can add/design somewhere for upload. 
+
+If the data is good enough, and enough correlations can be made by contributors, adding characteristics and variables around their experience, where they saw the symbol, and other tags, with enough data, AI systems might be able to find patterns have begin decrypting the language. 
+
+The report: Perfect! I need to do deep research on what people are actually reporting about these symbols before we design the tool. Let me gather comprehensive information about the visual descriptions, common patterns, and how people are documenting this phenomenon.​​​​​​​​​​​​​​​​
+
+Your DMT laser code research report is ready. It covers the phenomenon’s visual characteristics (rapidly moving katakana-like symbols and stable geometric structures), existing informal documentation methods, applicable frameworks from linguistics and psychedelic research for systematic classification, competing scientific explanations (laser speckle hypothesis, cymatics, simulation theory), and a proposed multi-layered cataloging system integrating neurological constants, semiotic classification, and graphemic analysis.
+
+To confirm, is this linguistically based and the scientific approach for decrypting languages?  
+
+  As an example, example only, I don’t know how accurate any of this is:  if there were let’s say 50 leading theories on how to decrypt a new language that is discovered, the archaeologist/anthropologist only find a few symbols to begin with.  There were likely be go to algorithms or ways of processing those symbols.  Could you please review all leading theories and determine the top three leading theories that would possibly help/recover/decode language from a past super advanced civilization.  Assume that the symbols could be dynamic/3 dimensional/4 dimensional in some way.  We need to attempt to build out our tool and anticipation, for an extremely complex required view of the language.  Think binary processing verse quantum computers/quantum processing.  
+
+I don’t know if that leaves us with one or two potential theories of decoding, but that’s likely what will need to be set up for if there’s any reality to any of this. 
+
+I’m not sure at this point how we add or modify your earlier response, but if you can do a deep dive into all of this. 
+
+Please look into Jewish mysticism as well.  I know from college, it was reported that certain types of language or sound was able to conjure things outside of this reality.  
+
+I believe that it’s claimed that that information was lost or is esoteric. However, there may be some some truth and insight there. Again, this is all under the assumption that any of this could be real. If it is, then we need to build out some sort of methodology of collection, once we’ve collected enough data, we could then begin to figure out how to process it.
+
+I feel like it may need to be only the drawing canvas, no uploads.  We need to somehow walk them into a height/width so that a system can attempt to find correlations of the symbols design/structure. The real engine is going to be the tags that are embedded by the user.  For example, if I did the experiment and every time I looked at a toilet bowl I saw within the laser? Sand! In a repeating pattern, but only on toilet bowls and I was able to anchor a keyword/tag toilet bowl to those two symbols and this was agreed-upon globally with up votes, we may have something there.
+
+I believe each symbol submitted by each user needs to be unique with a unique identifier that can tie us back to the person who submitted it.  For example, it could be symbol 109 – and the person‘s initials or something.  I’m always suggesting this, I don’t want to reinvent the wheel if there’s already existing systems that take this variable and a lot of other variables into account.  Or if you have a better idea.
+
+I think that all symbols need to be automatically approved.  Member votes can either remove them. Agree that they’ve seen them. Agree that it looks valid disagree implying it doesn’t look valid.
+
+If we imagine some sort of system like this with let’s say 10,000 users all dumping their personal experiences and what they remember of the symbols into the system and everyone voting or not, that information could be processed with AI engines to attempt to build out a language theory.
+
+On each users’s account, we would obviously need to have the ability for that user to see what they’ve already uploaded, but we will also want the ability for them to star images that they also saw(they would save these images and wouldn’t have to redraw them). They would be able to upload the keywords/tags within those symbols and their own.  If they flag, that they have also seen that symbol, they then also have the ability to add more tags that could then be uploaded by other users.).
+
+100% I believe in linguistics they have some sort of mind map type correlating tools/algorithms that does a lot of of what I’m talking about. Again, I don’t want to reinvent the wheel if some system like this could be conceptualized and will fit with scientific practices.
+
+Yes, definitely Google and GitHub logins.  Some sort of basic username/password login on our site as well.  No need for any crazy security something lightweight and efficient.
+
+To understand how this tool would work a little bit better, can you dig into the overall theory and the descriptions of what people are saying on podcast, message boards, blogs, we’re over any description might be about what these symbols look like.  That’ll give us a better idea of the overarching direction we should begin at.
+
+Correlation discovery, I feel like once we have maybe 100 to 500 symbols uploaded, we could begin to roll out the correlation tool. I’m not sure what that looks like right now, but that could get complicated and it’ll be pointless unless we have user uploads.
+
+# The DMT Laser Code: Symbol Documentation and Classification Frameworks
+
+The DMT laser code phenomenon—where users report seeing consistent, code-like symbols when viewing a 650nm red laser through DMT’s visual effects—has generated substantial community documentation but **no formal classification system exists**. Danny Goler, who discovered the effect in August 2020,  claims over 1,000 witnesses have seen “the same code,” describing it as katakana-like characters flowing through stable geometric structures.  This report catalogs the reported symbol characteristics, existing documentation methods, and frameworks from linguistics and psychedelic research that could enable systematic cataloging.
+
+## What people actually see: consistent descriptions across experiencers
+
+The phenomenon reportedly consists of **two distinct visual components** that appear when gazing at a diffracted red laser line projected on a wall during low-to-medium dose DMT experiences.
+
+**Rapidly moving character-like forms** dominate experiencer descriptions. Danny Goler compares them to “the cascading digital green script in The Matrix” with “katakana-esque characters.”  One detailed experiencer report describes: “It started off as few points, scattered around, dark-blue I dare say. Then the points started dancing, swirling, and gathering slowly in clumps until they formed very tiny, small, and very thin shapes… They looked like tiny mathematical figures and letters, numbers, and strange other symbols.”   Another participant who tried the protocol with Goler noted: “Whatever unrecognizable characters I saw flowing down were unlike any I’ve ever seen before or after. They weren’t katakana or kanji or anything I recognized.” 
+
+**Stable geometric structures** form the second component, described as “independent of the observer’s frame of reference” and displaying “object permanence”—appearing anchored in physical space rather than floating subjectively. Goler claims the code “goes infinitely into the z-axis” (extending into the surface), though neuroscientist Andrew Gallimore notes this is logically inconsistent since reflected laser light cannot carry information about what lies beyond a surface. 
+
+**Movement characteristics** are frequently mentioned: characters move “so quickly that it’s difficult to ‘catch’ them,”  yet remain stable enough that multiple viewers claim they can “point out specific elements simultaneously, as if examining a physical object.”  The visual quality is often described as “holographic”—one experiencer said “It felt as if I was looking at some kind of a holographic projection that was both inside and outside of the laser.”  
+
+## The community uses informal terms, not systematic classification
+
+Despite interest in documenting the phenomenon, **no standardized classification or tagging system has emerged**. The community relies on informal descriptive vocabulary:
+
+|Term                               |Usage                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+|-----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|“The Code”                         |Primary designation for the full visual phenomenon                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+|“The Console”                      |Goler’s term for “an interactive virtual structure… resembles a control interface with screens” [![](claude-citation:/icon.png?validation=F3C46C81-8569-4EE5-AB62-3981F1E19AC4&citation=eyJlbmRJbmRleCI6MzEyMCwibWV0YWRhdGEiOnsiaWNvblVybCI6Imh0dHBzOlwvXC93d3cuZ29vZ2xlLmNvbVwvczJcL2Zhdmljb25zP3N6PTY0JmRvbWFpbj1jb2RlMDgxODAyLmNvbSIsInByZXZpZXdUaXRsZSI6IkRNVCBMYXNlciBFeHBlcmltZW50IHwgQ29kZSAwODE4MDIiLCJzb3VyY2UiOiIwODE4MDIiLCJ0eXBlIjoiZ2VuZXJpY19tZXRhZGF0YSJ9LCJzb3VyY2VzIjpbeyJpY29uVXJsIjoiaHR0cHM6XC9cL3d3dy5nb29nbGUuY29tXC9zMlwvZmF2aWNvbnM/c3o9NjQmZG9tYWluPWNvZGUwODE4MDIuY29tIiwic291cmNlIjoiMDgxODAyIiwidGl0bGUiOiJETVQgTGFzZXIgRXhwZXJpbWVudCB8IENvZGUgMDgxODAyIiwidXJsIjoiaHR0cHM6XC9cL3d3dy5jb2RlMDgxODAyLmNvbVwvZG10LWxhc2VyLWV4cGVyaW1lbnRcLyJ9XSwic3RhcnRJbmRleCI6MzAyMywidGl0bGUiOiIwODE4MDIiLCJ1cmwiOiJodHRwczpcL1wvd3d3LmNvZGUwODE4MDIuY29tXC9kbXQtbGFzZXItZXhwZXJpbWVudFwvIiwidXVpZCI6Ijg1YzhiZGQwLWUyYzYtNDU2Mi1hZjgyLTBmNTNiMzcxZDQyZCJ9 “DMT Laser Experiment|
+|“Glyphs” / “Characters” / “Symbols”|Interchangeable terms for the letter-like forms                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+|“Alien language”                   |Common descriptor for unfamiliar symbol appearance                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+|“Katakana-like”                    |Most frequent comparison to existing writing systems                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+
+**OCR analysis** of laser diffraction videos has detected patterns the algorithms classify as Japanese, Arabic, Hebrew, and English characters—though this likely reflects pareidolia in the software rather than actual script presence. Computational linguist Andrew Gallimore identified actual Japanese katakana characters in community-produced sketches of the phenomenon, suggesting cultural priming may shape what people report seeing. 
+
+**Researchers’ terminology** provides more systematic categorization. Andrés Gómez Emilsson (Qualia Research Institute) describes the patterns as “non-linear, high-frequency resonant modes of the visual field”—framing them as cymatics-like phenomena rather than meaningful symbols.  Gallimore proposes the “laser speckle hypothesis,” where microscopic surface irregularities create interference patterns that act as a “sensory scaffold” for DMT-enhanced pattern recognition. 
+
+## Environmental factors shape the experience systematically
+
+Experiencers naturally track several contextual variables that appear to influence the phenomenon:
+
+**Equipment specifications** are remarkably consistent across reports: **650nm wavelength** (red) specifically, as blue lasers “produce finer, less noticeable speckle patterns” due to shorter wavelength coherence. Line or cross-pattern lasers are required—dot lasers don’t work. Common recommended model: SYD1230 line laser, Class 2, 1-5mW power ($3-5 on Amazon).
+
+**Surface characteristics** demonstrably affect symbol density. One detailed report noted: “On a very ‘soft and smooth’ part of the wall, there were very few characters, hardly ever. On a very ‘rough’ portion of the wall, there were so many!”   This aligns with the laser speckle explanation, since rougher surfaces create more complex interference patterns.
+
+**Viewing technique** requires specific skills: “parallel viewing” (like Magic Eye stereograms), crossing or defocusing eyes, covering one eye, looking “through” rather than at the surface. One protocol describes: “Place 2 fingers against the wall just under the laser line and look at them until you see 3 fingers, then focus your attention on the middle finger.” 
+
+**Dosing parameters** cluster around low-to-medium (“sub-breakthrough”) vaporized DMT doses. Some experiencers report visibility with high-dose psilocybin mushrooms, and MAOIs appear unnecessary for the effect.
+
+## Linguistic frameworks offer rigorous documentation models
+
+The methodology linguists use to approach undeciphered scripts like Linear A, Rongorongo, and Proto-Elamite provides directly applicable frameworks for systematic symbol documentation.
+
+**Core principles from decipherment research:**
+
+1. **No premature interpretation**: Document systematically before assigning meaning. The goal is corpus-building, not immediate translation.
+1. **Frequency analysis**: Analyze glyph distributions for Zipf’s law compliance (the pattern natural languages follow where a few symbols appear frequently and many appear rarely). This can distinguish meaningful symbolic systems from random patterns.
+1. **Positional analysis**: Track whether forms appear in characteristic positions or sequences—beginnings, endings, or specific combinations.
+1. **Co-occurrence patterns**: Document which forms appear together, potentially revealing combinatorial rules.
+1. **Multiple independent coders**: Cross-validation of form identification prevents individual bias from shaping the corpus.
+
+**Grapheme analysis from palaeography** provides the technical vocabulary: identify minimal distinctive units (“graphemes”), document allographic variants (same meaning, different form), and catalog ligatures and combinations. The System for Palaeographic Inspections (SPI) characterizes the “calligraphic ideal” for scripts—a model for identifying canonical versus variant forms.
+
+**Computational approaches** now applied to Proto-Elamite and Rongorongo include CNN-based embeddings that map visual forms to high-dimensional vector spaces, enabling similarity measurement via cosine distance. Graph-matching approaches represent symbols as attributed relational graphs for structural comparison. Approximate Nearest Neighbor (ANN) search algorithms (FAISS, Annoy) enable sub-linear retrieval for large catalogs.
+
+## Psychedelic visual research already has substantial classification infrastructure
+
+The broader psychedelic research community has developed mature frameworks for documenting visual phenomena that could scaffold DMT laser code cataloging.
+
+**Heinrich Klüver’s form constants** (1926) remain foundational: four categories (lattices, cobwebs, tunnels, spirals) appear across different users, different psychedelics, and even non-drug conditions like migraine aura.  The Cowan-Ermentrout mathematical model (1979) explains these as products of how the visual field maps onto the visual cortex—they emerge from neural architecture, not external reality. 
+
+**The Subjective Effect Index (SEI)** on PsychonautWiki documents **over 200 effects** with standardized terminology. Its **geometry leveling system** tracks eight intensity levels:
+
+- Levels 1-2: Peripheral visual noise, basic geometric sheen
+- Levels 3-4: Translucent overlay becoming complex
+- Levels 5-6: Beginning to obscure environment
+- Levels 7-8: Complete replacement of visual field with “comprehensive symbolic representations” 
+
+**Lewis-Williams and Dowson’s three-stage trance model** (1988) distinguishes between neurologically universal “entoptic” phenomena and culturally-shaped “construal”— the same geometric form might be interpreted as a tennis racket by one person and a honeycomb by another. This suggests DMT laser code symbols may be universal neural phenomena dressed in culturally-familiar clothing (like Matrix-style katakana).
+
+**Existing databases** provide implementation models:
+
+- **Erowid Experience Vaults**: 117,000+ reports with multi-tier review and 9-level quality ratings
+- **Altered States Database (ASDB)**: Open-science database with data from 6,861 reports across 165 journal articles, freely available on OSF
+- **Johns Hopkins DMT Entity Survey**: 2,561 participants documenting entity characteristics  with frequency distributions
+- **Effect Index replications**: Image and video recreations systematically categorized by effect type
+
+## Building a systematic catalog would require layered classification
+
+A rigorous documentation system for DMT laser code symbols would integrate multiple frameworks:
+
+**Layer 1: Neurological Constants** (universal, following Klüver/Cowan-Ermentrout)
+
+- Catalog form constant categories present (lattice, cobweb, tunnel, spiral)
+- Document trigger conditions (dose, substance, set/setting)
+- Track which SEI geometry level the experience reaches
+
+**Layer 2: Semiotic Classification** (following Peirce’s categories)
+
+- **Iconic elements**: Visual features resembling external referents (what does this look like?)
+- **Indexical elements**: Features caused by physiological states (correlates with dose, etc.)
+- **Symbolic elements**: Culturally assigned meanings (Matrix references, etc.) 
+
+**Layer 3: Graphemic Analysis** (borrowing from palaeography)
+
+- Segment visual field into discrete minimal units
+- Identify allographic variants across experiencers
+- Document ligatures and combinations
+- Build sign catalogues analogous to existing script inventories
+
+**Layer 4: Metadata** (following ASDB/Erowid standards)
+
+- Substance, dose, route of administration
+- Equipment specifications (laser model, wavelength, power)
+- Surface characteristics (texture, color, material)
+- Viewing technique employed
+- Temporal markers (onset, duration, peak)
+- Validated questionnaire responses (5D-ASC, HRS)
+
+**Technical implementation** would require:
+
+- Standardized drawing/description protocols
+- Multiple observer reports for inter-rater reliability
+- CNN embeddings for visual similarity clustering
+- Graph-based representations for complex composite forms
+- Version control and audit trails for corpus integrity
+
+## Competing explanations remain unresolved
+
+The fundamental interpretive question remains contested. **Danny Goler’s simulation hypothesis** posits the symbols represent actual code underlying reality—“proof that we live in a simulation.” He claims: “I know whatever it is that we’re looking at is real… whoever is communicating [through ‘the code’] is as real as you and me.” 
+
+**Andrew Gallimore’s laser speckle hypothesis** offers a mundane explanation: microscopic surface irregularities create interference patterns on the retina that serve as a “sensory scaffold” for DMT-enhanced pattern recognition.  The “object permanence” people report—hallucinations appearing stable and anchored—is well-documented in DMT research and doesn’t require external causation. 
+
+**Andrés Gómez Emilsson’s cymatics explanation** frames the phenomenon as “pure physics: the natural behavior of non-linear wave dynamics” in the visual system.  He notes “plenty of people haven’t even seen ‘the code’ despite their best attempts, undermining the claim that the experience has a universal neurovisual signature.”  
+
+**Skeptical replication attempts** have yielded mixed results. Zeus Tipado (University of Maastricht PhD candidate) reported: “I tried it four different times, at different angles, while tripping on DMT, and I didn’t see anything. And I wanted to see it.”   David Luke (Breaking Convention co-founder) saw “a glimmer of a possibility of something code-like emerging on the edge of my perception if I were to fixate on it hard enough” but called it “tantalizing, but strenuous, and massively front loaded with expectation.”  
+
+## Conclusion: documentation infrastructure exists, systematic application does not
+
+The psychedelic research community has developed sophisticated tools for phenomenological documentation—validated questionnaires, standardized effect taxonomies, multi-tier review systems, and open-science databases. Linguistics provides rigorous frameworks for analyzing unknown symbol systems without premature semantic interpretation. What’s missing is systematic application of these tools to the DMT laser code specifically.
+
+A serious cataloging effort would require: **standardized documentation protocols** capturing both symbol characteristics and environmental variables; **multiple independent observers** to establish inter-rater reliability; **computational similarity matching** using modern vision embeddings; and **deliberate agnosticism** about meaning until the corpus is large enough for meaningful pattern analysis. The phenomenon is interesting enough—and the reports consistent enough—to warrant this rigor, regardless of whether the symbols ultimately prove to be neural artifacts or something more surprising.
+Hello, can you check the website again. I don’t have SSR updated because of the framework and I’m waiting for the site map post to Google, just curious if you’re looking at a mostly complete and comprehensive site or Bear bones
