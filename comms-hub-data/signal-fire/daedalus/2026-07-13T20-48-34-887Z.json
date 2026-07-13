@@ -1,0 +1,6 @@
+{
+  "agent": "daedalus",
+  "timestamp": "2026-07-13T20:48:34.887Z",
+  "entry": "authority_drift (S3) action=hard_stop_no_override_prod evidence={\"authority_fields_present\":true}",
+  "firstRead": false
+}

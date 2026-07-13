@@ -5,9 +5,9 @@
 > Run Section 9 (Verification) to confirm what's still alive.
 > If anything in Section 9 fails, jump to Section 10 (Recovery).
 
-**Canonical as of 2026-05-15. Supersedes prior versions.**
-**Last updated:** 2026-05-15
-**Updated by:** Aaron + Aristotle
+**Canonical as of 2026-07-13. Supersedes prior versions.**
+**Last updated:** 2026-07-13
+**Updated by:** Aaron + Aristotle + Codex recovery audit
 **Authoritative location:** `C:\Users\aaron\clawd-shared\NORTHSTAR-NAVIGATION-MAP.md`
 **Synced to:** github.com/Nietzsche247/family-backup via clawd-shared-sync
 
@@ -16,8 +16,9 @@
 ## 1. ONE-LINER
 
 NorthStar OS is a multi-agent AI fleet built to solve persistent context loss.
-You are currently building **Phase 2b: Skill Invocation** (making yesterday's
-5 skill files actually findable + invocable by future sessions).
+You are currently completing **Trusted Boot Recovery (Phase 2c)**: reconciling
+the live machine with governed truth, enforcing the canonical Ledger boundary,
+repairing memory provenance, and proving cold-start context reconstruction.
 
 The end goal is: a fresh agent can boot, find its current work, invoke prior
 skills, write proof to the Ledger, and produce results — **without Aaron
@@ -62,19 +63,21 @@ Four states: **Ported** (code in place) → **Wired** (tools registered but no t
 
 > **Operational** = stable internal use, proven through real incidents. **Complete** is reserved for product-ready external deliverables (none today).
 
-### Phase 2: Hermes Skills (Wired, becoming Integrated in Phase 2b)
+### Phase 2: Hermes Skills (Integrated; last acceptance run 2026-05-15)
 | Component | State |
 |---|---|
 | skill_manage (creation) | 🟡 Integrated (5 skills exist, files on disk) |
-| skill_get / skill_search | 🟠 Wired (registered, cannot find files) ← **Phase 2b target** |
-| skill_invocation events | ❌ Not started ← Phase 2b target |
+| skill_get / skill_search | ✅ Integrated (Phase 2b AT-1 and AT-2 passed) |
+| skill invocation | ✅ Integrated (Phase 2b AT-3 passed) |
+| skill_invoked events | ✅ Integrated (Phase 2b AT-4 passed) |
+| fresh-session discovery | ✅ Validated on Aristotle gateway (Phase 2b AT-5 passed) |
 
 ### Phase 3: Memory Bridge (Integrated)
 | Component | State |
 |---|---|
-| MemOS Local capture | ✅ Integrated (9,427 chunks) |
-| memory_capture bridge to Ledger | ✅ Integrated |
-| memory_chunk_id linkage | ✅ Integrated (turnId fix live) |
+| MemOS Local capture | ✅ Integrated (11,614 chunks verified 2026-07-13) |
+| memory_capture bridge to Ledger | 🟡 Degraded live; corrected v2 emitter staged and tested |
+| memory_chunk_id linkage | 🟡 Existing events misuse turn IDs; persisted-chunk UUID fix staged and tested |
 | Boilerplate filter | ✅ Integrated (~3% leak rate) |
 | Sub-agent capture | 🟡 Indirect-only (parent session captures) |
 
@@ -100,7 +103,7 @@ See `NORTHSTAR_OS_RAIL_KIT_BUILD_INSTRUCTIONS.md`. Major components:
 |---|---|
 | Storage backend | ✅ MemOS Local (already vector + FTS) |
 | Trust labels (T0-T4) | ❌ Schema designed, not applied |
-| Retrieval into agent boot | ❌ Not built |
+| Retrieval into agent boot | 🟡 Evidence-aware implementation staged and tested; live acceptance pending |
 | Memory Constitution doc | ❌ Not written |
 
 ### Phase 6: Deferred (DO NOT START)
@@ -132,41 +135,43 @@ See `NORTHSTAR_OS_RAIL_KIT_BUILD_INSTRUCTIONS.md`. Major components:
 
 ---
 
-## 5. CURRENT PHASE: Phase 2b - Skill Invocation
+## 5. CURRENT PHASE: Trusted Boot Recovery
 
-⚠️ **CRITICAL: NO RAIL KIT WORK UNTIL PHASE 2b PROVES SKILL INVOCATION.** Rail Kit depends on invocable skills; jumping ahead creates another pile of unmanaged tools. Phase 2b acceptance test (AT-1 through AT-5) must pass before any Rail Kit work begins, unless Aaron explicitly overrides.
+**Goal:** A fresh agent identifies its machine, agent identity, governed phase,
+last verified state, next action, and blockers without Aaron pasting history.
+Every assertion must name its source, timestamp, and confidence; stale or
+conflicting evidence must be surfaced rather than silently promoted to truth.
 
-**Goal:** Make yesterday's 5 skills findable and invocable. Emit `skill_invoked` events. Begin the compounding mechanism.
+**Recovery acceptance gates (2026-07-13):**
 
-**The 5 skills (from T1):**
+- **RB-1 — Baseline:** consistent database, repository, service, task, port, and
+  configuration evidence captured. ✅
+- **RB-2 — Canonical Ledger:** port 3003 is the only writable Ledger; the
+  disjoint port-3002 database is preserved as immutable legacy evidence. 🟡
+  Callers/configuration are patched; elevated live cutover is pending.
+- **RB-3 — Memory provenance:** capture records the resolved agent identity,
+  session/turn identity, and actual persisted MemOS chunk UUIDs. 🟡 Code and
+  deterministic migration are tested; gateway restart is pending.
+- **RB-4 — Evidence-aware boot:** boot briefing prefers governed state, marks
+  stale/conflicting evidence, and never promotes raw recall to instruction. 🟡
+  Implementation and tests pass; live Ledger reload/checkpoint is pending.
+- **RB-5 — Cold-start proof:** a clean session reconstructs current state from
+  live evidence and writes a validation result to the canonical Ledger. ⏳
 
-| File | Path | Search keyword |
-|------|------|----------------|
-| recover-aristotle-gateway | C:\Users\aaron\.openclaw\skills\ | recover |
-| probe-fleet-health | C:\Users\aaron\.openclaw\skills\ | probe |
-| dispatch-to-sub-agent | C:\Users\aaron\.openclaw\skills\ | dispatch |
-| ledger-emit | C:\Users\aaron\.openclaw\skills\ | ledger |
-| comms-hub-bridge-send | C:\Users\aaron\.openclaw\skills\ | bridge |
+**Current next action:** complete the controlled Ledger cutover, publish the
+governed `northstar.state.v1` checkpoint, migrate deterministic MemOS ownership,
+restart the Aristotle gateway, and run RB-5.
 
-**Phase 2b ACCEPTANCE TEST (all 5 must pass):**
-- **AT-1:** skill_search "recover" returns recover-aristotle-gateway ✅
-- **AT-2:** skill_get on returned skill returns the file contents ✅
-- **AT-3:** invocation of the skill runs successfully ✅
-- **AT-4:** skill_invoked event lands in Ledger (payload includes skill_name + duration_ms + success) ✅
-- **AT-5:** fresh agent session discovers the skill without Aaron pasting context ✅
-
-**Out of scope today:**
-- Rail Kit tool installs (overflow only, after AT-1–5 pass)
-- Trust label schema deployment (design only, deploy in Phase 5)
-- New skills (the existing 5 are the demo)
+**Do not begin a new architecture or broad Rail Kit expansion until RB-5 passes.**
 
 ---
 
 ## 6. NEXT 3 PHASES
 
-### Phase 2c: Boot Context (probable next)
+### Phase 2c: Trusted Boot Recovery (current)
 **Goal:** Agent reads current state on boot without Aaron's paste.
-**Components:** NORTHSTAR-FLEET-KNOWLEDGE-FOR-CLAUDE.md becomes the boot packet. Per-task variant emerges. Retrieval from Ledger by recency + relevance.
+**Components:** Governed `northstar.state.v1` checkpoint, instance-aware Ledger,
+evidence envelopes, source freshness/conflict handling, and verified MemOS provenance.
 **Done when:** A fresh agent session can answer "what am I working on right now" without Aaron typing.
 
 ### Phase 4: Rail Kit v1 (foundation layer)
@@ -186,10 +191,12 @@ See `NORTHSTAR_OS_RAIL_KIT_BUILD_INSTRUCTIONS.md`. Major components:
 
 | Item | Severity | Notes |
 |---|---|---|
-| Hermes skill retrieval indexing | 🔴 Active Phase 2b | Today's primary target |
+| Hermes skill retrieval indexing | ✅ Resolved 2026-05-15 | Phase 2b AT-1 through AT-5 passed; revalidate during RB-5. |
 | MemOS filter leaks 1/30min | 🟡 Low | Heartbeat patrol slips occasionally, isBoilerplate true offline but passed at runtime |
 | `[tools] cron failed: jobId required` errors | 🟡 Low | Unmigrated caller using old `id` param |
-| Skill_get/search index gap (workaround possible) | 🔴 Active | Same as top item |
+| Skill_get/search index gap (workaround possible) | 🟡 Monitor | Phase 2b acceptance passed; name lookup UX gap remains separately tracked. |
+| Legacy Ledger on port 3002 | 🔴 Active recovery | Preserve immutable DB; stop writable listener after verified elevated PM2 attachment. |
+| MemOS owner/provenance drift | 🔴 Active recovery | Deterministic ownership migration and v2 capture fix tested; deploy together at gateway restart. |
 | PAT rotation (leaked github_pat in 3 scripts) | 🟠 Medium | 10-min job, do before next public exposure |
 | Plato watchdog | ✅ Resolved 2026-05-15 | Deployed as SYSTEM PT5M, replaces both popup tasks |
 | Chat Triage Refresh Poll on Plato | ✅ Resolved 2026-05-15 | Disabled, XML saved |
