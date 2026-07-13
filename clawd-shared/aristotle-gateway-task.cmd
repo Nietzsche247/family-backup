@@ -5,10 +5,8 @@ REM  Wrapper invoked by the Windows Scheduled Task
 REM  "Aristotle Gateway" at user logon.
 REM
 REM  Defense in depth:
-REM    1) Kill any pre-existing gateway-resilient.cmd supervisor
-REM       (prevents the duplicate-supervisor crash-loop bug).
-REM    2) Wait for port 18792 to clear.
-REM    3) Launch gateway-resilient.cmd in the foreground so the
+REM    1) Refuse to start over an unknown/stale port holder.
+REM    2) Launch gateway-resilient.cmd in the foreground so the
 REM       Scheduled Task can monitor and restart it on crash.
 REM
 REM  Log: C:\tmp\clawdbot-aristotle\task-gateway.log
@@ -21,34 +19,18 @@ echo. >> "%LOG%"
 echo [%date% %time%] === aristotle-gateway-task starting === >> "%LOG%"
 
 REM --- F2: Early-return if gateway already healthy (L45) ---
-REM Don't kill-and-relaunch a perfectly healthy gateway.
-curl.exe -s -o NUL -w "%%{http_code}" --max-time 3 http://127.0.0.1:18792/api/status > "%TEMP%\arist_health.txt" 2>&1
-set /p HEALTH=<"%TEMP%\arist_health.txt"
-if "%HEALTH%"=="200" (
+REM Use the same HTTP probe family as the reviewed recovery verifier.
+"C:\Program Files\PowerShell\7\pwsh.exe" -NoProfile -NonInteractive -Command "try { $r = Invoke-WebRequest -UseBasicParsing -Uri 'http://127.0.0.1:18792/api/status' -TimeoutSec 10; if ($r.StatusCode -eq 200) { exit 0 } } catch { }; exit 1"
+if not errorlevel 1 (
     echo [%date% %time%] Gateway already healthy ^(HTTP 200^). Skipping wrapper. >> "%LOG%"
     exit /b 0
 )
 
-REM --- 1) Kill any existing gateway-resilient supervisors ---
-set _killed_any=0
-for /f "tokens=2 delims=," %%p in ('tasklist /v /fo csv /nh ^| findstr /i "gateway-resilient"') do (
-    set "spid=%%~p"
-    setlocal enabledelayedexpansion
-    echo [%date% %time%] killing existing supervisor PID !spid! >> "%LOG%"
-    taskkill /PID !spid! /T /F >> "%LOG%" 2>&1
-    endlocal
-    set _killed_any=1
-)
-
-REM --- 2) Free port 18792 if anything is still on it ---
+REM --- Refuse an ambiguous start; recovery code owns verified cleanup. ---
 for /f "tokens=5" %%a in ('netstat -ano ^| findstr ":18792" ^| findstr "LISTENING"') do (
-    echo [%date% %time%] killing port 18792 holder PID %%a >> "%LOG%"
-    taskkill /PID %%a /F >> "%LOG%" 2>&1
-    set _killed_any=1
+    echo [%date% %time%] REFUSING_START: port 18792 is held by PID %%a and health check failed. >> "%LOG%"
+    exit /b 1
 )
-
-REM Brief pause only if we actually killed something.
-if "%_killed_any%"=="1" timeout /t 3 /nobreak >nul
 
 echo [%date% %time%] launching gateway-resilient.cmd >> "%LOG%"
 cd /d C:\Users\aaron\.clawdbot-aristotle
