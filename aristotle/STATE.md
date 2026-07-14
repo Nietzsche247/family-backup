@@ -1,6 +1,6 @@
 # STATE.md â€” Current Project State
 
-**Last Reviewed:** 2026-06-24
+**Last Reviewed:** 2026-07-13
 **Agent:** Aristotle
 
 ---
@@ -152,3 +152,100 @@ Expected: no fake phone numbers, relevant dork results about pool business, no f
 - Local: `projects/gobag/GOBAG_SELF_CONTAINED_FAILURE_AUDIT_2026-06-25.md`.
 - Remote: `D:\GoBag\_ADMIN\canonical-audit-2026-06-25\GOBAG_SELF_CONTAINED_FAILURE_AUDIT_2026-06-25.md`.
 - Main risk: unverified execution/dependencies, especially Windows-first Hermes onboarding.
+
+### GoBag bootstrap/OCR resumed (2026-06-29)
+- Verified Windows bootstrap logs and OCR hardening logs on Empiricus.
+- qFlipper fixed via 1.3.3 direct URL; FTDI remains 403/manual capture.
+- OCR hardening captured QPDF, tessdata_fast, tessdata_best, OCRmyPDF wheelhouse; patched OCRmyPDF docs into `D:\GoBag\09_SOFTWARE\OCR\Docs\`.
+- Next recommended batch: map/viewer hardening.
+
+### GoBag map/viewer hardening started (2026-06-29)
+- Captured Organic Maps + QField Android/Windows viewer layer for Samsung + Windows workflows; 8 OK / 0 failed.
+- Created Samsung START_HERE and map viewer smoke tests on GoBag.
+- PAD-US direct download attempts returned 4KB manager shell; marked NOT CAPTURED and queued for browser/API extraction.
+- Next: resolve stable data layer downloads for PAD-US, ADWR water, NHD/3DEP, MRDS/geology, BLM, repeaters.
+
+### GoBag duplicate check after map viewer batch (2026-06-29)
+- New map viewer batch did not create meaningful duplicates.
+- Existing exact duplicate FEMA flood overlays found; no deletes performed.
+- Suspicious tiny/identical `midwest-latest.osm.pbf` and `northeast-latest.osm.pbf` likely failed placeholders.
+- Dedupe report: `projects/gobag/MAP_DEDUP_CHECK_2026-06-29.md` and remote canonical audit folder.
+
+### Weston Wright OSINT handoff recovered (2026-06-29)
+- Found existing Empiricus artifacts for Weston Wright/Doyon run from 2026-06-24.
+- Created local handoff: `projects/osint/WESTON_WRIGHT_OSINT_HANDOFF_2026-06-29.md`.
+- Copied to Empiricus handoffs folder and sent bridge task `BRG-1782757322713`.
+- Key caution: `wwright@doyondrilling.com` was used/found, but identity cluster includes Las Vegas NV and must be verified against original Wasilla/Alaska anchor.
+
+### GoBag USGS mining/geology data pack captured (2026-06-29)
+- Downloaded real USGS MRDS/active mines data pack to `D:\GoBag\08_MAPS\Operational_Packs\Mining_Geology\USGS_MRDS_Mines\`.
+- 6 OK / 0 failed: MRDS shapefile, CSVs, active mines KML/KMZ, START_HERE.
+- First proven map data pack after viewer layer. Next recommended: water/elevation stable sources.
+
+### Claim Sniper active claims mirrored to GoBag (2026-06-29)
+- Mirrored Plato `AZ_Claim_Sniper` high-value package to GoBag mining/geology operational packs.
+- Includes `blm_active_az.csv`, `claims.db`, county active GeoJSONs, closed claims, NURE, KMZ/GPX/shapefile exports, docs.
+- GoBag zip SHA256: `CD7882014F76E77A1AA6F170F447B4098A9A7626339D5D7DD7FF63AC6FF80164`.
+- Next: extract/index and smoke-test in QGIS/QField.
+
+### Claim Sniper extracted/indexed (2026-06-29)
+- Extracted mirrored Claim Sniper package on GoBag and created delta CSV/JSONL inventory.
+- Structural smoke PASS: 404 files, active statewide CSV, claims DB, 15 active GeoJSONs, 38 KMZ, 25 GPX, 24 shapefiles.
+- UI smoke test in QGIS/QField pending.
+
+### SHTF base map layers downloaded (2026-06-29)
+- Natural Earth base layers (rivers, lakes, roads, places, land, admin) downloaded to `D:\GoBag\08_MAPS\Operational_Packs\Natural_Earth_Base\`.
+- NHD water shapefiles: Arizona, Nevada, Utah, New Mexico, California downloaded to `D:\GoBag\08_MAPS\Operational_Packs\Water\`. ~5GB total.
+- 11/11 OK, 0 failed. Log: `DOWNLOAD_LOG_SHTF_MAPS_2026-06-29.csv`.
+- Next: 3DEP topo/elevation, public land/access, USFS roads/trails, repeaters, printable.
+
+### Coveted maps intel report (2026-06-29)
+- Researcher returned SHTF bunker/shelter/coveted maps report.
+- Best yield: 1400+ AZ mine GPS coordinates, FEMA nuclear target map (FEMA-196 cite), community intel Verde River/Mogollon Rim.
+- Report: `projects/gobag/SHTF_Maps_Intel_Report_2026-06-29.md` and GoBag admin folder.
+
+### SHTF intel endpoints captured (2026-06-29)
+- FEMA 160, FEMA HS-4 nuclear planning PDFs downloaded to `D:\GoBag\11_KNOWLEDGE_DENSE\SHTF_Intel\`.
+- ExpertGPS AZ mines GPX 1,439 sites captured.
+- MRDS KML with 12,942 AZ mine GPS coordinates generated on GoBag.
+
+### Chan archive hunt + shelter survey fragments (2026-06-29)
+- No national shelter survey database found via 4chan/8chan.
+- Found FalloutFiveZero.com Boston fragments and Olney FEMA COG facility confirmed/documented.
+- Downloaded 5 shelter survey PDFs and Nike missile site list to GoBag.
+
+### Southern AZ underground intel + rumored COG (2026-06-29)
+- Confirmed: Papago Park 1956 bunker (Maricopa County EOC, active, not public).
+- Titan II: 18 silo GPS coordinates for Southern AZ compiled and saved.
+- National COG: ~100 locations within DC Federal Arc; few in AZ/West.
+
+
+---
+
+## SYSTEM STATE UPDATE — 2026-07-13
+
+**13 days offline** — Aaron and system went down around June 30.
+
+**All services confirmed running on return 2026-07-13:**
+
+| Service | Status |
+|---|---|
+| Comms Hub | ? Online 18D uptime |
+| Cloudflared | ? Online 18D uptime |
+| Ledger (prod) | ? Online 13D uptime (was restarted June 30) |
+| Ledger-staging | ? Online 18D uptime |
+| Ollama | ? Listening port 11434 |
+| Plato (NIETZSCHE2025) | ? SSH reachable |
+| Empiricus (Nietzsche-i9) | ? SSH reachable |
+
+**Pending from June 29 GoBag session:**
+- 3DEP topo/elevation
+- PAD-US public land (ScienceBase blocked curl)
+- Kolibri content channels
+- USFS roads/trails
+- RepeaterBook/comms CSV
+- QGIS project files for Samsung
+- AnythingLLM RAG smoke test
+- Printable map packs
+
+**KEYRING conflict:** sync flagged conflict on June 30; local was kept, remote was saved as backup. Conflict file was cleaned up automatically.
