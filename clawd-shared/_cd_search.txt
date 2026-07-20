@@ -1,0 +1,26 @@
+===== CEASE / DESIST (6) =====
+aaron/19f71439be247ea7.eml | Fri, 17 Jul 2026 18:08:02 +0000 | FROM Christine Stewart via Read AI <executi | TO aaron@omnipoolbuilders.com | SUBJ 🗓 Lee & Travers Onboarding Call (Virtual) on July 17, 2
+christine.stewart/1980b0c01d3baa20.eml | Mon, 14 Jul 2025 15:24:51 -0700 | FROM Christine Stewart <christine.stewart@o | TO Michael Baker <michael@omnipools.com> | SUBJ Tom Delaney Documents | ATT-MATCH: Tom Cease and Desist.pdf
+christine.stewart/19f5cbc7b9d1129e.eml | Mon, 13 Jul 2026 11:27:42 -0700 | FROM Christine Stewart <christine.stewart@o | TO Michael Baker <michael@omnipoolbuilders.com> | SUBJ Tom Delaney - Write Ups, Termination etc | ATT-MATCH: Tom Cease and Desist.pdf
+christine.stewart/19f71439cb0a2d4b.eml | Fri, 17 Jul 2026 18:08:03 +0000 | FROM Read Assistant <executiveassistant@e.r | TO christine.stewart@omnipoolbuilders.com | SUBJ 🗓 Lee & Travers Onboarding Call (Virtual) on July 17, 2
+michael/1980b0c758c654d7.eml | Mon, 14 Jul 2025 15:24:51 -0700 | FROM Christine Stewart <christine.stewart@o | TO Michael Baker <michael@omnipools.com> | SUBJ Tom Delaney Documents | ATT-MATCH: Tom Cease and Desist.pdf
+michael/19f5cbce809368a0.eml | Mon, 13 Jul 2026 11:27:42 -0700 | FROM Christine Stewart <christine.stewart@o | TO Michael Baker <michael@omnipoolbuilders.com> | SUBJ Tom Delaney - Write Ups, Termination etc | ATT-MATCH: Tom Cease and Desist.pdf
+
+===== STOP-WORK only (17) =====
+aaron/19a509600af2bb22.eml | Tue, 04 Nov 2025 13:35:57 -0700 | FROM Martin <martin@omnipoolbuilders.com> | TO kimminaulaw@man.com | SUBJ Letter 
+aaron/19a51972e1461858.eml | Tue, 04 Nov 2025 18:17:21 -0700 | FROM Martin <martin@omnipoolbuilders.com> | TO kimminaulaw@msn.com | SUBJ Fwd: Letter
+aaron/19a547cb311746fc.eml | Wed, 05 Nov 2025 07:47:14 -0700 | FROM Martin <martin@omnipoolbuilders.com> | TO kimminaulaw@msn.com | SUBJ Re: Letter
+aaron/19a54e02cb586c00.eml | Wed, 05 Nov 2025 09:35:54 -0700 | FROM martin lopez <martin@omnipoolbuilders. | TO "Kimminau Law Firm P.C." <kimminaulaw@msn.com> | SUBJ Re: Letter
+martin/18e9b78e3f5a1158.eml | Mon, 01 Apr 2024 14:02:35 -0700 | FROM Darren Bachtel <darren.bachtel@omnipoo | TO "Reidy, Bryan" <Bryan.Reidy@kgun9.com> | SUBJ Re: URGENT - SWEEPSTAKES PRIZE CERTIFICATE - Home Renov
+martin/18ea0b79f8114435.eml | Tue, 02 Apr 2024 14:29:21 -0700 | FROM Martin <martin@omnipoolbuilders.com> | TO "Reidy, Bryan" <Bryan.Reidy@kgun9.com> | SUBJ Re: URGENT - SWEEPSTAKES PRIZE CERTIFICATE - Home Renov
+martin/18ea0da702e07ef2.eml | Tue, 02 Apr 2024 15:07:20 -0700 | FROM Darren Bachtel <darren.bachtel@omnipoo | TO "Reidy, Bryan" <Bryan.Reidy@kgun9.com> | SUBJ Re: URGENT - SWEEPSTAKES PRIZE CERTIFICATE - Home Renov
+martin/19a4fd0c792307f1.eml | Tue, 04 Nov 2025 10:01:02 -0700 | FROM Martin <martin@omnipoolbuilders.com> | TO Jakes Law Office Amaru <jake@defenselawtucson.com> | SUBJ Letter pt 2 
+martin/19a5095fbd716f04.eml | Tue, 04 Nov 2025 13:35:57 -0700 | FROM Martin <martin@omnipoolbuilders.com> | TO kimminaulaw@man.com | SUBJ Letter 
+martin/19a5096171798571.eml | Tue, 04 Nov 2025 20:36:42 +0000 | FROM postmaster@man.com | TO martin@omnipoolbuilders.com | SUBJ Undeliverable: Letter 
+martin/19a51972b46a7ed3.eml | Tue, 04 Nov 2025 18:17:21 -0700 | FROM Martin <martin@omnipoolbuilders.com> | TO kimminaulaw@msn.com | SUBJ Fwd: Letter
+martin/19a547cae88500ab.eml | Wed, 05 Nov 2025 07:47:14 -0700 | FROM Martin <martin@omnipoolbuilders.com> | TO kimminaulaw@msn.com | SUBJ Re: Letter
+martin/19a54dffa69e34a4.eml | Wed, 05 Nov 2025 09:35:54 -0700 | FROM martin lopez <martin@omnipoolbuilders. | TO "Kimminau Law Firm P.C." <kimminaulaw@msn.com> | SUBJ Re: Letter
+michael/19a5096011d11f19.eml | Tue, 04 Nov 2025 13:35:57 -0700 | FROM Martin <martin@omnipoolbuilders.com> | TO kimminaulaw@man.com | SUBJ Letter 
+michael/19a51972fb7a4611.eml | Tue, 04 Nov 2025 18:17:21 -0700 | FROM Martin <martin@omnipoolbuilders.com> | TO kimminaulaw@msn.com | SUBJ Fwd: Letter
+michael/19a547cb314472fc.eml | Wed, 05 Nov 2025 07:47:14 -0700 | FROM Martin <martin@omnipoolbuilders.com> | TO kimminaulaw@msn.com | SUBJ Re: Letter
+michael/19a54e02da92f5da.eml | Wed, 05 Nov 2025 09:35:54 -0700 | FROM martin lopez <martin@omnipoolbuilders. | TO "Kimminau Law Firm P.C." <kimminaulaw@msn.com> | SUBJ Re: Letter
