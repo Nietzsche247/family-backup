@@ -1,0 +1,70 @@
+=== A: MICHAEL -> WILSON (termination/Tom) ===
+
+A | 2025-04-08 08:59 | aaron/1961620f78669506.eml
+  FROM michael baker <michael@omnipools.com>
+  TO davidwilson0@yahoo.com, omni pool builders <tom.delaney@omnipoolb CC 
+  SUBJ Re: Plan Approval needed
+  ATTACH: ['image.png']
+  >> Hello Dave, I'll have Tom call you to explain what you are looking at. Thank you! Michael
+
+A | 2025-04-08 17:57 | allysa.redmon/196180dc0d87f3f7.eml
+  FROM michael baker <michael@omnipools.com>
+  TO david wilson <davidwilson0@yahoo.com>, allysa redmon <allysa.redm CC omni pool builders <tom.delaney@omnipool
+  SUBJ Re: Plan Approval needed
+  ATTACH: []
+  >> Thanks Dave!
+
+A | 2025-04-12 13:55 | michael/1962bc941d2afece.eml
+  FROM michael baker <michael@omnipools.com>
+  TO david wilson <davidwilson0@yahoo.com> CC tom delaney <tom.delaney@omnipoolbuilder
+  SUBJ Re: Misting fittings colors
+  ATTACH: []
+  >> Thank you!
+
+A | 2025-08-20 15:22 | aaron/198c993de51b8e51.eml
+  FROM michael baker <michael@omnipools.com>
+  TO david wilson <davidwilson0@yahoo.com>, scott culver <scott.culver CC 
+  SUBJ Gates & LED light strip
+  ATTACH: ['image.png', 'image.png', 'WILSON_David_-_afb_2-9-25_DOCUSIGN_CONTRACT_td[1].pdf', 'Rain Curtain.pdf', 'WILSON David - RAIN FALL & LIGHT STRIP (1) (1).pdf']
+  >> Hey Dave, Please see screenshots below and attached contracts. Looks like we DO have one gate in our scope. We could give you a credit of $1156.00 and then Aidan could install this for you if you would like. Should save you some money. [image: image.png] Looks like we sent you another Change order but it was recalled and not approved. This would have been a direct bid from Aidan we assume because Tom said our cost was too much and going direct would be better. [image: image.png] Gate The current scope only includes the gate from the side yard to the pool (coming from the pond). It does not account for a gate leading to the parking area. Please let me know if you’d prefer: - A credit so you can handle it directly, or - For us to manage it and have Aidan fabricate the gate. Rain Curtain Light Scott may have already mentioned this, but if not, here’s the update: The change order specifies a
+
+A | 2025-09-10 16:09 | michael/19935e3c7b0623fc.eml
+  FROM michael baker <michael@omnipools.com>
+  TO david wilson <davidwilson0@yahoo.com> CC 
+  SUBJ Re: Tom!!
+  ATTACH: []
+  >> Sounds good! Glad I could help!
+
+A | 2025-09-10 16:11 | michael/19935e5ab47eda2c.eml
+  FROM michael baker <michael@omnipools.com>
+  TO david wilson <davidwilson0@yahoo.com> CC 
+  SUBJ Re: Tom!!
+  ATTACH: []
+  >> Could you have your attorneys reach out to me to request this as you wanna make sure we’re doing everything legally
+
+
+=== B: WILSON-AUTHORED (meeting/warning recount) ===
+
+B | 2025-04-11 19:36 | michael/19627dbb4ba5da6a.eml
+  FROM david wilson <davidwilson0@yahoo.com>
+  TO michael baker <michael@omnipools.com>
+  SUBJ Re: Misting fittings colors
+  >> I'm thinking "rust" but please double check with Tom, I want a color that will match the pergola and basically hide the lines. David S Wilson 3750 Las Vegas Blvd S Las Vegas NV 89158 Tel: 714-269-6161
+
+B | 2025-09-11 07:59 | michael/19935db59623f304.eml
+  FROM david wilson <davidwilson0@yahoo.com>
+  TO michael baker <michael@omnipools.com>
+  SUBJ Re: Tom!!
+  >> Hey Mike, These are awesome and will help tremendously with the criminal case against Tom, what I need now is contact numbers for the 5 individuals. My lawyer will reach out to them discreetly, there is no breach of privacy on your behalf given it's a criminal Investigation. I'm sure all of them will be more than happy to assist, especially after learning that Tom stole over $95k from me! Once again, thank you for the help! David S Wilson 3750 Las Vegas Blvd S Las Vegas NV 89158 Tel: 714-269-6161
+
+B | 2025-09-11 08:10 | michael/19935e5383fb62dc.eml
+  FROM david wilson <davidwilson0@yahoo.com>
+  TO michael baker <michael@omnipools.com>
+  SUBJ Re: Tom!!
+  >> 
+
+B | 2025-09-11 08:22 | michael/19935f0370fc7970.eml
+  FROM david wilson <davidwilson0@yahoo.com>
+  TO michael baker <michael@omnipools.com>
+  SUBJ Re: Tom!!
+  >> 
