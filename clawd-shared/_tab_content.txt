@@ -1,0 +1,183 @@
+
+===== KEY DATES  (605x6) =====
+  r1   | KEY DATES |  |  |  |  | 
+  r2   | Dynamic view of every  |  |  |  |  | 
+  r3   | CONFIDENTIAL WORKING R |  |  |  |  | 
+  r4   | {f} |  |  |  |  | 
+  r5   | # | Event ID | Date | Qualifier | Event Text | Issue Tags
+  r6   | 1 | {f} | {f} | {f} | {f} | {f}
+  r7   | 2 | {f} | {f} | {f} | {f} | {f}
+  r8   | 3 | {f} | {f} | {f} | {f} | {f}
+  r9   | 4 | {f} | {f} | {f} | {f} | {f}
+  r10  | 5 | {f} | {f} | {f} | {f} | {f}
+  r11  | 6 | {f} | {f} | {f} | {f} | {f}
+  r12  | 7 | {f} | {f} | {f} | {f} | {f}
+  r13  | 8 | {f} | {f} | {f} | {f} | {f}
+  r14  | 9 | {f} | {f} | {f} | {f} | {f}
+  r15  | 10 | {f} | {f} | {f} | {f} | {f}
+  r16  | 11 | {f} | {f} | {f} | {f} | {f}
+  r17  | 12 | {f} | {f} | {f} | {f} | {f}
+  r18  | 13 | {f} | {f} | {f} | {f} | {f}
+  r19  | 14 | {f} | {f} | {f} | {f} | {f}
+  r20  | 15 | {f} | {f} | {f} | {f} | {f}
+  r21  | 16 | {f} | {f} | {f} | {f} | {f}
+  r22  | 17 | {f} | {f} | {f} | {f} | {f}
+  r23  | 18 | {f} | {f} | {f} | {f} | {f}
+  r24  | 19 | {f} | {f} | {f} | {f} | {f}
+  r25  | 20 | {f} | {f} | {f} | {f} | {f}
+  r26  | 21 | {f} | {f} | {f} | {f} | {f}
+  r27  | 22 | {f} | {f} | {f} | {f} | {f}
+  r28  | 23 | {f} | {f} | {f} | {f} | {f}
+  r29  | 24 | {f} | {f} | {f} | {f} | {f}
+  r30  | 25 | {f} | {f} | {f} | {f} | {f}
+  r31  | 26 | {f} | {f} | {f} | {f} | {f}
+  r32  | 27 | {f} | {f} | {f} | {f} | {f}
+  r33  | 28 | {f} | {f} | {f} | {f} | {f}
+  r34  | 29 | {f} | {f} | {f} | {f} | {f}
+   ... (truncated)
+
+===== FACT REGISTRY  (605x15) =====
+  r1   | FACT REGISTRY |  |  |  |  | 
+  r2   | Canonical structured v |  |  |  |  | 
+  r3   | CONFIDENTIAL WORKING R |  |  |  |  | 
+  r4   |  |  |  |  |  | 
+  r5   | Fact ID | Fact Type | Text Value | Numeric Value | Date Value | Unit / Currency
+  r6   |  |  |  |  |  | 
+
+===== THIRD PARTIES  (85x12) =====
+  r1   | THIRD PARTIES |  |  |  |  | 
+  r2   | One record per legally |  |  |  |  | 
+  r3   | CONFIDENTIAL WORKING R |  |  |  |  | 
+  r4   |  |  |  |  |  | 
+  r5   | ID | Mechanism | Target Actor ID | Target Org ID | Target (auto) | Element or Predicate
+  r6   |  |  |  |  | {f} | 
+
+===== DAMAGES  (67x14) =====
+  r1   | DAMAGES |  |  |  |  | 
+  r2   | Transaction-linked sce |  |  |  |  | 
+  r3   | CONFIDENTIAL WORKING R |  |  |  |  | 
+  r4   |  |  |  |  |  | 
+  r5   | Component | Their Transaction ID | Their # (auto) | Our Transaction ID | Our # (auto) | Basis Event ID(s)
+  r6   |  |  | {f} |  | {f} | 
+  r67  | TOTALS (net of offsets |  | {f} |  | {f} | 
+
+===== DEADLINES  (125x22) =====
+  r1   | DEADLINES |  |  |  |  | 
+  r2   | Operative precedence ( |  |  |  |  | 
+  r3   | CONFIDENTIAL WORKING R |  |  |  |  | 
+  r4   |  |  |  |  |  | 
+  r5   | Deadline ID | Classification | Jurisdiction / Tribuna | Authority ID | Authority Version / Ef | Trigger Event ID
+  r6   |  |  |  |  |  | 
+
+===== LITIGATION LOG  (205x13) =====
+  r1   | LITIGATION LOG |  |  |  |  | 
+  r2   | Reference a canonical  |  |  |  |  | 
+  r3   | CONFIDENTIAL WORKING R |  |  |  |  | 
+  r4   |  |  |  |  |  | 
+  r5   | Log ID | Event ID | Date (auto) | Direction | Type | Description (auto)
+  r6   |  |  | {f} |  |  | {f}
+
+===== COST LEDGER  (307x9) =====
+  r1   | COST LEDGER |  |  |  |  | 
+  r2   | Objective time and cos |  |  |  |  | 
+  r3   | CONFIDENTIAL WORKING R |  |  |  |  | 
+  r4   |  |  |  |  |  | 
+  r5   | Totals (auto): |  |  |  | {f} | 
+  r6   |  |  |  |  |  | 
+  r7   | Date | Who | Activity | Category | Hours | Rate
+
+===== DISCLOSURE REVIEW  (12x7) =====
+  r1   | DISCLOSURE REVIEW - DE |  |  |  |  | 
+  r2   | Packet scaffold. omni_ |  |  |  |  | 
+  r3   | CONFIDENTIAL WORKING R |  |  |  |  | 
+  r4   |  |  |  |  |  | 
+  r5   | Sections |  |  |  |  | 
+  r6   | 1. Factual basis | Counsel-review export  |  |  |  | 
+  r7   | 2. Witnesses | Unique names from the  |  |  |  | 
+  r8   | 3. Documents / ESI | SOURCE INDEX rows with |  |  |  | 
+  r9   | 4. Damages computation | DAMAGES components and |  |  |  | 
+  r10  | 5. Privilege review qu | The SEPARATE quarantin |  |  |  | 
+  r11  | 6. Supplementation log | AUDIT rows since the l |  |  |  | 
+  r12  | Status | DESIGNED. No automatio |  |  |  | 
+
+===== STAGING  (125x6) =====
+  r1   | STAGING |  |  |  |  | 
+  r2   | Unsourced memories wai |  |  |  |  | 
+  r3   | CONFIDENTIAL WORKING R |  |  |  |  | 
+  r4   |  |  |  |  |  | 
+  r5   | Rough Date | What we believe happen | Memory Source | What Document Proves I | Where to Look | Status
+  r6   |  |  |  |  |  | 
+
+===== IMPORT LANDING  (815x23) =====
+  r1   | IMPORT LANDING |  |  |  |  | 
+  r2   | Miner staging only. Co |  |  |  |  | 
+  r3   | CONFIDENTIAL WORKING R |  |  |  |  | 
+  r4   |  |  |  |  |  | 
+  r5   | Batch | Date | Date Type | Qualifier | Event Text (proposed) | Statement Class
+  r6   |  |  |  |  |  | 
+
+===== AUDIT  (1805x10) =====
+  r1   | AUDIT |  |  |  |  | 
+  r2   | Append-only, hash-chai |  |  |  |  | 
+  r3   | CONFIDENTIAL WORKING R |  |  |  |  | 
+  r4   |  |  |  |  |  | 
+  r5   | Timestamp | Actor | Action | Sheet | Record ID | Before
+  r6   |  |  |  |  |  | 
+
+===== ORGANIZATIONS  (105x6) =====
+  r1   | ORGANIZATIONS |  |  |  |  | 
+  r2   | Canonical organization |  |  |  |  | 
+  r3   | CONFIDENTIAL WORKING R |  |  |  |  | 
+  r4   |  |  |  |  |  | 
+  r5   | Organization ID | Name | Type | Parent Org ID | Aliases | Notes
+  r6   | ORG-0001 | Omni Pool Builders and | COMPANY |  |  | Our party. Defendant. 
+  r7   | ORG-0002 | Sales One, LLC | COMPANY |  |  | Co-defendant. Arizona 
+  r8   | ORG-0003 | Thompson-Krone, P.L.C. | LAW FIRM |  |  | Counsel for plaintiff 
+  r9   | ORG-0004 | Lee & Travers | LAW FIRM |  |  | Defense counsel engage
+  r10  | ORG-0005 | Thomae Law | LAW FIRM |  |  | Eric Thomae. Advised O
+  r11  | ORG-0006 | Pima County Superior C | COURT/TRIBUNAL |  |  | Venue. Case C20264565.
+  r12  | ORG-0007 | Pebbletec / NPT / SCP  | VENDOR |  |  | Interior finish manufa
+  r13  | ORG-0008 | Schneider | OTHER |  |  | Named in CO-0036 as ta
+  r14  | ORG-0009 | Je'Pierre LLC | VENDOR |  |  | Subcontractor. Wayne P
+  r15  | ORG-0010 | Silverbell Partners, L | VENDOR |  |  | Jason Stryker, ROC 342
+
+===== CAST  (105x8) =====
+  r1   | CAST |  |  |  |  | 
+  r2   | Canonical people. Ente |  |  |  |  | 
+  r3   | CONFIDENTIAL WORKING R |  |  |  |  | 
+  r4   |  |  |  |  |  | 
+  r5   | Actor ID | Name | Role in Matter | Organization ID | Organization (auto) | Counsel Role
+  r6   | ACT-0001 | David S. Wilson | Plaintiff |  | {f} | OPPOSING
+  r7   | ACT-0002 | Thomas Daniel Delaney | Co-defendant | ORG-0002 | {f} | OPPOSING
+  r8   | ACT-0003 | Bridget An Delaney | Co-defendant |  | {f} | OPPOSING
+  r9   | ACT-0004 | Aaron Baker | Co-owner / Operations | ORG-0001 | {f} | NEUTRAL/COURT
+  r10  | ACT-0005 | Michael Baker | Co-owner / Integration | ORG-0001 | {f} | NEUTRAL/COURT
+  r11  | ACT-0006 | Martin Lopez | Co-owner / President o | ORG-0001 | {f} | NEUTRAL/COURT
+  r12  | ACT-0007 | Scott Culver | VP Construction / Proj | ORG-0001 | {f} | NEUTRAL/COURT
+  r13  | ACT-0008 | Christine Stewart | Accounting / Processin | ORG-0001 | {f} | NEUTRAL/COURT
+  r14  | ACT-0009 | Allysa Redmon | Lead Construction Sche | ORG-0001 | {f} | NEUTRAL/COURT
+  r15  | ACT-0010 | Veronica Leyva | Implementation & Devel | ORG-0001 | {f} | NEUTRAL/COURT
+  r16  | ACT-0011 | Johnathan Pierce | Superintendent | ORG-0001 | {f} | NEUTRAL/COURT
+  r17  | ACT-0012 | Evan L. Thompson | Plaintiff counsel | ORG-0003 | {f} | OPPOSING
+  r18  | ACT-0013 | Alan R. Hill | Plaintiff counsel | ORG-0003 | {f} | OPPOSING
+  r19  | ACT-0014 | Eric Thomae | Omni counsel | ORG-0005 | {f} | OWN/PROSPECTIVE
+  r20  | ACT-0015 | Hon. Cynthia T. Kuhn | Assigned judge | ORG-0006 | {f} | NEUTRAL/COURT
+  r21  | ACT-0016 | Matt Sharp | Third-party manufactur | ORG-0007 | {f} | NEUTRAL/COURT
+  r22  | ACT-0017 | Matthew Nelson | Materials / Ordering M | ORG-0001 | {f} | NEUTRAL/COURT
+
+===== DISPUTED FACTS  (205x16) =====
+  r1   | DISPUTED FACTS |  |  |  |  | 
+  r2   | Compare canonical Fact |  |  |  |  | 
+  r3   | CONFIDENTIAL WORKING R |  |  |  |  | 
+  r4   |  |  |  |  |  | 
+  r5   | Prop ID | Proposition | Category | Comparison Type | Their Fact ID | Their Version (auto)
+  r6   | DF-0001 | Whether the contract i | Scope | TEXT |  | {f}
+  r7   | DF-0002 | Whether the contract i | Scope | TEXT |  | {f}
+  r8   | DF-0003 | Whether Delaney was Om | Agency | TEXT |  | {f}
+  r9   | DF-0004 | Whether Wilson had rea | Agency | TEXT |  | {f}
+  r10  | DF-0005 | Whether Omni added sup | Supervision | TEXT |  | {f}
+  r11  | DF-0006 | The amount Delaney is  | Amount | AMOUNT |  | {f}
+  r12  | DF-0007 | The amount Delaney owe | Amount | AMOUNT |  | {f}
+  r13  | DF-0008 | The balance owed on th | Amount | AMOUNT |  | {f}
+  r14  | DF-0009 | Whether the pool inter | Defect | TEXT |  | {f}
+  r15  | DF-0010 | Whether Omni continued | Performance | DATE |  | {f}
