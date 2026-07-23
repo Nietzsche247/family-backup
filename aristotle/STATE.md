@@ -1,6 +1,6 @@
 # STATE.md â€” Current Project State
 
-**Last Reviewed:** 2026-07-13
+**Last Reviewed:** 2026-07-23
 **Agent:** Aristotle
 
 ---
@@ -65,6 +65,25 @@ Expected: no fake phone numbers, relevant dork results about pool business, no f
 ### OSINT Pipeline (Empiricus â€” active development)
 - See bugs file: projects/osint-pipeline-bugs.md
 - Next priorities: company discovery, iterative anchor expansion, country code filter
+
+### GoBag D-drive fill + offline toolchain (AlienWare D:\GoBag)
+- Active target: fill GoBag toward ~1.7TB with irreplaceable/offline-executable content; avoid generic padding and duplicate software.
+- Wave 1 complete: Meditron 70B, OAM/USFS/WikiMed/iFixit assets landed.
+- Wave 2 active/resumed 2026-07-23: Protomaps vector planet + Mapterhorn terrain planet resumable; LANDFIRE EVC/EVT complete.
+- LiDAR Wave 3 complete enough for basic use: `D:\GoBag\09_SOFTWARE\LiDAR_Offline_Toolkit\` with 18 repos, wheelhouse/assets, and START_HERE.
+- LiDAR dependency closure wave launched 2026-07-23: downloading Miniforge, Ninja, CUDA 11.7.1, LibTorch cu117, Ubuntu 22.04 ISO, and VS Build Tools bootstrap to `D:\GoBag\09_SOFTWARE\LiDAR_Offline_Toolkit\dependency-closure\`.
+- PMTiles/Mapterhorn operational dependency layer captured: `D:\GoBag\09_SOFTWARE\PMTiles_Mapterhorn_Offline\`; PMTiles Windows CLI tested, MapLibre/PMTiles JS assets captured.
+
+### Two priority projects for 2026-07-24
+- Wife Windows 11 Hermes Fresh-Start: see `projects/lenovo-hermes-fresh-start-wife-win11.md`; goal is reliable Hermes/OpenAI+offline assistant with Tailscale/admin recovery, no heavy map stack initially.
+- 1TB family/friends survival USB subset: see `projects/gobag-1tb-family-stick.md`; goal is ranked ~800GB-1TB copy plan from D:\GoBag focused on restart-life capability.
+
+### Scout skills onboarded (2026-07-23)
+- Copied from Plato/NIETZSCHE2025 `C:\Users\Aaron\.openclaw-scout\workspace\skills` into Aristotle local skills at `C:\Users\aaron\.clawdbot-aristotle\skills`.
+- Installed skill dirs: `northstar-env`, `omni-social-intel`, `research-30d`, `telegram-file-attach`, `tool-rollout`.
+- Propagated the same five skills to local agent skill dirs for Aristotle, Daedalus, Researcher, Steel Man, Thales, Archimedes, and Socrates (`C:\Users\aaron\.clawdbot-<agent>\skills`).
+- Local workspace mirror retained under `incoming/scout-skills/` for audit/versioning; no embedded secret values found.
+- Note: these skills reference last30days/ScrapeCreators but do not include a standalone scraper script/repo; if Scout has a separate scraper directory, Aaron needs to provide that path for full onboarding.
 
 ---
 
@@ -222,9 +241,9 @@ Expected: no fake phone numbers, relevant dork results about pool business, no f
 
 ---
 
-## SYSTEM STATE UPDATE — 2026-07-13
+## SYSTEM STATE UPDATE ï¿½ 2026-07-13
 
-**13 days offline** — Aaron and system went down around June 30.
+**13 days offline** ï¿½ Aaron and system went down around June 30.
 
 **All services confirmed running on return 2026-07-13:**
 
