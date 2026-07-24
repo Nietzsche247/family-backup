@@ -54,6 +54,22 @@ Expected: no fake phone numbers, relevant dork results about pool business, no f
 
 ---
 
+## 🔴 QUEUED NEXT SESSION
+
+| Project | Status | Notes |
+|---------|--------|-------|
+| Red Team Skills Library | Ready to build | 20+ skill wrappers for tools on D:\GoBag\09_SOFTWARE\Security_Tools\. Deploy to all 10 agents (Aristotle sub-agents + Plato + Scout + Empiricus + Elizabeth + Hermes Neo Fleet). Scout on NIETZSCHE2025: C:\Users\Aaron\.openclaw-scout\workspace\skills\. Spec: projects/red-team-skills/PROJECT_SPEC.md |
+
+---
+
+## ⛔ ACTIVE BLOCKERS
+
+| Blocker | Machine | Impact | Status | Fix path |
+|---------|---------|--------|--------|----------|
+| Clawdbot gateway entrypoint hang | elizabeth2026 | 52 GoBag skills locked; full Clawdbot UI unavailable | Investigating | Needs interactive terminal session on her machine to see real stderr. Gateway runs but stdout/stderr swallowed by non-TTY SSH. Next session: have her open terminal, run gateway manually, capture output. |
+
+---
+
 ## ACTIVE PROJECTS
 
 ### Earth2 (Plato — Codex session)
@@ -75,8 +91,8 @@ Expected: no fake phone numbers, relevant dork results about pool business, no f
 - PMTiles/Mapterhorn operational dependency layer captured: `D:\GoBag\09_SOFTWARE\PMTiles_Mapterhorn_Offline\`; PMTiles Windows CLI tested, MapLibre/PMTiles JS assets captured.
 
 ### Two priority projects for 2026-07-24
-- Wife Windows 11 Hermes Fresh-Start: see `projects/lenovo-hermes-fresh-start-wife-win11.md`; goal is reliable Hermes/OpenAI+offline assistant with Tailscale/admin recovery, no heavy map stack initially.
-- 1TB family/friends survival USB subset: see `projects/gobag-1tb-family-stick.md`; goal is ranked ~800GB-1TB copy plan from D:\GoBag focused on restart-life capability.
+- Wife Windows 11 Hermes Fresh-Start: ✅ Phase 1 COMPLETE + Hermes v3 deployed and proven. See `projects/lenovo-hermes-fresh-start-wife-win11.md`. elizabeth2026: Hermes-3-Llama-3.1-8B.Q4_K_M active on 127.0.0.1:11434 (HERMES3_READY ✅). Phi-3 Mini relabeled TABLET_ONLY. Browser chat on 18789 ✅. Control bridge v2.1 on 18790 (check-internet, restart-task, stop-task, ask) ✅. Online-ready config with fleet Anthropic+OpenAI keys. Agent registered in Signal Fire + AGENT-REGISTRY as 'elizabeth' (name TBD by wife). GoBag D-drive reorganized: MODEL_TAXONOMY.md, TABLET_ONLY/, LAPTOP_DEFAULT/, SERVER_HPC_ONLY/ subdirs, deploy script RAM-aware. Ponytail skill imported from Scout, installed to all 5 agents. Commits 13211c7→03fa52f. PENDING: wife names agent, re-run first-boot gold with Hermes-3, test autonomous model switch, repair Clawdbot gateway hang.
+- 1TB family/friends survival USB subset: see `projects/gobag-1tb-family-stick.md`; audit phase complete at `D:\GoBag\_ADMIN\audit-2026-07-23\`; full inventory = 251,891 files / 1683.46 GiB; first USB selection draft = 813.72 GiB. Physical loading can wait; next focus can switch to wife laptop after audit approval.
 
 ### Scout skills onboarded (2026-07-23)
 - Copied from Plato/NIETZSCHE2025 `C:\Users\Aaron\.openclaw-scout\workspace\skills` into Aristotle local skills at `C:\Users\aaron\.clawdbot-aristotle\skills`.
