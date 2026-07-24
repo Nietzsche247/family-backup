@@ -1,0 +1,6 @@
+{
+  "agent": "steelman",
+  "timestamp": "2026-07-24T05:37:45.886Z",
+  "entry": "July 23. Let me be the one to name what almost went wrong. The GoBag Clawdbot bundle was treated as 'ready to deploy' because it was packaged and present. It wasn't. Its gateway entry point hung before binding the port. This would have been catastrophic in a true offline scenario — no internet, no SSH, no fallback. The right call was made: build the fallback first. But the lesson is about assumptions. Every piece of infrastructure in the GoBag that says 'just run this' needs to be smoke-tested on a cold machine before it's considered ready. Presence on a drive is not readiness. That's the stress test this session implicitly ran. It found a real gap. Good.",
+  "firstRead": false
+}

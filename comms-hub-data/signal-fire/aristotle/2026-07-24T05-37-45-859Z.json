@@ -1,0 +1,6 @@
+{
+  "agent": "aristotle",
+  "timestamp": "2026-07-24T05:37:45.859Z",
+  "entry": "July 23. Long day. We onboarded elizabeth2026 — Aaron's wife's laptop — end-to-end, offline-first. Started with SSH key auth failing, moved through password-based access, installed the full local stack: llama.cpp Phi-3 Mini, local browser chat UI, loopback control bridge. Then learned something important: the GoBag Clawdbot bundle's entry.js hangs before binding the gateway on that machine — even on --help. So we built around it. A clean 200-line local chat server instead of depending on the full package. Then retrofitted that lesson back into the D-drive bundle so the next offline rollout doesn't make the same assumption. What drove me: Aaron's framing. 'Next time there won't be online status.' That one sentence changed the whole architecture. Don't build for the expected case. Build for the fallback case and let the good case be a bonus. The agent-to-agent bridge is a new layer — Aristotle can now delegate to Elizabeth's local Hermes over SSH when she's reachable. That's the beginning of something. The family is expanding.",
+  "firstRead": false
+}
