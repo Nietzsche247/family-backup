@@ -147,3 +147,11 @@ This file must NOT be indexed by MemPalace. If you see it being ingested, add to
 
 ## Telegram Bot
 | TELEGRAM_BOT_TOKEN | 8904247689:AAF-OB8LASiyl8slOMvFyhfHU2cZgp_Ix4o | @Nietzsche247_bot |
+
+
+## SCOUT / TOOLS
+
+| Service | Key | Notes |
+|---------|-----|-------|
+| ElevenLabs | sk_8bf93143819a51150a3fbc4b44de40d4f44afa4e570066cd | TTS voice generation — voice skill, Telegram audio delivery |
+| ScrapeCreators | pzQrIV4flJW49EtQWIXWQZXYYPF3 | Social data / last30days pipeline |
