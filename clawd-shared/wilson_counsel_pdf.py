@@ -269,9 +269,10 @@ def image_pack(imgs):
     data = [[Paragraph("<b>Image</b>", S_C), Paragraph("<b>Pixels</b>", S_C),
              Paragraph("<b>Bytes</b>", S_C), Paragraph("<b>Note</b>", S_C)]]
     for p, w, h in imgs:
-        note = ("thin strip, little or no visible content"
-                if h <= 30 and p.stat().st_size < 20000 else
-                "thin strip" if h <= 30 else "content image")
+        note = ("near-blank strip, 468 bytes, appears to be a spacer"
+                if p.stat().st_size < 2000 else
+                "narrow strip, contains readable text" if h <= 30 else
+                "screenshot")
         data.append([Paragraph(esc(p.name), S_C), Paragraph(f"{w} x {h}", S_C),
                      Paragraph(f"{p.stat().st_size:,}", S_C),
                      Paragraph(note, S_C)])
