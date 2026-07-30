@@ -1,4 +1,4 @@
-# STATE.md — Current Project State
+# STATE.md ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â Current Project State
 
 **Last Reviewed:** 2026-07-23
 **Agent:** Aristotle
@@ -9,36 +9,36 @@
 
 | System | Status | Notes |
 |--------|--------|-------|
-| Aristotle | ✅ Running | Port 18792, Google Chat |
-| Comms Hub | ✅ Running | Port 3001, pm2 |
-| Ledger | ✅ Running | Was stopped Jun 15 morning, restarted |
-| Ledger-staging | ✅ Running | Port 3003 |
-| Ollama | ✅ Running | v0.16.3, port 11434 |
-| Plato | ✅ Running | 10.0.0.50, resilient supervisor, model fixed |
-| Empiricus | ✅ Running | 100.65.240.87, resilient supervisor deployed |
-| OSINT Pipeline | ✅ Updated | Empiricus port 3456, major bug fixes committed |
+| Aristotle | ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¦ Running | Port 18792, Google Chat |
+| Comms Hub | ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¦ Running | Port 3001, pm2 |
+| Ledger | ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¦ Running | Was stopped Jun 15 morning, restarted |
+| Ledger-staging | ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¦ Running | Port 3003 |
+| Ollama | ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¦ Running | v0.16.3, port 11434 |
+| Plato | ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¦ Running | 10.0.0.50, resilient supervisor, model fixed |
+| Empiricus | ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¦ Running | 100.65.240.87, resilient supervisor deployed |
+| OSINT Pipeline | ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¦ Updated | Empiricus port 3456, major bug fixes committed |
 
 ---
 
-## OSINT PIPELINE — CURRENT STATE (2026-06-17)
+## OSINT PIPELINE ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â CURRENT STATE (2026-06-17)
 
 **Location:** C:\North_Star_Projects\osint-pipeline\ on Empiricus (aaron@100.65.240.87)
 **Server:** port 3456 (auto-restarts via process, not Task Scheduler)
-**Latest commit:** 23b814e6 — 4 critical bugs fixed
+**Latest commit:** 23b814e6 ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â 4 critical bugs fixed
 
 ### What was fixed (commit 23b814e6, June 16):
-1. ✅ Google Dorks name disambiguation — no more wrong-person results for common names
-2. ✅ NANP phone validator — dates and account IDs no longer appear as phone numbers
-3. ✅ Life events fabrication eliminated — annual artifact filter added
-4. ✅ Secondary email as anchor — email2/email3 now fully processed through all tools
+1. ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¦ Google Dorks name disambiguation ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â no more wrong-person results for common names
+2. ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¦ NANP phone validator ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â dates and account IDs no longer appear as phone numbers
+3. ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¦ Life events fabrication eliminated ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â annual artifact filter added
+4. ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¦ Secondary email as anchor ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â email2/email3 now fully processed through all tools
 
 ### Remaining known issues:
-- **Bug 5:** Country codes (MX/CA/EG) from breach data showing as locations → minor cleanup needed
-- **Architecture gap:** Pipeline is parallel (not iterative) — doesn't chain discoveries
-- **Architecture gap:** No company discovery step (email domain → company name → company search)
+- **Bug 5:** Country codes (MX/CA/EG) from breach data showing as locations ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ minor cleanup needed
+- **Architecture gap:** Pipeline is parallel (not iterative) ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â doesn't chain discoveries
+- **Architecture gap:** No company discovery step (email domain ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ company name ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ company search)
 - **Architecture gap:** No confidence filter on content (accepts all results even if wrong person)
-- Reddit: HTTP 403 (server IP ban) — pre-existing
-- BERT/deep profiler: timeouts — pre-existing
+- Reddit: HTTP 403 (server IP ban) ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â pre-existing
+- BERT/deep profiler: timeouts ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â pre-existing
 
 ### How to test:
 ```json
@@ -54,7 +54,7 @@ Expected: no fake phone numbers, relevant dork results about pool business, no f
 
 ---
 
-## 🔴 QUEUED NEXT SESSION
+## ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â°ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¸ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚ÂÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â´ QUEUED NEXT SESSION
 
 | Project | Status | Notes |
 |---------|--------|-------|
@@ -62,7 +62,7 @@ Expected: no fake phone numbers, relevant dork results about pool business, no f
 
 ---
 
-## ⛔ ACTIVE BLOCKERS
+## ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚ÂºÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â ACTIVE BLOCKERS
 
 | Blocker | Machine | Impact | Status | Fix path |
 |---------|---------|--------|--------|----------|
@@ -72,13 +72,13 @@ Expected: no fake phone numbers, relevant dork results about pool business, no f
 
 ## ACTIVE PROJECTS
 
-### Earth2 (Plato — Codex session)
+### Earth2 (Plato ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â Codex session)
 - Active Codex sessions on NIETZSCHE2025
 - earth1/temporal-context-spine-v0 branch committed
 - Headroom removed from Codex (was causing instability)
 - Access via iPhone: http://10.0.0.50:3000/cockpit
 
-### OSINT Pipeline (Empiricus — active development)
+### OSINT Pipeline (Empiricus ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â active development)
 - See bugs file: projects/osint-pipeline-bugs.md
 - Next priorities: company discovery, iterative anchor expansion, country code filter
 
@@ -91,7 +91,7 @@ Expected: no fake phone numbers, relevant dork results about pool business, no f
 - PMTiles/Mapterhorn operational dependency layer captured: `D:\GoBag\09_SOFTWARE\PMTiles_Mapterhorn_Offline\`; PMTiles Windows CLI tested, MapLibre/PMTiles JS assets captured.
 
 ### Two priority projects for 2026-07-24
-- Wife Windows 11 Hermes Fresh-Start: ✅ Phase 1 COMPLETE + Hermes v3 deployed and proven. See `projects/lenovo-hermes-fresh-start-wife-win11.md`. elizabeth2026: Hermes-3-Llama-3.1-8B.Q4_K_M active on 127.0.0.1:11434 (HERMES3_READY ✅). Phi-3 Mini relabeled TABLET_ONLY. Browser chat on 18789 ✅. Control bridge v2.1 on 18790 (check-internet, restart-task, stop-task, ask) ✅. Online-ready config with fleet Anthropic+OpenAI keys. Agent registered in Signal Fire + AGENT-REGISTRY as 'elizabeth' (name TBD by wife). GoBag D-drive reorganized: MODEL_TAXONOMY.md, TABLET_ONLY/, LAPTOP_DEFAULT/, SERVER_HPC_ONLY/ subdirs, deploy script RAM-aware. Ponytail skill imported from Scout, installed to all 5 agents. Commits 13211c7→03fa52f. PENDING: wife names agent, re-run first-boot gold with Hermes-3, test autonomous model switch, repair Clawdbot gateway hang.
+- Wife Windows 11 Hermes Fresh-Start: ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¦ Phase 1 COMPLETE + Hermes v3 deployed and proven. See `projects/lenovo-hermes-fresh-start-wife-win11.md`. elizabeth2026: Hermes-3-Llama-3.1-8B.Q4_K_M active on 127.0.0.1:11434 (HERMES3_READY ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¦). Phi-3 Mini relabeled TABLET_ONLY. Browser chat on 18789 ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¦. Control bridge v2.1 on 18790 (check-internet, restart-task, stop-task, ask) ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¦. Online-ready config with fleet Anthropic+OpenAI keys. Agent registered in Signal Fire + AGENT-REGISTRY as 'elizabeth' (name TBD by wife). GoBag D-drive reorganized: MODEL_TAXONOMY.md, TABLET_ONLY/, LAPTOP_DEFAULT/, SERVER_HPC_ONLY/ subdirs, deploy script RAM-aware. Ponytail skill imported from Scout, installed to all 5 agents. Commits 13211c7ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢03fa52f. PENDING: wife names agent, re-run first-boot gold with Hermes-3, test autonomous model switch, repair Clawdbot gateway hang.
 - 1TB family/friends survival USB subset: see `projects/gobag-1tb-family-stick.md`; audit phase complete at `D:\GoBag\_ADMIN\audit-2026-07-23\`; full inventory = 251,891 files / 1683.46 GiB; first USB selection draft = 813.72 GiB. Physical loading can wait; next focus can switch to wife laptop after audit approval.
 
 ### Scout skills onboarded (2026-07-23)
@@ -105,18 +105,18 @@ Expected: no fake phone numbers, relevant dork results about pool business, no f
 
 ## INFRASTRUCTURE NOTES
 
-### Plato (NIETZSCHE2025 — 10.0.0.50)
+### Plato (NIETZSCHE2025 ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â 10.0.0.50)
 - Clawdbot gateway: resilient wrapper, auto-boot on startup
-- Model: claude-sonnet-4-20250514 DEPRECATED → replaced with claude-sonnet-4-6
+- Model: claude-sonnet-4-20250514 DEPRECATED ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ replaced with claude-sonnet-4-6
 - Headroom Proxy: scheduled task exists but headroom removed from Codex config
 - Codex: running directly (no proxy), System32/AGENTS.md cleaned
 
-### Empiricus (nietzsche-i9 — 100.65.240.87)
+### Empiricus (nietzsche-i9 ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â 100.65.240.87)
 - OpenClaw gateway: resilient wrapper, auto-boot on startup
 - OSINT Pipeline: port 3456, latest bugfixes committed
 - SSH key: C:\Users\aaron\.ssh\empiricus_access_key
 
-### Aristole (AlienWare — 10.0.0.49)
+### Aristole (AlienWare ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â 10.0.0.49)
 - Gateway: resilient wrapper running
 - Comms Hub + Ledger: pm2 managed
 - Rust + VS Build Tools: installed (for headroom build if needed later)
@@ -132,11 +132,11 @@ Expected: no fake phone numbers, relevant dork results about pool business, no f
 
 | Agent | Machine | Port | Channel | Status |
 |-------|---------|------|---------|--------|
-| Aristotle | AlienWare (10.0.0.49) | 18792 | Google Chat | ✅ |
+| Aristotle | AlienWare (10.0.0.49) | 18792 | Google Chat | ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¦ |
 | Daedalus | AlienWare | 18800 | webchat | idle |
-| Thales | AlienWare (Opus 4.8) | 18810 | — | idle |
-| Plato | NIETZSCHE2025 (10.0.0.50) | 18789 | Google Chat | ✅ |
-| Empiricus | Nietzsche-i9 (100.65.240.87) | 18789 | Slack | ✅ |
+| Thales | AlienWare (Opus 4.8) | 18810 | ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â | idle |
+| Plato | NIETZSCHE2025 (10.0.0.50) | 18789 | Google Chat | ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¦ |
+| Empiricus | Nietzsche-i9 (100.65.240.87) | 18789 | Slack | ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¦ |
 
 ### Fleet recovery after internet outage (2026-06-24)
 - Aristotle reachable locally on 18792; Hub and Ledger healthy.
@@ -257,9 +257,9 @@ Expected: no fake phone numbers, relevant dork results about pool business, no f
 
 ---
 
-## SYSTEM STATE UPDATE � 2026-07-13
+## SYSTEM STATE UPDATE ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¯ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¿ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â½ 2026-07-13
 
-**13 days offline** � Aaron and system went down around June 30.
+**13 days offline** ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¯ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¿ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â½ Aaron and system went down around June 30.
 
 **All services confirmed running on return 2026-07-13:**
 
@@ -284,3 +284,4 @@ Expected: no fake phone numbers, relevant dork results about pool business, no f
 - Printable map packs
 
 **KEYRING conflict:** sync flagged conflict on June 30; local was kept, remote was saved as backup. Conflict file was cleaned up automatically.
+
