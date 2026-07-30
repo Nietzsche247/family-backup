@@ -1344,3 +1344,314 @@ The Omni editor implements the same four tabs for all eleven types. No block get
 | Client-rendered | Server-rendered, hydrate for interactivity | Crawlable, survives a JS failure. |
 
 ---
+
+## 9. WHAT V1 MUST DO THAT LINQ DOES NOT
+
+Corrected in v1.0. Two v0.1 items were parity, not differentiation.
+
+| # | Capability | Rationale |
+|---|---|---|
+| 1 | Indexable pages with structured data | Linq is `noindex`. Twenty-one pages of captioned project photos on your own domain is a durable content asset, aimed at the renovation visibility gap. |
+| 2 | Handles that never break a distributed link | The Martin Lopez and Michael Baker problem, permanently. |
+| 3 | Immutable short IDs on all print and NFC | Physical media cannot be recalled. |
+| 4 | **Leads reach ProDBX on capture** | 240 contacts prove the vendor-console dead end. ProDBX is not among the 13 connectors. |
+| 5 | **Verbatim consent snapshots** | Linq generates consent text from owner name at render and does not appear to retain it. |
+| 6 | Three-level setting resolution with override permission | Linq has three scopes but lets a page override org policy freely. Omni gates override as a permission. |
+| 7 | **Child-level event attribution** | Linq attributes to the block. Omni attributes to the individual gallery photo or link row. |
+| 8 | Template pushes that decline to clobber member edits | `member_edited_at` + `skipped_count`. |
+| 9 | Org assets structurally barred from member-required fields | `assets.scope`. Eight logos where headshots belong. |
+| 10 | Live template completion query | `binding_requirements`. A number, not a meeting agenda item. |
+
+**Removed from the v0.1 list as parity:**
+
+| Was claimed | Reality |
+|---|---|
+| Per-block analytics | Linq has it. Advanced Analytics, per block, four time windows. Parity. |
+| Server-derived square renditions | Linq documents 1024x1024 as optimal but the crop burden is on the user. Omni deriving it server-side is a real but minor improvement, not a headline. |
+
+---
+
+## 10. WHAT V1 MUST NOT DO
+
+| Do not | Because |
+|---|---|
+| Ship per-card color or CSS controls | D-06. Immediate brand fork. |
+| Auto-suffix a colliding handle | That is how `michael_baker_7272` happened. Reject and prompt. |
+| Reissue a retired handle | Silently redirects an old client to the wrong designer. |
+| Let an org asset satisfy a member-required field | Eight logos where headshots belong. |
+| Add CHECK constraints to `trigger_type` / `action_type` before Q-18 | A wrong enum is worse than no enum. |
+| Build sixteen block types | Eleven, with provider registries. ADR-003. |
+| Build native NFC write or an App Clip | Requires an app. Keep NFC read and QR. Defer. |
+| Build 13 CRM connectors | One normalized event. D-14. |
+| Treat migrated Linq contacts as consented | `captured_via = 'imported_linq'`. Consent unverified until Q-21. |
+| Replace Linq before the roster is migrated and 301s verified | Run parallel. Cut over per person. |
+| Duplicate DBX content here | Cross-reference the CODEX. |
+| Store a raw user agent or IP | Hash both. |
+| Serve originals to browsers | Renditions only. |
+
+---
+
+## 11. ENFORCEMENT PROTOCOL
+
+Binding on every session that touches this project, human or model.
+
+### 11.1 Persistence
+
+| | |
+|---|---|
+| Location | `C:\Users\aaron\clawd-shared\card-docs\` |
+| Naming | `OMNI_CARD_CODEX_YYYY-MM-DD_HHMM_vX.Y.md` |
+| Current | Latest timestamp. Always. |
+| Write mechanism | `Desktop Commander:write_file` |
+| Device | Verify with `list_devices` first. The `clawd-shared` tree is reachable from NIETZSCHE2025. Confirm the device before writing; do not assume Empiricus is the only host. |
+| Chunking | Chunks of roughly 350 to 500 lines succeed on the remote connector. The connector rate-limits on request frequency, not payload size, so use FEW LARGE writes with a 45 to 60 second pause between them. Many small writes will trip the limiter. |
+| If Desktop Commander is not connected | **Check the tool list before claiming it.** If genuinely absent, say so, write to `/mnt/user-data/outputs/`, and tell Aaron to move it. |
+
+### 11.2 Session open sequence
+
+1. Read the latest-dated snapshot in `card-docs\`. All of it.
+2. Read the ACTION ITEMS block. Those are live and outside the rebuild.
+3. Read Section 12, the Capture Queue. That is the work list.
+4. Read Section 13, the Capture Log, and Section 14, the ADRs.
+5. Only then respond.
+
+Skipping step 1 is the fork. Every time.
+
+### 11.3 Session close sequence
+
+1. Duplicate the latest snapshot to a new timestamped filename.
+2. Apply edits **in place, in the numbered section that owns the topic.** Never append a "Session Notes" block at the bottom.
+3. Update Section 12: resolved items marked CLOSED with the resolving evidence, new unknowns added with the next free Q-number.
+4. Add one row to Section 13.
+5. Write an ADR in Section 14 for any gated change.
+6. Bump the version. Minor for additions and tier promotions. Major for schema, routing, or a reversed decision.
+7. Tell Aaron the filename and a one-line summary of what moved.
+
+### 11.4 Capture syntax
+
+Every new fact:
+
+```
+| {fact} | {tier} {date} / {observer} / {surface} |
+```
+
+Browser observations must record the URL, the surface (which panel or menu), the date, and the **raw value seen, verbatim.** `Martin_Lopez_` gets recorded exactly like that, capitals and trailing underscore intact, because the exact string is the finding. `2300` and `5724` get recorded as strings.
+
+Never write a schema fragment, field name, or endpoint into prose. Tables or fenced blocks only, so it can be diffed.
+
+**Corrections are explicit.** When a new observation contradicts an earlier record, the entry says so: "Correction to vX.Y, which recorded N." Do not silently overwrite. A future session needs to know the earlier reading was tested and failed.
+
+**ASCII only in this file.** No em dashes, no box-drawing characters, no middot separators. The file is written to a Windows path through a connector; ASCII removes any encoding question. Use `+--` for tree diagrams and `/` for inline list separators.
+
+### 11.5 Change gates
+
+| Change | Gate |
+|---|---|
+| Add a fact, promote a tier | None. Record evidence and go. |
+| Add a Capture Queue item | None. |
+| Add a block type or embed provider to a registry | Registry row plus one CSS rule. Log it. |
+| Change the canonical schema | **ADR required.** Section 14 entry. Major version bump. |
+| Change routing or handle rules | **ADR required.** Load-bearing on printed material. |
+| Reverse a Section 6.1 decision (D-01 to D-15) | **ADR required, plus Aaron's explicit sign-off in the session.** |
+| Create any new file for this project | **Forbidden** without Aaron's explicit instruction. |
+| Click into a CRM connector setup screen | **Ask first.** Launches an OAuth consent flow against the live org. |
+| Change a live Linq handle | **Ask first, and only after Q-08 is answered.** Every printed and texted link depends on the redirect behavior. |
+
+The connector gate comes from BC1, which correctly declined to open a connector without asking.
+
+### 11.6 Style rules for this document
+
+- Headers and bullets for structure. Tables for anything with more than two attributes.
+- Terse. No hedging preamble.
+- No em dashes. ASCII only, per 11.4.
+- Never the word "fast." Use smooth, on schedule, predictable, calm, right the first time.
+- No emojis.
+- Complete code blocks. Never a partial or an elided snippet.
+- Six words or fewer per step in any repeatable process checklist.
+- Every SQL block executable as written.
+
+### 11.7 Hard stops
+
+Stop and report rather than proceed:
+
+- Desktop Commander not connected and the task is a codex update.
+- The latest snapshot cannot be read.
+- A request implies a schema change with no ADR.
+- A request implies creating a parallel document.
+- A fact is needed that sits at `[U]` and guessing it would propagate into schema.
+- An action would write to, authorize, or alter the live Linq org.
+
+---
+
+## 12. CAPTURE QUEUE
+
+Numbered permanently. Q-numbers are never reused.
+
+### Closed by BC1
+
+| ID | Question | Resolution |
+|---|---|---|
+| Q-01 | The six unidentified block types | **CLOSED.** Sixteen total. The six were Social Icons, Acuity Scheduling, Spotify Player, Soundcloud Player, Quick Contact, Leads Form. Section 3.9. |
+| Q-02 | Template propagation model | **PARTIALLY CLOSED.** Neither live sync nor pure snapshot. Snapshot plus explicit operator push via "Add Content Block to Page" and "Edit Content Block Fields". Section 3.8. Remainder reopened as Q-16. |
+| Q-03 | What is HYPER Linq | **CLOSED.** The NFC badge / Apple App Clip layer. Org-level default App Clip settings. Section 3.7. |
+| Q-04 | Exchange toggle semantics | **PARTIALLY CLOSED.** Six toggles, not four, in three semantic classes. Section 3.5, ADR-002. Precedence and contradictory-combination behavior still open as Q-22. |
+| Q-11 | Analytics granularity | **CLOSED.** Linq has per-block Advanced Analytics with four time windows. Section 3.11. |
+
+### Open
+
+| ID | Question | Why it matters | How to capture |
+|---|---|---|---|
+| Q-05 | Card page data endpoint: path, auth, response shape | **Highest value open item.** Gives the real payload shape to validate Section 6 against. | DevTools Network, XHR/Fetch filter, load a public card, copy the response |
+| Q-06 | Image URLs: host, path pattern, on-the-fly transform params? | Tells us whether they transform or pre-derive. Validates D-08. | Network tab, Img filter, inspect an image URL |
+| Q-07 | Block ordering representation in the PATCH payload | Confirms or refutes D-02. | Network tab, reorder a block, inspect the request |
+| Q-08 | Handle change: does the old URL 301, 404, or something else? | **Gates the handle migration and every printed card.** Tests D-03. | Change a throwaway page's handle, load the old URL, record the status code |
+| Q-09 | vCard payload: which fields, PHOTO embedded or referenced? | Spec for `/vcard.vcf`. | Save a contact on desktop, open the `.vcf` in a text editor |
+| Q-10 | Wallet pass structure | Spec for `.pkpass`. | Add to Wallet, inspect |
+| Q-12 | Any content export? | Migration path. Determines whether cutover is manual for 21 pages. | Account settings, look for export |
+| Q-13 | Editor auth: session cookie or bearer token? | Only matters if we script a bulk read of our own pages. | Network tab, inspect headers on an editor action |
+| Q-14 | The duplicate `/adamschwartz` page: owner, deletable, repointable? | Blocks Adam's migration. | Admin, Pages, locate both |
+| Q-15 | Full reserved-path list on omnipoolsaz.com | Seeds `reserved_handles`. Blocks launch. | Crawl the sitemap |
+| Q-16 | Template push targeting: team, all bound, or hand-picked? Does a push overwrite member edits? | Determines `template_pushes.target_scope` defaults and the clobber policy. | Open "Add Content Block to Page" on a template, inspect the target selector |
+| Q-17 | The three unnamed Social Icons platforms | Completes the `social_platforms` seed. | Social Icons block, screenshot the full platform list |
+| Q-18 | Workflow trigger and action catalogs | Cannot constrain `trigger_type` / `action_type`. Blocks the workflow build. | Workflow builder. Panel renders off-screen; try a wider viewport or zoom out |
+| Q-19 | Role model: confirm org admin / team admin / team member, and what each can do | `team_members.role` enum is inferred from the virtual-background permission split. | Members panel, inspect role options |
+| Q-20 | Audit all 21 pages: owner, team, purpose, handle | 21 pages against 18 members. Need the full inventory before migrating. | Admin, Pages, export or screenshot the full list |
+| Q-21 | Can Linq produce the consent text and timestamp for the 240 existing contacts? | Determines whether those 240 can be legally SMS'd. Blocks A-01 activation. | Contacts panel, inspect one record for consent fields. Ask Linq support if absent. |
+| Q-22 | Exchange toggle precedence and contradictory combinations | Resolver correctness. What happens with `exchange_before_download` on and `allow_contact_download` off? | Set each combination on a throwaway page, load incognito, record behavior |
+| Q-23 | Follow-up message editor: available fields, merge tags, delay control? | Spec for `followup_messages`. | Page overflow, Edit Follow-up Messages |
+
+### Priority for the next browser batch
+
+1. **Q-08.** Gates the handle migration, which gates every printed card. Cheapest test in the queue. Do it on a throwaway page.
+2. **Q-20.** The full 21-page audit. Everything else about migration depends on knowing what exists.
+3. **Q-05, Q-06, Q-07.** The network layer. Converts Section 6 from verified-at-the-UI to verified-at-the-payload.
+4. **Q-21.** Blocks A-01, which is the revenue item.
+5. Q-16, Q-18, Q-19 when convenient.
+
+**Do not** open a CRM connector setup screen without asking Aaron first. OAuth consent against the live org. Per 11.5.
+
+---
+
+## 13. CAPTURE LOG
+
+| Date | Session | Source | What changed |
+|---|---|---|---|
+| 2026-07-29 1410 | v0.1 initial | Claude research pass: vendor doc search, Zapier surface, help center, live fetch of `linqapp.com/ventura` | Established the codex. Confirmed no public card API and no existing skill or clone to fork. Confirmed the SPA + `noindex` architecture. Captured a partial block inventory with a six-block gap. Recorded eight operational defects. Wrote the initial schema, routing table, and token architecture. Locked D-01 to D-10. Opened Q-01 to Q-15. Never written to disk; superseded before persistence. |
+| 2026-07-29 1518 | v1.0 | BC1: admin console sweep (Aaron's browser session) | **Major restructure.** Verified the full object model and census: 1 org, 2 teams with external ids, 18 members, 21 pages, 3 templates, 240 contacts. Promoted teams to a first-class scoping entity (ADR-001), which invalidated the v0.1 card-bound template model. Corrected exchange toggles from four to six and split them into three semantic classes (ADR-002). Closed Q-01 with all sixteen block types, then consolidated them to eleven Omni types with provider registries (ADR-003). Corrected the editor shell from three tabs to four. Closed Q-03 (HYPER Linq = NFC/App Clip) and Q-11 (Linq already has per-block analytics, so v0.1 wrongly claimed it as a differentiator). Added consent records (D-13), one normalized outbound event (D-14), three-level setting resolution (D-15), workflows, follow-up messages, message snippets, and `assets.scope`. Reframed the org-logo defect as inheritance rather than a template default. Surfaced two action items outside the rebuild: 240 unsynced contacts and unconfigured follow-up. Opened Q-16 to Q-23. **First snapshot persisted to disk**, on NIETZSCHE2025. Added the device-verification and chunking rules to 11.1 and the ASCII-only rule to 11.4 after the connector rate-limited on request frequency. |
+
+---
+
+## 14. ARCHITECTURE DECISION RECORDS
+
+### ADR-001: Teams become a first-class scoping entity
+
+**Date:** 2026-07-29
+**Status:** accepted
+**Supersedes:** the v0.1 `template_bindings.sync_mode` model
+
+**Context.** v0.1 modeled templates as bound directly to cards, with a `sync_mode` column choosing between live propagation and one-time snapshot. BC1 showed that assumption to be wrong on both counts. Teams are a real entity with their own IDs (`2300`, `5724`), a page belongs to exactly one team or None, and that single assignment drives template inheritance, workflow scoping, and page filtering simultaneously. Separately, propagation is neither of the two modes v0.1 imagined. It is a snapshot plus an explicit operator-initiated push, surfaced as "Add Content Block to Page" and "Edit Content Block Fields."
+
+**Decision.**
+
+1. Add `teams` and `team_members`. Add `cards.team_id`, nullable, matching Linq's None.
+2. Scope `templates` by `team_id`. Inheritance flows org to team to card.
+3. Delete `template_bindings.sync_mode`. Replace with a `template_pushes` table recording action, target scope, author, timestamp, affected count, skipped count, and a `clobber_member_edits` flag defaulting to false.
+4. Add `templates.derived_from_card_id` to preserve "Create Page Template from Page" provenance.
+5. Add `blocks.member_edited_at` so a push can decline to overwrite member work.
+6. Apply team scoping to `workflows` via a required `workflow_team_scope` join table.
+
+**Consequences.**
+
+- Any v0.1-era code or query treating templates as card-bound is invalid.
+- Adds a level to every settings resolution chain. See D-15 and ADR-002.
+- Gains an audit trail on template propagation, which Linq does not visibly expose.
+- Team membership becomes an authorization input, so the role enum in `team_members` matters. Inferred from the virtual-background permission split; confirm via Q-19 before relying on it.
+
+**Migration.** No production data exists. Seed `teams` from Office (`2300`) and TEAM OMNI (`5724`) with `legacy_linq_id` as text.
+
+---
+
+### ADR-002: Exchange settings are three semantic classes, not six booleans
+
+**Date:** 2026-07-29
+**Status:** accepted
+**Supersedes:** the v0.1 four-column `org_policies` / `card_settings` pair
+
+**Context.** v0.1 recorded four contact-exchange toggles and modeled them as four equivalent permission booleans at two scopes. BC1 found six toggles, and they are not equivalent. "Contact Exchange Preference" orders two events relative to each other. "Use Linq's default exchange form?" selects between two implementations. Only two of the six are actual permission gates. A resolver treating all six as gates produces wrong behavior, and some combinations are contradictory rather than merely unusual.
+
+**Decision.**
+
+1. Replace `org_policies` and `card_settings` with a single `exchange_settings` table carrying a `scope` discriminator of org, team, or card, enforced by a check constraint and three partial unique indexes.
+2. Group the six columns explicitly by semantic class: permission gate, sequencing and timing, implementation selection.
+3. Resolution is `coalesce(card, team, org)` per column, with a level skipped when its parent sets `allow_child_override = false`.
+4. Reject contradictory combinations at write time, not render time. `exchange_before_download = true` with `allow_contact_download = false` is a validation error.
+5. Add `exchange_form_fields` with a `phone_or_email` field type, since Linq renders one control satisfying either.
+
+**Consequences.**
+
+- Three scopes instead of two, per D-15 and ADR-001.
+- Write-time validation means the editor needs the rule set, not just the resolver.
+- `phone_or_email` as a first-class type keeps UI intent that two optional columns would lose.
+- Precedence among the sequencing flags is still unknown. Q-22. Do not ship the resolver until it is answered.
+
+**Migration.** None. No production data.
+
+---
+
+### ADR-003: Sixteen Linq block types collapse to eleven Omni types
+
+**Date:** 2026-07-29
+**Status:** accepted
+
+**Context.** BC1 enumerated all sixteen Linq block types. Seven of them differ only in which provider URL you paste: Video Embed (YouTube/Vimeo), Spotify Player, Soundcloud Player, Calendly Button, Acuity Scheduling, Typeform Embed, and the form-family blocks Quick Contact and Leads Form. Separately, v0.1 had invented two types, `app_link` and `financing_link`, that do not exist. The NPT AR app link and the HFS financing application are ordinary Links blocks.
+
+**Decision.**
+
+1. Remove `app_link` and `financing_link` from the registry. They are `links` children.
+2. Consolidate to eleven types. Introduce `media_embed` (YouTube, Vimeo, Spotify, Soundcloud), `scheduling_embed` (Calendly, Acuity), and `form_embed` (Typeform, Quick Contact, Leads Form).
+3. Add an `embed_providers` registry table keyed by provider, referencing a block type, holding the URL pattern and optional oEmbed endpoint.
+4. Add a `social_platforms` registry table so the Social Icons platform list is data, not code.
+5. Rename v0.1's `display_mode` to `layout` throughout, matching the observed "General Settings" tab vocabulary.
+
+**Consequences.**
+
+- Adding Loom, Descript, Cal.com, or a new social platform is a registry row, not an implementation.
+- Eleven renderers instead of sixteen. Less surface, less drift.
+- Block-type parity with Linq is no longer one-to-one, so the mapping table in Section 5 becomes load-bearing for any migration script.
+- `blocks.provider` is nullable and only meaningful for the three consolidated types.
+
+**Migration.** None. No production data. Any future Linq import maps through Section 5.
+
+---
+
+### ADR template
+
+```
+### ADR-NNN: {title}
+Date: YYYY-MM-DD
+Status: proposed | accepted | superseded by ADR-NNN
+Context: {what forced the decision}
+Decision: {what was decided}
+Consequences: {what this breaks, what it enables}
+Migration: {exact steps, or "none"}
+```
+
+---
+
+## 15. CROSS-REFERENCES
+
+Do not duplicate content from these. Reference them.
+
+| Document | Relationship |
+|---|---|
+| `OMNI_DBX_CODEX_*` | Holds the `#LINQ_PAGE_URL_HERE` placeholder in the estimate DigiDoc. Section 7.2 resolves it. The DBX CODEX keeps its own merge-field tables. |
+| `HANDOFF_Reveal_Card_System_v2.md` | Same Supabase project. Same "not a ProDBX artifact" boundary. Precedent for the storage and edge-function pattern. |
+| `Designer-KPI-Dashboard-1.html` | Consumer of `card_events`. Per-designer and per-photo attribution lands here. |
+| Omni brand system | Source of `tokens.css`. Do not redefine colors here. |
+| `omni-chat-notifications` skill | Pattern for the `outbound_endpoints` webhook, Section 6.13. |
+| `lovable-build` skill | Deployment path if v1 ships through Lovable. |
+| Linq training doc (Veronica / team rollout) | The current-state operating instructions for the eight designers. Unaffected by this codex. Keep using it. |
+
+---
+
+*End of codex v1.0.*
