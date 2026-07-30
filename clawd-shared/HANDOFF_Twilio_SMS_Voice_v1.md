@@ -1,9 +1,9 @@
 # HANDOFF: Omni Twilio SMS + Voice
 
-Version 1.0
-Created 2026-07-30
+Version 1.1
+Created 2026-07-30, updated 2026-07-30
 Owner: Aaron Baker
-Status: SMS live and carrier-verified. Voice number active, no answer logic yet.
+Status: SMS live and carrier-verified. Voice live, greeting plus voicemail.
 
 ---
 
@@ -31,6 +31,8 @@ resubmission. SMS confirmed working both directions 2026-07-30 at 10:13:05 MST.
 | Messaging Service SID | `MG686c51d474261162d4189d00afad6de3` | Name: Low Volume Mixed A2P Messaging |
 | Working number SID | `PNdb194e3d97e5fb2d7df780fad820d451` | +1 520-468-0010 |
 | SMS auto-reply TwiML Bin | `EH256946b97ccef1cf148816ccee392f22` | Name: Omni SMS Auto-Reply (520-468-0010) |
+| Voice greeting TwiML Bin | `EHf3299cc2a0ca4f2b79ffd94acaa26370` | Name: Omni Voice Greeting + Voicemail (520-468-0010) |
+| Voice post-record TwiML Bin | `EH45d3b0f7fe8e849358ec9bc93d6b4149` | Record action target, closes the call |
 | TwiML Bin URL pattern | `handler.twilio.com/twiml/` + bin SID | |
 
 DO NOT re-register or modify the brand. Brand registration is the slow,
@@ -91,6 +93,14 @@ Retain this. It is the cleanest possible before/after and settles any future
 | 2026-06-03 | outbound | Undelivered | 30034 US A2P 10DLC Message from an Unregistered Number |
 | 2026-07-30 10:13:05 MST | inbound from 520-591-8884 | Received | none |
 | 2026-07-30 10:13:05 MST | outbound auto-reply | Delivered | none |
+| 2026-07-30 15:08:09 MST | inbound text, second round trip | Received | none |
+| 2026-07-30 15:08:09 MST | outbound auto-reply | Delivered | none |
+| 2026-07-30 15:07:34 MST | inbound VOICE call | Completed, 22 sec, $0.00 | none |
+
+Voice call SID `CAbb62633ac9274fd4828b355c73789c00`. Recording SID
+`RE6a308f103e1469b11a73e52072e1cba8`, playable in console with WAV and MP3
+download. Request Inspector showed HTTP 200 in 34ms on the greeting fetch and a
+second 200 in 36ms on the post-record callback.
 
 Same account, same destination handset. Delivered means carrier-confirmed
 handset receipt, not merely accepted for sending. Error 30034 is the specific
@@ -212,6 +222,25 @@ on 10DLC vetting, trust score, or delivery. Ignore it.
 who did not consent through one of the four registered paths is how verified
 brands get suspended.
 
+**`<Record>` without an `action` attribute creates an infinite greeting loop.**
+Twilio POSTs the recording result back to the SAME webhook URL by default. If
+that URL returns the greeting, the caller hears the greeting again after the
+silence timeout, then again, forever, until they hang up. This does NOT show up
+when you test by hanging up at the beep, because the call is already gone when
+the second response arrives. It only bites real callers who actually leave a
+message. Always point `action` at a separate bin that thanks the caller and
+hangs up. Test by leaving a message and then STAYING SILENT for six seconds.
+
+**Never save a half-loaded Twilio console form.** The console intermittently
+throws "Parts of the application are not loading" and sections revert to generic
+placeholder state. On the phone number config page, the Messaging section can
+fall back to showing "A2P 10DLC registration required," which is Twilio's promo
+block, NOT a status indicator. Saving from that state can null the messaging
+config. If any section looks unloaded, hard reload, re-enter, confirm every
+section rendered, then save. Verify the save survived a reload rather than
+trusting the Save button, since saves can appear to succeed with no timestamp
+change and only take effect after a hard refresh.
+
 ---
 
 ## 9. CURRENT SMS AUTO-REPLY
@@ -229,10 +258,40 @@ Omni Pool Builders: Thanks for reaching out. We will reply during business hours
 
 ---
 
-## 10. VOICE TEMPLATES (not yet deployed)
+## 10. VOICE (DEPLOYED)
 
-Voice routing on 520-468-0010 is Active, calls connect, but the voice webhook
-field is empty so nothing answers. Same TwiML Bin pattern as SMS.
+Voice required no carrier registration of any kind. There is no A2P equivalent
+for inbound calls: no brand, no campaign, no vetting fee, no reviewer. The number
+already had voice routing Active; it simply had no instructions for what to do
+when a call arrived. That was the entire gap. Total setup time was minutes.
+
+### What is live on 520-468-0010
+
+Primary handler: bin `EHf3299cc2a0ca4f2b79ffd94acaa26370`, validated by Twilio as
+Valid Voice TwiML. Amazon Polly greeting, then beep, records up to three minutes
+with silence trimming. If nothing is recorded, it tells the caller to call again
+or send a text, then hangs up.
+
+Greeting content: thank you for calling Omni Pool Builders and Design, please
+leave your name, phone number, and a brief message after the tone and a team
+member will return your call, you can also text this same number at any time,
+your message will be recorded.
+
+Record action target: bin `EH45d3b0f7fe8e849358ec9bc93d6b4149`. Says "Thank you.
+We have your message and a team member will call you back. Goodbye." then hangs
+up. This bin exists specifically to prevent the infinite greeting loop described
+in Section 8.
+
+Primary handler fails fallback: pointed at the same greeting bin, so a hiccup on
+the first request still yields a greeting instead of dead air.
+
+Deliberately NOT built: business hours logic and a staff directory. Callers would
+hear whatever was invented. Hours-based routing is impossible in a static TwiML
+Bin anyway and requires Twilio Studio or a Function.
+
+Voicemails live under Monitor > Logs > Call recordings.
+
+### Reference templates
 
 Forward to a handset:
 
@@ -250,15 +309,36 @@ Greeting plus voicemail:
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
   <Say voice="Polly.Joanna">Thank you for calling Omni Pool Builders and Design. This call may be recorded. Please leave a message after the tone and we will return your call.</Say>
-  <Record maxLength="120" playBeep="true" transcribe="true"/>
+  <Record maxLength="180" playBeep="true" trim="trim-silence"
+          action="https://handler.twilio.com/twiml/EH45d3b0f7fe8e849358ec9bc93d6b4149"/>
   <Say voice="Polly.Joanna">We did not receive a message. Goodbye.</Say>
 </Response>
 ```
 
-Transcription bills per minute. Drop `transcribe="true"` for audio only. Arizona
-is one-party consent so the spoken recording notice is not legally required, and
-the privacy policy already discloses recording, but keep it since the end state
-is a front desk taking customer calls.
+Post-record bin, the `action` target:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <Say voice="Polly.Joanna">Thank you. We have your message and a team member will call you back. Goodbye.</Say>
+  <Hangup/>
+</Response>
+```
+
+The `action` attribute is not optional. Omitting it is the loop defect.
+
+Transcription bills per minute if `transcribe="true"` is added. Arizona is
+one-party consent so the spoken recording notice is not legally required, and the
+privacy policy already discloses recording, transcription, and staff review, but
+keep the notice since the end state is a front desk taking customer calls.
+
+Recordings accrue monthly storage charges. Set a retention habit early or they
+pile up quietly.
+
+Dial timeout note for any future forwarding setup: use 15 seconds, not 20 or 30.
+A typical cell rolls to its own voicemail at 20 to 25 seconds, so a longer Twilio
+timeout drops the caller into a personal voicemail greeting instead of Omni's,
+which looks like broken TwiML but is not.
 
 ---
 
@@ -285,6 +365,19 @@ is a front desk taking customer calls.
 3. Re-read every submitted field for bracketed placeholders before submitting.
 4. Verify the site anonymously at plain URLs first. Each attempt costs $15.
 
+### Deploy or change voice on a number
+1. Set the webhook on the PHONE NUMBER under Voice & Fax > "A Call Comes In".
+   Not on the messaging service. Messaging services do not handle voice.
+2. Method HTTP POST. Populate "Primary handler fails" with the same bin.
+3. If the TwiML contains `<Record>`, it MUST have an `action` pointing at a
+   separate closing bin. See Section 8.
+4. Confirm every section of the config page rendered before saving.
+5. Save, then hard reload and confirm the change persisted.
+6. Test call. Leave a message, then stay silent six seconds. You must hear the
+   closing message and the line must drop.
+7. Verify in Monitor > Logs > Calls: status Completed, and check Request
+   Inspector for HTTP 200 on both the greeting fetch and the post-record POST.
+
 ### Website edit did not go live
 1. Request the URL with `?cb=1`. If the new content appears, it is the cache.
 2. Clear WP Fastest Cache.
@@ -300,12 +393,16 @@ is a front desk taking customer calls.
 | Build consent log sheet | Aaron | before first customer text |
 | Delete CFDB7 test row TEST / DELETE-ME ufid 1528 | Aaron | whenever |
 | Sign-up notifications to info@omnipoolbuilders.com | WordPress agent | this week |
-| E911 address on 520-468-0010, $0.75/mo | Aaron approve, agent execute | recommended |
+| E911 address on 520-468-0010, $0.75/mo | Aaron approve, agent execute | do this, line now answers |
+| Confirm loop fix with a silent-pause test call | Aaron | recommended |
+| Voicemail check habit, Monitor > Logs > Call recordings | Aaron | before promoting the number |
 | Audit and release unused 520 numbers | Aaron | saves approx $55/yr |
-| Voice webhook on 520-468-0010 | Twilio agent | when calls need answering |
 | Toll-free verification on 888-367-0846 | Twilio agent | optional, copy-forward |
 | Custom HELP reply via Advanced Opt-Out | leave off | not worth blast radius |
+| Business hours routing, needs Studio or Function | future | not possible in a TwiML Bin |
 | ProDBX form consent checkbox | deferred | only if web form becomes an opt-in path |
+
+Closed: voice webhook deployed 2026-07-30.
 
 ---
 
@@ -313,3 +410,8 @@ is a front desk taking customer calls.
 
 - 2026-07-30 v1.0 — Created. Campaign verified, SMS live both directions,
   website compliance surface rebuilt on canonical slugs, nginx cache purged.
+- 2026-07-30 v1.1 — Voice deployed on 520-468-0010: greeting bin, voicemail with
+  silence trim, dedicated post-record closing bin, fallback handler. Second SMS
+  round trip confirmed. Added the `<Record>` action loop defect and the
+  half-loaded console form to gotchas. Added a voice deployment runbook. Voice
+  webhook moved from open to closed.
