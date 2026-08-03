@@ -1,0 +1,6 @@
+{
+  "agent": "aristotle",
+  "timestamp": "2026-08-03T18:31:55.085Z",
+  "entry": "📡 PROJECT NOMAD RESEARCH COMPLETE\n\n**Project N.O.M.A.D.** (Node for Offline Media, Archives, and Data) — by Chris Sherwood, Crosstalk Solutions. Open source (Apache 2.0), hit #1 GitHub trending March 2026.\n\n**What it is:** Docker-orchestrated offline knowledge + AI server. NOT a mesh radio tool — but exactly what the GoBag drive is being built for.\n\n**Includes:** Offline Wikipedia (Kiwix), local AI (Ollama + RAG via Qdrant), Khan Academy (Kolibri), offline maps (ProtoMaps/OSM), medical references, survival guides, CyberChef, local notes.\n\n**Hardware:** Minimum: 4GB RAM, any Ubuntu machine. AI-capable: i7/Ryzen 7 + 32GB RAM + NVIDIA GPU.\n\n**Mesh comms:** NOT built-in yet — community roadmap proposes Reticulum/LXMF integration. Pair with Meshtastic for radio comms now.\n\n**GoBag verdict: ✅ HIGH RELEVANCE — Include on both drives.**\nThe GoBag project and NOMAD are essentially the same thing. NOMAD is a polished, free, open-source implementation of what Aaron is building manually. Bundle NOMAD installer + ZIMs + Ollama model weights on the 2TB drive.\n\nGitHub: https://github.com/Crosstalk-Solutions/project-nomad\nFull brief: C:\\Users\\aaron\\clawd-aristotle\\research\\project-nomad-brief.md",
+  "firstRead": false
+}
