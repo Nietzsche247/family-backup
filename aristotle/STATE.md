@@ -82,7 +82,32 @@ Expected: no fake phone numbers, relevant dork results about pool business, no f
 - See bugs file: projects/osint-pipeline-bugs.md
 - Next priorities: company discovery, iterative anchor expansion, country code filter
 
-### GoBag D-drive fill + offline toolchain (AlienWare D:\GoBag)
+### GoBag Phase 2 — NOMAD + Hermes Dual Stack (PENDING D: drive return from Michael)
+
+**Status:** Planning complete. Execution blocked on D: drive being freed from mbslaptop (100.65.246.83).
+
+**Architecture decision (2026-08-03):**
+- NOMAD = content/library layer (browsable Wikipedia, maps, manuals, Kolibri education, Meshtastic Web UI, WiFi AP)
+- Hermes = agent layer (autonomous tasks, tool use, chat)
+- Shared Ollama = one model server, both use it
+
+**Confirmed already on D: drive:**
+- Meshtastic firmware v2.7.14 + APKs ✅ at `D:\GoBag\06_COMMUNICATIONS\Mesh\Meshtastic\`
+- Military Field Manuals ZIM ✅ at `D:\GoBag\03_SURVIVAL_MILITARY\armypubs_military_manuals.zim`
+- NOMAD docker-compose ❌ Missing — download on reconnect
+
+**When D: drive returns — execute in order:**
+1. Download NOMAD v1.34.0 to `D:\GoBag\09_SOFTWARE\NOMAD\`
+2. Run `UPDATE_GOBAG.ps1 -Mode full` to pull new Kiwix ZIMs + model updates
+3. Configure NOMAD to share existing Ollama instance
+4. Update 1TB manifest with NOMAD + dual-stack architecture
+
+**Update cycle:** Every 4 months (Faraday bag → update → re-seal)
+Script: `projects/gobag-update/UPDATE_GOBAG.ps1`
+Full plan: `research/gobag-update-plan.md`
+README: `projects/gobag-1tb-family-stick/README.md`
+
+### GoBag D-drive fill + offline toolchain history (AlienWare D:\GoBag)
 - Active target: fill GoBag toward ~1.7TB with irreplaceable/offline-executable content; avoid generic padding and duplicate software.
 - Wave 1 complete: Meditron 70B, OAM/USFS/WikiMed/iFixit assets landed.
 - Wave 2 active/resumed 2026-07-23: Protomaps vector planet + Mapterhorn terrain planet resumable; LANDFIRE EVC/EVT complete.
