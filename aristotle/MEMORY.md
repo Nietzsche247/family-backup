@@ -380,3 +380,6 @@ POST http://localhost:18792/tools/invoke
 | 2026-02-22 | Startup trinity | Every session: GET /ledger/summary → PROJECT_MAP → DIARY |
 | 2026-02-22 | Validate ONE project first | 2 weeks on one project before onboarding all 8 |
 | 2026-02-22 | Platform = 8 deployments of 1 organism | Not separate apps — future prediction, trading, mental health, offline AI, symbols, BLM mines, pool, facial recognition |
+| 2026-08-19 | OSINT V3 complete | Opus agentic loop. Real family investigation: Aaron → found father Daniel Baker (Roseville CA, 916-872-3544), stepmother Kathryn Miranda (never changed name). Key anchor unlock: used Aaron's own Michigan landline (517-458-2811) to cross-reference Daniel. |
+| 2026-08-26 | OSINT V3 shipped | 12 tools wired. Parser fixed. Instructions box, history panel, CA CSLB + CA Corp tools. 12 investigations completed. Next: deploy to public URL. |
+| 2026-08-26 | Plato model switched to claude-opus-5 | OpenAI credits exhausted. Primary: anthropic/claude-opus-5. Fallbacks: claude-sonnet-5 → grok-4.20 → gemini-2.5-pro. Subagents also on claude-opus-5. Workspace: C:\Users\Aaron\clawd |

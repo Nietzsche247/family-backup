@@ -1,6 +1,6 @@
 # STATE.md — Current Project State
 
-**Last Reviewed:** 2026-08-18
+**Last Reviewed:** 2026-08-26
 **Agent:** Aristotle
 
 ---
@@ -14,18 +14,20 @@
 | Ledger | ✅ Running | Port 3003, pm2 |
 | Ollama | ✅ Running | Port 11434 |
 | Cloudflared | ✅ Running | pm2, 5D uptime |
-| Plato | ✅ Running | 10.0.0.50, model = GPT-5.6 Sol (Anthropic credits exhausted) |
+| Plato | ✅ Recovered | 10.0.0.50, model = GPT-5.6 Sol. Memory + protocols restored 2026-08-26. Earth-2 work preserved. |
 | Empiricus | ✅ Running | 100.65.240.87, model = GPT-5.6 Sol, gateway fixed (Slack plugin crash resolved) |
-| OSINT Pipeline | ✅ Running | AlienWare localhost:3456 (migrated from Empiricus) |
+| OSINT Pipeline | ✅ Complete v3 | AlienWare localhost:3456 — Opus agentic, 12 tools, history panel |
 
 ---
 
 ## ACTIVE PROJECTS
 
-### OSINT Intelligence Pipeline (PRIMARY — major work Aug 2026)
+### OSINT Intelligence Pipeline (COMPLETE v3 — 2026-08-26) ✅
 **Location:** `C:\North_Star_Projects\osint-pipeline\` on AlienWare (migrated from Empiricus)
 **Server:** port 3456, runs via `node server.js`
-**Status:** Running, actively being developed
+**Status:** ✅ COMPLETE — marked done 2026-08-26. Future: deploy to online URL for remote access.
+
+**Next:** Host on public URL (VPS or ngrok permanent) so Aaron can use from anywhere.
 
 **What was built (July-Aug 2026):**
 - Migrated full pipeline from Empiricus to AlienWare
@@ -48,11 +50,20 @@
 - Root cause of false positives: AZ-ROC returns ALL Michael Bakers in AZ, not just target
 - Fix committed: Pass 2 prompt now rejects name-only state database matches
 
-**Pending on OSINT pipeline:**
-- Re-run blind test after prompt fix to validate improvement
-- Wire in NetworkX + spaCy + rapidfuzz (graph layer — researched, not yet installed)
-- Pass 2 data wiring bug: effectiveDump may still not include allResults properly (TBD)
-- Clearfront MCP assessment completed (research file: `projects/clearfront-assessment.md`)
+**V3 feature set (all working):**
+- Opus agentic loop — calls tools iteratively, synthesizes intelligence report
+- 12 tools: SearchBug PI, HIBP, Holehe, Maigret, AZ-ROC, AZ Corp, WHOIS, Google Dorks, Email Validate, CA CSLB, CA Corp/SOS, Blackbird
+- Opus Instructions box — user guides Opus (skip AZ-ROC, focus CA, etc.)
+- Tool on/off toggles + status dots (green/red/grey after run)
+- Investigation history sidebar + Prior Investigations button
+- Parser fixed: case-insensitive name detection
+- 12 real investigations completed (Aaron Baker, Daniel Baker, Kathryn Miranda, etc.)
+
+**Backlog (future sprints):**
+- Deploy to public URL (VPS or permanent ngrok)
+- CSLB headless browser scrape (JS-rendered page)
+- Address → property owner cascade
+- Graph layer (NetworkX + spaCy)
 
 **Research completed:**
 - `projects/osint-prompt-research.md` — R.O.C.E. framework, Admiralty Code, IC 3-tier, guardrails
