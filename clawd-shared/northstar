@@ -1,0 +1,60 @@
+# NORTHSTAR FULL TRUTH PACK — MANIFEST
+Generated: 2026-08-30
+
+## Overview
+
+This pack is a forensic snapshot of the NorthStar AI operating system running on Omni-AlienWare2025, collected 2026-08-30. It is READ-ONLY evidence capture — no systems were modified.
+
+## ZIP Contents
+
+| Section | Files | Contents |
+|---------|-------|----------|
+| 00_READ_ME_FIRST | 2 | Truth summary, reviewer guide |
+| 01_MACHINE_STATE | 6 | systeminfo, drives, PATH, env, tools |
+| 02_SYSTEM_ARCHITECTURE | ~varies | Architecture docs from key directories |
+| 03_REPOSITORIES | ~23,471 | 12 repo git histories + 5 source trees |
+| 04_NORTHSTAR_CORE | (merged into 03) | Core NorthStar source |
+| 05_LEDGER | 95+ | 3 DB copies + source + analysis |
+| 06_MEMORY_MEMOS | 5 | MemOS DB copy (142MB) + analysis |
+| 07_SIGNAL_FIRE_COMMS | 64 | Comms-hub source + Signal Fire map |
+| 08_AGENT_DIARIES | ~varies | Memory files from agent workspaces |
+| 09_AGENT_REGISTRY | 23 | SOUL.md, USER.md, AGENTS.md, STATE.md |
+| 10_SKILLS | 255+ | 78 skills across 5 agent skill libraries |
+| 11_RAIL_KIT | 1 | Rail Kit status assessment |
+| 12_RECOVERY_WATCHDOGS | 2+ | Recovery scripts + capability matrix |
+| 13_RUNTIME_SERVICES | 4 | PM2 list, processes, ports, services |
+| 14_SCHEDULED_TASKS | 2 | Scheduled task registry |
+| 15_CONFIG | 8 | Config files (secrets redacted) |
+| 16_LOGS | 5 | Gateway logs + PM2 tail |
+| 17_DATABASES | 1 | DB inventory CSV |
+| 18_GOVERNANCE_PROOF | 111 | Contracts, governed objects, evidence |
+| 19_PROJECT_STATE | 4 | STATE.md, MEMORY.md, Navigation Map |
+| 20_GITHUB_STATE | 1 | GitHub remote/branch/commit state |
+| 21_RECENT_WORK | 2 | Last 30 changes + where dev stopped |
+| 22_HISTORY_AND_DECISIONS | 65 | ADRs, historical docs |
+| 23_DEPENDENCIES | 4 | Dependency registry |
+| 24_SECURITY_METADATA | 1 | Credential reference map |
+| 99_COLLECTION_REPORT | 2+ | File manifest + collection report |
+
+## Key Database Copies Included
+
+| DB | Original Path | Size | Hash |
+|----|--------------|------|------|
+| ledger-staging.db | C:\North_Star_Projects\ledger\ledger-staging.db | 38.5MB | D34EEEF95DC01F40D928CFD6D16A84F84414DB2637085C7F19F92C1FADF5EF52 |
+| ledger.db | C:\North_Star_Projects\ledger\ledger.db | 610KB | B935CD2406DEC37F3AD70962C0885CC1724A755DEA1162FFC8CB8B0C42EA6940 |
+| ledger-test-gate2.db | C:\North_Star_Projects\ledger\ledger-test-gate2.db | 135KB | D2B1E0AB02577C1AD318A843B1D127EA1F3B44641B9684834B3CF19DC2CE2BF3 |
+| memos.db | C:\Users\aaron\.openclaw\memos-local\memos.db | 142MB | 28768139C93B34F644FDE3F09295C72DDDF845ADF8C6CAF9E851C095152A5C87 |
+
+## Start Here
+
+For an external reviewer: Open `00_READ_ME_FIRST/REVIEWER_START_HERE.md`
+
+For evidence: Start with `05_LEDGER/ledger_summary.txt` — it contains the event distribution, row counts, and newest/oldest events from the canonical Ledger DB.
+
+## Excluded
+
+- All `node_modules` directories (multi-GB, retrievable via npm install)
+- All `.venv` directories
+- MemPalace (1.3GB palace at C:\Users\aaron\.mempalace\palace)
+- Docker images and build artifacts
+- Model files
