@@ -5,9 +5,9 @@
 > Run Section 9 (Verification) to confirm what's still alive.
 > If anything in Section 9 fails, jump to Section 10 (Recovery).
 
-**Canonical as of 2026-08-31. Supersedes prior versions.**
-**Last updated:** 2026-08-31 (RUN-0004)
-**Updated by:** Thales Sub-Agent (RUN-0004-capstone, NS-SH-0001 Phase 4 closure)
+**Canonical as of 2026-07-13. Supersedes prior versions.**
+**Last updated:** 2026-07-13
+**Updated by:** Aaron + Aristotle + Codex recovery audit
 **Authoritative location:** `C:\Users\aaron\clawd-shared\NORTHSTAR-NAVIGATION-MAP.md`
 **Synced to:** github.com/Nietzsche247/family-backup via clawd-shared-sync
 
@@ -16,9 +16,9 @@
 ## 1. ONE-LINER
 
 NorthStar OS is a multi-agent AI fleet built to solve persistent context loss.
-**Phase 3a CLOSED 2026-08-31** — RUN-0003. Boot capsule accuracy proven. Phase-start protocol established.
-**Phase 4 ALL GATES COMPLETE 2026-08-31** — RUN-0004. Source-truth infrastructure proven. Defect C repaired. Closure: Ledger 01M1CNZQM80EPB2Q3MDN4DNW49.
-You are currently in **Phase 4 — Rail Kit v1** (COMPLETE, awaiting Phase 5 transition sign-off): source-truth and code-intelligence infrastructure proven. Goal declaration: Ledger 01M1B3M3K69NY8Q8G1ERP40K7K (2026-08-31).
+You are currently completing **Trusted Boot Recovery (Phase 2c)**: reconciling
+the live machine with governed truth, enforcing the canonical Ledger boundary,
+repairing memory provenance, and proving cold-start context reconstruction.
 
 The end goal is: a fresh agent can boot, find its current work, invoke prior
 skills, write proof to the Ledger, and produce results — **without Aaron
@@ -75,47 +75,24 @@ Four states: **Ported** (code in place) → **Wired** (tools registered but no t
 ### Phase 3: Memory Bridge (Integrated)
 | Component | State |
 |---|---|
-| MemOS Local capture | ✅ Integrated (13,416 chunks as of 2026-08-31) |
-| memory_capture bridge to Ledger | ✅ Operational (2,495 events including memory_captures with chunk IDs) |
-| memory_chunk_id linkage | ✅ Integrated (provenance_schema_version 2) |
+| MemOS Local capture | ✅ Integrated (11,614 chunks verified 2026-07-13) |
+| memory_capture bridge to Ledger | 🟡 Degraded live; corrected v2 emitter staged and tested |
+| memory_chunk_id linkage | 🟡 Existing events misuse turn IDs; persisted-chunk UUID fix staged and tested |
 | Boilerplate filter | ✅ Integrated (~3% leak rate) |
 | Sub-agent capture | 🟡 Indirect-only (parent session captures) |
 
-### Phase 3a: Boot Capsule Accuracy (CLOSED 2026-08-31 ✅)
+### Phase 4: Rail Kit v1 (Not started)
+See `NORTHSTAR_OS_RAIL_KIT_BUILD_INSTRUCTIONS.md`. Major components:
 | Component | State |
 |---|---|
-| Phase 3a goal_declaration | ✅ Written (01M1AYV78AVXBFGAWSZ2Q6TA0N) |
-| Boot capsule accuracy | ✅ Fixed — returns current phase goal_pointer |
-| goal_pointer column in events table | ✅ Added + backfilled (72 events) |
-| Navigation Map updated (3a) | ✅ Done 2026-08-31 |
-| Phase-start protocol in Project Kernel §8 | ✅ Documented 2026-08-31 |
-| RB-5 regression test (Phase 3a) | ✅ Passed — RUN-0003 boot proven (Phase 4 goal_pointer in capsule) |
-| Phase 3a closure event | ✅ 01M1B0X0VVDNEHCZCXY42RCZTH |
-
-### Phase 4: Rail Kit v1 (COMPLETE — all gates done 2026-08-31 ✅)
-| Component | State |
-|---|---|
-| Phase 4 goal_declaration | ✅ Written (01M1B3M3K69NY8Q8G1ERP40K7K) |
-| repomix installed | ✅ v1.14.0 at C:\Users\aaron\AppData\Roaming\npm\repomix |
-| ast-grep installed | ✅ v0.42.2 at C:\Users\aaron\AppData\Roaming\npm\node_modules\@ast-grep\cli\ast-grep.exe |
-| Source-truth preflight skill | ✅ COMPLETE — skill_id 48c43c06, Defect C repaired (Ledger 01M1CMBA7EWG1BSF373S299TNM) |
-| OmniPoolsAZ source pack | ✅ COMPLETE — SHA256=9E3045...0233FC (Ledger 01M1CGRJDCT7EKN11Z5GG9MKYM) |
-| Phase 4 governed closure | ✅ COMPLETE — Ledger 01M1CNZQM80EPB2Q3MDN4DNW49 (RUN-0004) |
-| Deploy-truth verification skill | ❌ Not written (deferred to post-Phase 4) |
-| Validation packet runner skill | ✅ Exists in skill library |
-
-### Phase 4: Rail Kit v1 (CURRENT — opened 2026-08-31)
-See RAIL-PATTERN-v1.md in clawd-aristotle workspace. Major components:
-| Component | State |
-|---|---|
-| Repomix source-pack | ✅ Installed — repomix v1.14.0 |
-| ast-grep structural patterns | ✅ Installed — ast-grep v0.42.2 |
+| Repomix source-pack | ❌ Tool not installed |
+| ast-grep structural patterns | ❌ Tool not installed |
 | dependency-cruiser architecture map | ❌ Tool not installed |
 | Semgrep guardrails | ❌ Tool not installed (requires WSL2) |
 | Graphify audit | ❌ Stale since Apr 13 |
-| Source-truth preflight skill | ⏳ In progress (RUN-0003) |
+| Source-truth preflight skill | ❌ Not written |
 | Deploy-truth verification skill | ❌ Not written |
-| Validation packet runner skill | ✅ Exists in skill library |
+| Validation packet runner skill | ❌ Not written |
 
 > **CLARIFICATION:**
 > - **Graphify** = code visualization tool (currently stale, last run Apr 13). Audit-or-retire decision pending.
@@ -155,53 +132,53 @@ See RAIL-PATTERN-v1.md in clawd-aristotle workspace. Major components:
 | 2026-05-15 T2b-3 | Phase 2b COMPLETE — all 5 ATs passed | skill_invoked + fresh agent discovery confirmed | `01KRPRTFZF9GG5YXB5FB7QW7NP` |
 | 2026-05-15 PM | Rail Kit tools + 2 new skills + RAIL-PATTERN-v1 | repomix+depcruise installed, source-truth-preflight + validation-packet-runner drafted | `01KRPX8TH1ZT9QEX8M8J5JYNGJ` |
 | 2026-05-15 EVE | L44 RETIRED: skill_manage → store sync | Patched hermes skill-manage.ts + skill-manage-tool.ts. Create auto-registers, delete auto-unregisters. Roundtrip proven 8→9→8. | TBD |
-| 2026-08-31 | RUN-0001A: NS-SH-0001 Diagnostic Baseline | Forensic self-hosting baseline; 8 workers produced Project Kernel v0.2, Owner Decision Queue, Defect Register | (no Ledger event — diagnostic only) |
-| 2026-08-31 | RUN-0001B: RB-5 Cold-Start Acceptance | PASS. Fresh agent reconstructed Phase 2c, found ledger-emit via skill_search, wrote governed proof. 11/11 gates. 0 Aaron interventions. | 01M1AXHPYKB3DQ2BYJYDJ2C3JV |
-| 2026-08-31 | Phase 2c CLOSED | Aristotle scored RUN-0001B PASS, wrote closure event. Human reconstruction burden: ZERO. | 01M1AY2MP07BFJKP3XXM1X6CPR |
-| 2026-08-31 | Phase 3a OPENED | Goal declaration written. Boot capsule now serves Phase 3a goal_pointer. goal_pointer column added + backfilled. Nav Map updated. | 01M1AYV78AVXBFGAWSZ2Q6TA0N |
-| 2026-08-31 | Phase 3a CLOSED | All 5 gates passed. Boot capsule accuracy proven. Phase-start protocol established in Project Kernel §8. Autonomous execution (RUN-0003): ZERO Aaron interventions. | 01M1B0X0VVDNEHCZCXY42RCZTH |
-| 2026-08-31 | Phase 4 OPENED | Goal declaration written. Rail Kit v1 commenced. repomix v1.14.0 and ast-grep v0.42.2 confirmed installed. | 01M1B3M3K69NY8Q8G1ERP40K7K |
-| 2026-08-31 | Phase 4 CLOSED (all gates) | Defect C repaired (FTS5 vocabulary enrichment). OmniPoolsAZ source pack proven (SHA256=9E30...0233FC). RUN-0004 capstone: fresh agent reconstructed full state with zero Aaron context. | 01M1CNZQM80EPB2Q3MDN4DNW49 |
 
 ---
 
-## 5. CURRENT PHASE: Phase 4 — Rail Kit v1
+## 5. CURRENT PHASE: Trusted Boot Recovery
 
-> **Phase 3a (Boot Capsule Accuracy) CLOSED 2026-08-31**
-> All 5 gates passed. Closure event: 01M1B0X0VVDNEHCZCXY42RCZTH.
-> Phase-start protocol established. Boot capsule accuracy proven.
+**Goal:** A fresh agent identifies its machine, agent identity, governed phase,
+last verified state, next action, and blockers without Aaron pasting history.
+Every assertion must name its source, timestamp, and confidence; stale or
+conflicting evidence must be surfaced rather than silently promoted to truth.
 
-> **Phase 2c (Trusted Boot Recovery) CLOSED 2026-08-31**
-> RB-5 passed. Proof: Ledger 01M1AXHPYKB3DQ2BYJYDJ2C3JV (RUN-0001B).
-> Closed: Ledger 01M1AY2MP07BFJKP3XXM1X6CPR.
+**Recovery acceptance gates (2026-07-13):**
 
-**Goal:** Source truth + code intelligence + guardrails for code projects.
-Phase 4 goal declaration: Ledger **01M1B3M3K69NY8Q8G1ERP40K7K** (2026-08-31T05:10:40Z).
+- **RB-1 — Baseline:** consistent database, repository, service, task, port, and
+  configuration evidence captured. ✅
+- **RB-2 — Canonical Ledger:** port 3003 is the only writable Ledger; the
+  disjoint port-3002 database is preserved as immutable legacy evidence. 🟡
+  Callers/configuration are patched; elevated live cutover is pending.
+- **RB-3 — Memory provenance:** capture records the resolved agent identity,
+  session/turn identity, and actual persisted MemOS chunk UUIDs. 🟡 Code and
+  deterministic migration are tested; gateway restart is pending.
+- **RB-4 — Evidence-aware boot:** boot briefing prefers governed state, marks
+  stale/conflicting evidence, and never promotes raw recall to instruction. 🟡
+  Implementation and tests pass; live Ledger reload/checkpoint is pending.
+- **RB-5 — Cold-start proof:** a clean session reconstructs current state from
+  live evidence and writes a validation result to the canonical Ledger. ⏳
 
-**Phase 4 acceptance gates:**
+**Current next action:** complete the controlled Ledger cutover, publish the
+governed `northstar.state.v1` checkpoint, migrate deterministic MemOS ownership,
+restart the Aristotle gateway, and run RB-5.
 
-- **4-1 — goal_declaration written for Phase 4:** boot capsule returns Phase 4 goal_pointer. ✅ Done 2026-08-31. Event: 01M1B3M3K69NY8Q8G1ERP40K7K
-- **4-2 — Navigation Map updated:** reflects Phase 3a CLOSED, Phase 4 OPEN. ✅ Done 2026-08-31 (RUN-0003).
-- **4-3 — source-truth-preflight skill:** skill_search("repomix") or skill_search("source truth") returns skill. ✅ Done 2026-08-31. Defect C repaired (Ledger 01M1CMBA7EWG1BSF373S299TNM). Skill ID: 48c43c06-f139-4e72-a4e5-21a7527ed6d1.
-- **4-4 — OmniPoolsAZ source pack:** repomix run completes; sha256 hash recorded in Ledger. ✅ Done 2026-08-31. SHA256=9E30459898B197CE999A67EE7E1DCA4C1C89109E48ABD4395C439169DF0233FC. Ledger: 01M1CGRJDCT7EKN11Z5GG9MKYM.
-- **4-5 — Governed closure:** task_complete event with goal_pointer = 01M1B3M3K69NY8Q8G1ERP40K7K and human reconstruction burden ZERO. ✅ Done 2026-08-31. Ledger: 01M1CNZQM80EPB2Q3MDN4DNW49 (RUN-0004).
-
-**Phase 4 COMPLETE.** All 5 gates done. Closure: Ledger 01M1CNZQM80EPB2Q3MDN4DNW49.
-**Next action:** Aaron sign-off to open Phase 5 (Knowledge Brain v0 — trust labels applied to MemOS + Ledger).
+**Do not begin a new architecture or broad Rail Kit expansion until RB-5 passes.**
 
 ---
 
 ## 6. NEXT 3 PHASES
 
-### Phase 3a: Boot Capsule Accuracy (CLOSED 2026-08-31 ✅)
-**Closed by:** RUN-0002 + Gate 3a-5 (RUN-0003). Closure event: 01M1B0X0VVDNEHCZCXY42RCZTH.
-**Phase-start protocol established:** goal_declaration as first act of each new phase.
+### Phase 2c: Trusted Boot Recovery (current)
+**Goal:** Agent reads current state on boot without Aaron's paste.
+**Components:** Governed `northstar.state.v1` checkpoint, instance-aware Ledger,
+evidence envelopes, source freshness/conflict handling, and verified MemOS provenance.
+**Done when:** A fresh agent session can answer "what am I working on right now" without Aaron typing.
 
-### Phase 4: Rail Kit v1 (CURRENT — opened 2026-08-31 by RUN-0003)
+### Phase 4: Rail Kit v1 (foundation layer)
 **Goal:** Source truth + code intelligence + guardrails for code projects.
 **First deliverable:** `source-truth-preflight` skill that wraps Repomix source-pack generation.
-**Goal declaration:** Ledger 01M1B3M3K69NY8Q8G1ERP40K7K
-**Done when:** source-truth-preflight skill in skill library; OmniPoolsAZ source pack with sha256 Ledger proof; task_complete with goal_pointer = 01M1B3M3K69NY8Q8G1ERP40K7K.
+**See:** `NORTHSTAR_OS_RAIL_KIT_BUILD_INSTRUCTIONS.md` (existing doc, treat as canonical roadmap)
+**Done when:** Aristotle can run `northstar source-pack OmniPoolsAZ` and get a hashed, AI-readable source bundle with a Ledger event.
 
 ### Phase 5: Knowledge Brain v0 (memory promotion)
 **Goal:** Trust labels applied to MemOS chunks + Ledger events. Retrieval respects them.

@@ -1,0 +1,6 @@
+{
+  "agent": "researcher",
+  "timestamp": "2026-08-31T16:24:24.525Z",
+  "entry": "BACKTRACE/BACKROOMBench (arXiv:2607.27484): Causal intervention framework exposing a \"Reasoning Backroom\" in skill-augmented agents — gap between stated skill attribution and actual causal influence. In multi-agent settings, skill influence survives communication even after source is lost; no-skill teams hallucinate skill attribution. Standard observational detectors (LLM judge, trace similarity, text mentions) all fail. Audit requires intervention, not observation. Directly relevant to multi-agent reliability and provenance governance.",
+  "firstRead": false
+}
