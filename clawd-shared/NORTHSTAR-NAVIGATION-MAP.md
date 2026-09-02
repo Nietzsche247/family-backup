@@ -6,8 +6,8 @@
 > If anything in Section 9 fails, jump to Section 10 (Recovery).
 
 **Canonical as of 2026-08-31. Supersedes prior versions.**
-**Last updated:** 2026-08-31 (RUN-0004)
-**Updated by:** Thales Sub-Agent (RUN-0004-capstone, NS-SH-0001 Phase 4 closure)
+**Last updated:** 2026-09-02
+**Updated by:** Aristotle (Phase 2 Swarm Experiment now CURRENT; Phase 4 CLOSED)
 **Authoritative location:** `C:\Users\aaron\clawd-shared\NORTHSTAR-NAVIGATION-MAP.md`
 **Synced to:** github.com/Nietzsche247/family-backup via clawd-shared-sync
 
@@ -165,29 +165,31 @@ See RAIL-PATTERN-v1.md in clawd-aristotle workspace. Major components:
 
 ---
 
-## 5. CURRENT PHASE: Phase 4 — Rail Kit v1
+## 5. CURRENT PHASE: Phase 2 — Governed Small-Swarm Experiment
+
+> **Phase 4 (Rail Kit v1) CLOSED 2026-08-31**
+> All 5 gates passed. Closure: Ledger 01M1CNZQM80EPB2Q3MDN4DNW49 (RUN-0004).
 
 > **Phase 3a (Boot Capsule Accuracy) CLOSED 2026-08-31**
 > All 5 gates passed. Closure event: 01M1B0X0VVDNEHCZCXY42RCZTH.
-> Phase-start protocol established. Boot capsule accuracy proven.
 
 > **Phase 2c (Trusted Boot Recovery) CLOSED 2026-08-31**
 > RB-5 passed. Proof: Ledger 01M1AXHPYKB3DQ2BYJYDJ2C3JV (RUN-0001B).
-> Closed: Ledger 01M1AY2MP07BFJKP3XXM1X6CPR.
 
-**Goal:** Source truth + code intelligence + guardrails for code projects.
-Phase 4 goal declaration: Ledger **01M1B3M3K69NY8Q8G1ERP40K7K** (2026-08-31T05:10:40Z).
+**Goal:** Prove that NorthStar can coordinate multiple concurrent intelligences using preserved continuity to produce greater independently accepted progress without losing one governed project reality. Test unique ownership, dependency awareness, authority boundaries, bounded context, attempt durability, replacement, integration, independent verification, conflict containment, and zero human reconstruction burden across a 4-worker concurrency experiment with explicit single-stream control.
 
-**Phase 4 acceptance gates:**
+Goal declaration: Ledger **01M1DVHCYZSYREJY6AZJ0EHA0R** (2026-09-01).
 
-- **4-1 — goal_declaration written for Phase 4:** boot capsule returns Phase 4 goal_pointer. ✅ Done 2026-08-31. Event: 01M1B3M3K69NY8Q8G1ERP40K7K
-- **4-2 — Navigation Map updated:** reflects Phase 3a CLOSED, Phase 4 OPEN. ✅ Done 2026-08-31 (RUN-0003).
-- **4-3 — source-truth-preflight skill:** skill_search("repomix") or skill_search("source truth") returns skill. ✅ Done 2026-08-31. Defect C repaired (Ledger 01M1CMBA7EWG1BSF373S299TNM). Skill ID: 48c43c06-f139-4e72-a4e5-21a7527ed6d1.
-- **4-4 — OmniPoolsAZ source pack:** repomix run completes; sha256 hash recorded in Ledger. ✅ Done 2026-08-31. SHA256=9E30459898B197CE999A67EE7E1DCA4C1C89109E48ABD4395C439169DF0233FC. Ledger: 01M1CGRJDCT7EKN11Z5GG9MKYM.
-- **4-5 — Governed closure:** task_complete event with goal_pointer = 01M1B3M3K69NY8Q8G1ERP40K7K and human reconstruction burden ZERO. ✅ Done 2026-08-31. Ledger: 01M1CNZQM80EPB2Q3MDN4DNW49 (RUN-0004).
+**Swarm experiment activity (2026-09-01):**
+- PROG-ORCH-A and PROG-ORCH-B completed
+- JUDGE-2b scored
+- Control-arm runs (control-arm-2b-r, control-arm-2b-v2) completed
+- Global integration completed
+- ~273 Ledger events in 24h, 600+ MemOS chunks
 
-**Phase 4 COMPLETE.** All 5 gates done. Closure: Ledger 01M1CNZQM80EPB2Q3MDN4DNW49.
-**Next action:** Aaron sign-off to open Phase 5 (Knowledge Brain v0 — trust labels applied to MemOS + Ledger).
+**Status:** Experiment ran. Results need governed checkpoint and acceptance scoring. Nav Map updated 2026-09-02 by Aristotle to reflect current phase.
+
+**Next action:** Write governed state checkpoint for goal 01M1DVHCYZSYREJY6AZJ0EHA0R. Score swarm experiment results. Determine pass/fail and next phase.
 
 ---
 
@@ -197,11 +199,14 @@ Phase 4 goal declaration: Ledger **01M1B3M3K69NY8Q8G1ERP40K7K** (2026-08-31T05:1
 **Closed by:** RUN-0002 + Gate 3a-5 (RUN-0003). Closure event: 01M1B0X0VVDNEHCZCXY42RCZTH.
 **Phase-start protocol established:** goal_declaration as first act of each new phase.
 
-### Phase 4: Rail Kit v1 (CURRENT — opened 2026-08-31 by RUN-0003)
-**Goal:** Source truth + code intelligence + guardrails for code projects.
-**First deliverable:** `source-truth-preflight` skill that wraps Repomix source-pack generation.
-**Goal declaration:** Ledger 01M1B3M3K69NY8Q8G1ERP40K7K
-**Done when:** source-truth-preflight skill in skill library; OmniPoolsAZ source pack with sha256 Ledger proof; task_complete with goal_pointer = 01M1B3M3K69NY8Q8G1ERP40K7K.
+### Phase 2 — Governed Small-Swarm Experiment (CURRENT — opened 2026-09-01)
+**Goal:** Prove multi-agent concurrency with governed coordination.
+**Goal declaration:** Ledger 01M1DVHCYZSYREJY6AZJ0EHA0R
+**Done when:** Swarm experiment scored, governed checkpoint written, pass/fail determination recorded.
+
+### Phase 4: Rail Kit v1 (CLOSED 2026-08-31 ✅)
+**Closed by:** RUN-0004 capstone. Closure: Ledger 01M1CNZQM80EPB2Q3MDN4DNW49.
+**All 5 gates passed.** source-truth-preflight skill proven, OmniPoolsAZ source pack hashed.
 
 ### Phase 5: Knowledge Brain v0 (memory promotion)
 **Goal:** Trust labels applied to MemOS chunks + Ledger events. Retrieval respects them.
