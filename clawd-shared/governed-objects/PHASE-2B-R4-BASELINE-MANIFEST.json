@@ -1,0 +1,29 @@
+{
+  "schema": "northstar.phase2br4.baseline-binding.v1",
+  "baseline_binding_id": "P2BR4-BASELINE-BINDING-20260903-A",
+  "experiment_id": "P2BR4-20260903-A",
+  "rubric_id": "P2BR3-RUBRIC-18C-v1",
+  "phase_run_id": "PHASE-2B-R4",
+  "source_baseline": {
+    "baseline_id": "P2BR2-BASELINE-20260902-A",
+    "manifest_sha256": "0E340AFBB2995381E355B4054FE72A89669FFE3E1241A911BE45C9B5AC2E8A3A",
+    "file_count": 13,
+    "classification": "IMMUTABLE_ARTIFACT",
+    "allowlisted_prior_identifier": true
+  },
+  "authority_map": {
+    "path": "PHASE-2B-R4/contract/AUTHORITY-MAP-R4.json",
+    "sha256": "EF15F859F7D16283A52E57EE8654A87246B6BA8DD69176CCA755307FE3A2CC42"
+  },
+  "context_manifest": {
+    "path": "PHASE-2B-R4/contract/R4-INPUT-CONTEXT-MANIFEST.json",
+    "sha256": "6B7EB4FC358DAE7310E06228C11C1E72A77D63D9C253D4B1A1A06DE20D3A9E94"
+  },
+  "integration_gate": {
+    "path": "PHASE-2B-R4/fabric/integration-gate-r2.js",
+    "sha256": "FF20135F07CE0731CCF834F4496F6C34587A60D629CDD581143F302FD22A436E"
+  },
+  "identity_consistency_required": true,
+  "artifact_identity_required": true,
+  "status": "FROZEN_PRE_EXECUTION"
+}

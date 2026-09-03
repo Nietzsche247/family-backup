@@ -1,0 +1,60 @@
+{
+  "schema": "northstar.phase2br4.input-context.v1",
+  "experiment_id": "P2BR4-20260903-A",
+  "rubric_id": "P2BR3-RUBRIC-18C-v1",
+  "phase_run_id": "PHASE-2B-R4",
+  "goal_pointer": "01M1DVHCYZSYREJY6AZJ0EHA0R",
+  "baseline_ref": {
+    "baseline_id": "P2BR2-BASELINE-20260902-A",
+    "baseline_manifest_sha256": "0E340AFBB2995381E355B4054FE72A89669FFE3E1241A911BE45C9B5AC2E8A3A",
+    "classification": "IMMUTABLE_ARTIFACT",
+    "allowlisted_prior_identifier": true
+  },
+  "authority_map": {
+    "path": "PHASE-2B-R4/contract/AUTHORITY-MAP-R4.json",
+    "sha256": "EF15F859F7D16283A52E57EE8654A87246B6BA8DD69176CCA755307FE3A2CC42"
+  },
+  "integration_gate": {
+    "path": "PHASE-2B-R4/fabric/integration-gate-r2.js",
+    "sha256": "FF20135F07CE0731CCF834F4496F6C34587A60D629CDD581143F302FD22A436E",
+    "note": "Hardened gate implementation identity retained; R4 paths supplied by authority map at runtime."
+  },
+  "signal_fire_attestation": {
+    "path": "PHASE-2B-R4/contract/SIGNAL-FIRE-FIREWALL-ATTESTATION-R4.md",
+    "sha256": "1E5B8ACDEBBD41D4234D3EE987D2508D0DA06A27CCACD78F77ADF956BC65896C"
+  },
+  "controlled_paths": {
+    "control_output_prefix": "PHASE-2B-R4/control-arm/",
+    "control_receipt_prefix": "PHASE-2B-R4/receipts/control-arm/",
+    "parallel_a_output_prefix": "PHASE-2B-R4/parallel-arm/PROGRAM-A/",
+    "parallel_b_output_prefix": "PHASE-2B-R4/parallel-arm/PROGRAM-B/",
+    "parallel_integration_prefix": "PHASE-2B-R4/parallel-arm/global-integration/",
+    "parallel_receipt_prefix": "PHASE-2B-R4/receipts/parallel-arm/",
+    "judge_output_prefix": "PHASE-2B-R4/parallel-arm/JUDGE/"
+  },
+  "packet_id_rules": {
+    "control_prefix": "P2BR4-20260903-A-control-",
+    "parallel_a_prefix": "P2BR4-20260903-A-parallel-a-",
+    "parallel_b_prefix": "P2BR4-20260903-A-parallel-b-",
+    "integration_prefix": "P2BR4-20260903-A-integration-"
+  },
+  "evidence_bundle_names": {
+    "control": "P2BR4-20260903-A-CONTROL-EVIDENCE",
+    "parallel": "P2BR4-20260903-A-PARALLEL-EVIDENCE",
+    "judge": "P2BR4-20260903-A-JUDGE-REPORT"
+  },
+  "judge_contract": {
+    "experiment_id": "P2BR4-20260903-A",
+    "judge": "Plato",
+    "host": "NIETZSCHE2025",
+    "fresh_session_required": true
+  },
+  "producer_exclusions": {
+    "prior_control_outputs": "EXCLUDED",
+    "prior_parallel_outputs": "EXCLUDED",
+    "prior_receipts": "EXCLUDED",
+    "prior_judge_reports": "EXCLUDED",
+    "signal_fire_content": "EXCLUDED",
+    "kant_and_subagents": "EXCLUDED"
+  }
+}

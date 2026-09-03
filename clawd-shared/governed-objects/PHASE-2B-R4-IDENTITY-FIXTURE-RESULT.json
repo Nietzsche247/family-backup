@@ -1,0 +1,35 @@
+{
+  "schema": "northstar.phase2br4.identity-fixtures.v1",
+  "run_at_utc": "2026-09-03T17:10:00.742Z",
+  "experiment_id": "P2BR4-20260903-A",
+  "all_correct": true,
+  "passed": 5,
+  "total": 5,
+  "tests": [
+    {
+      "name": "VALID CURRENT-ID FIXTURE",
+      "expected": "PASS",
+      "correct": true
+    },
+    {
+      "name": "STALE R2 PREFIX",
+      "expected": "FAIL",
+      "correct": true
+    },
+    {
+      "name": "STALE R3 PREFIX",
+      "expected": "FAIL",
+      "correct": true
+    },
+    {
+      "name": "MIXED CURRENT/STALE AUTHORITY MAP",
+      "expected": "FAIL",
+      "correct": true
+    },
+    {
+      "name": "CURRENT EXPERIMENT WITH HISTORICAL PRIOR-RUN REFERENCES IN ALLOWLISTED PROVENANCE",
+      "expected": "PASS",
+      "correct": true
+    }
+  ]
+}

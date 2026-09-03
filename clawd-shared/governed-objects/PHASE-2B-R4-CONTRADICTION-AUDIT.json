@@ -1,0 +1,186 @@
+{
+  "schema": "northstar.phase2br4.contradiction-audit.v1",
+  "run_at_utc": "2026-09-03T17:10:00.851Z",
+  "experiment_id": "P2BR4-20260903-A",
+  "result": "PASS",
+  "identities": {
+    "contract": "CBB8E0404AD8E49EB24BB2A445F6C8302A9F7CA73F0C65566727CD53480D3BA7",
+    "authority": "EF15F859F7D16283A52E57EE8654A87246B6BA8DD69176CCA755307FE3A2CC42",
+    "context": "6B7EB4FC358DAE7310E06228C11C1E72A77D63D9C253D4B1A1A06DE20D3A9E94",
+    "r4baseline": "928A87BA406A53E7CB13770866201188DF9FEECD9ADB02459BC69316E2EB9A8E",
+    "sourceBaseline": "0E340AFBB2995381E355B4054FE72A89669FFE3E1241A911BE45C9B5AC2E8A3A",
+    "gate": "FF20135F07CE0731CCF834F4496F6C34587A60D629CDD581143F302FD22A436E",
+    "signalFire": "1E5B8ACDEBBD41D4234D3EE987D2508D0DA06A27CCACD78F77ADF956BC65896C"
+  },
+  "checks": [
+    {
+      "name": "Experiment ID exact",
+      "pass": true
+    },
+    {
+      "name": "Rubric unchanged",
+      "pass": true
+    },
+    {
+      "name": "Status frozen pre-execution",
+      "pass": true
+    },
+    {
+      "name": "Authority control R4",
+      "pass": true
+    },
+    {
+      "name": "Authority parallel A R4",
+      "pass": true
+    },
+    {
+      "name": "Authority parallel B R4",
+      "pass": true
+    },
+    {
+      "name": "Authority integrator R4",
+      "pass": true
+    },
+    {
+      "name": "Source baseline unchanged",
+      "pass": true,
+      "detail": "0E340AFBB2995381E355B4054FE72A89669FFE3E1241A911BE45C9B5AC2E8A3A"
+    },
+    {
+      "name": "Gate unchanged",
+      "pass": true,
+      "detail": "FF20135F07CE0731CCF834F4496F6C34587A60D629CDD581143F302FD22A436E"
+    },
+    {
+      "name": "Context authority hash current",
+      "pass": true,
+      "detail": "EF15F859F7D16283A52E57EE8654A87246B6BA8DD69176CCA755307FE3A2CC42 vs EF15F859F7D16283A52E57EE8654A87246B6BA8DD69176CCA755307FE3A2CC42"
+    },
+    {
+      "name": "Context gate hash current",
+      "pass": true
+    },
+    {
+      "name": "Context Signal Fire hash current",
+      "pass": true
+    },
+    {
+      "name": "R4 baseline authority hash current",
+      "pass": true
+    },
+    {
+      "name": "R4 baseline context hash current",
+      "pass": true
+    },
+    {
+      "name": "R4 baseline gate hash current",
+      "pass": true
+    },
+    {
+      "name": "Contract binds current R4 baseline hash",
+      "pass": true,
+      "detail": "928A87BA406A53E7CB13770866201188DF9FEECD9ADB02459BC69316E2EB9A8E"
+    },
+    {
+      "name": "Semantic threshold 21/30",
+      "pass": true
+    },
+    {
+      "name": "Critical floor S1 >=2",
+      "pass": true
+    },
+    {
+      "name": "Critical floor S2 >=2",
+      "pass": true
+    },
+    {
+      "name": "Critical floor S5 >=2",
+      "pass": true
+    },
+    {
+      "name": "Critical floor S9 >=2",
+      "pass": true
+    },
+    {
+      "name": "Critical floor S10 >=2",
+      "pass": true
+    },
+    {
+      "name": "CONTROL_INVALID active",
+      "pass": true
+    },
+    {
+      "name": "No same-experiment retry",
+      "pass": true
+    },
+    {
+      "name": "Parallel >= accepted control",
+      "pass": true
+    },
+    {
+      "name": "No post-hoc tolerance",
+      "pass": true
+    },
+    {
+      "name": "Accepted TTC rejection rule",
+      "pass": true
+    },
+    {
+      "name": "Judge deterministic finalization",
+      "pass": true
+    },
+    {
+      "name": "Byte-preserving publication invariant",
+      "pass": true
+    },
+    {
+      "name": "Signal Fire firewall",
+      "pass": true
+    },
+    {
+      "name": "Prior output contamination firewall",
+      "pass": true
+    },
+    {
+      "name": "Kant out of scope",
+      "pass": true
+    },
+    {
+      "name": "R3 disposition exact",
+      "pass": true
+    },
+    {
+      "name": "R3 accepted TTC not established",
+      "pass": true
+    },
+    {
+      "name": "R3 semantic content excluded",
+      "pass": true
+    },
+    {
+      "name": "Identity invariant present",
+      "pass": true
+    },
+    {
+      "name": "Gate fixtures 7/7",
+      "pass": true
+    },
+    {
+      "name": "Identity fixtures 5/5",
+      "pass": true
+    },
+    {
+      "name": "Actual identity consistency",
+      "pass": true
+    },
+    {
+      "name": "No R4 producer output exists",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "summary": {
+    "passed": 40,
+    "total": 40
+  }
+}

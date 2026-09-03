@@ -1,0 +1,64 @@
+{
+  "schema": "northstar.gate-preflight-result.v1",
+  "run_at_utc": "2026-09-03T17:07:31.374Z",
+  "gate_script": "C:\\North_Star_Projects\\orchestration\\PHASE-2B-R4\\fabric\\integration-gate-r2.js",
+  "all_correct": true,
+  "tests": [
+    {
+      "name": "VALID",
+      "expectPass": true,
+      "actualPass": true,
+      "exitCode": 0,
+      "correct": true,
+      "output": "Receipts checked: 1\nPassed: 1\nFailed: 0\nFailures: none\nGate runtime: 10ms"
+    },
+    {
+      "name": "MISMATCH-HASH",
+      "expectPass": false,
+      "actualPass": false,
+      "exitCode": 1,
+      "correct": true,
+      "output": "Failed: 1\nFailures:\n  - [test-fixture-MISMATCH-HASH] Agent not in authority map: control-arm-r2\n  - [test-fixture-MISMATCH-HASH] Provenance mismatch for C:/North_Star_Projects/orchestration/PHASE-2B-R2/preflight/fixtures/TEST-ARTIFACT.md: got sha256:4d819dfd0ed54598b89fb9e07950862378abedf16b60aa919e826f533193d67a expected sha256:0000000000000000000000000000000000000000000000000000000000000000\nGate runtime: 7ms"
+    },
+    {
+      "name": "MISMATCH-BYTES",
+      "expectPass": false,
+      "actualPass": false,
+      "exitCode": 1,
+      "correct": true,
+      "output": "Failed: 1\nFailures:\n  - [test-fixture-MISMATCH-BYTES] Agent not in authority map: control-arm-r2\n  - [test-fixture-MISMATCH-BYTES] Byte count mismatch for C:/North_Star_Projects/orchestration/PHASE-2B-R2/preflight/fixtures/TEST-ARTIFACT.md: actual 258 receipt 999999\nGate runtime: 6ms"
+    },
+    {
+      "name": "MISSING-GENERATION",
+      "expectPass": false,
+      "actualPass": false,
+      "exitCode": 1,
+      "correct": true,
+      "output": "Passed: 0\nFailed: 1\nFailures:\n  - [test-fixture-MISSING-GENERATION] Missing: generation\nGate runtime: 5ms"
+    },
+    {
+      "name": "STALE-GENERATION",
+      "expectPass": false,
+      "actualPass": false,
+      "exitCode": 1,
+      "correct": true,
+      "output": "Failed: 1\nFailures:\n  - [test-fixture-STALE-GENERATION] generation must be a positive integer, got: 0\n  - [test-fixture-STALE-GENERATION] Agent not in authority map: control-arm-r2\nGate runtime: 7ms"
+    },
+    {
+      "name": "PRE-TIMER",
+      "expectPass": false,
+      "actualPass": false,
+      "exitCode": 1,
+      "correct": true,
+      "output": "Failed: 1\nFailures:\n  - [test-fixture-PRE-TIMER] Timestamp before experiment start: 2026-09-02T23:59:59Z < 2026-09-03T02:00:00Z\n  - [test-fixture-PRE-TIMER] Agent not in authority map: control-arm-r2\nGate runtime: 7ms"
+    },
+    {
+      "name": "WRONG-BASELINE",
+      "expectPass": false,
+      "actualPass": false,
+      "exitCode": 1,
+      "correct": true,
+      "output": "Failed: 1\nFailures:\n  - [test-fixture-WRONG-BASELINE] Baseline ID mismatch: got P2BR2-BASELINE-20260901-WRONG expected P2BR2-BASELINE-20260902-A\n  - [test-fixture-WRONG-BASELINE] Agent not in authority map: control-arm-r2\nGate runtime: 7ms"
+    }
+  ]
+}

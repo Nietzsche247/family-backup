@@ -1,0 +1,8 @@
+{
+  "experiment_id": "P2BR4-20260903-A",
+  "rubric_id": "P2BR3-RUBRIC-18C-v1",
+  "control-arm-r4": "PHASE-2B-R4/control-arm/",
+  "PROG-ORCH-A-R4": "PHASE-2B-R4/parallel-arm/PROGRAM-A/",
+  "PROG-ORCH-B-R4": "PHASE-2B-R4/parallel-arm/PROGRAM-B/",
+  "global-integrator-r4": "PHASE-2B-R4/parallel-arm/global-integration/"
+}
