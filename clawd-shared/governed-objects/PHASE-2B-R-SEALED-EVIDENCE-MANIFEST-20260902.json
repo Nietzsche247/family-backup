@@ -1,0 +1,374 @@
+{
+  "schema": "northstar.sealed-evidence-manifest.v1",
+  "bundle_id": "PHASE-2B-R-SEALED-EVIDENCE-BUNDLE-20260902",
+  "created_at_utc": "2026-09-02T23:21:52.710Z",
+  "purpose": "Independent Phase 2B-R adjudication by Plato",
+  "governance": {
+    "goal_pointer": "01M1DVHCYZSYREJY6AZJ0EHA0R",
+    "independent_judge": "PENDING_PLATO",
+    "phase2c_authorized": false,
+    "no_rerun": true
+  },
+  "artifact_count": 33,
+  "artifacts": [
+    {
+      "path": "adjudication/NON-INDEPENDENT-EXCLUSIONS.json",
+      "bytes": 611,
+      "sha256": "FC072EE9FF8D5CBC6B25BBACF8404ADA917EF53BAC6520C98EDA21C1D777CC68",
+      "provenance": {
+        "type": "neutral-bundle-metadata",
+        "source": "owner correction plus governed status event",
+        "description": "Prevents non-independent self-adjudication from being treated as terminal"
+      }
+    },
+    {
+      "path": "contract/PHASE-2B-R-PREREGISTERED-ACCEPTANCE-CONTRACT.txt",
+      "bytes": 643,
+      "sha256": "338F5B1230B3BABFBFD159657B7C7BBA55F761EAF2D74828A55995E86A02B083",
+      "provenance": {
+        "type": "owner-directive-extract",
+        "source_channel": "Google Chat",
+        "source_message_id": "spaces/ywTbMSAAAAE/messages/vC-VeWKkWcM.vC-VeWKkWcM",
+        "source_timestamp": "2026-09-02T15:38:00-07:00",
+        "description": "Verbatim acceptance-bar substance extracted from owner directive; no post-result criterion added"
+      }
+    },
+    {
+      "path": "contract/PHASE2-PROOF-GATES.md",
+      "bytes": 17364,
+      "sha256": "0B7F862E71E3FE4FC9C1920F1D8512B44AE36E5631944EF87FB107B23A982844",
+      "provenance": {
+        "type": "original-byte-copy",
+        "source_path": "C:/North_Star_Projects/orchestration/PHASE-2B/PHASE2-PROOF-GATES.md",
+        "description": "Pre-existing Phase 2 proof-gate contract artifact",
+        "source_last_write_utc": "2026-09-01T22:15:46.689Z"
+      }
+    },
+    {
+      "path": "discrepancies/PROGRAM-A-RECEIPT-HASH-DISCREPANCY.json",
+      "bytes": 520,
+      "sha256": "7A4E9CB355C453BE13077085CCDCD1F3C3542264910A886D644ECFC07DB3108A",
+      "provenance": {
+        "type": "neutral-bundle-metadata",
+        "source": "direct byte hash plus original receipt field",
+        "description": "Records mismatch without repair or causal explanation"
+      }
+    },
+    {
+      "path": "hardening/H003-PROOF.md",
+      "bytes": 3337,
+      "sha256": "13245FDCA66EF2E81A9A2B3DFF407314C95099ED3710D002D2326E484D3DBF77",
+      "provenance": {
+        "type": "original-byte-copy",
+        "source_path": "C:/North_Star_Projects/orchestration/PHASE-2B/hardening/h003/H003-PROOF.md",
+        "description": "Original H-003 proof artifact",
+        "source_last_write_utc": "2026-09-01T23:03:49.796Z"
+      }
+    },
+    {
+      "path": "hardening/H005-PROOF.md",
+      "bytes": 5283,
+      "sha256": "DBF4B795E249B0DFC1A78B7B51633394C0A6CD35C8A58134BA1BCA436C22BDB8",
+      "provenance": {
+        "type": "original-byte-copy",
+        "source_path": "C:/North_Star_Projects/orchestration/PHASE-2B/hardening/h005/H005-PROOF.md",
+        "description": "Original H-005 proof artifact",
+        "source_last_write_utc": "2026-09-01T23:05:27.835Z"
+      }
+    },
+    {
+      "path": "hardening/R1-REPAIR.md",
+      "bytes": 7175,
+      "sha256": "4C5978FFFFD839EE94D78AADFBFCEC16C38E1A30D716B15DB3A27896002F604A",
+      "provenance": {
+        "type": "original-byte-copy",
+        "source_path": "C:/North_Star_Projects/orchestration/PHASE-2B/hardening/r1/R1-REPAIR.md",
+        "description": "Original R1 repair/proof artifact",
+        "source_last_write_utc": "2026-09-01T23:06:26.389Z"
+      }
+    },
+    {
+      "path": "ledger/events/01M1DVHCYZSYREJY6AZJ0EHA0R.json",
+      "bytes": 2051,
+      "sha256": "0CF7F3B08C2885ABD3FA3AE528463AEAFDDBB95E58C70F86E480D96927EA9581",
+      "provenance": {
+        "type": "canonical-ledger-api-export",
+        "source_endpoint": "http://127.0.0.1:3003/events",
+        "event_id": "01M1DVHCYZSYREJY6AZJ0EHA0R"
+      }
+    },
+    {
+      "path": "ledger/events/01M1FKQ9ZE62RGBHK9BY62TA29.json",
+      "bytes": 914,
+      "sha256": "6ED575D8825B79692A8AA511F8C1B581C3E39ACAC794BAE2619B7BF8DF53B024",
+      "provenance": {
+        "type": "canonical-ledger-api-export",
+        "source_endpoint": "http://127.0.0.1:3003/events",
+        "event_id": "01M1FKQ9ZE62RGBHK9BY62TA29"
+      }
+    },
+    {
+      "path": "ledger/events/01M1FKXP7S6MXNN5A7FTXBPEHH.json",
+      "bytes": 1359,
+      "sha256": "B373B6CE9279B861E31AD3FB6CA5A636A10DE87436928D8EAD96C084FF0E9EEB",
+      "provenance": {
+        "type": "canonical-ledger-api-export",
+        "source_endpoint": "http://127.0.0.1:3003/events",
+        "event_id": "01M1FKXP7S6MXNN5A7FTXBPEHH"
+      }
+    },
+    {
+      "path": "ledger/events/01M1FM8G9WY32DJNET09BXMZ0P.json",
+      "bytes": 1042,
+      "sha256": "0409C84577FE06E7A3A96A24DBC7E1701B5BF171DA58C5BC6C75A3C77797B155",
+      "provenance": {
+        "type": "canonical-ledger-api-export",
+        "source_endpoint": "http://127.0.0.1:3003/events",
+        "event_id": "01M1FM8G9WY32DJNET09BXMZ0P"
+      }
+    },
+    {
+      "path": "ledger/events/01M1FMB4GPN36HERCBBHNG3159.json",
+      "bytes": 1679,
+      "sha256": "C571B6BB2EE58DBEF181D6569E5693DA6A30BD45CD291681342928394057DA8B",
+      "provenance": {
+        "type": "canonical-ledger-api-export",
+        "source_endpoint": "http://127.0.0.1:3003/events",
+        "event_id": "01M1FMB4GPN36HERCBBHNG3159"
+      }
+    },
+    {
+      "path": "ledger/events/01M1FMFFY73PY5AN75NBQCN6AW.json",
+      "bytes": 1258,
+      "sha256": "F274A946ACE0459AB1C85446E7C85EE0E3332A048F017A204B6857F834CBCFB1",
+      "provenance": {
+        "type": "canonical-ledger-api-export",
+        "source_endpoint": "http://127.0.0.1:3003/events",
+        "event_id": "01M1FMFFY73PY5AN75NBQCN6AW"
+      }
+    },
+    {
+      "path": "ledger/events/01M1FMR2Y7ZZDPF557ZBTNEVS5.json",
+      "bytes": 2029,
+      "sha256": "BA13D4CC5A755A17E08AF4620FF34138EA6D626189F69DBB5B65DCAC759F2314",
+      "provenance": {
+        "type": "canonical-ledger-api-export",
+        "source_endpoint": "http://127.0.0.1:3003/events",
+        "event_id": "01M1FMR2Y7ZZDPF557ZBTNEVS5"
+      }
+    },
+    {
+      "path": "ledger/events/01M1FN196TJ10G2RGQKT8W65PY.json",
+      "bytes": 1994,
+      "sha256": "D878386217E5AAB4F4B3402135EDE87BA286978AB513FC7B8DEE1C121B05927C",
+      "provenance": {
+        "type": "canonical-ledger-api-export",
+        "source_endpoint": "http://127.0.0.1:3003/events",
+        "event_id": "01M1FN196TJ10G2RGQKT8W65PY"
+      }
+    },
+    {
+      "path": "ledger/events/01M1J4H8XYACZM7CT0RJDHYGBM.json",
+      "bytes": 2338,
+      "sha256": "46075F1F550879DC19149E6F871F9B4A77C93A2505C763957E05A0E83EA51B20",
+      "provenance": {
+        "type": "canonical-ledger-api-export",
+        "source_endpoint": "http://127.0.0.1:3003/events",
+        "event_id": "01M1J4H8XYACZM7CT0RJDHYGBM"
+      }
+    },
+    {
+      "path": "ledger/events/01M1J4H91FDA8NQAYJCBW5KN72.json",
+      "bytes": 2902,
+      "sha256": "D1E0685BEE02EBDF56602EF4C355BE834AC7ABA7F7852EB4819613E9106FB157",
+      "provenance": {
+        "type": "canonical-ledger-api-export",
+        "source_endpoint": "http://127.0.0.1:3003/events",
+        "event_id": "01M1J4H91FDA8NQAYJCBW5KN72"
+      }
+    },
+    {
+      "path": "ledger/events/01M1J6SPZPGA9X0SXB8EXPYK5G.json",
+      "bytes": 1846,
+      "sha256": "4C972F47E67FE60ACBC0972B96316CE9F46F6B594EF9097AD078FD2045BEF4E8",
+      "provenance": {
+        "type": "canonical-ledger-api-export",
+        "source_endpoint": "http://127.0.0.1:3003/events",
+        "event_id": "01M1J6SPZPGA9X0SXB8EXPYK5G"
+      }
+    },
+    {
+      "path": "ledger/LEDGER-EVENTS-EXPORT.json",
+      "bytes": 21630,
+      "sha256": "265AFC7EB0CF5A14559849101167976E0B4C3C029A3834EFDC22B39C57C22182",
+      "provenance": {
+        "type": "canonical-ledger-api-export",
+        "source_endpoint": "http://127.0.0.1:3003/events",
+        "event_ids": [
+          "01M1DVHCYZSYREJY6AZJ0EHA0R",
+          "01M1FKQ9ZE62RGBHK9BY62TA29",
+          "01M1FKXP7S6MXNN5A7FTXBPEHH",
+          "01M1FM8G9WY32DJNET09BXMZ0P",
+          "01M1FMB4GPN36HERCBBHNG3159",
+          "01M1FMFFY73PY5AN75NBQCN6AW",
+          "01M1FMR2Y7ZZDPF557ZBTNEVS5",
+          "01M1FN196TJ10G2RGQKT8W65PY",
+          "01M1J4H8XYACZM7CT0RJDHYGBM",
+          "01M1J4H91FDA8NQAYJCBW5KN72",
+          "01M1J6SPZPGA9X0SXB8EXPYK5G"
+        ],
+        "description": "Selected Phase 2B-R event payloads exported without modification"
+      }
+    },
+    {
+      "path": "observations/NETWORK-VANTAGE-OBSERVATIONS.json",
+      "bytes": 971,
+      "sha256": "EE26081AD727231F14CB9247F23D7A9D0D8342D245BDEC3DD429449C21D44CCA",
+      "provenance": {
+        "type": "neutral-bundle-metadata",
+        "source": "two conflicting observations with explicit vantage points",
+        "description": "Preserves conflict without resolution"
+      }
+    },
+    {
+      "path": "original/control/CONTROL-INTEGRATION-REPORT.md",
+      "bytes": 10562,
+      "sha256": "81DEA17BFF14ACD7100A0D3B0B775AA6FE1AA1CB69AD2EF072362EFB959A8854",
+      "provenance": {
+        "type": "original-byte-copy",
+        "source_path": "C:/North_Star_Projects/orchestration/PHASE-2B-R/control-arm/CONTROL-INTEGRATION-REPORT.md",
+        "description": "Original control integration artifact",
+        "source_last_write_utc": "2026-09-01T23:17:32.112Z"
+      }
+    },
+    {
+      "path": "original/control/CONTROL-METRICS.md",
+      "bytes": 3011,
+      "sha256": "CEA16669C6EB8350B148B5CA6FC9BECD41AC9B2ABD15FD809B7CF36B9A08170D",
+      "provenance": {
+        "type": "original-byte-copy",
+        "source_path": "C:/North_Star_Projects/orchestration/PHASE-2B-R/control-arm/CONTROL-METRICS.md",
+        "description": "Original control timing and metrics artifact",
+        "source_last_write_utc": "2026-09-01T23:18:04.700Z"
+      }
+    },
+    {
+      "path": "original/control/KNOWLEDGE-BRAIN-V0-IMPL.md",
+      "bytes": 44037,
+      "sha256": "7DE2146DC6B1FB5AB0E296A8B9441C9AEAC3E4676C2E286DA1DED091AEE5DF4C",
+      "provenance": {
+        "type": "original-byte-copy",
+        "source_path": "C:/North_Star_Projects/orchestration/PHASE-2B-R/control-arm/KNOWLEDGE-BRAIN-V0-IMPL.md",
+        "description": "Original Phase 2B-R control Program B artifact",
+        "source_last_write_utc": "2026-09-01T23:16:31.203Z"
+      }
+    },
+    {
+      "path": "original/control/RECOVERY-PLAYBOOK-v1.md",
+      "bytes": 33390,
+      "sha256": "F372DE62BE395E767ACE3A0557B86B634118901A3068E49B1ED8C4722FBA5B7C",
+      "provenance": {
+        "type": "original-byte-copy",
+        "source_path": "C:/North_Star_Projects/orchestration/PHASE-2B-R/control-arm/RECOVERY-PLAYBOOK-v1.md",
+        "description": "Original Phase 2B-R control Program A artifact",
+        "source_last_write_utc": "2026-09-01T23:12:14.889Z"
+      }
+    },
+    {
+      "path": "original/global-integration/GLOBAL-INTEGRATION-REPORT.md",
+      "bytes": 7027,
+      "sha256": "20FA985CBC93BBAD8181BA7CA88BAA39537B23DD5B812BD7FA22814EB5B4F59E",
+      "provenance": {
+        "type": "original-byte-copy",
+        "source_path": "C:/North_Star_Projects/orchestration/PHASE-2B-R/parallel-arm/global-integration/GLOBAL-INTEGRATION-REPORT.md",
+        "description": "Original global integration artifact; included byte-for-byte without endorsement of interpretations",
+        "source_last_write_utc": "2026-09-02T22:40:48.313Z"
+      }
+    },
+    {
+      "path": "original/parallel/program-a/A-METRICS.md",
+      "bytes": 2468,
+      "sha256": "14412CF27E9A8DB0D15CBE02A7D4C7779532E4A8E48C26494699FD2A06113557",
+      "provenance": {
+        "type": "original-byte-copy",
+        "source_path": "C:/North_Star_Projects/orchestration/PHASE-2B-R/parallel-arm/PROGRAM-A/A-METRICS.md",
+        "description": "Original parallel Program A metrics",
+        "source_last_write_utc": "2026-09-01T23:27:32.289Z"
+      }
+    },
+    {
+      "path": "original/parallel/program-a/prog-a-2br-receipt.json",
+      "bytes": 2906,
+      "sha256": "71AC73575F0D2BB7A0DB37BDC9812C6E6AD4598BA08D83F75A6E769175F3BBC3",
+      "provenance": {
+        "type": "original-byte-copy",
+        "source_path": "C:/North_Star_Projects/orchestration/PHASE-2B-R/receipts/parallel-arm/prog-a-2br-receipt.json",
+        "description": "Original parallel Program A receipt; claimed hash preserved exactly",
+        "source_last_write_utc": "2026-09-01T23:27:32.261Z"
+      }
+    },
+    {
+      "path": "original/parallel/program-a/RECOVERY-PLAYBOOK-v1.md",
+      "bytes": 33122,
+      "sha256": "2981FBA85A0386F7729CF147637E332F28DCF9ADEF7001BB48818142643A6BFB",
+      "provenance": {
+        "type": "original-byte-copy",
+        "source_path": "C:/North_Star_Projects/orchestration/PHASE-2B-R/parallel-arm/PROGRAM-A/RECOVERY-PLAYBOOK-v1.md",
+        "description": "Original parallel Program A artifact; bytes unmodified",
+        "source_last_write_utc": "2026-09-01T23:25:40.123Z"
+      }
+    },
+    {
+      "path": "original/parallel/program-b/B-METRICS.md",
+      "bytes": 2360,
+      "sha256": "6EFD4D296C0C301C025A3A82B557706F0CEF51B4B21E0301BDF6FC203243C79E",
+      "provenance": {
+        "type": "original-byte-copy",
+        "source_path": "C:/North_Star_Projects/orchestration/PHASE-2B-R/parallel-arm/PROGRAM-B/B-METRICS.md",
+        "description": "Original parallel Program B metrics",
+        "source_last_write_utc": "2026-09-01T23:28:33.326Z"
+      }
+    },
+    {
+      "path": "original/parallel/program-b/KNOWLEDGE-BRAIN-V0-IMPL.md",
+      "bytes": 60750,
+      "sha256": "DE0F31E1CA6201FF086C1309598F2135F0E00775A3170643571A2ACC6CBFA599",
+      "provenance": {
+        "type": "original-byte-copy",
+        "source_path": "C:/North_Star_Projects/orchestration/PHASE-2B-R/parallel-arm/PROGRAM-B/KNOWLEDGE-BRAIN-V0-IMPL.md",
+        "description": "Original parallel Program B artifact; bytes unmodified",
+        "source_last_write_utc": "2026-09-01T23:28:13.787Z"
+      }
+    },
+    {
+      "path": "original/parallel/program-b/prog-b-2br-receipt.json",
+      "bytes": 3806,
+      "sha256": "44A285B7BD8EB709D40798CC986BBDD30774F121F9438471195CF609E6C64682",
+      "provenance": {
+        "type": "original-byte-copy",
+        "source_path": "C:/North_Star_Projects/orchestration/PHASE-2B-R/receipts/parallel-arm/prog-b-2br-receipt.json",
+        "description": "Original parallel Program B receipt",
+        "source_last_write_utc": "2026-09-01T23:32:25.446Z"
+      }
+    },
+    {
+      "path": "README.md",
+      "bytes": 591,
+      "sha256": "C012A13E74FF9436079D9A09E998A2C506F49EDAD5526C8B0152C28FD7653920",
+      "provenance": {
+        "type": "bundle-readme",
+        "source": "Aristotle packaging action authorized by owner message spaces/ywTbMSAAAAE/messages/BBDM1knVCtk.BBDM1knVCtk"
+      }
+    },
+    {
+      "path": "timing/TIMING-CHRONOLOGY.json",
+      "bytes": 1525,
+      "sha256": "3F7BEB4AB594AF74D018C31DFDFD64EF25EE1711810A9C513828A7A76EA547D8",
+      "provenance": {
+        "type": "neutral-bundle-metadata",
+        "source": "Ledger timestamps plus original CONTROL-METRICS.md",
+        "description": "Raw chronology; no acceptance ruling"
+      }
+    }
+  ]
+}
