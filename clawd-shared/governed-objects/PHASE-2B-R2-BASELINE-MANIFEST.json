@@ -1,0 +1,137 @@
+{
+  "schema": "northstar.phase2br2.baseline.v1",
+  "baseline_id": "P2BR2-BASELINE-20260902-A",
+  "frozen_at_utc": "2026-09-03T00:05:45.702Z",
+  "files": [
+    {
+      "path": "program-a/H003-PROOF.md",
+      "bytes": 3337,
+      "sha256": "13245FDCA66EF2E81A9A2B3DFF407314C95099ED3710D002D2326E484D3DBF77",
+      "provenance": {
+        "type": "frozen-byte-copy",
+        "source_path": "C:/North_Star_Projects/orchestration/PHASE-2B/hardening/h003/H003-PROOF.md",
+        "source_last_write_utc": "2026-09-01T23:03:49.796Z"
+      }
+    },
+    {
+      "path": "program-a/H005-PROOF.md",
+      "bytes": 5283,
+      "sha256": "DBF4B795E249B0DFC1A78B7B51633394C0A6CD35C8A58134BA1BCA436C22BDB8",
+      "provenance": {
+        "type": "frozen-byte-copy",
+        "source_path": "C:/North_Star_Projects/orchestration/PHASE-2B/hardening/h005/H005-PROOF.md",
+        "source_last_write_utc": "2026-09-01T23:05:27.835Z"
+      }
+    },
+    {
+      "path": "program-a/R1-REPAIR.md",
+      "bytes": 7175,
+      "sha256": "4C5978FFFFD839EE94D78AADFBFCEC16C38E1A30D716B15DB3A27896002F604A",
+      "provenance": {
+        "type": "frozen-byte-copy",
+        "source_path": "C:/North_Star_Projects/orchestration/PHASE-2B/hardening/r1/R1-REPAIR.md",
+        "source_last_write_utc": "2026-09-01T23:06:26.389Z"
+      }
+    },
+    {
+      "path": "program-a/boot-context-SKILL.md",
+      "bytes": 2009,
+      "sha256": "297BE5061A9D562CE28FC278652B6E61565C6366466BF2557719433D73CFB4A8",
+      "provenance": {
+        "type": "frozen-byte-copy",
+        "source_path": "C:/Users/aaron/.openclaw/skills/boot-context/SKILL.md",
+        "source_last_write_utc": "2026-07-13T20:43:12.209Z"
+      }
+    },
+    {
+      "path": "program-a/budget-guard.js",
+      "bytes": 2950,
+      "sha256": "47921FB43983B2F6F3D36784CBFDD649D8F1EE43DE2415B6F843AE8A0C793485",
+      "provenance": {
+        "type": "frozen-byte-copy",
+        "source_path": "C:/North_Star_Projects/orchestration/PHASE-2B/hardening/h005/budget-guard.js",
+        "source_last_write_utc": "2026-09-01T23:03:50.510Z"
+      }
+    },
+    {
+      "path": "program-a/diagnose-wedge-cycle-SKILL.md",
+      "bytes": 3707,
+      "sha256": "C6D82532A95557ECCAF34BF156D89C0DFE96CC17F2C455677FBB19C3EB6419A4",
+      "provenance": {
+        "type": "frozen-byte-copy",
+        "source_path": "C:/Users/aaron/.openclaw/skills/diagnose-wedge-cycle/SKILL.md",
+        "source_last_write_utc": "2026-05-18T16:42:07.428Z"
+      }
+    },
+    {
+      "path": "program-a/lease-registry.js",
+      "bytes": 2883,
+      "sha256": "0397D215D1C50ECA0AFE88F70778ECEB68AAE09751CD2FFFBF3EE0FB27C21B99",
+      "provenance": {
+        "type": "frozen-byte-copy",
+        "source_path": "C:/North_Star_Projects/orchestration/PHASE-2B/hardening/h003/lease-registry.js",
+        "source_last_write_utc": "2026-09-01T23:03:15.304Z"
+      }
+    },
+    {
+      "path": "program-a/probe-fleet-health-SKILL.md",
+      "bytes": 924,
+      "sha256": "D84FAB0066C8BCE0A09FAE0714E658D0016EB2D55428A1D80A64670019865847",
+      "provenance": {
+        "type": "frozen-byte-copy",
+        "source_path": "C:/Users/aaron/.openclaw/skills/probe-fleet-health/SKILL.md",
+        "source_last_write_utc": "2026-05-14T17:19:33.649Z"
+      }
+    },
+    {
+      "path": "program-a/recover-aristotle-gateway-SKILL.md",
+      "bytes": 1163,
+      "sha256": "BF1B83B9E09F472E013480A5EB39059BC99582C09F5EA952D49D5C5C9AB838B1",
+      "provenance": {
+        "type": "frozen-byte-copy",
+        "source_path": "C:/Users/aaron/.openclaw/skills/recover-aristotle-gateway/SKILL.md",
+        "source_last_write_utc": "2026-05-14T17:18:39.538Z"
+      }
+    },
+    {
+      "path": "program-a/windows-agent-access-bootstrap-SKILL.md",
+      "bytes": 1863,
+      "sha256": "E17C4261DAADA393AC7F3956E4606FFFE549CFA067291D60E0748DABA89E6151",
+      "provenance": {
+        "type": "frozen-byte-copy",
+        "source_path": "C:/Users/aaron/.openclaw/skills/devops/windows-agent-access-bootstrap/SKILL.md",
+        "source_last_write_utc": "2026-07-24T01:05:14.299Z"
+      }
+    },
+    {
+      "path": "program-b/KNOWLEDGE-BRAIN-V0-DESIGN.md",
+      "bytes": 37970,
+      "sha256": "B2175AD5CBA55E66E9C2EBEFB97905E13FC0F692B5264015D2ADBE17FAF702AC",
+      "provenance": {
+        "type": "frozen-byte-copy",
+        "source_path": "C:/North_Star_Projects/orchestration/PHASE-2B/parallel-arm/PROGRAM-B/KNOWLEDGE-BRAIN-V0-DESIGN.md",
+        "source_last_write_utc": "2026-09-01T22:42:27.116Z"
+      }
+    },
+    {
+      "path": "program-b/NORTHSTAR_ULTIMATE_GOAL.md",
+      "bytes": 20743,
+      "sha256": "5145F4D9CCC24270C4D654C757DA570A01A9521317DF39CA1BC43565FD189BB3",
+      "provenance": {
+        "type": "frozen-byte-copy",
+        "source_path": "C:/Users/aaron/clawd-aristotle/projects/NORTHSTAR_ULTIMATE_GOAL.md",
+        "source_last_write_utc": "2026-09-01T22:08:46.754Z"
+      }
+    },
+    {
+      "path": "program-b/OPERATING-POLICY-v1.md",
+      "bytes": 1774,
+      "sha256": "25D3F0F0BA47859BF1766D7D9861C2B1415F61ED1BCA461291563B49B4EEFE6D",
+      "provenance": {
+        "type": "frozen-byte-copy",
+        "source_path": "C:/North_Star_Contracts/OPERATING-POLICY-v1.md",
+        "source_last_write_utc": "2026-03-06T23:34:13.296Z"
+      }
+    }
+  ]
+}

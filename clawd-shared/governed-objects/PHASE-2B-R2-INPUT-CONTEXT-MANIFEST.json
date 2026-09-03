@@ -1,0 +1,67 @@
+{
+  "schema": "northstar.phase2br2.context-manifest.v1",
+  "experiment_id": "P2BR2-20260902-A",
+  "rubric_id": "P2BR2-RUBRIC-18-v1",
+  "baseline_id": "P2BR2-BASELINE-20260902-A",
+  "baseline_manifest_sha256": "0E340AFBB2995381E355B4054FE72A89669FFE3E1241A911BE45C9B5AC2E8A3A",
+  "frozen_before_timing": true,
+  "roles": {
+    "control": {
+      "allow": [
+        "contract/PHASE-2B-R2-PREREGISTERED-CONTRACT.md",
+        "baseline/BASELINE-MANIFEST.json",
+        "baseline/program-a/*",
+        "baseline/program-b/*",
+        "contract/R2-INPUT-CONTEXT-MANIFEST.json",
+        "contract/SIGNAL-FIRE-FIREWALL-ATTESTATION-R2.md"
+      ],
+      "deny": ["prior Phase 2B-R outputs", "R2 parallel outputs", "Signal Fire", "worker transcripts"]
+    },
+    "program_a": {
+      "allow": [
+        "contract/PHASE-2B-R2-PREREGISTERED-CONTRACT.md",
+        "baseline/BASELINE-MANIFEST.json",
+        "baseline/program-a/*",
+        "contract/R2-INPUT-CONTEXT-MANIFEST.json",
+        "contract/SIGNAL-FIRE-FIREWALL-ATTESTATION-R2.md"
+      ],
+      "deny": ["baseline/program-b/*", "control outputs", "Program B outputs before global integration", "Signal Fire", "worker transcripts"]
+    },
+    "program_b": {
+      "allow": [
+        "contract/PHASE-2B-R2-PREREGISTERED-CONTRACT.md",
+        "baseline/BASELINE-MANIFEST.json",
+        "baseline/program-b/*",
+        "contract/R2-INPUT-CONTEXT-MANIFEST.json",
+        "contract/SIGNAL-FIRE-FIREWALL-ATTESTATION-R2.md"
+      ],
+      "deny": ["baseline/program-a/*", "control outputs", "Program A outputs before global integration", "Signal Fire", "worker transcripts"]
+    },
+    "global_integration": {
+      "allow": [
+        "contract/*",
+        "baseline/BASELINE-MANIFEST.json",
+        "current-arm finalized Program A/B artifacts",
+        "current-arm verified receipts",
+        "current-arm timing records"
+      ],
+      "deny": ["prior Phase 2B-R outputs", "other-arm outputs", "Signal Fire", "worker transcripts"]
+    },
+    "judge": {
+      "allow": ["published contract/rubric", "current-arm sealed evidence bundle and manifest"],
+      "deny": ["producer conversations", "Aristotle preliminary verdict", "Signal Fire", "unsealed supplemental evidence"]
+    }
+  },
+  "signal_fire_prohibited_uses": [
+    "truth",
+    "routing",
+    "dispatch",
+    "priority",
+    "budgets",
+    "leases",
+    "capability assignment",
+    "retry/repair",
+    "promotion",
+    "acceptance"
+  ]
+}
