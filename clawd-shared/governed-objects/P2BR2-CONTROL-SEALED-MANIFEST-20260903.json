@@ -1,0 +1,223 @@
+{
+  "schema": "northstar.r2-control-evidence.v1",
+  "bundle_id": "P2BR2-CONTROL-SEALED-20260903",
+  "purpose": "Independent Plato adjudication of R2 control arm",
+  "governance": {
+    "experiment_id": "P2BR2-20260902-A",
+    "rubric_id": "P2BR2-RUBRIC-18-v1",
+    "goal_pointer": "01M1DVHCYZSYREJY6AZJ0EHA0R",
+    "revision_b_sha256": "32554B95A3EA7DD7AC13F9BEBB94C6AA5045D852B1BDF436723EC8B69DAABC5F",
+    "independent_judge": "plato",
+    "phase2c_authorized": false
+  },
+  "artifact_count": 21,
+  "artifacts": [
+    {
+      "path": "artifacts/CONTROL-INTEGRATION-REPORT-R2.md",
+      "bytes": 8023,
+      "sha256": "3EE35C9942E36DB34EF99773BAEA53123E3D989F9FFCFB8DAC1D467CDD7351D0",
+      "provenance": {
+        "type": "byte-copy",
+        "source": "C:/North_Star_Projects/orchestration/PHASE-2B-R2/control-arm/CONTROL-INTEGRATION-REPORT-R2.md",
+        "description": "Integration"
+      }
+    },
+    {
+      "path": "artifacts/CONTROL-METRICS-R2.md",
+      "bytes": 2494,
+      "sha256": "0BC760E76243CCB416AB8FE51FFC8E1B24719A705BB6841053BE47DDB7B7A31F",
+      "provenance": {
+        "type": "byte-copy",
+        "source": "C:/North_Star_Projects/orchestration/PHASE-2B-R2/control-arm/CONTROL-METRICS-R2.md",
+        "description": "Timing metrics"
+      }
+    },
+    {
+      "path": "artifacts/KNOWLEDGE-BRAIN-V0-IMPL-v2.md",
+      "bytes": 43211,
+      "sha256": "7DC5BCDC9A7C4B6AE39034CB183748BB6AF1C4EE11648D8932861F37473C6164",
+      "provenance": {
+        "type": "byte-copy",
+        "source": "C:/North_Star_Projects/orchestration/PHASE-2B-R2/control-arm/KNOWLEDGE-BRAIN-V0-IMPL-v2.md",
+        "description": "Deliverable B"
+      }
+    },
+    {
+      "path": "artifacts/RECOVERY-PLAYBOOK-v2.md",
+      "bytes": 43078,
+      "sha256": "FA8A37B63B77B4733570B4446939D92FF503A1428C85D7B65D395298D3EBDA35",
+      "provenance": {
+        "type": "byte-copy",
+        "source": "C:/North_Star_Projects/orchestration/PHASE-2B-R2/control-arm/RECOVERY-PLAYBOOK-v2.md",
+        "description": "Deliverable A"
+      }
+    },
+    {
+      "path": "contract/AUTHORITY-MAP-R2.json",
+      "bytes": 243,
+      "sha256": "EA4BD0C11C5EDB1D7665F74E06D8ACF56CE83D7376729A6C8988DB51B8851D24",
+      "provenance": {
+        "type": "byte-copy",
+        "source": "C:/North_Star_Projects/orchestration/PHASE-2B-R2/contract/AUTHORITY-MAP-R2.json",
+        "description": "Authority map"
+      }
+    },
+    {
+      "path": "contract/PHASE-2B-R2-PREREGISTERED-CONTRACT.md",
+      "bytes": 10657,
+      "sha256": "9DC2FA4F28E98CCC5F5C7B8BAE646286A68EB0B61CED0F0F253E3B8177716796",
+      "provenance": {
+        "type": "byte-copy",
+        "source": "C:/North_Star_Projects/orchestration/PHASE-2B-R2/contract/PHASE-2B-R2-PREREGISTERED-CONTRACT.md",
+        "description": "Frozen contract"
+      }
+    },
+    {
+      "path": "contract/PREREGISTRATION-REVISION-B.md",
+      "bytes": 3653,
+      "sha256": "32554B95A3EA7DD7AC13F9BEBB94C6AA5045D852B1BDF436723EC8B69DAABC5F",
+      "provenance": {
+        "type": "byte-copy",
+        "source": "C:/North_Star_Projects/orchestration/PHASE-2B-R2/contract/PREREGISTRATION-REVISION-B.md",
+        "description": "Revision B"
+      }
+    },
+    {
+      "path": "contract/R2-INPUT-CONTEXT-MANIFEST.json",
+      "bytes": 2440,
+      "sha256": "72AC0D3CDE09DDB349748078B3FD809E5352BD6E31A28B06585DEE92C0313800",
+      "provenance": {
+        "type": "byte-copy",
+        "source": "C:/North_Star_Projects/orchestration/PHASE-2B-R2/contract/R2-INPUT-CONTEXT-MANIFEST.json",
+        "description": "Context manifest"
+      }
+    },
+    {
+      "path": "contract/SIGNAL-FIRE-FIREWALL-ATTESTATION-R2.md",
+      "bytes": 1884,
+      "sha256": "EC50BC953570000F501BDE1121A1DA1BA1B7C9D8A67E6A780214219A82B300EE",
+      "provenance": {
+        "type": "byte-copy",
+        "source": "C:/North_Star_Projects/orchestration/PHASE-2B-R2/contract/SIGNAL-FIRE-FIREWALL-ATTESTATION-R2.md",
+        "description": "Signal Fire attestation"
+      }
+    },
+    {
+      "path": "gate/GATE-RESULT-SNAPSHOT-FINAL.json",
+      "bytes": 1424,
+      "sha256": "09BBC7FAB3EA57F0240B355D4919DFE74F855E700A0C56DAD8C81B989536D3FC",
+      "provenance": {
+        "type": "byte-copy",
+        "source": "C:/North_Star_Projects/orchestration/PHASE-2B-R2/control-arm/GATE-RESULT-SNAPSHOT-FINAL.json",
+        "description": "Hardened gate PASS result with mutation-detection hashes"
+      }
+    },
+    {
+      "path": "README.md",
+      "bytes": 298,
+      "sha256": "6F378FFC960F74C5DE5F7DA379918DFA36DC25BC0BE97D71FCD6ACA3619B8221",
+      "provenance": {
+        "type": "generated"
+      }
+    },
+    {
+      "path": "receipts-historical/receipt-control-integration-report-r2-gen2.json",
+      "bytes": 1746,
+      "sha256": "973189A66770988B0DC3BEF093493033BAC322360950ECB290011E7BE77428A1",
+      "provenance": {
+        "type": "byte-copy",
+        "source": "C:/North_Star_Projects/orchestration/PHASE-2B-R2/receipts/control-arm/receipt-control-integration-report-r2-gen2.json",
+        "description": "Historical rejected receipt (gen1 or gen2)"
+      }
+    },
+    {
+      "path": "receipts-historical/receipt-control-integration-report-r2.json",
+      "bytes": 1605,
+      "sha256": "17C524568C162208886A02D38690C8C7FC6626AFCA8D858DCB474081FA21F23F",
+      "provenance": {
+        "type": "byte-copy",
+        "source": "C:/North_Star_Projects/orchestration/PHASE-2B-R2/receipts/control-arm/receipt-control-integration-report-r2.json",
+        "description": "Historical rejected receipt (gen1 or gen2)"
+      }
+    },
+    {
+      "path": "receipts-historical/receipt-knowledge-brain-v0-impl-v2-gen2.json",
+      "bytes": 1771,
+      "sha256": "768418D336A742BE26955778596EF05B78AA3C32B8F18DEF9D426D834968B804",
+      "provenance": {
+        "type": "byte-copy",
+        "source": "C:/North_Star_Projects/orchestration/PHASE-2B-R2/receipts/control-arm/receipt-knowledge-brain-v0-impl-v2-gen2.json",
+        "description": "Historical rejected receipt (gen1 or gen2)"
+      }
+    },
+    {
+      "path": "receipts-historical/receipt-knowledge-brain-v0-impl-v2.json",
+      "bytes": 1675,
+      "sha256": "16C85DB3E81E1595E9DF88729E6290EDF6C50355E0ACDF5CA668669D268134CE",
+      "provenance": {
+        "type": "byte-copy",
+        "source": "C:/North_Star_Projects/orchestration/PHASE-2B-R2/receipts/control-arm/receipt-knowledge-brain-v0-impl-v2.json",
+        "description": "Historical rejected receipt (gen1 or gen2)"
+      }
+    },
+    {
+      "path": "receipts-historical/receipt-recovery-playbook-v2-gen2.json",
+      "bytes": 1725,
+      "sha256": "D6DC68CEA28C7DF2B2AC72279262E7C57E7EFE1817CACF6F463D7E095C5352F8",
+      "provenance": {
+        "type": "byte-copy",
+        "source": "C:/North_Star_Projects/orchestration/PHASE-2B-R2/receipts/control-arm/receipt-recovery-playbook-v2-gen2.json",
+        "description": "Historical rejected receipt (gen1 or gen2)"
+      }
+    },
+    {
+      "path": "receipts-historical/receipt-recovery-playbook-v2.json",
+      "bytes": 1610,
+      "sha256": "848BE8D894B646DEC38930D6C903850FEFDE761172C99892332D7D4F01485ECD",
+      "provenance": {
+        "type": "byte-copy",
+        "source": "C:/North_Star_Projects/orchestration/PHASE-2B-R2/receipts/control-arm/receipt-recovery-playbook-v2.json",
+        "description": "Historical rejected receipt (gen1 or gen2)"
+      }
+    },
+    {
+      "path": "receipts/receipt-control-integration-report-r2-gen3.json",
+      "bytes": 1796,
+      "sha256": "48F33A74ECAF0DFB25760ECA1DBFAC9CE33F31B21D60B19ED4B0263F849FB392",
+      "provenance": {
+        "type": "byte-copy",
+        "source": "C:/North_Star_Projects/orchestration/PHASE-2B-R2/receipts/control-arm/receipt-control-integration-report-r2-gen3.json",
+        "description": "Gen3 verified receipt"
+      }
+    },
+    {
+      "path": "receipts/receipt-knowledge-brain-v0-impl-v2-gen3.json",
+      "bytes": 1821,
+      "sha256": "F3AC09C76A3B3880CE8E01AE4912225DB5A271382E1E9DBDAC7A205BB7B66893",
+      "provenance": {
+        "type": "byte-copy",
+        "source": "C:/North_Star_Projects/orchestration/PHASE-2B-R2/receipts/control-arm/receipt-knowledge-brain-v0-impl-v2-gen3.json",
+        "description": "Gen3 verified receipt"
+      }
+    },
+    {
+      "path": "receipts/receipt-recovery-playbook-v2-gen3.json",
+      "bytes": 1775,
+      "sha256": "260F8E9EB452A26D03A839B5AE793C3FAFC3FC3BEAF3C60046E568E9F19113DD",
+      "provenance": {
+        "type": "byte-copy",
+        "source": "C:/North_Star_Projects/orchestration/PHASE-2B-R2/receipts/control-arm/receipt-recovery-playbook-v2-gen3.json",
+        "description": "Gen3 verified receipt"
+      }
+    },
+    {
+      "path": "timing/CONTROL-TIMING-CHRONOLOGY.json",
+      "bytes": 297,
+      "sha256": "A7AC6DD1BEC435DA62496F59A288726F293CB229411951655D955AD4DB3A5C26",
+      "provenance": {
+        "type": "generated",
+        "description": "Control arm timing"
+      }
+    }
+  ]
+}
