@@ -3,7 +3,8 @@
 **Experiment ID:** `P2BR5-20260904-A`  
 **Rubric ID:** `P2BR3-RUBRIC-18C-v1`  
 **Parent goal pointer:** `01M1DVHCYZSYREJY6AZJ0EHA0R`  
-**Status:** DRAFT — NOT FROZEN  
+**Status:** FROZEN — PREREGISTERED / PRE-EXECUTION
+**Freeze timestamp:** `2026-09-05T02:54:10.0757396Z`  
 **Phase 2C:** NOT AUTHORIZED  
 **Supersedes Revision D:** SHA-256 `CBB8E0404AD8E49EB24BB2A445F6C8302A9F7CA73F0C65566727CD53480D3BA7`, 14,991 bytes (experiment `P2BR4-20260903-A`)  
 **Supersession conditions:** R4 STOPPED / INVALIDATED BY RECEIPT-CONTRACT AMBIGUITY (defect RECEIPT-AUTHORITY-001). No R4 accepted TTC established. No R4 semantic verdict established. No R4 parallel arm started. No Plato semantic exposure to R4 control content.
