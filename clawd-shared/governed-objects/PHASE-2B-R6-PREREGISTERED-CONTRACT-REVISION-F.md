@@ -3,7 +3,8 @@
 **Experiment ID:** `P2BR6-20260905-A`  
 **Rubric ID:** `P2BR3-RUBRIC-18C-v1`  
 **Parent goal pointer:** `01M1DVHCYZSYREJY6AZJ0EHA0R`  
-**Status:** DRAFT — NOT FROZEN  
+**Status:** FROZEN — PREREGISTERED / PRE-EXECUTION
+**Freeze timestamp:** `2026-09-05T19:12:27.341Z`  
 **Phase 2C:** NOT AUTHORIZED  
 **Supersedes Revision E.2:** SHA-256 `F042015FFE3623553C96C2AD0653DA51111D3AD7988B75F60C540437C4DE678B`, 18,387 bytes (experiment `P2BR5-20260904-A`)  
 **Supersession conditions:** R5 parallel arm MECHANICAL_FAIL — gate rejected Program B receipt timestamp (local time serialized as UTC). Control ACCEPTED 25/30 but parallel never reached semantic adjudication. Defect PRODUCER-TIMESTAMP-001.
