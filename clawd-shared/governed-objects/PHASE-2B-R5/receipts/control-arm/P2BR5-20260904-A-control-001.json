@@ -1,0 +1,29 @@
+{
+  "packet_id": "P2BR5-20260904-A-control-001",
+  "attempt_id": "P2BR5-control-attempt-695ce9cb4d79",
+  "generation": 1,
+  "branch": "control",
+  "agent": "control-arm-r5",
+  "producing_agent": "control-arm-r5",
+  "ledger_event": "01M1RFVGSPPTAVE525JHF4CP0Y",
+  "authority_envelope": "PHASE-2B-R5/control-arm/",
+  "baseline_class": "IMMUTABLE_ARTIFACT",
+  "baseline_ref": {
+    "for_immutable": {
+      "baseline_id": "P2BR2-BASELINE-20260902-A",
+      "manifest_sha256": "0E340AFBB2995381E355B4054FE72A89669FFE3E1241A911BE45C9B5AC2E8A3A"
+    }
+  },
+  "baseline_id": "P2BR2-BASELINE-20260902-A",
+  "baseline_manifest_sha256": "0e340afbb2995381e355b4054fe72a89669ffe3e1241a911be45c9b5ac2e8a3a",
+  "scope": "control-arm sequential execution",
+  "method": "single-stream sonnet-4-6 executor",
+  "context_manifest_hash": "a0501b41e6ba44747d446ab8defb866852713ec6df07717b710a952953f965a4",
+  "claim": "Operational Recovery Playbook v2 covering supervisor watchdog, Failure Mode 8, H-003, H-005, R1, trusted boot, escalation, and six acceptance tests",
+  "artifact": "C:\\North_Star_Projects\\orchestration\\PHASE-2B-R5\\control-arm\\RECOVERY-PLAYBOOK-V2.md",
+  "provenance": "sha256:7f63456e6a47eb5aa9b2743bcd9f18e2d3341c0553a13f2049db88d4c04c0b3c",
+  "bytes": 39239,
+  "acceptance_evidence": "File written to disk; read back via Get-FileHash twice; both hashes matched 7f63456e6a47eb5aa9b2743bcd9f18e2d3341c0553a13f2049db88d4c04c0b3c; byte count confirmed 39239 via (Get-Item path).Length",
+  "timestamp": "2026-09-05T16:30:00Z",
+  "verification_status": "VERIFIED"
+}

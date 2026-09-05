@@ -1,0 +1,55 @@
+{
+    "experiment_id":  "P2BR5-20260904-A",
+    "sealed_at_utc":  "2026-09-05T10:15:12.9168859Z",
+    "gate_receipts":  "3/3",
+    "rubric_id":  "P2BR3-RUBRIC-18C-v1",
+    "arm":  "control",
+    "orchestrator_receipt_repair":  "ZERO",
+    "timer_start_event":  "01M1RFVGSPPTAVE525JHF4CP0Y",
+    "contract_sha256":  "f042015ffe3623553c96c2ad0653da51111d3ad7988b75f60c540437c4de678b",
+    "artifacts":  [
+                      {
+                          "path":  "control-arm/RECOVERY-PLAYBOOK-V2.md",
+                          "sha256":  "7f63456e6a47eb5aa9b2743bcd9f18e2d3341c0553a13f2049db88d4c04c0b3c",
+                          "bytes":  39239
+                      },
+                      {
+                          "path":  "control-arm/KNOWLEDGE-BRAIN-V0-IMPLEMENTATION-V2.md",
+                          "sha256":  "bc34562c88c5c88251c122b12dc9381289829402c83882b99618f7dfd4f6c9ea",
+                          "bytes":  41980
+                      },
+                      {
+                          "path":  "control-arm/INTEGRATION-REPORT.md",
+                          "sha256":  "bbbd54ae16adea202956f5a8f33a4cdd6e422d16d142e4c625ad765ebb45cb2c",
+                          "bytes":  18609
+                      },
+                      {
+                          "path":  "receipts/control-arm/P2BR5-20260904-A-control-001.json",
+                          "sha256":  "16999b87398ccd54224d75af7b8ef9b0a524c646e8771f8f549466084142578f",
+                          "bytes":  1565
+                      },
+                      {
+                          "path":  "receipts/control-arm/P2BR5-20260904-A-control-002.json",
+                          "sha256":  "72c238745eb9d747209e08ab8d78c3fff6f057a4e39507971737b3078774eea9",
+                          "bytes":  1679
+                      },
+                      {
+                          "path":  "receipts/control-arm/P2BR5-20260904-A-control-003.json",
+                          "sha256":  "6b3d00580140b4fc3b26f3eaa18b0022a961190947128eb7fddef50bd49d26fd",
+                          "bytes":  1602
+                      },
+                      {
+                          "path":  "receipts/control-arm/GATE-RESULT.json",
+                          "sha256":  "16cbffb08554775ed8cb1b3f3f25e87e7f6a0e33fc1e75d49e6e957a3ed8886f",
+                          "bytes":  1431
+                      },
+                      {
+                          "path":  "control-arm/ENVIRONMENT-RECORD.md",
+                          "sha256":  "5398fa460125a14d370c023802f44ecbc3044f88afc82981017474ae5055ab07",
+                          "bytes":  1028
+                      }
+                  ],
+    "schema":  "northstar.control-evidence-manifest.v1",
+    "timer_start_utc":  "2026-09-05T09:54:33.692Z",
+    "gate_result":  "PASS"
+}

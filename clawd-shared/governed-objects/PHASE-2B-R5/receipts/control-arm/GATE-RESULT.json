@@ -1,0 +1,32 @@
+{
+  "schema": "northstar.gate-result-snapshot.v1",
+  "gate_run_at_utc": "2026-09-05T10:08:40.486Z",
+  "gate_runtime_ms": 10,
+  "experiment_id": "P2BR2-BASELINE-20260902-A",
+  "baseline_manifest_sha256": "0E340AFBB2995381E355B4054FE72A89669FFE3E1241A911BE45C9B5AC2E8A3A",
+  "signal_fire_attestation": {
+    "path": "C:\\North_Star_Projects\\orchestration\\PHASE-2B-R5\\preflight\\fixtures\\SIGNAL-FIRE-ATTESTATION-FIXTURE.md",
+    "sha256": "822b695e99106e78ed905509b3201d17e9f58ade895722f50e241c3e6284a50b"
+  },
+  "receipts_checked": 3,
+  "passed": 3,
+  "failed": 0,
+  "failures": [],
+  "artifact_hashes": {
+    "C:\\North_Star_Projects\\orchestration\\PHASE-2B-R5\\control-arm\\RECOVERY-PLAYBOOK-V2.md": {
+      "sha256": "7f63456e6a47eb5aa9b2743bcd9f18e2d3341c0553a13f2049db88d4c04c0b3c",
+      "bytes": 39239,
+      "gate_checked_at_utc": "2026-09-05T10:08:40.481Z"
+    },
+    "C:\\North_Star_Projects\\orchestration\\PHASE-2B-R5\\control-arm\\KNOWLEDGE-BRAIN-V0-IMPLEMENTATION-V2.md": {
+      "sha256": "bc34562c88c5c88251c122b12dc9381289829402c83882b99618f7dfd4f6c9ea",
+      "bytes": 41980,
+      "gate_checked_at_utc": "2026-09-05T10:08:40.485Z"
+    },
+    "C:\\North_Star_Projects\\orchestration\\PHASE-2B-R5\\control-arm\\INTEGRATION-REPORT.md": {
+      "sha256": "bbbd54ae16adea202956f5a8f33a4cdd6e422d16d142e4c625ad765ebb45cb2c",
+      "bytes": 18609,
+      "gate_checked_at_utc": "2026-09-05T10:08:40.486Z"
+    }
+  }
+}
